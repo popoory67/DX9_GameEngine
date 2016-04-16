@@ -1,0 +1,12 @@
+﻿  CreateWindowGL.cpp
+CreateWindowGL.cpp(37): warning C4244: '인수' : 'GLfloat'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+CreateWindowGL.cpp(66): warning C4244: '인수' : 'GLfloat'에서 'GLsizei'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CreateDeviceD3DX.cpp
+  MeshRenderer.cpp
+MeshRenderer.cpp(20): warning C4305: '인수' : 'double'에서 'float'(으)로 잘립니다.
+  MeshObject.cpp
+MeshObject.cpp(78): warning C4018: '<' : signed 또는 unsigned가 일치하지 않습니다.
+  Shader.cpp
+  Render.vcxproj -> C:\Users\boseul\Documents\GitHub\NinetailEngine\NinetailEngine\NinetailEngine\Release\Render.lib
+  하위 디렉터리 또는 파일 ..\..\bin\이(가) 이미 있습니다.
+          1개 파일이 복사되었습니다.
