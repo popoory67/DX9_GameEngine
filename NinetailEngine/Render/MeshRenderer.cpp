@@ -1,9 +1,10 @@
 #include "RenderPCH.h"
+#include "CreateDeviceD3DX.h"
 #include "MeshRenderer.h"
 
 MeshRenderer::MeshRenderer()
 {
-	_object = new ::vector< ::tr1::shared_ptr<MeshObject> >();
+	_object = new MeshVectorPtr();
 }
 
 MeshRenderer::~MeshRenderer()
@@ -14,16 +15,19 @@ MeshRenderer::~MeshRenderer()
 // 함수명 바꿔야함
 void MeshRenderer::Init()
 {
-	::tr1::shared_ptr<MeshObject> object(new MeshObject());
+ 	SHARED_PTR(MeshObject) object(new MeshObject());
 
+	//object->LoadModel(BODY, TEXTURE);
 	object->LoadModel(BODY);
-	object->Scale(0.05, 0.05, 0.05);
+	object->LoadTexture(TEXTURE);
+	object->Scale(0.05f, 0.05f, 0.05f);
 
 	_object->push_back(object);
 
-	::tr1::shared_ptr<MeshObject> tiger(new MeshObject());
+	SHARED_PTR(MeshObject) tiger(new MeshObject());
 
 	tiger->LoadModel(TIGER);
+	tiger->LoadTexture(TEXTURE2);
 	tiger->Scale(10, 10, 10);
 	tiger->Position(10, 10, 10);
 
@@ -35,7 +39,8 @@ void MeshRenderer::Render()
 {
 	Init();
 
-	auto iter = _object->begin();
+	auto iter			= _object->begin();
+	//UINT numPasses		= 0;
 
 	while (iter != _object->end())
 	{
@@ -46,12 +51,22 @@ void MeshRenderer::Render()
 		
 		auto transform		= (*iter)->Transform();
 
+		//auto shader			= (*iter)->GetShader()->LoadShader(PHONG_BUMP_REFLECT);
+
+		//shader->Begin(&numPasses, NULL);
+
 		if (mesh)
 		{
 			for (DWORD i = 0; i < numMaterials; i++)
 			{
+				//shader->BeginPass(i);
+
 				D3DX_DEVICE->SetTransform(D3DTS_WORLD, &transform);
-				D3DX_DEVICE->SetMaterial(&materials[i]);
+
+				if (materials)
+				{
+					D3DX_DEVICE->SetMaterial(&materials[i]);
+				}
 
 				if (texture)
 				{
@@ -59,6 +74,8 @@ void MeshRenderer::Render()
 				}
 
 				mesh->DrawSubset(i);
+
+				//shader->EndPass();
 			}
 		}
 

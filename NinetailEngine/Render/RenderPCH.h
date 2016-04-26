@@ -6,8 +6,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include <vector>
+
 #include <memory>
+
+#include <vector>
+#include <map>
+#include <string>
+#include <functional>
 
 using namespace std;
 

@@ -1,8 +1,9 @@
 #include "RenderPCH.h"
+#include "CreateDeviceD3DX.h"
 #include "MeshObject.h"
 
 
-MeshObject::MeshObject() : _objectName("Unknown"), _texture(NULL), _materials(NULL), _numMaterials(0L)
+MeshObject::MeshObject() : _objectName("Unknown"), _texture(NULL), _materials(NULL), _numMaterials(0L), _mtrlBuffer(NULL)
 {
 	D3DXMatrixIdentity(&_scale);
 	D3DXMatrixIdentity(&_rotation);
@@ -17,7 +18,8 @@ MeshObject::MeshObject(string object_name)
 
 MeshObject::~MeshObject()
 {
-
+	if (_mtrlBuffer)
+		_mtrlBuffer->Release();
 }
 
 void MeshObject::SetObjectName(string object_name)
@@ -27,7 +29,7 @@ void MeshObject::SetObjectName(string object_name)
 
 ObjectData* MeshObject::GetObjectData()
 {
-	ObjectData* object = new ObjectData();
+	ObjectData* object			= new ObjectData();
 
 	object->_mesh				= _mesh;
 	object->_texture			= _texture;
@@ -38,57 +40,59 @@ ObjectData* MeshObject::GetObjectData()
 	return object;
 }
 
+SHARED_PTR(Shader) MeshObject::GetShader()
+{
+	return _shader;
+}
+
+//void MeshObject::LoadModel(string model_file, string texture_name)
+//{
+//	LoadModel(model_file);
+//	LoadTexture(texture_name);
+//}
+
 void MeshObject::LoadModel(string file_name)
 {
-	LPD3DXBUFFER	pMtrlBuffer;
-
-	if (FAILED(D3DXLoadMeshFromX(file_name.c_str(), D3DXMESH_SYSTEMMEM, D3DX_DEVICE,
-		NULL, &pMtrlBuffer, NULL, &_numMaterials, &_mesh)))
+	if ( FAILED ( D3DXLoadMeshFromX(file_name.c_str(), D3DXMESH_SYSTEMMEM, D3DX_DEVICE, NULL, &_mtrlBuffer, NULL, &_numMaterials, &_mesh ) ) )
 	{
 		MessageBox(NULL, "Could not find *.x file", "ninetail rendering engine", MB_OK);
 
 		return;
 	}
 
-	_d3dxMaterials = (D3DXMATERIAL*)pMtrlBuffer->GetBufferPointer();
-
-	if ((_texture = LoadTexture()) == NULL)
-	{
-		MessageBox(NULL, "failed texture file loading", "ninetail rendering engine", MB_OK);
-	}
-
-	pMtrlBuffer->Release();
+	_d3dxMaterials = (D3DXMATERIAL*)_mtrlBuffer->GetBufferPointer();
 }
 
-LPDIRECT3DTEXTURE9* MeshObject::LoadTexture()
+void MeshObject::LoadTexture(string file_name)
 {
-	LPDIRECT3DTEXTURE9*	ret;
+	// if texture does not exist
+	if (file_name.c_str() == NULL || lstrlenA(file_name.c_str()) < 0)
+	{
+		return;
+	}
 
 	if ((_materials = new D3DMATERIAL9[_numMaterials]) == NULL)
 	{
-		return NULL;
+		return;
 	}
 
-	if ((ret = new LPDIRECT3DTEXTURE9[_numMaterials]) == NULL)
+	if ((_texture = new LPDIRECT3DTEXTURE9[_numMaterials]) == NULL)
 	{
-		return NULL;
+		return;
 	}
-
-	// texture 경로 수정해야함 
+	 
 	for (auto i = 0; i < _numMaterials; i++)
 	{
 		_materials[i]				= _d3dxMaterials[i].MatD3D;		// 재질 정보 복사
 		_materials[i].Ambient		= _materials[i].Diffuse;		// 재질용 주변광 색깔 설정
 
-		ret[i]						= NULL;
+		_texture[i] = NULL;
 
-		if (_d3dxMaterials[i].pTextureFilename != NULL && lstrlenA(_d3dxMaterials[i].pTextureFilename) > 0)
+		if ( FAILED ( D3DXCreateTextureFromFileA(D3DX_DEVICE, file_name.c_str(), &_texture[i] ) ) )
 		{
-			D3DXCreateTextureFromFileA(D3DX_DEVICE, _d3dxMaterials[i].pTextureFilename, &ret[i]);
+			MessageBox(NULL, "failed texture file loading", "ninetail rendering engine", MB_OK);
 		}
 	}
-
-	return ret;
 }
 
 

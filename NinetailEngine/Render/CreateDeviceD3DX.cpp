@@ -1,7 +1,7 @@
 #include "RenderPCH.h"
-
 #include "CreateDeviceD3DX.h"
 
+CreateDeviceD3DX* CreateDeviceD3DX::_instance = NULL;
 
 CreateDeviceD3DX::CreateDeviceD3DX() : _d3d(NULL), _d3dDevice(NULL)
 {
@@ -10,20 +10,26 @@ CreateDeviceD3DX::CreateDeviceD3DX() : _d3d(NULL), _d3dDevice(NULL)
 
 CreateDeviceD3DX::~CreateDeviceD3DX()
 {
-
+	if (_instance)
+	{
+		SAFE_RELEASE(_instance);
+	}
 }
 
 
 CreateDeviceD3DX& CreateDeviceD3DX::Get()
 {
-	static CreateDeviceD3DX* device = NULL;
-
-	if (device == NULL)
+	if (!_instance)
 	{
-		device = new CreateDeviceD3DX();
+		_instance = new CreateDeviceD3DX();
 	}
 
-	return *device;
+	return *_instance;
+}
+
+LPDIRECT3DDEVICE9 CreateDeviceD3DX::GetDevice()
+{
+	return _d3dDevice;
 }
 
 void CreateDeviceD3DX::Create(HWND hWnd)

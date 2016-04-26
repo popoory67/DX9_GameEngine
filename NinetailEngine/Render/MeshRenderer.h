@@ -1,9 +1,9 @@
 #pragma once
 
-#include "RenderPCH.h"
-#include "CreateDeviceD3DX.h"
+//#include "RenderPCH.h"
 #include "MeshObject.h"
 
+typedef ::vector< SHARED_PTR(MeshObject) >		MeshVectorPtr;
 
 class MeshRenderer
 {
@@ -18,5 +18,5 @@ public:
 
 private:
 
-	::vector< ::tr1::shared_ptr<MeshObject> >*		_object;
+	MeshVectorPtr*				_object;
 };

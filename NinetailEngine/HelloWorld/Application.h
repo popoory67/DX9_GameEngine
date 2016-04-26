@@ -1,7 +1,11 @@
 #pragma once
 
+#include "CreateDeviceD3DX.h"
 #include "MeshRenderer.h"
 #include "View.h"
+
+// test shader
+//#include "Shader.h"
 
 
 class GameManager
@@ -10,11 +14,15 @@ private:
 	MeshRenderer*			_mesh;
 	View*					_view;
 
+	//Shader*					_shader;
+
 public:
 	GameManager()
 	{
 		_mesh			= new MeshRenderer();
 		_view			= new View();
+
+		//_shader			= new Shader();
 	}
 
 	~GameManager()
@@ -64,7 +72,9 @@ public:
 
 			D3DX_DEVICE->EndScene();
 		}
+
 		D3DX_DEVICE->Present(NULL, NULL, NULL, NULL);
+
 	}
 
 	void Update()

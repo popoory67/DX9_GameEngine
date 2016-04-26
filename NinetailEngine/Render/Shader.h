@@ -1,16 +1,21 @@
 #pragma once
 
-#include "RenderPCH.h"
-#include "CreateDeviceD3DX.h"
+//#include "RenderPCH.h"
 
 
 class Shader
 {
 private:
 
+	LPD3DXEFFECT				_shader;
+
 public:
 	Shader();
 	~Shader();
+
+	void						Init();
+
+	LPD3DXEFFECT				GetShader();
 
 	LPD3DXEFFECT				LoadShader(string file_name);
 };
