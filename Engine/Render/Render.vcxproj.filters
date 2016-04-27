@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="OpenGL">
+      <UniqueIdentifier>{35a63cb4-e1f9-45ae-a3fa-6841acea17a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Message">
+      <UniqueIdentifier>{a543e73f-8c61-4b4f-a819-17d445cd0214}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3DX">
+      <UniqueIdentifier>{afdd4318-f7de-41e0-8118-d8bd93a6609a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RenderPCH.h" />
+    <ClInclude Include="CreateWindowGL.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateDeviceD3DX.h">
+      <Filter>D3DX</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshRenderer.h">
+      <Filter>D3DX</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>D3DX</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>D3DX</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderMacros.h" />
+    <ClInclude Include="Resources.h" />
+    <ClInclude Include="MeshObject.h">
+      <Filter>D3DX</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelParser.h">
+      <Filter>D3DX</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Message</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageDispatch.h">
+      <Filter>Message</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>D3DX</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CreateWindowGL.cpp">
+      <Filter>OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateDeviceD3DX.cpp">
+      <Filter>D3DX</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshRenderer.cpp">
+      <Filter>D3DX</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>D3DX</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshObject.cpp">
+      <Filter>D3DX</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelParser.cpp">
+      <Filter>D3DX</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Message</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageDispatch.cpp">
+      <Filter>Message</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>D3DX</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

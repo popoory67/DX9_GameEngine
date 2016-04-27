@@ -1,8 +1,0 @@
-﻿  MessageDispatch.cpp
-c:\users\boseul\documents\github\ninetailengine\ninetailengine\render\messagedispatch.cpp(46): warning C4018: '<' : signed 또는 unsigned가 일치하지 않습니다.
-c:\users\boseul\documents\github\ninetailengine\ninetailengine\render\messagedispatch.cpp(54): warning C4018: '<' : signed 또는 unsigned가 일치하지 않습니다.
-c:\users\boseul\documents\github\ninetailengine\ninetailengine\render\messagedispatch.cpp(60): warning C4150: 불완전한 형식 'Message'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
-          c:\users\boseul\documents\github\ninetailengine\ninetailengine\render\messagedispatch.h(5) : 'Message' 선언을 참조하십시오.
-  Render.vcxproj -> C:\Users\boseul\Documents\GitHub\NinetailEngine\NinetailEngine\Debug\Render.lib
-  하위 디렉터리 또는 파일 ..\..\bin\이(가) 이미 있습니다.
-          1개 파일이 복사되었습니다.

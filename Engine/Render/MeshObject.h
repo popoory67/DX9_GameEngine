@@ -1,0 +1,78 @@
+#pragma once
+
+#include "Matrix.h"
+#include "Shader.h"
+
+
+struct MeshData
+{ 
+	// mesh data
+	LPD3DXMESH					_mesh;
+
+	// texture data
+	LPDIRECT3DTEXTURE9*			_texture;
+
+	// material datas
+	D3DXMATERIAL*				_d3dxMaterials;
+	D3DMATERIAL9*				_materials;
+	DWORD						_numMaterials;
+
+	MeshData::MeshData() : _texture(NULL), _materials(NULL), _numMaterials(0L)
+	{
+	
+	}
+
+};
+
+
+class MeshObject
+{
+public:
+	MeshObject();
+	MeshObject(string object_name);
+	~MeshObject();
+
+	/**
+	 * set this object's name
+	 * if you don't want to set object name, set the name "Unknown"
+	 */
+	void						SetObjectName(string object_name);
+
+	/**
+	 * get modeling data
+	 * ObjectData is struct
+	 * @return mesh, texture and meterials data
+	 */
+	MeshData*					GetObjectData();
+
+	SHARED_PTR(Shader)			GetShader();
+
+	Matrix*						GetMatrix();
+
+	void						LoadModel(string file_name);
+	//void						LoadModel(string model_file, string texture_name);
+	void						LoadTexture(string file_name);
+
+private:
+
+	::string					_objectName;
+
+	// mesh data
+	LPD3DXMESH					_mesh;
+
+	// texture data
+	LPDIRECT3DTEXTURE9*			_texture;
+
+	// material datas
+	LPD3DXBUFFER				_mtrlBuffer;
+	D3DXMATERIAL*				_d3dxMaterials;
+	D3DMATERIAL9*				_materials;
+	DWORD						_numMaterials;
+
+	// shader
+	SHARED_PTR(Shader)			_shader;
+
+	// object transform
+	Matrix*						_matrix;
+};
+
