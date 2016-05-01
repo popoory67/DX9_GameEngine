@@ -45,13 +45,15 @@ public:
 	 */
 	MeshData*					GetObjectData();
 
-	SHARED_PTR(Shader)			GetShader();
+	Shader*						GetShader();
 
 	Matrix*						GetMatrix();
 
 	void						LoadModel(string file_name);
 	//void						LoadModel(string model_file, string texture_name);
 	void						LoadTexture(string file_name);
+
+	void						Release();
 
 private:
 
@@ -70,7 +72,7 @@ private:
 	DWORD						_numMaterials;
 
 	// shader
-	SHARED_PTR(Shader)			_shader;
+	Shader*						_shader;
 
 	// object transform
 	Matrix*						_matrix;

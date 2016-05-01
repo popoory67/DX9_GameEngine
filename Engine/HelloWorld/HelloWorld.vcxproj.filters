@@ -6,7 +6,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Resources.h">
+      <Filter>Src</Filter>
+    </ClInclude>
     <ClInclude Include="Application.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
       <Filter>Src</Filter>
     </ClInclude>
   </ItemGroup>
@@ -15,6 +21,12 @@
       <Filter>Src</Filter>
     </ClCompile>
     <ClCompile Include="HelloWorldGL.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>

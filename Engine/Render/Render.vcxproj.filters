@@ -10,31 +10,51 @@
     <Filter Include="D3DX">
       <UniqueIdentifier>{afdd4318-f7de-41e0-8118-d8bd93a6609a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="D3DX\System">
+      <UniqueIdentifier>{783e9430-9546-47af-92b1-bb8db02ed359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3DX\Shader">
+      <UniqueIdentifier>{225036d1-c737-4426-b586-af310901f390}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3DX\Render">
+      <UniqueIdentifier>{43e72dcd-720c-4f12-ae54-91bc48003fae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3DX\Transform">
+      <UniqueIdentifier>{f6d70cca-a6d4-46c7-87b8-da67def9e2f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3DX\View">
+      <UniqueIdentifier>{7cdaa2e3-3e80-4623-befd-f3510b759e6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3DX\3D Object">
+      <UniqueIdentifier>{1b439ceb-e621-4c28-81cd-9e8d67a24234}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderPCH.h" />
     <ClInclude Include="CreateWindowGL.h">
       <Filter>OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="CreateDeviceD3DX.h">
-      <Filter>D3DX</Filter>
-    </ClInclude>
-    <ClInclude Include="MeshRenderer.h">
-      <Filter>D3DX</Filter>
-    </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>D3DX</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>D3DX</Filter>
-    </ClInclude>
     <ClInclude Include="RenderMacros.h" />
-    <ClInclude Include="Resources.h" />
+    <ClInclude Include="CreateDeviceD3DX.h">
+      <Filter>D3DX\System</Filter>
+    </ClInclude>
     <ClInclude Include="MeshObject.h">
-      <Filter>D3DX</Filter>
+      <Filter>D3DX\3D Object</Filter>
     </ClInclude>
     <ClInclude Include="ModelParser.h">
-      <Filter>D3DX</Filter>
+      <Filter>D3DX\3D Object</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>D3DX\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>D3DX\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>D3DX\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>D3DX\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Message.h">
       <Filter>Message</Filter>
@@ -43,27 +63,31 @@
       <Filter>Message</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>D3DX</Filter>
+      <Filter>D3DX\Transform</Filter>
     </ClInclude>
+    <ClInclude Include="RenderHeader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CreateWindowGL.cpp">
       <Filter>OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="CreateDeviceD3DX.cpp">
-      <Filter>D3DX</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshRenderer.cpp">
-      <Filter>D3DX</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>D3DX</Filter>
+      <Filter>D3DX\System</Filter>
     </ClCompile>
     <ClCompile Include="MeshObject.cpp">
-      <Filter>D3DX</Filter>
+      <Filter>D3DX\3D Object</Filter>
     </ClCompile>
     <ClCompile Include="ModelParser.cpp">
-      <Filter>D3DX</Filter>
+      <Filter>D3DX\3D Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>D3DX\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>D3DX\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>D3DX\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Message.cpp">
       <Filter>Message</Filter>
@@ -72,7 +96,7 @@
       <Filter>Message</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
-      <Filter>D3DX</Filter>
+      <Filter>D3DX\Transform</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

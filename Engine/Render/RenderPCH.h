@@ -16,17 +16,16 @@
 
 using namespace std;
 
-#include "RenderMacros.h"
-#include "Resources.h"
+#include "RenderMacros.h" 
 
 // D3DX
 #include <d3d9.h>
 #include <d3dx9.h>
-
+ 
 #pragma comment (lib, "d3d9.lib")
 #pragma comment (lib, "d3dx9.lib")
 #pragma comment (lib, "winmm.lib")
-
+ 
 // GL
 //#include <gl\glew.h>
 //#include <GLFW\glfw3.h>

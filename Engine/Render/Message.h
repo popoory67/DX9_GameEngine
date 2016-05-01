@@ -1,12 +1,10 @@
 #pragma once
 
-#include "RenderPCH.h"
-
-using namespace std;
 
 class Message
 {
 public:
+
 	Message();
 	~Message();	
 	

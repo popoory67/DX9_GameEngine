@@ -1,6 +1,5 @@
 #pragma once
 
-#include "RenderPCH.h"
 
 class Message;		// pointer로만 사용되기 때문에 include 대신 전방 선언
 

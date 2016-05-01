@@ -1,6 +1,5 @@
 #pragma once
 
-//#include "RenderPCH.h"
 #include "CreateDeviceD3DX.h"
 
 class View

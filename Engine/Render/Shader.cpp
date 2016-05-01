@@ -17,7 +17,7 @@ Shader::~Shader()
 
 void Shader::Init()
 {
-	if ((_shader = LoadShader(PHONG_BUMP_REFLECT)) == NULL)
+	/*if ((_shader = LoadShader(PHONG_BUMP_REFLECT)) == NULL)
 	{
 		return;
 	}
@@ -25,7 +25,7 @@ void Shader::Init()
 	if ((_shader = LoadShader(POST_GLOW)) == NULL)
 	{
 		return;
-	}
+	}*/
 }
 
 

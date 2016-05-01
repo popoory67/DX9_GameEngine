@@ -18,6 +18,9 @@ MeshObject::~MeshObject()
 {
 	if (_mtrlBuffer)
 		_mtrlBuffer->Release();
+
+	if (_matrix)
+		delete (_matrix);
 }
 
 void MeshObject::SetObjectName(string object_name)
@@ -38,7 +41,7 @@ MeshData* MeshObject::GetObjectData()
 	return object;
 }
 
-SHARED_PTR(Shader) MeshObject::GetShader()
+Shader* MeshObject::GetShader()
 {
 	return _shader;
 }
@@ -98,34 +101,7 @@ void MeshObject::LoadTexture(string file_name)
 	}
 }
 
-//
-//D3DXMATRIX MeshObject::Transform()
-//{
-//	D3DXMATRIX worldMatrix;
-//
-//	worldMatrix = _scale * _rotation * _position;
-//
-//	return worldMatrix;
-//}
-//
-//
-//D3DXMATRIX MeshObject::Scale(float xpos, float ypos, float zpos)
-//{
-//	D3DXMatrixScaling(&_scale, xpos, ypos, zpos);
-//
-//	return _scale;
-//}
-//
-//D3DXMATRIX MeshObject::Rotate(float xpos, float ypos, float zpos)
-//{
-//	// rotation function
-//
-//	return _rotation;
-//}
-//
-//D3DXMATRIX MeshObject::Position(float xpos, float ypos, float zpos)
-//{
-//	D3DXMatrixTranslation(&_position, xpos, ypos, zpos);
-//
-//	return _position;
-//}
+void MeshObject::Release()
+{
+	
+}

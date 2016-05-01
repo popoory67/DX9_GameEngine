@@ -2,6 +2,9 @@
 
 #include "RenderPCH.h"
 
+#define SCREEN_WIDTH		1280
+#define SCREEN_HEIGHT		720
+
 #define	D3DX_INSTANCE	CreateDeviceD3DX::Get()
 #define D3DX_DEVICE		CreateDeviceD3DX::Get().GetDevice()
 
