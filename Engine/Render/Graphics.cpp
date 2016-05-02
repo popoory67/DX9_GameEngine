@@ -1,8 +1,14 @@
 #include "RenderPCH.h"
-#include "CreateDeviceD3DX.h"
 #include "Graphics.h"
 
+#include "CreateDeviceD3DX.h"
+//#include "CreateD3D11.h"
+#include "Renderer.h"
 
+//const bool FULL_SCREEN = false;
+//const bool VSYNC_ENABLED = true;
+//const float SCREEN_DEPTH = 1000.0f;
+//const float SCREEN_NEAR = 0.1f;
 
 Graphics::Graphics()
 {
@@ -19,11 +25,16 @@ void Graphics::Init(HWND hWnd)
 {
 	// D3DX ÃÊ±âÈ­
 	D3DX_INSTANCE.Init(hWnd);
+
+	//bool result;
+	//result = CreateD3D11::Get().Init(800, 600, VSYNC_ENABLED, hWnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
+
 }
 
 void Graphics::Release()
 {
 	Renderer::Get().Release();
+
 }
 
 void Graphics::RenderScene()
@@ -45,6 +56,13 @@ void Graphics::RenderScene()
 	}
 
 	D3DX_DEVICE->Present(NULL, NULL, NULL, NULL);
+
+	//CreateD3D11::Get().BeginScene(0.5f, 0.5f, 0.5f, 0.5f);
+
+	//RenderState();
+	//Renderer::Get().Render();
+
+	//CreateD3D11::Get().EndScene();
 }
 
 void Graphics::RenderState()

@@ -6,9 +6,6 @@
 #include "Renderer.h"
 #include "Graphics.h"
 
-#include "View.h"
+#include "Camera.h"
 
 #include "Shader.h"
-
-#include "Message.h"
-#include "MessageDispatch.h"

@@ -39,7 +39,7 @@ private:
 	LPCWSTR					_applicationName;
 
 	Graphics*				_graphics;
-	View*					_view;
+	Camera*					_view;
 };
 
 static LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);

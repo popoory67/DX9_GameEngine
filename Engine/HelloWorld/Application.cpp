@@ -14,6 +14,7 @@ GameManager::~GameManager()
 
 }
 
+
 void GameManager::Start()
 {
 	// mesh

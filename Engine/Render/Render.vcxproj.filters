@@ -4,9 +4,6 @@
     <Filter Include="OpenGL">
       <UniqueIdentifier>{35a63cb4-e1f9-45ae-a3fa-6841acea17a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Message">
-      <UniqueIdentifier>{a543e73f-8c61-4b4f-a819-17d445cd0214}</UniqueIdentifier>
-    </Filter>
     <Filter Include="D3DX">
       <UniqueIdentifier>{afdd4318-f7de-41e0-8118-d8bd93a6609a}</UniqueIdentifier>
     </Filter>
@@ -22,11 +19,11 @@
     <Filter Include="D3DX\Transform">
       <UniqueIdentifier>{f6d70cca-a6d4-46c7-87b8-da67def9e2f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3DX\View">
-      <UniqueIdentifier>{7cdaa2e3-3e80-4623-befd-f3510b759e6f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="D3DX\3D Object">
       <UniqueIdentifier>{1b439ceb-e621-4c28-81cd-9e8d67a24234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3DX\Camera">
+      <UniqueIdentifier>{7cdaa2e3-3e80-4623-befd-f3510b759e6f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -44,9 +41,6 @@
     <ClInclude Include="ModelParser.h">
       <Filter>D3DX\3D Object</Filter>
     </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>D3DX\View</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics.h">
       <Filter>D3DX\Render</Filter>
     </ClInclude>
@@ -56,16 +50,16 @@
     <ClInclude Include="Shader.h">
       <Filter>D3DX\Shader</Filter>
     </ClInclude>
-    <ClInclude Include="Message.h">
-      <Filter>Message</Filter>
-    </ClInclude>
-    <ClInclude Include="MessageDispatch.h">
-      <Filter>Message</Filter>
-    </ClInclude>
     <ClInclude Include="Matrix.h">
       <Filter>D3DX\Transform</Filter>
     </ClInclude>
     <ClInclude Include="RenderHeader.h" />
+    <ClInclude Include="Camera.h">
+      <Filter>D3DX\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateD3D11.h">
+      <Filter>D3DX\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CreateWindowGL.cpp">
@@ -89,14 +83,11 @@
     <ClCompile Include="Shader.cpp">
       <Filter>D3DX\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="Message.cpp">
-      <Filter>Message</Filter>
-    </ClCompile>
-    <ClCompile Include="MessageDispatch.cpp">
-      <Filter>Message</Filter>
-    </ClCompile>
     <ClCompile Include="Matrix.cpp">
       <Filter>D3DX\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateD3D11.cpp">
+      <Filter>D3DX\System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

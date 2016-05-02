@@ -1,18 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Core">
+    <Filter Include="Message">
+      <UniqueIdentifier>{e4a7da82-bf3b-4603-8256-8d753a381efc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Thread">
       <UniqueIdentifier>{55a70a4a-b4ce-4e41-82a0-e6bbcffcf185}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Thread.h">
-      <Filter>Core</Filter>
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Message</Filter>
+    </ClInclude>
+    <ClInclude Include="CorePCH.h" />
+    <ClInclude Include="MessageHeader.h">
+      <Filter>Message</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageDispatcher.h">
+      <Filter>Message</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Thread.cpp">
-      <Filter>Core</Filter>
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Message</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageDispatcher.cpp">
+      <Filter>Message</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

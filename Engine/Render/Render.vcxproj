@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CreateD3D11.h" />
     <ClInclude Include="CreateDeviceD3DX.h" />
     <ClInclude Include="CreateWindowGL.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -19,17 +20,16 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MeshObject.h" />
-    <ClInclude Include="Message.h" />
-    <ClInclude Include="MessageDispatch.h" />
     <ClInclude Include="ModelParser.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RenderHeader.h" />
     <ClInclude Include="RenderMacros.h" />
     <ClInclude Include="RenderPCH.h" />
     <ClInclude Include="Shader.h" />
-    <ClInclude Include="View.h" />
+    <ClInclude Include="Camera.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CreateD3D11.cpp" />
     <ClCompile Include="CreateDeviceD3DX.cpp" />
     <ClCompile Include="CreateWindowGL.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -40,11 +40,14 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MeshObject.cpp" />
-    <ClCompile Include="Message.cpp" />
-    <ClCompile Include="MessageDispatch.cpp" />
     <ClCompile Include="ModelParser.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.vcxproj">
+      <Project>{ed61170b-90e1-41c4-b0a9-b6357168b43a}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{221448F2-C9D4-4970-82BB-C275CAB92FF5}</ProjectGuid>
@@ -89,7 +92,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Core;..\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>RenderPCH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -98,7 +101,7 @@
       <AdditionalLibraryDirectories>$(MS_DIRECTX)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\DirectX\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Core;..\DirectX\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
       <Command>
@@ -114,7 +117,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Core;..\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>RenderPCH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -125,7 +128,7 @@
       <AdditionalLibraryDirectories>$(MS_DIRECTX)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\DirectX\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Core;..\DirectX\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
       <Command>

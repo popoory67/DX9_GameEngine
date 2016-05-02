@@ -1,13 +1,15 @@
 #include "System.h"
 #include "Application.h"
 
+//#include "MessageHeader.h"
+#include "Controller.h"
 
 System* System::_instance = NULL;
 
 System::System()
 {
 	_graphics	= new Graphics();
-	_view		= new View();
+	_view		= new Camera();
 }
 
 
@@ -49,6 +51,9 @@ bool System::Init()
 	// 모든 오브젝트 초기화
 	GameManager game;
 	game.Start();
+	//Controller* con = new Controller();
+	//con->Init();
+	//con->Update();
 
 	return true;
 }
@@ -57,7 +62,7 @@ void System::Release()
 {
 	_graphics->Release();
 
-	CreateDeviceD3DX::Get().Release();
+	//CreateDeviceD3DX::Get().Release();
 
 	ReleaseWindows();
 }
