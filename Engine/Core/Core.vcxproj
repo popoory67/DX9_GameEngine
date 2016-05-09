@@ -16,11 +16,13 @@
     <ClInclude Include="MessageDispatcher.h" />
     <ClInclude Include="MessageHeader.h" />
     <ClInclude Include="Thread.h" />
+    <ClInclude Include="ThreadManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="MessageDispatcher.cpp" />
     <ClCompile Include="Thread.cpp" />
+    <ClCompile Include="ThreadManager.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{ED61170B-90E1-41C4-B0A9-B6357168B43A}</ProjectGuid>

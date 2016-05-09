@@ -1,6 +1,7 @@
 #pragma once
 
-#include "RenderHeader.h"
+#include "D3D9Header.h"
+#include "D3D11Header.h"
 
 #define FULL_SCREEN				0
 
@@ -34,12 +35,15 @@ private:
 
 	HWND					_hWnd;
 	HINSTANCE				_hInstance;
-	WNDCLASSEX				_wc;
 
 	LPCWSTR					_applicationName;
 
+	// d3d9
 	Graphics*				_graphics;
 	Camera*					_view;
+
+	// d3d11
+	//D3D11Renderer*			_d3d11Render;
 };
 
 static LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);

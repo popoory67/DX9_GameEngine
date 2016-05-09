@@ -22,6 +22,9 @@
     <ClInclude Include="MessageDispatcher.h">
       <Filter>Message</Filter>
     </ClInclude>
+    <ClInclude Include="ThreadManager.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Thread.cpp">
@@ -32,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="MessageDispatcher.cpp">
       <Filter>Message</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadManager.cpp">
+      <Filter>Thread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
