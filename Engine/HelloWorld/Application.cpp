@@ -1,12 +1,15 @@
 #include "Application.h"
 
 #include "Resources.h"
-#include "RenderHeader.h"
+
+#include "D3D9Header.h"
+#include "D3D11Header.h"
+
 
 
 GameManager::GameManager()
 {
-
+	
 }
 
 GameManager::~GameManager()
@@ -23,6 +26,7 @@ void GameManager::Start()
 	object->LoadModel(BODY);
 	object->LoadTexture(TEXTURE);
 	object->GetMatrix()->Scale(0.05f, 0.05f, 0.05f);
+	//object->GetMatrix()->Rotate();
 
 	Renderer::Get().AddMesh(object);
 
