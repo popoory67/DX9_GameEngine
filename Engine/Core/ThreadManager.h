@@ -37,5 +37,7 @@ private:
 	vector<Thread*> _thread;
 
 	vector<int> _removeThread;
+
+	mutex _mtx;
 };
 

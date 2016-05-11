@@ -12,6 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CorePCH.h" />
+    <ClInclude Include="KeyInput.h" />
+    <ClInclude Include="InputHeader.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="MessageDispatcher.h" />
     <ClInclude Include="MessageHeader.h" />
@@ -19,6 +21,7 @@
     <ClInclude Include="ThreadManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="MessageDispatcher.cpp" />
     <ClCompile Include="Thread.cpp" />
