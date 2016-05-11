@@ -1,5 +1,5 @@
 #include "RenderPCH.h"
-#include "CreateDeviceD3DX.h"
+#include "CreateD3D9.h"
 #include "Shader.h"
 
 
@@ -42,7 +42,7 @@ LPD3DXEFFECT Shader::LoadShader(string file_name)
 
 	shaderFlags |= D3DXSHADER_DEBUG;
 
-	if (FAILED(D3DXCreateEffectFromFile(D3DX_DEVICE, file_name.c_str(), NULL, NULL, shaderFlags, NULL, &ret, &error)))
+	if (FAILED(D3DXCreateEffectFromFile(D3D9_DEVICE, file_name.c_str(), NULL, NULL, shaderFlags, NULL, &ret, &error)))
 	{
 		MessageBox(NULL, "failed fx file loading", "ninetail rendering engine", MB_OK);
 	}

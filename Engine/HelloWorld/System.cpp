@@ -2,7 +2,7 @@
 #include "Application.h"
 
 //#include "MessageHeader.h"
-#include "Controller.h"
+//#include "Controller.h"
 
 System* System::_instance = NULL;
 
@@ -10,6 +10,8 @@ System::System()
 {
 	_graphics	= new Graphics();
 	_view		= new Camera();
+
+	//_d3d11Render = new D3D11Renderer();
 }
 
 
@@ -44,9 +46,10 @@ bool System::Init()
 
 	// d3dx 초기화
 	_graphics->Init(_hWnd);
-
 	// 카메라 초기화
 	_view->Init();
+
+	//_d3d11Render->Init(_hWnd);
 
 	// 모든 오브젝트 초기화
 	GameManager game;
@@ -62,7 +65,7 @@ void System::Release()
 {
 	_graphics->Release();
 
-	//CreateDeviceD3DX::Get().Release();
+	//_d3d11Render->Release();
 
 	ReleaseWindows();
 }
@@ -90,6 +93,7 @@ void System::Run()
 		{
 			// render
 			_graphics->RenderScene();
+			//_d3d11Render->RenderScene();
 
 			// 모든 update 함수 호출
 		}

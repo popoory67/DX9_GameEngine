@@ -34,7 +34,10 @@ D3DXMATRIX Matrix::Scale(float xpos, float ypos, float zpos)
 
 D3DXMATRIX Matrix::Rotate(float xpos, float ypos, float zpos)
 {
-	// rotation function
+	// y rotation
+	float rotation = GetTickCount() / 1000.f;
+
+	D3DXMatrixRotationY(&_rotation, rotation);
 
 	return _rotation;
 }

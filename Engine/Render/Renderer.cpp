@@ -1,7 +1,7 @@
 #include "RenderPCH.h"
 #include "Renderer.h"
 
-#include "CreateDeviceD3DX.h"
+#include "CreateD3D9.h"
 //#include "CreateD3D11.h"
 
 
@@ -67,16 +67,16 @@ void Renderer::Render()
 			{
 				//shader->BeginPass(i);
 
-				D3DX_DEVICE->SetTransform(D3DTS_WORLD, &transform);
+				D3D9_DEVICE->SetTransform(D3DTS_WORLD, &transform);
 
 				if (materials)
 				{
-					D3DX_DEVICE->SetMaterial(&materials[i]);
+					D3D9_DEVICE->SetMaterial(&materials[i]);
 				}
 
 				if (texture)
 				{
-					D3DX_DEVICE->SetTexture(0, texture[i]);
+					D3D9_DEVICE->SetTexture(0, texture[i]);
 				}
 
 				mesh->DrawSubset(i);
