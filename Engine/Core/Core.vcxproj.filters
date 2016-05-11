@@ -7,6 +7,9 @@
     <Filter Include="Thread">
       <UniqueIdentifier>{55a70a4a-b4ce-4e41-82a0-e6bbcffcf185}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{be9dba01-160f-40c2-94f8-ddfb1eef7c4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Thread.h">
@@ -25,6 +28,12 @@
     <ClInclude Include="ThreadManager.h">
       <Filter>Thread</Filter>
     </ClInclude>
+    <ClInclude Include="KeyInput.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHeader.h">
+      <Filter>Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Thread.cpp">
@@ -38,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="ThreadManager.cpp">
       <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyInput.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

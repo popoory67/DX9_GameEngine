@@ -1,5 +1,7 @@
 #pragma once
 
+#include "InputHeader.h"
+
 #include "D3D9Header.h"
 #include "D3D11Header.h"
 
@@ -37,6 +39,9 @@ private:
 	HINSTANCE				_hInstance;
 
 	LPCWSTR					_applicationName;
+
+	// key input
+	KeyInput*				_input;
 
 	// d3d9
 	Graphics*				_graphics;

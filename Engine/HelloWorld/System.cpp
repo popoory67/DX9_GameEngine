@@ -8,6 +8,8 @@ System* System::_instance = NULL;
 
 System::System()
 {
+	_input		= new KeyInput();
+
 	_graphics	= new Graphics();
 	_view		= new Camera();
 
@@ -44,8 +46,12 @@ bool System::Init()
 	// 윈도우 초기화
 	InitWindows(screenWidth, screenHeight);
 
+	// key input 초기화
+	_input->Init();
+
 	// d3dx 초기화
 	_graphics->Init(_hWnd);
+
 	// 카메라 초기화
 	_view->Init();
 
@@ -54,6 +60,7 @@ bool System::Init()
 	// 모든 오브젝트 초기화
 	GameManager game;
 	game.Start();
+
 	//Controller* con = new Controller();
 	//con->Init();
 	//con->Update();
@@ -76,7 +83,7 @@ void System::Run()
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
 
-	while (msg.message != WM_QUIT)
+	while (true) //msg.message != WM_QUIT)
 	{
 		if (PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
 		{
@@ -84,13 +91,14 @@ void System::Run()
 			DispatchMessage(&msg);
 		}
 
-		if (msg.message == WM_QUIT)
-		{
-			PostMessage(_hWnd, WM_DESTROY, 0, 0);
-		}
-
 		else
 		{
+			if (_input->IsKeyDown(VK_ESCAPE))
+			{
+				PostMessage(_hWnd, WM_DESTROY, 0, 0);
+				return;
+			}
+
 			// render
 			_graphics->RenderScene();
 			//_d3d11Render->RenderScene();
@@ -108,16 +116,14 @@ LRESULT CALLBACK System::MessageHandler(HWND hWnd, UINT message, WPARAM wParam, 
 		// 키보드가 키가 눌렸는지 확인합니다.
 		case WM_KEYDOWN:
 		{
-			// 키가 눌렸다면 input객체에 이 사실을 전달하여 기록하도록 합니다.
-			//m_Input->KeyDown((unsigned int)wparam);
+			_input->KeyDown((unsigned int)wParam);
 			return 0;
 		}
 
 		// 키보드의 눌린 키가 떼어졌는지 확인합니다.
 		case WM_KEYUP:
 		{
-			// 키가 떼어졌다면 input객체에 이 사실을 전달하여 이 키를 해제토록합니다.
-			//m_Input->KeyUp((unsigned int)wparam);
+			_input->KeyUp((unsigned int)wParam);
 			return 0;
 		}
 

@@ -81,10 +81,10 @@ void ThreadManager::Update()
 
 					_thread.erase(it);
 
-					//if ((*it))
-					//{
-					//	delete (*it);
-					//}
+					/*if ((*it))
+					{
+						delete (*it);
+					}*/
 
 					break;
 				}
