@@ -1,5 +1,12 @@
 #pragma once
 
+#define	D3D11_INSTANCE		CreateD3D11::Get()
+#define D3D11_DEVICE		CreateD3D11::Get().GetDevice()
+
+const bool	FULL_SCREEN			= false;
+const bool	VSYNC_ENABLED		= true;
+const float SCREEN_DEPTH		= 1000.0f;
+const float SCREEN_NEAR			= 0.1f;
 
 class CreateD3D11
 {
@@ -49,6 +56,3 @@ private:
 	D3DXMATRIX						_worldMatrix;
 	D3DXMATRIX						_orthoMatrix;
 };
-
-#define	D3D11_INSTANCE		CreateD3D11::Get()
-#define D3D11_DEVICE		CreateD3D11::Get().GetDevice()

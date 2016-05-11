@@ -1,5 +1,5 @@
 #include "RenderPCH.h"
-#include "CreateDeviceD3DX.h"
+#include "CreateD3D9.h"
 #include "MeshObject.h"
 
 
@@ -59,7 +59,7 @@ Matrix* MeshObject::GetMatrix()
 
 void MeshObject::LoadModel(string file_name)
 {
-	if ( FAILED ( D3DXLoadMeshFromX(file_name.c_str(), D3DXMESH_SYSTEMMEM, D3DX_DEVICE, NULL, &_mtrlBuffer, NULL, &_numMaterials, &_mesh ) ) )
+	if ( FAILED ( D3DXLoadMeshFromX(file_name.c_str(), D3DXMESH_SYSTEMMEM, D3D9_DEVICE, NULL, &_mtrlBuffer, NULL, &_numMaterials, &_mesh ) ) )
 	{
 		MessageBox(NULL, "Could not find *.x file", "ninetail rendering engine", MB_OK);
 
@@ -94,7 +94,7 @@ void MeshObject::LoadTexture(string file_name)
 
 		_texture[i] = NULL;
 
-		if ( FAILED ( D3DXCreateTextureFromFileA(D3DX_DEVICE, file_name.c_str(), &_texture[i] ) ) )
+		if ( FAILED ( D3DXCreateTextureFromFileA(D3D9_DEVICE, file_name.c_str(), &_texture[i] ) ) )
 		{
 			MessageBox(NULL, "failed texture file loading", "ninetail rendering engine", MB_OK);
 		}

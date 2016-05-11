@@ -4,26 +4,38 @@
     <Filter Include="OpenGL">
       <UniqueIdentifier>{35a63cb4-e1f9-45ae-a3fa-6841acea17a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3DX">
+    <Filter Include="D3D11">
+      <UniqueIdentifier>{a938566c-8b6f-49fb-a209-2b032cc963f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3D9">
       <UniqueIdentifier>{afdd4318-f7de-41e0-8118-d8bd93a6609a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3DX\System">
-      <UniqueIdentifier>{783e9430-9546-47af-92b1-bb8db02ed359}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="D3DX\Shader">
+    <Filter Include="D3D9\Shader">
       <UniqueIdentifier>{225036d1-c737-4426-b586-af310901f390}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3DX\Render">
-      <UniqueIdentifier>{43e72dcd-720c-4f12-ae54-91bc48003fae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="D3DX\Transform">
+    <Filter Include="D3D9\Transform">
       <UniqueIdentifier>{f6d70cca-a6d4-46c7-87b8-da67def9e2f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3DX\3D Object">
+    <Filter Include="D3D9\Camera">
+      <UniqueIdentifier>{7cdaa2e3-3e80-4623-befd-f3510b759e6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3D11\Device">
+      <UniqueIdentifier>{84eddac9-7de1-47b7-9018-89da31063f55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3D9\Device">
+      <UniqueIdentifier>{783e9430-9546-47af-92b1-bb8db02ed359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3D11\3D Model">
+      <UniqueIdentifier>{a29e96cb-c7ba-454d-984a-97506af319d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3D9\3D Model">
       <UniqueIdentifier>{1b439ceb-e621-4c28-81cd-9e8d67a24234}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3DX\Camera">
-      <UniqueIdentifier>{7cdaa2e3-3e80-4623-befd-f3510b759e6f}</UniqueIdentifier>
+    <Filter Include="D3D9\Render">
+      <UniqueIdentifier>{43e72dcd-720c-4f12-ae54-91bc48003fae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3D11\Render">
+      <UniqueIdentifier>{8ca05ca7-9623-4cff-9149-8eaf4b4be347}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -32,62 +44,73 @@
       <Filter>OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="RenderMacros.h" />
-    <ClInclude Include="CreateDeviceD3DX.h">
-      <Filter>D3DX\System</Filter>
-    </ClInclude>
     <ClInclude Include="MeshObject.h">
-      <Filter>D3DX\3D Object</Filter>
-    </ClInclude>
-    <ClInclude Include="ModelParser.h">
-      <Filter>D3DX\3D Object</Filter>
+      <Filter>D3D9\3D Model</Filter>
     </ClInclude>
     <ClInclude Include="Graphics.h">
-      <Filter>D3DX\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>D3DX\Render</Filter>
+      <Filter>D3D9\Render</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>D3DX\Shader</Filter>
+      <Filter>D3D9\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>D3DX\Transform</Filter>
+      <Filter>D3D9\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="RenderHeader.h" />
     <ClInclude Include="Camera.h">
-      <Filter>D3DX\Camera</Filter>
+      <Filter>D3D9\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Header.h">
+      <Filter>D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11Header.h">
+      <Filter>D3D11</Filter>
     </ClInclude>
     <ClInclude Include="CreateD3D11.h">
-      <Filter>D3DX\System</Filter>
+      <Filter>D3D11\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelParser.h">
+      <Filter>D3D11\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateD3D9.h">
+      <Filter>D3D9\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>D3D9\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11Renderer.h">
+      <Filter>D3D11\Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CreateWindowGL.cpp">
       <Filter>OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="CreateDeviceD3DX.cpp">
-      <Filter>D3DX\System</Filter>
-    </ClCompile>
     <ClCompile Include="MeshObject.cpp">
-      <Filter>D3DX\3D Object</Filter>
-    </ClCompile>
-    <ClCompile Include="ModelParser.cpp">
-      <Filter>D3DX\3D Object</Filter>
+      <Filter>D3D9\3D Model</Filter>
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
-      <Filter>D3DX\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>D3DX\Render</Filter>
+      <Filter>D3D9\Render</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
-      <Filter>D3DX\Shader</Filter>
+      <Filter>D3D9\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
-      <Filter>D3DX\Transform</Filter>
+      <Filter>D3D9\Transform</Filter>
     </ClCompile>
     <ClCompile Include="CreateD3D11.cpp">
-      <Filter>D3DX\System</Filter>
+      <Filter>D3D11\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelParser.cpp">
+      <Filter>D3D11\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateD3D9.cpp">
+      <Filter>D3D9\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>D3D9\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D11Renderer.cpp">
+      <Filter>D3D11\Render</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

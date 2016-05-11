@@ -12,17 +12,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CreateD3D11.h" />
-    <ClInclude Include="CreateDeviceD3DX.h" />
+    <ClInclude Include="CreateD3D9.h" />
     <ClInclude Include="CreateWindowGL.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="D3D11Header.h" />
+    <ClInclude Include="D3D11Renderer.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MeshObject.h" />
     <ClInclude Include="ModelParser.h" />
     <ClInclude Include="Renderer.h" />
-    <ClInclude Include="RenderHeader.h" />
+    <ClInclude Include="D3D9Header.h" />
     <ClInclude Include="RenderMacros.h" />
     <ClInclude Include="RenderPCH.h" />
     <ClInclude Include="Shader.h" />
@@ -30,13 +32,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CreateD3D11.cpp" />
-    <ClCompile Include="CreateDeviceD3DX.cpp" />
+    <ClCompile Include="CreateD3D9.cpp" />
     <ClCompile Include="CreateWindowGL.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="D3D11Renderer.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MeshObject.cpp" />

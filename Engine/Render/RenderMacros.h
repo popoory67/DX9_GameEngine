@@ -1,6 +1,9 @@
 
+#define		DX_VERSION_9				0
+#define		DX_VERSION_11				0
+
 #define		WINDOW_MODE					1
-#define		PLATFORM_DESKTOP			1
+//#define		PLATFORM_DESKTOP			1
 
 //#define	DEBUG
 //#define	RELEASE
@@ -11,6 +14,7 @@
 // 
 #define		SAFE_RELEASE(p) if (p != NULL) { p->Release(); p = NULL; }
 
+// Render Macro가 아니라 Core로 옮겨야함
 // utilize std::tr1::shared_ptr<class>
 #define		SHARED_PTR(name) ::tr1::shared_ptr<name>
 
