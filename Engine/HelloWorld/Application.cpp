@@ -6,7 +6,6 @@
 #include "D3D11Header.h"
 
 
-
 GameManager::GameManager()
 {
 	
@@ -20,8 +19,8 @@ GameManager::~GameManager()
 
 void GameManager::Start()
 {
-	// mesh
-	SHARED_PTR(MeshObject) object(new MeshObject());
+	// x mesh
+	SHARED_PTR(XMeshObject) object(new XMeshObject());
 
 	object->LoadModel(BODY);
 	object->LoadTexture(TEXTURE);
@@ -30,7 +29,7 @@ void GameManager::Start()
 
 	Renderer::Get().AddMesh(object);
 
-	SHARED_PTR(MeshObject) tiger(new MeshObject());
+	SHARED_PTR(XMeshObject) tiger(new XMeshObject());
 
 	tiger->LoadModel(TIGER);
 	tiger->LoadTexture(TEXTURE2);
@@ -38,6 +37,10 @@ void GameManager::Start()
 	tiger->GetMatrix()->Position(10, 10, 10);
 
 	Renderer::Get().AddMesh(tiger);
+
+	// obj mesh
+	ObjMeshObject* mesh = ObjMeshObject::Create(OBJ_TEST);
+	Renderer::Get().AddMesh(mesh);
 }
 
 void GameManager::Update()

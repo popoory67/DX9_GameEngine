@@ -44,9 +44,6 @@
       <Filter>OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="RenderMacros.h" />
-    <ClInclude Include="MeshObject.h">
-      <Filter>D3D9\3D Model</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics.h">
       <Filter>D3D9\Render</Filter>
     </ClInclude>
@@ -80,13 +77,19 @@
     <ClInclude Include="D3D11Renderer.h">
       <Filter>D3D11\Render</Filter>
     </ClInclude>
+    <ClInclude Include="ObjLoader.h">
+      <Filter>D3D9\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMeshObject.h">
+      <Filter>D3D9\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="XMeshObject.h">
+      <Filter>D3D9\3D Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CreateWindowGL.cpp">
       <Filter>OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshObject.cpp">
-      <Filter>D3D9\3D Model</Filter>
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
       <Filter>D3D9\Render</Filter>
@@ -111,6 +114,15 @@
     </ClCompile>
     <ClCompile Include="D3D11Renderer.cpp">
       <Filter>D3D11\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLoader.cpp">
+      <Filter>D3D9\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMeshObject.cpp">
+      <Filter>D3D9\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="XMeshObject.cpp">
+      <Filter>D3D9\3D Model</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

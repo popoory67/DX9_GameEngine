@@ -1,9 +1,14 @@
 #pragma once
 
-#include "MeshObject.h"
+#include "XMeshObject.h"
+#include "ObjMeshObject.h"
 
-typedef SHARED_PTR(MeshObject)					MeshObjectPointer;
-typedef vector< MeshObjectPointer >				MeshVector;
+typedef SHARED_PTR(XMeshObject)					XMeshObjectPtr;
+typedef vector< XMeshObjectPtr >				XMeshVector;
+
+typedef ObjMeshObject*							ObjMeshObjectPtr;
+typedef vector< ObjMeshObjectPtr >				ObjMeshVector;
+
 
 class Renderer
 {
@@ -11,15 +16,20 @@ public:
 
 	~Renderer();
 
-	static Renderer&			Get();
+	// singleton
+	static Renderer& Get();
 
-	void						AddMesh(MeshObjectPointer mesh);
+	// Add X file mesh
+	void AddMesh(XMeshObjectPtr mesh);
 
-	void						Init();
+	// Add Obj file mesh
+	void AddMesh(ObjMeshObjectPtr mesh);
 
-	void						Render();
+	void Init();
 
-	void						Release();
+	void Render();
+
+	void Clear();
 
 private:
 
@@ -27,7 +37,9 @@ private:
 
 private:
 
-	static Renderer*			_instance;
+	static Renderer* _instance;
 
-	MeshVector*					_object;
+	XMeshVector* _xMesh;
+	ObjMeshVector* _objMesh;
+
 };

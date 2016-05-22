@@ -25,7 +25,7 @@ public:
 
 	void Init(HWND hWnd);
 
-	void Release();
+	void Clear();
 
 private:
 

@@ -4,6 +4,8 @@ c:\users\boseul\documents\github\ninetailengine\engine\core\debug\vc120.idb
 c:\users\boseul\documents\github\ninetailengine\engine\core\debug\thread.obj
 c:\users\boseul\documents\github\ninetailengine\engine\core\debug\messagedispatcher.obj
 c:\users\boseul\documents\github\ninetailengine\engine\core\debug\message.obj
+c:\users\boseul\documents\github\ninetailengine\engine\core\debug\threadmanager.obj
+c:\users\boseul\documents\github\ninetailengine\engine\core\debug\keyinput.obj
 c:\users\boseul\documents\github\ninetailengine\build\debug\core.lib
 c:\users\boseul\documents\github\ninetailengine\engine\core\\..\..\build\debug\core.lib
 c:\users\boseul\documents\github\ninetailengine\engine\core\debug\core.tlog\cl.command.1.tlog

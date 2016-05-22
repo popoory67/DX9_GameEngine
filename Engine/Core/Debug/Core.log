@@ -2,5 +2,11 @@
   ThreadManager.cpp
 c:\users\boseul\documents\github\ninetailengine\engine\core\threadmanager.cpp(74): warning C4018: '<' : signed 또는 unsigned가 일치하지 않습니다.
   Thread.cpp
+  MessageDispatcher.cpp
+c:\users\boseul\documents\github\ninetailengine\engine\core\messagedispatcher.cpp(46): warning C4018: '<' : signed 또는 unsigned가 일치하지 않습니다.
+c:\users\boseul\documents\github\ninetailengine\engine\core\messagedispatcher.cpp(54): warning C4018: '<' : signed 또는 unsigned가 일치하지 않습니다.
+c:\users\boseul\documents\github\ninetailengine\engine\core\messagedispatcher.cpp(60): warning C4150: 불완전한 형식 'Message'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+          c:\users\boseul\documents\github\ninetailengine\engine\core\messagedispatcher.h(4) : 'Message' 선언을 참조하십시오.
+  Message.cpp
   KeyInput.cpp
   Core.vcxproj -> C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Core\\..\..\Build\Debug\Core.lib

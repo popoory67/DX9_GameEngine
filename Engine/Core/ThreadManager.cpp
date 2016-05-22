@@ -79,12 +79,11 @@ void ThreadManager::Update()
 				{
 					(*it)->Detach();
 
-					_thread.erase(it);
+					(*it)->Destroy();
 
-					/*if ((*it))
-					{
-						delete (*it);
-					}*/
+					(*it) = nullptr;
+
+					_thread.erase(it);
 
 					break;
 				}
