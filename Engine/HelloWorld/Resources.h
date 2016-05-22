@@ -7,6 +7,7 @@
 // resource
 #define		BODY				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/main body.X"
 #define		TIGER				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/tiger.x"
+#define		OBJ_TEST			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/bb8.obj"
  
 #define		TEXTURE				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/main body.tga"
 #define		TEXTURE2			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/tiger.bmp"

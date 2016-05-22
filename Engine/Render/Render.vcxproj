@@ -19,10 +19,12 @@
     </ClInclude>
     <ClInclude Include="D3D11Header.h" />
     <ClInclude Include="D3D11Renderer.h" />
+    <ClInclude Include="ObjMeshObject.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Matrix.h" />
-    <ClInclude Include="MeshObject.h" />
+    <ClInclude Include="XMeshObject.h" />
     <ClInclude Include="ModelParser.h" />
+    <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="D3D9Header.h" />
     <ClInclude Include="RenderMacros.h" />
@@ -40,10 +42,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="D3D11Renderer.cpp" />
+    <ClCompile Include="ObjMeshObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="MeshObject.cpp" />
+    <ClCompile Include="XMeshObject.cpp" />
     <ClCompile Include="ModelParser.cpp" />
+    <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
   </ItemGroup>

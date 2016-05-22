@@ -17,7 +17,7 @@ public:
 
 	bool Init();
 
-	void Release();
+	void Clear();
 
 	void Run();
 
@@ -38,7 +38,7 @@ private:
 	HWND					_hWnd;
 	HINSTANCE				_hInstance;
 
-	LPCWSTR					_applicationName;
+	LPCSTR					_applicationName;
 
 	// key input
 	KeyInput*				_input;

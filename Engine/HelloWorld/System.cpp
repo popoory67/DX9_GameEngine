@@ -68,9 +68,9 @@ bool System::Init()
 	return true;
 }
 
-void System::Release()
+void System::Clear()
 {
-	_graphics->Release();
+	_graphics->Clear();
 
 	//_d3d11Render->Release();
 
@@ -145,7 +145,7 @@ void System::InitWindows(int& screenWidth, int& screenHeight)
 	_hInstance = GetModuleHandle(NULL);
 
 	// 어플리케이션의 이름을 설정합니다.
-	_applicationName	= L"Ninetail Engine";
+	_applicationName	= "Ninetail Engine";
 
 	// 윈도우 클래스를 기본 설정으로 맞춥니다.
 	wc.style			= CS_HREDRAW | CS_VREDRAW | CS_OWNDC;

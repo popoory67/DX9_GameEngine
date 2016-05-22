@@ -22,11 +22,11 @@ void Graphics::Init(HWND hWnd)
 	D3D9_INSTANCE.Init(hWnd);
 }
 
-void Graphics::Release()
+void Graphics::Clear()
 {
-	Renderer::Get().Release();
+	Renderer::Get().Clear();
 
-	D3D9_INSTANCE.Release();
+	D3D9_INSTANCE.Clear();
 }
 
 void Graphics::RenderScene()

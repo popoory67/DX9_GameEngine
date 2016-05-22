@@ -49,19 +49,19 @@ LPD3DXEFFECT Shader::LoadShader(string file_name)
 
 	if (!ret && error)
 	{
-		int		size	= error->GetBufferSize();
-		void*	ack		= error->GetBufferPointer();
+		//const int size = error->GetBufferSize();
+		//void* ack = error->GetBufferPointer();
 
-		if (ack)
-		{
-			char* str = new char[size];
+		//if (ack)
+		//{
+		//	char src[size];
 
-			sprintf_s(str, size, (const char*)ack);
-			OutputDebugString(str);
-
-			delete[] str;
-		}
+		//	sprintf_s(src, size, (const char*)ack);
+		//	OutputDebugString(src);
+		//}
 	}
 
 	return ret; 
 }
+
+// 레퍼런스

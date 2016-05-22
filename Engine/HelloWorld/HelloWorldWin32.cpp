@@ -7,6 +7,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		System::Get().Run();
 	}
 
-	System::Get().Release();
+	System::Get().Clear();
 }
 

@@ -31,7 +31,12 @@ void Thread::Init(function<void()> func)
 
 void Thread::Detach()
 {
+	_thread.detach();
+}
 
+void Thread::Destroy()
+{
+	delete this;
 }
 
 
@@ -55,15 +60,12 @@ void Thread::Run(function<void()> func)
 {
 	func();
 
-	// join
-	//_thread.join(); // error!
-
-	// delete
-	ThreadManager::Get().RemoveThread(_id);
-
 	// callback
 	if (_callback)
 	{
 		_callback(_id);
-	}
+	}	
+	
+	// delete
+	ThreadManager::Get().RemoveThread(_id);
 }

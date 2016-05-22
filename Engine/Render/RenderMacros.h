@@ -1,18 +1,37 @@
 
-#define		DX_VERSION_9				0
-#define		DX_VERSION_11				0
+#define WINDOW_MODE					1
+//#define PLATFORM_DESKTOP			1
 
-#define		WINDOW_MODE					1
-//#define		PLATFORM_DESKTOP			1
+//#define DEBUG
+//#define RELEASE
 
-//#define	DEBUG
-//#define	RELEASE
+#define KEY_DOWN(vk_code)	((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
+#define KEY_UP(vk_code)		((GetAsyncKeyState(vk_code) & 0x8000) ? 0 : 1)
 
-#define		KEY_DOWN(vk_code)	((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
-#define		KEY_UP(vk_code)		((GetAsyncKeyState(vk_code) & 0x8000) ? 0 : 1)
 
-// 
-#define		SAFE_RELEASE(p) if (p != NULL) { p->Release(); p = NULL; }
+#ifndef SAFE_DELETE
+/// For pointers allocated with new.
+#define SAFE_DELETE(p)			{ if(p) { delete (p);     (p)=NULL; } }
+#endif
+
+#ifndef SAFE_DELETE_ARRAY
+/// For arrays allocated with new [].
+#define SAFE_DELETE_ARRAY(p)	{ if(p) { delete[] (p);   (p)=NULL; } }
+#endif
+
+#ifndef SAFE_RELEASE
+/// For use with COM pointers.
+#define SAFE_RELEASE(p)			{ if(p) { (p)->Release(); (p)=NULL; } }
+#endif
+
+#ifndef MIN
+#define MIN(x,y)				( (x)<(y)? (x) : (y) )
+#endif
+
+#ifndef MAX
+#define MAX(x,y)				( (x)>(y)? (x) : (y) )
+#endif
+
 
 // Render Macro가 아니라 Core로 옮겨야함
 // utilize std::tr1::shared_ptr<class>

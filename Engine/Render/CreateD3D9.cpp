@@ -12,7 +12,7 @@ CreateD3D9::~CreateD3D9()
 {
 	if (_instance)
 	{
-		SAFE_RELEASE(_instance);
+		SAFE_DELETE(_instance);
 	}
 }
 
@@ -88,7 +88,7 @@ void CreateD3D9::Init(HWND hWnd)
 }
 
 
-void CreateD3D9::Release()
+void CreateD3D9::Clear()
 {
 	SAFE_RELEASE(_d3dDevice);
 	SAFE_RELEASE(_d3d);
