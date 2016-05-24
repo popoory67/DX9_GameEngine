@@ -3,6 +3,7 @@
 #include "Matrix.h"
 #include "Shader.h"
 
+#define DEFAULT_TEX			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/texture.png"
 
 struct MeshData
 { 
@@ -36,45 +37,46 @@ public:
 	 * set this object's name
 	 * if you don't want to set object name, set the name "Unknown"
 	 */
-	void						SetObjectName(string object_name);
+	void SetObjectName(string objectName);
 
 	/**
 	 * get modeling data
-	 * ObjectData is struct
 	 * @return mesh, texture and meterials data
 	 */
-	MeshData*					GetObjectData();
+	MeshData* GetMeshData();
 
-	Shader*						GetShader();
+	Shader* GetShader() { return _shader; }
 
-	Matrix*						GetMatrix();
+	Matrix* GetMatrix() { return _matrix; }
 
-	void						LoadModel(const string& file_name);
-	//void						LoadModel(string model_file, string texture_name);
-	void						LoadTexture(const string& file_name);
+	void LoadModel(const string& fileName);
 
-	void						Clear();
+	void LoadTexture(const string& fileName);
 
 private:
 
-	::string					_objectName;
+	void Clear();
+
+private:
+
+	string _objectName;
 
 	// mesh data
-	LPD3DXMESH					_mesh;
+	LPD3DXMESH _mesh;
 
 	// texture data
-	LPDIRECT3DTEXTURE9*			_texture;
+	LPDIRECT3DTEXTURE9* _texture;
 
 	// material datas
-	LPD3DXBUFFER				_mtrlBuffer;
-	D3DXMATERIAL*				_d3dxMaterials;
-	D3DMATERIAL9*				_materials;
-	DWORD						_numMaterials;
+	LPD3DXBUFFER _mtrlBuffer;
+	D3DXMATERIAL* _d3dxMaterials;
+	D3DMATERIAL9* _materials;
+	DWORD _numMaterials;
 
-	// shader
-	Shader*						_shader;
+	// shader object
+	Shader* _shader;
 
-	// object transform
-	Matrix*						_matrix;
+	// mesh transform object
+	Matrix* _matrix;
 };
 

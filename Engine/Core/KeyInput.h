@@ -7,6 +7,8 @@ public:
 	KeyInput();
 	~KeyInput();
 
+	static KeyInput* Create();
+
 	void Init();
 
 	void KeyDown(unsigned int);

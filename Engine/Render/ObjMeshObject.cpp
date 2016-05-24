@@ -91,6 +91,12 @@ void AddObjFace(ObjTriangleList& objTriangleList, const ObjMesh& objMesh, UINT o
 ObjMeshObject::ObjMeshObject()
 {
 	_mesh = new MeshData();
+
+	_shader = new Shader();
+
+	_matrix = new Matrix();
+
+	LoadTexture(DEFAULT_TEX);
 }
 
 ObjMeshObject::~ObjMeshObject()
@@ -102,6 +108,10 @@ ObjMeshObject::~ObjMeshObject()
 void ObjMeshObject::Clear()
 {
 	SAFE_RELEASE(_mesh->_VB);
+
+	SAFE_DELETE(_shader);
+
+	SAFE_DELETE(_matrix);
 }
 
 
@@ -128,6 +138,16 @@ ObjMeshObject* ObjMeshObject::Create(LPCTSTR fileName)
 	return mesh;
 }
 
+
+void ObjMeshObject::LoadTexture(const string& fileName)
+{
+	if (FAILED(D3DXCreateTextureFromFile(D3D9_DEVICE, fileName.c_str(), &_texture)))
+	{
+		MessageBox(nullptr, "failed texture file loading", "ninetail rendering engine", MB_OK);
+
+		return;
+	}
+}
 
 HRESULT ObjMeshObject::Init(const ObjMesh& objMesh, bool flipTriangles, bool flipUVs)
 {

@@ -76,6 +76,7 @@ void CreateD3D9::Create(HWND hWnd)
 	_d3dPP = d3dpp;
 }
 
+
 void CreateD3D9::Init(HWND hWnd)
 {
 	Create(hWnd);

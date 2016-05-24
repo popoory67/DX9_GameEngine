@@ -1,10 +1,15 @@
 #pragma once
 
 #include "ObjLoader.h"
+#include "Matrix.h"
+#include "Shader.h"
 
+// test
+#define DEFAULT_TEX			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/texture.png"
 
 class ObjMeshObject
 {
+
 private:
 
 	struct MeshData
@@ -28,9 +33,17 @@ public:
 	ObjMeshObject();
 	~ObjMeshObject();
 
-	MeshData* GetMesh() { return _mesh; }
-
 	static ObjMeshObject* Create(LPCTSTR fileName);
+
+	MeshData* GetMeshData() { return _mesh; }
+
+	LPDIRECT3DTEXTURE9 GetTexture() { return _texture; }
+
+	Shader* GetShader() { return _shader; }
+
+	Matrix* GetMatrix() { return _matrix; }
+
+	void LoadTexture(const string& fileName);
 
 private:
 
@@ -48,4 +61,13 @@ private:
 	// bounding box
 	D3DXVECTOR3 _bbmin;
 	D3DXVECTOR3 _bbmax;
+
+	// texture
+	LPDIRECT3DTEXTURE9 _texture;
+
+	// shader
+	Shader* _shader;
+
+	// object transform
+	Matrix* _matrix;
 };

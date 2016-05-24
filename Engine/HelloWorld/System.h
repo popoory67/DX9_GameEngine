@@ -45,7 +45,7 @@ private:
 
 	// d3d9
 	Graphics*				_graphics;
-	Camera*					_view;
+	//Camera*					_camera;
 
 	// d3d11
 	//D3D11Renderer*			_d3d11Render;

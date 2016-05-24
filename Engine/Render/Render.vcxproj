@@ -33,6 +33,7 @@
     <ClInclude Include="Camera.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CreateD3D11.cpp" />
     <ClCompile Include="CreateD3D9.cpp" />
     <ClCompile Include="CreateWindowGL.cpp">

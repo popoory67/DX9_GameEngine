@@ -1,67 +1,46 @@
 #include "RenderPCH.h"
-#include "CreateD3D9.h"
 #include "Shader.h"
 
+#include "CreateD3D9.h"
 
-Shader::Shader() : _shader(NULL)
+Shader::Shader() : _effect(nullptr)
 {
-
+	Init();
 }
 
 
 Shader::~Shader()
 {
-
+	Clear();
 }
 
 
 void Shader::Init()
 {
-	/*if ((_shader = LoadShader(PHONG_BUMP_REFLECT)) == NULL)
-	{
-		return;
-	}
-
-	if ((_shader = LoadShader(POST_GLOW)) == NULL)
-	{
-		return;
-	}*/
+	LoadShader(DEFAULT_SHADER);
 }
 
 
-LPD3DXEFFECT Shader::GetShader()
+void Shader::LoadShader(const string& fileName)
 {
-	return _shader;
-}
-
-LPD3DXEFFECT Shader::LoadShader(string file_name)
-{
-	LPD3DXEFFECT			ret				= NULL;
 	LPD3DXBUFFER			error			= NULL;
 	DWORD					shaderFlags		= 0;
 
-	shaderFlags |= D3DXSHADER_DEBUG;
+	shaderFlags |= D3DXSHADER_DEBUG; // 컴파일러가 디버그 정보를 생성하도록 함
 
-	if (FAILED(D3DXCreateEffectFromFile(D3D9_DEVICE, file_name.c_str(), NULL, NULL, shaderFlags, NULL, &ret, &error)))
+	if (FAILED(D3DXCreateEffectFromFile(D3D9_DEVICE, fileName.c_str(), NULL, NULL, shaderFlags, NULL, &_effect, &error)))
 	{
 		MessageBox(NULL, "failed fx file loading", "ninetail rendering engine", MB_OK);
+
+		if (error)
+		{
+			error->Release();
+		}
 	}
 
-	if (!ret && error)
-	{
-		//const int size = error->GetBufferSize();
-		//void* ack = error->GetBufferPointer();
-
-		//if (ack)
-		//{
-		//	char src[size];
-
-		//	sprintf_s(src, size, (const char*)ack);
-		//	OutputDebugString(src);
-		//}
-	}
-
-	return ret; 
 }
 
-// 레퍼런스
+void Shader::Clear()
+{
+	SAFE_RELEASE(_effect);
+}

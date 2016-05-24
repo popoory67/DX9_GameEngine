@@ -34,7 +34,7 @@ void Graphics::RenderScene()
 	if (!D3D9_DEVICE)
 		return;
 
-	D3D9_DEVICE->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0);
+	D3D9_DEVICE->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(50, 50, 50), 1.0f, 0);
 
 	if (D3D9_DEVICE->BeginScene())
 	{
@@ -49,14 +49,21 @@ void Graphics::RenderScene()
 
 	D3D9_DEVICE->Present(NULL, NULL, NULL, NULL);
 
+	D3D9_DEVICE->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+
 }
 
 void Graphics::RenderState()
 {
-	D3D9_DEVICE->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-	D3D9_DEVICE->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+	// shader test state
+	//D3D9_DEVICE->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+	//D3D9_DEVICE->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
 
-	D3D9_DEVICE->SetRenderState(D3DRS_ZENABLE, TRUE);		// Turn on the zbuffer
+	// original state
+	//D3D9_DEVICE->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+	//D3D9_DEVICE->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+
+	//D3D9_DEVICE->SetRenderState(D3DRS_ZENABLE, TRUE);		// Turn on the zbuffer
 	D3D9_DEVICE->SetRenderState(D3DRS_AMBIENT, 0xffffffff);
 
 	// alpha blend
@@ -65,5 +72,5 @@ void Graphics::RenderState()
 	D3D9_DEVICE->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
 	// option : 기본컬링, CCW(반시계), CW(시계), NONE(컬링 안함)
-	D3D9_DEVICE->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
+	//D3D9_DEVICE->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
 }

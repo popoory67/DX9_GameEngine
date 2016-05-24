@@ -124,5 +124,8 @@
     <ClCompile Include="XMeshObject.cpp">
       <Filter>D3D9\3D Model</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>D3D9\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

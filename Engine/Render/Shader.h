@@ -1,20 +1,25 @@
 #pragma once
 
+#define DEFAULT_SHADER		"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/ObjViewer.fx"
+
 
 class Shader
 {
-private:
-
-	LPD3DXEFFECT				_shader;
-
 public:
 	Shader();
 	~Shader();
 
-	void						Init();
+	LPD3DXEFFECT GetEffect() { return _effect; }
 
-	LPD3DXEFFECT				GetShader();
+	void Init();
 
-	LPD3DXEFFECT				LoadShader(string file_name);
+	void LoadShader(const string& fileName);
+
+	void Clear();
+
+private:
+
+	LPD3DXEFFECT _effect;
+
 };
 

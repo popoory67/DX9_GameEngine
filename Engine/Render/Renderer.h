@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Camera.h"
 #include "XMeshObject.h"
 #include "ObjMeshObject.h"
 
@@ -38,6 +39,10 @@ private:
 private:
 
 	static Renderer* _instance;
+
+	Camera*	_camera;
+
+	Shader* _shader;
 
 	XMeshVector* _xMesh;
 	ObjMeshVector* _objMesh;

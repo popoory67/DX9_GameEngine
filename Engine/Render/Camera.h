@@ -2,38 +2,64 @@
 
 #include "CreateD3D9.h"
 
+#define FOV				(D3DX_PI/4.0f) // 시야각
+
+#define ASPECT_RATIO	(SCREEN_WIDTH/(float)SCREEN_HEIGHT) // 화면의 종횡비
+
+#define NEAR_PLANE		1 // 근접 평면
+#define FAR_PLANE		10000 // 원거리 평면
+
+
 class Camera
 {
+private:
+
+	struct CameraMatrix
+	{
+		D3DXMATRIXA16 _world;
+		D3DXMATRIXA16 _view;
+		D3DXMATRIXA16 _proj;
+
+		D3DXVECTOR3 _eyePt;
+		D3DXVECTOR3 _lookAtPt;
+		D3DXVECTOR3 _upVec;
+	};
+
 public:
 
-	Camera()
-	{
+	Camera();
+	~Camera();
 
+	static Camera* Create();
+
+	CameraMatrix* GetCameraMatrix()
+	{
+		CameraMatrix* mat = new CameraMatrix();
+
+		mat->_world = _world;
+		mat->_view = _view;
+		mat->_proj = _proj;
+
+		mat->_eyePt = _eyePt;
+		mat->_lookAtPt = _lookAtPt;
+		mat->_upVec = _upVec;
+
+		return mat;
 	}
 
-	~Camera()
-	{
+	void Init();
 
-	}
+	void Rotate();
 
-	void Init()
-	{
-		D3DXMATRIXA16 matWorld;
-		D3DXMatrixRotationY(&matWorld, timeGetTime() / 1000.0f);
-		D3D9_DEVICE->SetTransform(D3DTS_WORLD, &matWorld);
-
-		D3DXVECTOR3 vEyePt(0.0f, 3.0f, -70.0f);
-		D3DXVECTOR3 vLookatPt(0.0f, 0.0f, 0.0f);
-		D3DXVECTOR3 vUpVec(0.0f, 1.0f, 0.0f);
-		D3DXMATRIXA16 matView;
-		D3DXMatrixLookAtLH(&matView, &vEyePt, &vLookatPt, &vUpVec);
-		D3D9_DEVICE->SetTransform(D3DTS_VIEW, &matView);
-
-		D3DXMATRIXA16 matProj;
-		D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 1.0f, 1.0f, 100.0f);
-		D3D9_DEVICE->SetTransform(D3DTS_PROJECTION, &matProj);
-	}
+	void Position();
 
 private:
 
+	D3DXMATRIXA16 _world;
+	D3DXMATRIXA16 _view;
+	D3DXMATRIXA16 _proj;
+
+	D3DXVECTOR3 _eyePt;
+	D3DXVECTOR3 _lookAtPt;
+	D3DXVECTOR3 _upVec;
 };

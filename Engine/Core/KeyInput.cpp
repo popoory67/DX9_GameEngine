@@ -12,6 +12,15 @@ KeyInput::~KeyInput()
 
 }
 
+KeyInput* KeyInput::Create()
+{
+	KeyInput* key = new KeyInput();
+
+	key->Init();
+
+	return key;
+}
+
 
 void KeyInput::Init()
 {

@@ -1,7 +1,5 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  XMeshObject.cpp
-c:\users\boseul\documents\github\ninetailengine\engine\render\xmeshobject.cpp(90): warning C4018: '<' : signed 또는 unsigned가 일치하지 않습니다.
-  Renderer.cpp
   Graphics.cpp
+c:\users\boseul\documents\github\ninetailengine\engine\render\camera.h(37): warning C4316: 'Camera::CameraMatrix': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
 C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Render.vcxproj -> C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Render\\..\..\Build\Debug\Render.lib

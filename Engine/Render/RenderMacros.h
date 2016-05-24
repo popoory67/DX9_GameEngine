@@ -35,12 +35,12 @@
 
 // Render Macro가 아니라 Core로 옮겨야함
 // utilize std::tr1::shared_ptr<class>
-#define		SHARED_PTR(name) ::tr1::shared_ptr<name>
+#define SHARED_PTR(name) ::tr1::shared_ptr<name>
 
 // simplify Get/Set function
-#define		SIMPLE_GET(return_type, func_name, get_value) return_type Get##func_name() { return get_value; }
-#define		SIMPLE_SET(return_type, func_name, set_value) void Set##func_name(return_type tmp) { set_value = tmp; }
+#define SIMPLE_GET(return_type, func_name, get_value) return_type Get##func_name() { return get_value; }
+#define SIMPLE_SET(return_type, func_name, set_value) void Set##func_name(return_type tmp) { set_value = tmp; }
 
 // simplify DLL export and import definitions
-#define		DLLEXPORT __declspec(dllexport)
-#define		DLLIMPORT __declspec(dllimport)
+#define DLLEXPORT __declspec(dllexport)
+#define DLLIMPORT __declspec(dllimport)
