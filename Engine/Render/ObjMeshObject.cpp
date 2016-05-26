@@ -95,8 +95,6 @@ ObjMeshObject::ObjMeshObject()
 	_shader = new Shader();
 
 	_matrix = new Matrix();
-
-	LoadTexture(DEFAULT_TEX);
 }
 
 ObjMeshObject::~ObjMeshObject()

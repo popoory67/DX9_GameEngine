@@ -36,13 +36,15 @@ private:
 
 	Renderer();
 
+	void XFileRender();
+
+	void ObjFileRender();
+
 private:
 
 	static Renderer* _instance;
 
-	Camera*	_camera;
-
-	Shader* _shader;
+	Camera*	_mainCamera;
 
 	XMeshVector* _xMesh;
 	ObjMeshVector* _objMesh;

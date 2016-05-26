@@ -55,15 +55,11 @@ void Graphics::RenderScene()
 
 void Graphics::RenderState()
 {
-	// shader test state
-	//D3D9_DEVICE->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
-	//D3D9_DEVICE->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
-
 	// original state
-	//D3D9_DEVICE->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-	//D3D9_DEVICE->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+	D3D9_DEVICE->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+	D3D9_DEVICE->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
 
-	//D3D9_DEVICE->SetRenderState(D3DRS_ZENABLE, TRUE);		// Turn on the zbuffer
+	D3D9_DEVICE->SetRenderState(D3DRS_ZENABLE, TRUE);		// Turn on the zbuffer
 	D3D9_DEVICE->SetRenderState(D3DRS_AMBIENT, 0xffffffff);
 
 	// alpha blend
@@ -72,5 +68,5 @@ void Graphics::RenderState()
 	D3D9_DEVICE->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
 	// option : 기본컬링, CCW(반시계), CW(시계), NONE(컬링 안함)
-	//D3D9_DEVICE->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
+	D3D9_DEVICE->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
 }

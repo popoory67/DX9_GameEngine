@@ -9,6 +9,7 @@
 #define		TIGER				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/tiger.x"
 #define		OBJ_TEST			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/bb8.obj"
 #define		OBJ_IRON			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/IronMan.obj"
+#define		OBJ_POT				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/test.obj"
  
 #define		TEXTURE				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/main body.tga"
 #define		TEXTURE2			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/tiger.bmp"
