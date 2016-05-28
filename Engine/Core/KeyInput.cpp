@@ -1,6 +1,7 @@
 #include "CorePCH.h"
 #include "KeyInput.h"
 
+KeyInput* KeyInput::_instance = nullptr;
 
 KeyInput::KeyInput()
 {
@@ -11,6 +12,17 @@ KeyInput::~KeyInput()
 {
 
 }
+
+KeyInput& KeyInput::Get()
+{
+	if (!_instance)
+	{
+		_instance = KeyInput::Create();
+	}
+
+	return *_instance;
+}
+
 
 KeyInput* KeyInput::Create()
 {
@@ -44,4 +56,12 @@ void KeyInput::KeyUp(unsigned int key)
 bool KeyInput::IsKeyDown(unsigned int key)
 {
 	return _keys[key];
+}
+
+void KeyInput::Clear()
+{
+	if (_keys)
+	{
+		delete[] _keys;
+	}
 }

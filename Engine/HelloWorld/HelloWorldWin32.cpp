@@ -1,12 +1,18 @@
-#include "System.h"
+#include "WindowSystem.h"
+#include "Application.h"
+
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	if (System::Get().Init())
+	if (WindowSystem::Get().Init())
 	{
-		System::Get().Run();
+		// callback test
+		GameObjectPtr game(new GameManager());
+		GameObjectManager::Get().AddGame(game);
+
+		WindowSystem::Get().Run();
 	}
 
-	System::Get().Clear();
+	WindowSystem::Get().Clear();
 }
 

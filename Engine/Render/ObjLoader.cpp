@@ -4,12 +4,12 @@
 
 namespace ObjLoader
 {
-	int PathFromFileName(LPCTSTR fileName)
+	int PathFromFileName(const string& fileName)
 	{
 		int ret = -2;
 		int i = 0;
 
-		LPCTSTR s = fileName;
+		LPCTSTR s = fileName.c_str();
 
 		while (*s)
 		{
@@ -34,7 +34,7 @@ namespace ObjLoader
 			str2++;
 		}
 
-		// str2에서 str를 뺀 문자열의 개수를 반환
+		// the number of string
 		return str2 - str;
 	}
 
@@ -45,8 +45,7 @@ namespace ObjLoader
 
 	bool ReadKx(const char* line, float* kx)
 	{
-		// Specs say that y and z components are optional, and if they're not there
-		// then they're equal to x.
+		// Specs say that y and z components are optional, and if they're not there then they're equal to x.
 		if (0 == _stricmp("spectral", line + 3))
 		{
 			return false; // Not supported.
@@ -66,7 +65,6 @@ namespace ObjLoader
 	}
 
 
-
 	bool InspectVertexDefinition(const char* firstVertex, bool& hasNormals, bool& hasTexCoords)
 	{
 		hasNormals = false;
@@ -74,12 +72,12 @@ namespace ObjLoader
 
 		const char* str = firstVertex;
 
-		// Skip the vertex position component.
+		// skip the vertex position component.
 		int len = CountNumbers(str);
 
 		if (len == 0)
 		{
-			return false; // There is no vertex index component either!!??
+			return false;
 		}
 		str += len;
 
@@ -89,9 +87,7 @@ namespace ObjLoader
 		}
 		str++;
 
-
-
-		// Now move on to check for tex coords info.
+		// move on to check for tex coords info.
 		len = CountNumbers(str);
 
 		if (len > 0)
@@ -106,9 +102,7 @@ namespace ObjLoader
 		}
 		str++;
 
-
-
-		// Now check for normal info.
+		// check for normal info.
 		len = CountNumbers(str);
 
 		if (len > 0)
@@ -123,9 +117,7 @@ namespace ObjLoader
 	{
 		int spaceCount = 0;
 
-		// We determine the number of vertices by counting the spaces. Before each
-		// vertex definition, there is always a space. Some exporters write an extra space
-		// at the end of the line, so we'll skip that.
+		// we determine the number of vertices by counting the spaces.
 		for (const char* str = line + 1; *str != 0; str++)
 		{
 			if (*str != ' ')
@@ -133,8 +125,6 @@ namespace ObjLoader
 				continue;
 			}
 
-			//if( *(s+1) == 0 )
-			//	continue;
 			if (!IsCharNumber(*(str + 1)))
 			{
 				continue;
@@ -146,20 +136,22 @@ namespace ObjLoader
 				continue;
 			}
 
-			// Ok, this is the first space. Let's examine the vertex info that comes next to determine
+			// this is the first space. Let's examine the vertex info that comes next to determine
 			// which vertex components the face contains.
 			if (inspectVertexComponents)
+			{
 				InspectVertexDefinition(str + 1, hasNormals, hasTexCoords);
+			}
 		}
 
 		faceVertexCount = spaceCount;
 	}
 
-	int LoadMtl(LPCTSTR file_name, std::vector<ObjMaterial*>& materials)
+	int LoadMtl(const string& file_name, std::vector<ObjMaterial*>& materials)
 	{
 		CHAR buffer[LINE_BUFF_SIZE];
 
-		FILE* pFile = _tfopen(file_name, TEXT("r"));
+		FILE* pFile = _tfopen(file_name.c_str(), TEXT("r"));
 
 		if (!pFile) return 0;
 
@@ -239,7 +231,7 @@ namespace ObjLoader
 		return 1;
 	}
 
-	int LoadObj(LPCTSTR file_name, ObjMesh* pOutObjMesh)
+	int LoadObj(const string& file_name, ObjMesh* pOutObjMesh)
 	{
 		CHAR buffer[LINE_BUFF_SIZE];
 
@@ -247,7 +239,7 @@ namespace ObjLoader
 
 		obj.Clear();
 
-		FILE* pFile = _tfopen(file_name, TEXT("r"));
+		FILE* pFile = _tfopen(file_name.c_str(), TEXT("r"));
 
 		if (!pFile)
 		{
@@ -287,8 +279,6 @@ namespace ObjLoader
 
 			else if (0 == strncmp("f ", buffer, 2))
 			{
-				// TODO: 'fo' (face outline) is seemingly an old flag equivalent to f (face).
-				// Consider adding support for that too.
 				numFaces++;
 
 				int vCount = 0;
@@ -326,7 +316,7 @@ namespace ObjLoader
 				sscanf(buffer + 7, "%s", pOutObjMesh->_mtlFileName);
 		}
 
-		// Failure.
+		// failure
 		if (numVertices == 0 || numFaces == 0)
 		{
 			fclose(pFile);
@@ -357,8 +347,8 @@ namespace ObjLoader
 		UINT fTexCoordCount = 0;
 
 		UINT matCount = 0; // material counter.
-		UINT groupCount = 0; // Group counter.
-		UINT lastGroupCount = 0; // Number of groups on last encountered 'g ' line.
+		UINT groupCount = 0; // group counter.
+		UINT lastGroupCount = 0; // number of groups on last encountered 'g ' line.
 
 		while (!feof(pFile))
 		{
@@ -368,7 +358,7 @@ namespace ObjLoader
 
 			if (0 == strncmp("v ", buffer, 2))
 			{
-				// Vertex
+				// vertex
 				ObjMesh::Float3& v = obj._vertices[vertexCount++];
 				sscanf(buffer + 1, "%f %f %f", &v.x, &v.y, &v.z);
 
@@ -402,7 +392,7 @@ namespace ObjLoader
 
 			else if (0 == strncmp("vn ", buffer, 3))
 			{
-				// Normal
+				// normal
 				sscanf(buffer + 2, "%f %f %f",
 					&obj._normals[vNormalCount].x, &obj._normals[vNormalCount].y, &obj._normals[vNormalCount].z);
 
@@ -411,7 +401,7 @@ namespace ObjLoader
 
 			else if (0 == strncmp("vt ", buffer, 3))
 			{
-				// Texture coordinate
+				// texture coordinate
 				sscanf(buffer + 2, "%f %f",
 					&obj._texCoords[vTexCoordCount].x, &obj._texCoords[vTexCoordCount].y);
 
@@ -420,9 +410,7 @@ namespace ObjLoader
 
 			else if (0 == strncmp("f ", buffer, 2))
 			{
-				// Face. See remark at the bottom of the file to see why the somewhat
-				// crpytic interpretation of an 'f ' line in the source file.
-
+				// face
 				ObjMesh::Face& face = obj._faces[faceCount];
 
 				InspectFaceLine(buffer, face._verticesCount, false, hasTexCoords, hasNormals);
@@ -437,17 +425,17 @@ namespace ObjLoader
 				{
 					int v = -1, t = -1, n = -1;
 
-					/* face vertices 추가 */
+					/* add Face vertices */
 
-					// f 다음에 오는 띄어쓰기 제거
+					// remove blank next to f
 					while (*s != ' ')
 					{
 						s++;
 					}
 					s++;
 
-					// 숫자 문자열을 int형으로 변환
-					v = atoi(s); // or sscanf( s, "%d", &v );
+					// change number character to int
+					v = atoi(s);
 
 					if (v < 0)
 					{
@@ -455,13 +443,13 @@ namespace ObjLoader
 					}
 
 					obj._faceVertices[fVertexCount] = v - 1; // This is to make the indices 0-based numbering
-					fVertexCount++; // 배열 증가
+					fVertexCount++; // plus array position
 
-					/* Face texture coordinates 추가 */
+					/* add Face texture coordinates */
 					if (hasTexCoords || hasNormals)
 					{
 
-						// 다음 숫자까지 포인터를 옮김
+						// move pointer to next number
 						while (*s != '/')
 						{
 							s++;
@@ -483,7 +471,7 @@ namespace ObjLoader
 						}
 					}
 
-					/* Face normal 추가 */
+					/* add Face normal */
 					if (hasNormals)
 					{
 						while (*s != '/')
@@ -545,7 +533,6 @@ namespace ObjLoader
 				{
 					if (*s == ' ')
 					{
-						// TODO: sscanf() might not be the best solution to read strings.
 						sscanf(s + 1, "%s", obj._groups[groupCount + lastGroupCount]._name);
 						obj._groups[groupCount + lastGroupCount]._firstFace = faceCount;
 						obj._groups[groupCount + lastGroupCount]._numFaces = 0;
@@ -558,13 +545,13 @@ namespace ObjLoader
 
 		}
 
-		// Calculate face count for last defined material.
+		// calculate face count for last defined material.
 		if (matCount > 0)
 		{
 			obj._matGroups[matCount - 1]._numFaces = faceCount - obj._matGroups[matCount - 1]._firstFace;
 		}
 
-		// Calculate face count for groups defined in last 'g ' statement.
+		// calculate face count for groups defined in last 'g ' statement.
 		if (groupCount > 0)
 		{
 			for (UINT j = lastGroupCount; j > 0; j--)
@@ -575,7 +562,7 @@ namespace ObjLoader
 
 		fclose(pFile);
 
-		// Now load mtl file.
+		// load mtl file.
 		if (obj._mtlFileName == nullptr || obj._mtlFileName[0] == 0)
 		{
 			return 1;
@@ -599,16 +586,16 @@ namespace ObjLoader
 				return 2;
 			}
 
-			lstrcpyn(libFile, file_name, n + 1);
+			lstrcpyn(libFile, file_name.c_str(), n + 1);
 			lstrcpyn(libFile + n, mtlFileName, MAX_PATH - n);
 
 			if (0 >= LoadMtl(libFile, obj._materials))
 			{
-				return 2; // Failed to load mtl file.
+				return 2; // failed to load mtl file.
 			}
 		}
 
-		return 1; // Success
+		return 1; // success
 	}
 
 }

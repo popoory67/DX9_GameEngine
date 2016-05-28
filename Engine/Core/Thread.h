@@ -29,8 +29,8 @@ private:
 
 	thread _thread;
 
-	int _id								= 0;
+	int _id = 0;
 
-	function<void(int)> _callback		= nullptr;
+	function<void(int)> _callback = nullptr;
 };
 

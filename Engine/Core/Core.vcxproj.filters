@@ -34,6 +34,10 @@
     <ClInclude Include="InputHeader.h">
       <Filter>Input</Filter>
     </ClInclude>
+    <ClInclude Include="CoreMacros.h" />
+    <ClInclude Include="ThreadHeader.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Thread.cpp">

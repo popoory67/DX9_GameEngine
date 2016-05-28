@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CoreMacros.h" />
     <ClInclude Include="CorePCH.h" />
     <ClInclude Include="KeyInput.h" />
     <ClInclude Include="InputHeader.h" />
@@ -18,6 +19,7 @@
     <ClInclude Include="MessageDispatcher.h" />
     <ClInclude Include="MessageHeader.h" />
     <ClInclude Include="Thread.h" />
+    <ClInclude Include="ThreadHeader.h" />
     <ClInclude Include="ThreadManager.h" />
   </ItemGroup>
   <ItemGroup>

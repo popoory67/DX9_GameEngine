@@ -1,7 +1,8 @@
 #pragma once
 
-#define DEFAULT_SHADER		"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/ObjViewer.fx"
+#define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/ObjViewer.fx"
 
+typedef function<void()>		FuncVoid;
 
 class Shader
 {
@@ -9,9 +10,15 @@ public:
 	Shader();
 	~Shader();
 
-	LPD3DXEFFECT GetEffect() { return _effect; }
+	static Shader* Create();
 
-	void Init();
+	LPD3DXEFFECT GetEffect() { return _d3dEffect; }
+
+	FuncVoid GetShaderFunc() { return _shaderFunc; }
+
+	void SetShaderFunc(FuncVoid func) { _shaderFunc = func; }
+
+public:
 
 	void LoadShader(const string& fileName);
 
@@ -19,7 +26,9 @@ public:
 
 private:
 
-	LPD3DXEFFECT _effect;
+	LPD3DXEFFECT _d3dEffect = nullptr;
+
+	FuncVoid _shaderFunc = nullptr;
 
 };
 

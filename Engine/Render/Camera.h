@@ -53,7 +53,13 @@ public:
 
 	void Position();
 
+	int GetID() { return _id; }
+
+	void SetID(int id) { _id = id; }
+
 private:
+
+	int _id = 0;
 
 	D3DXMATRIXA16 _world;
 	D3DXMATRIXA16 _view;

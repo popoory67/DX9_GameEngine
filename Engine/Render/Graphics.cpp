@@ -2,18 +2,32 @@
 #include "Graphics.h"
 
 #include "CreateD3D9.h"
-#include "Renderer.h"
+#include "MeshManager.h"
 
+
+Graphics* Graphics::_instance = nullptr;
 
 Graphics::Graphics()
 {
 
 }
 
-
 Graphics::~Graphics()
 {
+	if (_instance)
+	{
+		SAFE_DELETE(_instance);
+	}
+}
 
+Graphics& Graphics::Get()
+{
+	if (!_instance)
+	{
+		_instance = new Graphics();
+	}
+
+	return *_instance;
 }
 
 void Graphics::Init(HWND hWnd)
@@ -24,7 +38,7 @@ void Graphics::Init(HWND hWnd)
 
 void Graphics::Clear()
 {
-	Renderer::Get().Clear();
+	MeshManager::Get().Clear();
 
 	D3D9_INSTANCE.Clear();
 }
@@ -42,7 +56,7 @@ void Graphics::RenderScene()
 		RenderState();
 
 		// render mesh objects
-		Renderer::Get().Render();
+		MeshManager::Get().Render();
 
 		D3D9_DEVICE->EndScene();
 	}

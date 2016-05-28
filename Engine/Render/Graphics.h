@@ -1,12 +1,12 @@
 #pragma once
 
-
 class Graphics
 {
 public:
 
-	Graphics();
 	~Graphics();
+
+	static Graphics& Get();
 
 	void Init(HWND hWnd);
 
@@ -18,5 +18,10 @@ public:
 
 private:
 
+	Graphics();
+
+private:
+
+	static Graphics* _instance;
 };
 

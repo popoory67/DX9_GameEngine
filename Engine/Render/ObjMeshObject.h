@@ -33,7 +33,7 @@ public:
 	ObjMeshObject();
 	~ObjMeshObject();
 
-	static ObjMeshObject* Create(LPCTSTR fileName);
+	static ObjMeshObject* Create(const string& fileName);
 
 	MeshData* GetMeshData() { return _mesh; }
 
@@ -49,7 +49,7 @@ private:
 
 	HRESULT Init(const ObjMesh& objMesh, bool flipTriangles, bool flipUVs);
 
-	// This optimization requires sorting and/or searching which can be quite slow for heavy meshes.
+	// this optimization requires sorting and/or searching which can be quite slow for heavy meshes.
 	HRESULT InitVB(const ObjMesh& objMesh, bool flipTriangles, bool flipUVs);
 
 	void Clear();

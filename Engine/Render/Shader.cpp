@@ -3,9 +3,10 @@
 
 #include "CreateD3D9.h"
 
-Shader::Shader() : _effect(nullptr)
+
+Shader::Shader()
 {
-	Init();
+
 }
 
 
@@ -15,11 +16,14 @@ Shader::~Shader()
 }
 
 
-void Shader::Init()
+Shader* Shader::Create()
 {
-	LoadShader(DEFAULT_SHADER);
-}
+	Shader* shader = new Shader();
 
+	shader->LoadShader(DEFAULT_SHADER);
+
+	return shader;
+}
 
 void Shader::LoadShader(const string& fileName)
 {
@@ -27,20 +31,18 @@ void Shader::LoadShader(const string& fileName)
 	DWORD					shaderFlags		= 0;
 
 	shaderFlags |= D3DXSHADER_DEBUG; // 컴파일러가 디버그 정보를 생성하도록 함
+	
+	auto openEffectFile = D3DXCreateEffectFromFile(D3D9_DEVICE, fileName.c_str(), NULL, NULL, shaderFlags, NULL, &_d3dEffect, &error);
 
-	if (FAILED(D3DXCreateEffectFromFile(D3D9_DEVICE, fileName.c_str(), NULL, NULL, shaderFlags, NULL, &_effect, &error)))
+	assert(!FAILED(openEffectFile));
+
+	if (error)
 	{
-		MessageBox(NULL, "failed fx file loading", "ninetail rendering engine", MB_OK);
-
-		if (error)
-		{
-			error->Release();
-		}
+		error->Release();
 	}
-
 }
 
 void Shader::Clear()
 {
-	SAFE_RELEASE(_effect);
+	SAFE_RELEASE(_d3dEffect);
 }

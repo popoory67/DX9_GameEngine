@@ -1,20 +1,16 @@
+#pragma once
 
-// create d3d9 device
+// create d3d9 device and window
 #include "CreateD3D9.h"
 
-// transform
-#include "Matrix.h"
-
 // mesh objects
-#include "XMeshObject.h"
-#include "ObjMeshObject.h"
+#include "MeshManager.h"
 
 // d3d9 rendering
-#include "Renderer.h"
 #include "Graphics.h"
 
 // camera view
-#include "Camera.h"
+#include "CameraManager.h"
 
 // shader effect
 #include "Shader.h"

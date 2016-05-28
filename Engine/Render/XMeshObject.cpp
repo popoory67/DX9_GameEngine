@@ -4,14 +4,19 @@
 
 
 
-XMeshObject::XMeshObject() : _objectName("Unknown"), _texture(nullptr), _materials(nullptr), _numMaterials(0L), _mtrlBuffer(nullptr)
+XMeshObject::XMeshObject() : 
+	_objectName("Unknown"), 
+	_texture(nullptr), 
+	_materials(nullptr), 
+	_numMaterials(0L), 
+	_mtrlBuffer(nullptr)
 {
-	_shader = new Shader();
+	_shader = Shader::Create();
 
 	_matrix = new Matrix();
 }
 
-XMeshObject::XMeshObject(string object_name)
+XMeshObject::XMeshObject(const string& object_name)
 {
 	XMeshObject();
 
@@ -23,55 +28,64 @@ XMeshObject::~XMeshObject()
 	Clear();
 }
 
-void XMeshObject::SetObjectName(string objectName)
+XMeshObject* XMeshObject::Create(const string& fileName)
+{
+	XMeshObject* mesh = new XMeshObject();
+
+	if (!mesh->LoadModel(fileName))
+	{
+		SAFE_DELETE(mesh);
+	}
+
+	return mesh;
+}
+
+void XMeshObject::SetObjectName(const string& objectName)
 {
 	_objectName = objectName;
 }
 
-MeshData* XMeshObject::GetMeshData()
+bool XMeshObject::LoadModel(const string& fileName)
 {
-	MeshData* object			= new MeshData();
+	auto meshLoad = FAILED(D3DXLoadMeshFromX(fileName.c_str(), D3DXMESH_SYSTEMMEM, D3D9_DEVICE, NULL, &_mtrlBuffer, NULL, &_numMaterials, &_mesh));
 
-	object->_mesh				= _mesh;
-	object->_texture			= _texture;
-	object->_d3dxMaterials		= _d3dxMaterials;
-	object->_materials			= _materials;
-	object->_numMaterials		= _numMaterials;
-
-	return object;
-}
-
-void XMeshObject::LoadModel(const string& fileName)
-{
-	if (FAILED(D3DXLoadMeshFromX(fileName.c_str(), D3DXMESH_SYSTEMMEM, D3D9_DEVICE, NULL, &_mtrlBuffer, NULL, &_numMaterials, &_mesh)))
+	// if fail to load mesh data
+	if (meshLoad)
 	{
-		MessageBox(nullptr, "Could not find *.x file", "ninetail rendering engine", MB_OK);
+		// assert
+		assert(!meshLoad);
 
-		return;
+		return false;
 	}
 
+	// save materials data
 	_d3dxMaterials = (D3DXMATERIAL*)_mtrlBuffer->GetBufferPointer();
 
-	// mesh를 생성하면 기본 텍스쳐를 입혀줌
-	LoadTexture(DEFAULT_TEX);
+	// default texture
+	if (!LoadTexture(DEFAULT_TEX))
+	{
+		return false;
+	}
+
+	return true;
 }
 
-void XMeshObject::LoadTexture(const string& fileName)
+bool XMeshObject::LoadTexture(const string& fileName)
 {
 	// if texture does not exist
 	if (fileName.c_str() == nullptr || lstrlenA(fileName.c_str()) < 0)
 	{
-		return;
+		return false;
 	}
 
 	if ((_materials = new D3DMATERIAL9[_numMaterials]) == nullptr)
 	{
-		return;
+		return false;
 	}
 
 	if ((_texture = new LPDIRECT3DTEXTURE9[_numMaterials]) == nullptr)
 	{
-		return;
+		return false;
 	}
 	 
 	for (auto i = 0; i < _numMaterials; i++)
@@ -81,20 +95,51 @@ void XMeshObject::LoadTexture(const string& fileName)
 
 		_texture[i] = nullptr;
 
-		if (FAILED(D3DXCreateTextureFromFileA(D3D9_DEVICE, fileName.c_str(), &_texture[i])))
-		{
-			MessageBox(nullptr, "failed texture file loading", "ninetail rendering engine", MB_OK);
+		auto textureLoad = D3DXCreateTextureFromFileA(D3D9_DEVICE, fileName.c_str(), &_texture[i]);
 
-			return;
+		// if fail to load texture
+		if (textureLoad)
+		{
+			// assert
+			assert(!FAILED(textureLoad));
+
+			return false;
 		}
 	}
+
+	return true;
 }
 
 void XMeshObject::Clear()
 {
 	if (_mtrlBuffer)
-		_mtrlBuffer->Release();
+	{
+		SAFE_RELEASE(_mtrlBuffer);
+	}
+
+	if (_materials)
+	{
+		SAFE_DELETE(_materials);
+	}
+
+	if (_shader)
+	{
+		_shader->Clear();
+		SAFE_DELETE(_shader);
+	}
+
+	if (_texture)
+	{
+		SAFE_DELETE(_texture);
+	}
+
+	if (_mesh)
+	{
+		SAFE_RELEASE(_mesh);
+	}
 
 	if (_matrix)
+	{
 		SAFE_DELETE(_matrix);
+	}
 }

@@ -4,38 +4,53 @@
     <Filter Include="OpenGL">
       <UniqueIdentifier>{35a63cb4-e1f9-45ae-a3fa-6841acea17a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3D11">
-      <UniqueIdentifier>{a938566c-8b6f-49fb-a209-2b032cc963f1}</UniqueIdentifier>
+    <Filter Include="GameBase">
+      <UniqueIdentifier>{e1e9458e-702d-4ccf-bb7b-3402d7d053ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3D9">
+    <Filter Include="DirectX">
+      <UniqueIdentifier>{e0154d85-c18a-4d4f-8238-4ed2e15a222b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D9">
       <UniqueIdentifier>{afdd4318-f7de-41e0-8118-d8bd93a6609a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3D9\Shader">
+    <Filter Include="DirectX\D3D9\Shader">
       <UniqueIdentifier>{225036d1-c737-4426-b586-af310901f390}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3D9\Transform">
+    <Filter Include="DirectX\D3D9\Transform">
       <UniqueIdentifier>{f6d70cca-a6d4-46c7-87b8-da67def9e2f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3D9\Camera">
+    <Filter Include="DirectX\D3D9\Camera">
       <UniqueIdentifier>{7cdaa2e3-3e80-4623-befd-f3510b759e6f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3D11\Device">
-      <UniqueIdentifier>{84eddac9-7de1-47b7-9018-89da31063f55}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="D3D9\Device">
+    <Filter Include="DirectX\D3D9\Device">
       <UniqueIdentifier>{783e9430-9546-47af-92b1-bb8db02ed359}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3D11\3D Model">
-      <UniqueIdentifier>{a29e96cb-c7ba-454d-984a-97506af319d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="D3D9\3D Model">
+    <Filter Include="DirectX\D3D9\3D Model">
       <UniqueIdentifier>{1b439ceb-e621-4c28-81cd-9e8d67a24234}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3D9\Render">
+    <Filter Include="DirectX\D3D9\3D Model\Obj">
+      <UniqueIdentifier>{487e94c1-fc9f-47e3-a348-62116ef9a8a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D9\3D Model\X">
+      <UniqueIdentifier>{08fc8057-08c4-493f-90cd-f5ab211da15f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D9\Render">
       <UniqueIdentifier>{43e72dcd-720c-4f12-ae54-91bc48003fae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3D11\Render">
+    <Filter Include="DirectX\D3D11">
+      <UniqueIdentifier>{a938566c-8b6f-49fb-a209-2b032cc963f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D11\Device">
+      <UniqueIdentifier>{84eddac9-7de1-47b7-9018-89da31063f55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D11\3D Model">
+      <UniqueIdentifier>{a29e96cb-c7ba-454d-984a-97506af319d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D11\Render">
       <UniqueIdentifier>{8ca05ca7-9623-4cff-9149-8eaf4b4be347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\Windoiw">
+      <UniqueIdentifier>{0828c405-d37d-40cf-a8b9-6e4cf392baf4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,46 +60,61 @@
     </ClInclude>
     <ClInclude Include="RenderMacros.h" />
     <ClInclude Include="Graphics.h">
-      <Filter>D3D9\Render</Filter>
+      <Filter>DirectX\D3D9\Render</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>D3D9\Shader</Filter>
+      <Filter>DirectX\D3D9\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>D3D9\Transform</Filter>
+      <Filter>DirectX\D3D9\Transform</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>D3D9\Camera</Filter>
+      <Filter>DirectX\D3D9\Camera</Filter>
     </ClInclude>
     <ClInclude Include="D3D9Header.h">
-      <Filter>D3D9</Filter>
+      <Filter>DirectX\D3D9</Filter>
     </ClInclude>
     <ClInclude Include="D3D11Header.h">
-      <Filter>D3D11</Filter>
+      <Filter>DirectX\D3D11</Filter>
     </ClInclude>
     <ClInclude Include="CreateD3D11.h">
-      <Filter>D3D11\Device</Filter>
+      <Filter>DirectX\D3D11\Device</Filter>
     </ClInclude>
     <ClInclude Include="ModelParser.h">
-      <Filter>D3D11\3D Model</Filter>
+      <Filter>DirectX\D3D11\3D Model</Filter>
     </ClInclude>
     <ClInclude Include="CreateD3D9.h">
-      <Filter>D3D9\Device</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>D3D9\Render</Filter>
+      <Filter>DirectX\D3D9\Device</Filter>
     </ClInclude>
     <ClInclude Include="D3D11Renderer.h">
-      <Filter>D3D11\Render</Filter>
+      <Filter>DirectX\D3D11\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraManager.h">
+      <Filter>DirectX\D3D9\Camera</Filter>
     </ClInclude>
     <ClInclude Include="ObjLoader.h">
-      <Filter>D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D9\3D Model\Obj</Filter>
     </ClInclude>
     <ClInclude Include="ObjMeshObject.h">
-      <Filter>D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D9\3D Model\Obj</Filter>
     </ClInclude>
     <ClInclude Include="XMeshObject.h">
-      <Filter>D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D9\3D Model\X</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectManager.h">
+      <Filter>GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectHeader.h">
+      <Filter>GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowSystem.h">
+      <Filter>DirectX\Windoiw</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshManager.h">
+      <Filter>DirectX\D3D9\3D Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -92,40 +122,52 @@
       <Filter>OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
-      <Filter>D3D9\Render</Filter>
+      <Filter>DirectX\D3D9\Render</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
-      <Filter>D3D9\Shader</Filter>
+      <Filter>DirectX\D3D9\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
-      <Filter>D3D9\Transform</Filter>
+      <Filter>DirectX\D3D9\Transform</Filter>
     </ClCompile>
     <ClCompile Include="CreateD3D11.cpp">
-      <Filter>D3D11\Device</Filter>
+      <Filter>DirectX\D3D11\Device</Filter>
     </ClCompile>
     <ClCompile Include="ModelParser.cpp">
-      <Filter>D3D11\3D Model</Filter>
+      <Filter>DirectX\D3D11\3D Model</Filter>
     </ClCompile>
     <ClCompile Include="CreateD3D9.cpp">
-      <Filter>D3D9\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>D3D9\Render</Filter>
+      <Filter>DirectX\D3D9\Device</Filter>
     </ClCompile>
     <ClCompile Include="D3D11Renderer.cpp">
-      <Filter>D3D11\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjLoader.cpp">
-      <Filter>D3D9\3D Model</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjMeshObject.cpp">
-      <Filter>D3D9\3D Model</Filter>
-    </ClCompile>
-    <ClCompile Include="XMeshObject.cpp">
-      <Filter>D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D11\Render</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>D3D9\Camera</Filter>
+      <Filter>DirectX\D3D9\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>DirectX\D3D9\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLoader.cpp">
+      <Filter>DirectX\D3D9\3D Model\Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMeshObject.cpp">
+      <Filter>DirectX\D3D9\3D Model\Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="XMeshObject.cpp">
+      <Filter>DirectX\D3D9\3D Model\X</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>GameBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp">
+      <Filter>GameBase</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowSystem.cpp">
+      <Filter>DirectX\Windoiw</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshManager.cpp">
+      <Filter>DirectX\D3D9\3D Model</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

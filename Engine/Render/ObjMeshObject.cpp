@@ -4,44 +4,27 @@
 #include "RenderMacros.h"
 #include "CreateD3D9.h"
 
-// This structure describes a face vertex in an obj mesh. A face vertex simply contains
-// indexes to the actual vertex component data in the obj mesh.
+// this structure describes a face vertex in an obj mesh
 struct ObjTriVertex
 {
-	int _pos;
-	int _normal;
-	int _tex;
-
-	void Init()
-	{
-		_pos = _normal = _tex = -1;
-	}
+	int _pos = -1;
+	int _normal = -1;
+	int _tex = -1;
 };
 
-// This structure describes a triangle in the obj mesh. Obj meshes are composed of faces, or polygons.
-// Each polygon consists of one or more triangles. Each triangle is made of 3 face vertices.
-// See [...] for a description of the difference between a vertex and a face vertex.
+// this structure describes a triangle in the obj mesh.
 struct ObjTriangle
 {
 	ObjTriVertex vertex[3];
-	//INT subsetIndex;
-
-	void Init()
-	{
-		vertex[0].Init();
-		vertex[1].Init();
-		vertex[2].Init(); /*subsetIndex = -1;*/
-	}
 };
 
-typedef std::vector< ObjTriangle > ObjTriangleList;
+typedef vector< ObjTriangle > ObjTriangleList;
 
 
 
-// Adds an OBJ face to the specified triangle list. If the face is not triangular, it is
-// triangulated by taking, for the nth vertex, where n starts from 2, the triangle that
-// consists of the first vertex, the nth vertex, and the (n-1)th vertex. This triangulation
-// method is fast but may yield weird overlapping triangles.
+// adds an .obj face to the specified triangle list. 
+// If the face is not triangular, it is triangulated by taking, for the (n)th vertex, 
+// where n starts from 2, the triangle that consists of the first vertex, the (n)th vertex, and the (n-1)th vertex.
 void AddObjFace(ObjTriangleList& objTriangleList, const ObjMesh& objMesh, UINT objFaceIndex, bool flipTriangles, bool flipUVs)
 {
 	const ObjMesh::Face& objFace = objMesh._faces[objFaceIndex];
@@ -51,8 +34,6 @@ void AddObjFace(ObjTriangleList& objTriangleList, const ObjMesh& objMesh, UINT o
 	for (int fv = 2; fv < objFace._verticesCount; fv++)
 	{
 		ObjTriangle tri;
-
-		tri.Init();
 
 		tri.vertex[0]._pos = objMesh._faceVertices[objFace._firstVertex];
 		tri.vertex[1]._pos = objMesh._faceVertices[objFace._firstVertex + fv - 1];
@@ -92,9 +73,9 @@ ObjMeshObject::ObjMeshObject()
 {
 	_mesh = new MeshData();
 
-	_shader = new Shader();
-
 	_matrix = new Matrix();
+
+	_shader = Shader::Create();
 }
 
 ObjMeshObject::~ObjMeshObject()
@@ -113,11 +94,11 @@ void ObjMeshObject::Clear()
 }
 
 
-ObjMeshObject* ObjMeshObject::Create(LPCTSTR fileName)
+ObjMeshObject* ObjMeshObject::Create(const string& fileName)
 {
 	ObjMesh objMesh;
 
-	if (0 > ObjLoader::LoadObj(fileName, &objMesh))
+	if (ObjLoader::LoadObj(fileName, &objMesh) < 0)
 	{
 		OutputDebugString(TEXT("Failed to load the specified obj file!"));
 
@@ -126,9 +107,14 @@ ObjMeshObject* ObjMeshObject::Create(LPCTSTR fileName)
 
 	ObjMeshObject* mesh = new ObjMeshObject();
 
-	if (FAILED(mesh->Init(objMesh, false, true)))
+	auto meshLoad = FAILED(mesh->Init(objMesh, false, true));
+
+	// assert
+	if (meshLoad)
 	{
 		SAFE_DELETE(mesh);
+
+		assert( !meshLoad );
 
 		return nullptr;
 	}
@@ -139,11 +125,13 @@ ObjMeshObject* ObjMeshObject::Create(LPCTSTR fileName)
 
 void ObjMeshObject::LoadTexture(const string& fileName)
 {
-	if (FAILED(D3DXCreateTextureFromFile(D3D9_DEVICE, fileName.c_str(), &_texture)))
-	{
-		MessageBox(nullptr, "failed texture file loading", "ninetail rendering engine", MB_OK);
+	auto textureLoad = FAILED(D3DXCreateTextureFromFile(D3D9_DEVICE, fileName.c_str(), &_texture));
 
-		return;
+	// if fail to load texture
+	if (textureLoad)
+	{
+		// assert
+		assert( !textureLoad );
 	}
 }
 

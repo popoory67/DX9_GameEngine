@@ -1,10 +1,9 @@
 #include "Application.h"
 
-#include "Resources.h"
-
 #include "D3D9Header.h"
-#include "D3D11Header.h"
-
+//#include "D3D11Header.h"
+#include "InputHeader.h"
+#include "Resources.h"
 
 GameManager::GameManager()
 {
@@ -18,48 +17,56 @@ GameManager::~GameManager()
 
 
 void GameManager::Start()
-{
+{	
 	// x mesh
-	XMeshObjectPtr object(new XMeshObject());
-	object->LoadModel(BODY);
-	object->LoadTexture(TEXTURE);
+	XMeshObjectPtr object(XMeshObject::Create(X_BOY));
+	object->LoadTexture(TEX_BOY);
 	object->GetMatrix()->Scale(0.05f, 0.05f, 0.05f);
-	//object->GetShader()->LoadShader(DEFAULT_SHADER);
+	object->GetShader()->LoadShader(DEFAULT_SHADER);
 	//object->GetMatrix()->Rotate();
-	Renderer::Get().AddMesh(object); // 자료구조에 추가
-
-	//XMeshObjectPtr tiger(new XMeshObject());
-	//tiger->LoadModel(TIGER);
-	//tiger->LoadTexture(TEXTURE2);
+	MeshManager::Get().AddMesh(object);
+	
+	//XMeshObjectPtr tiger(XMeshObject::Create(X_TIGER));
+	//tiger->LoadModel(X_TIGER);
+	//tiger->LoadTexture(TEX_TIGER);
 	//tiger->GetMatrix()->Scale(10, 10, 10);
 	//tiger->GetMatrix()->Position(10, 10, 10);
 	////tiger->GetShader()->LoadShader(DEFAULT_SHADER);
-	//Renderer::Get().AddMesh(tiger);
+	//MeshManager::Get().AddMesh(tiger);
 
 	// obj mesh
-	//ObjMeshObjectPtr mesh = ObjMeshObject::Create(OBJ_IRON);
-	//mesh->GetMatrix()->Scale(0.15f, 0.15f, 0.15f);
-	//mesh->GetMatrix()->Position(11, -20, -1);
-	//mesh->GetMatrix()->Rotate(0, 10, 0);
-	//mesh->LoadTexture(TEXTURE_DEFAULT);
-	////mesh->GetShader()->LoadShader(DEFAULT_SHADER);
-	//Renderer::Get().AddMesh(mesh);
+	ObjMeshObjectPtr ironMan(ObjMeshObject::Create(OBJ_IRON));
+	ironMan->GetMatrix()->Scale(0.15f, 0.15f, 0.15f);
+	ironMan->GetMatrix()->Position(11, -20, -1);
+	ironMan->GetMatrix()->Rotate(0, 10, 0);
+	//ironMan->LoadTexture(TEXTURE_DEFAULT);
+	//ironMan->GetShader()->LoadShader(DEFAULT_SHADER);
+	MeshManager::Get().AddMesh(ironMan);
 
-	//ObjMeshObjectPtr mesh2 = ObjMeshObject::Create(OBJ_TEST);
-	//mesh2->GetMatrix()->Scale(0.1f, 0.1f, 0.1f);
-	//mesh2->GetMatrix()->Position(-10, -5, 0);
-	////mesh2->GetShader()->LoadShader(DEFAULT_SHADER);
-	//Renderer::Get().AddMesh(mesh2);
+	ObjMeshObjectPtr bb8(ObjMeshObject::Create(OBJ_BB8));
+	bb8->GetMatrix()->Scale(0.1f, 0.1f, 0.1f);
+	bb8->GetMatrix()->Position(-10, -5, 0);
+	bb8->LoadTexture(TEX_DEFAULT);
+	//mesh2->GetShader()->LoadShader(DEFAULT_SHADER);
+	MeshManager::Get().AddMesh(bb8);
 
-	ObjMeshObjectPtr mesh3 = ObjMeshObject::Create(OBJ_POT);
-	mesh3->GetMatrix()->Scale(1, 1, 1);
-	mesh3->GetMatrix()->Position(0.0f, 0.0f, -10.0f);
-	Renderer::Get().AddMesh(mesh3);
+	//ObjMeshObjectPtr pot(ObjMeshObject::Create(OBJ_POT));
+	//pot->GetMatrix()->Scale(5, 5, 5);
+	//pot->GetMatrix()->Position(-10.0f, 0.0f, -10.0f);
+	//MeshManager::Get().AddMesh(pot);
 }
 
 void GameManager::Update()
 {
+	KeyInput();
+}
 
+void GameManager::KeyInput()
+{
+	if (KEY_INPUT.IsKeyDown(VK_F1))
+	{
+		GET_MESH(0)->GetMatrix()->Position(0, 0, -10);
+	}
 }
 
 void GameManager::Release()

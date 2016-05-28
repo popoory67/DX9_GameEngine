@@ -90,9 +90,9 @@ struct ObjMesh
 
 	struct Face
 	{
-		int _firstVertex; // Index into the mesh's vertex array - defines the first vertex of this face.
-		int _firstTexCoord; // Like above, but can be -1 to specify face has no tex coords.
-		int _firstNormal; // ~~
+		int _firstVertex;
+		int _firstTexCoord;
+		int _firstNormal;
 
 		int _verticesCount; // Number of vertices in this face.
 	};
@@ -116,14 +116,14 @@ struct ObjMesh
 	std::vector< int > _faceTexCoords;
 
 	std::vector< Group > _groups;
-	std::vector< Group > _matGroups; // Defines a material to use, this material will continue to be used until another usemtl line(corresponding material is saved in.mtl file)
+	std::vector< Group > _matGroups; // defines a material to use, this material will continue to be used until another usemtl line(corresponding material is saved in.mtl file)
 
 	std::vector< ObjMaterial* > _materials; // .mtl file data
 
-	unsigned int _numTriangles; // Differs from faces.size() if the mesh is not triangulated.
+	unsigned int _numTriangles; // differs from faces.size() if the mesh is not triangulated.
 
-	Float3 _bbmin; // Bounding box minimum values.
-	Float3 _bbmax; // Bounding box maximum values.
+	Float3 _bbmin; // bounding box minimum values.
+	Float3 _bbmax; // bounding box maximum values.
 
 	char _mtlFileName[ MAX_PATH ];	// .mtl file name
 
@@ -158,31 +158,37 @@ struct ObjMesh
 
 namespace ObjLoader
 {
-	// Returns the index designating the end of the portion of the specified file name
-	// that defines the file path. Returns -1 if it fails.
-	inline int PathFromFileName(LPCTSTR fileName);
+	/**
+	 * returns the index designating the end of the portion of the specified file name that defines the file path.
+	 * @returns -1, if it fails
+	 */
+	inline int PathFromFileName(const string& fileName);
 
-	// Returns the number of numbers in the string.
+	// @returns the number of numbers in the string.
 	inline int CountNumbers(const char* str);
 
+	// identify that char is number.
 	inline bool IsCharNumber(char ch);
 
-	// Utility function used internally by this module.
-	// Used by LoadMtlLib to read Ka, Kd, Ks, and Tf.
+	// used by LoadMtlLib to read Ka, Kd, Ks, and Tf.
 	inline bool ReadKx(const char* line, float* kx);
 
-	// Loads an Obj file. Returns 1 on success, 0 on failure. Returns 2 if the obj
-	// file was loaded but the associated mtl file was not found.
-	int LoadObj(LPCTSTR file_name, ObjMesh* pOutObjMesh);
+	/**
+	 * loads an Obj file.
+	 * @returns 1 on success, 0 on failure. Returns 2 if the obj.
+	 */
+	int LoadObj(const string& file_name, ObjMesh* pOutObjMesh);
 
-	// Loads an .mtl file. This function is primarily used by LoadObj(), but is exposed here
-	// in case it's otherwise needed.
-	// Returns 0 on failure, 1 on success.
-	int LoadMtl(LPCTSTR file_name, std::vector< ObjMaterial* >& materials);
+	/**
+	 * loads an .mtl file.
+	 * this function is primarily used by LoadObj(), but is exposed here in case it's otherwise needed.
+	 * @returns 0 on failure, 1 on success.
+	 */
+	int LoadMtl(const string& file_name, std::vector< ObjMaterial* >& materials);
 
-	// face의 v/t/n이 각각 존재하는지 확인, 첫번째 face에서 한번만 확인
+	// identify face's v/t/n each other (in first face only once).
 	bool InspectVertexDefinition(const char* firstVertex, bool& hasNormals, bool& hasTexCoords);
 
-	// face의 vertex 개수가 몇개인지 확인 (모델마다 다르므로 확인해야함)
+	// identify the number of face's vertex. (it is different every model)
 	void InspectFaceLine(const char* line, int& faceVertexCount, bool inspectVertexComponents, bool& hasTexCoords, bool& hasNormals);
 }

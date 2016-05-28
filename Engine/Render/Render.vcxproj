@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CameraManager.h" />
     <ClInclude Include="CreateD3D11.h" />
     <ClInclude Include="CreateD3D9.h" />
     <ClInclude Include="CreateWindowGL.h">
@@ -19,13 +20,17 @@
     </ClInclude>
     <ClInclude Include="D3D11Header.h" />
     <ClInclude Include="D3D11Renderer.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObjectHeader.h" />
+    <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="ObjMeshObject.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="WindowSystem.h" />
     <ClInclude Include="XMeshObject.h" />
     <ClInclude Include="ModelParser.h" />
     <ClInclude Include="ObjLoader.h" />
-    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="MeshManager.h" />
     <ClInclude Include="D3D9Header.h" />
     <ClInclude Include="RenderMacros.h" />
     <ClInclude Include="RenderPCH.h" />
@@ -34,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="CreateD3D11.cpp" />
     <ClCompile Include="CreateD3D9.cpp" />
     <ClCompile Include="CreateWindowGL.cpp">
@@ -43,13 +49,16 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="D3D11Renderer.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="ObjMeshObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="WindowSystem.cpp" />
     <ClCompile Include="XMeshObject.cpp" />
     <ClCompile Include="ModelParser.cpp" />
     <ClCompile Include="ObjLoader.cpp" />
-    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="MeshManager.cpp" />
     <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <ItemGroup>

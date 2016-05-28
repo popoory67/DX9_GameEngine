@@ -10,3 +10,5 @@
 #include <iostream>
 
 using namespace std;
+
+#include "CoreMacros.h"

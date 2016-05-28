@@ -1,16 +1,11 @@
-////////////////////////////////////////////////
-// Scene variables.
-// Simple fx file to render obj files.
-// code-section.com
-
 float4x4 mWorld	: World;
 float4x4 mWVP	: WorldViewProjection;
 float4x4 mWIT	: WorldInverseTranspose;
 float3 vEye;
 
-float3 lightPos = { 1.f, 1.f, 1.f };
+float3 lightPos = { 1.f, 10.f, -100.f };
 float4 lightColor = { 1.f, 1.f, 1.f, 1.f };
-float4 sceneAmbient = { 0.15f, 0.15f, 0.15f, 1.f };
+float4 sceneAmbient = { 0.5f, 0.5f, 0.5f, 1.f };
 
 
 

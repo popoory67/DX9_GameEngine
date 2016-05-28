@@ -1,6 +1,8 @@
 #pragma once
 
-class GameManager
+#include "GameObject.h"
+
+class GameManager : public GameObject
 {
 public:
 
@@ -12,8 +14,10 @@ public:
 
 	void Update();
 
+	void KeyInput();
+
 	void Release();
 
 private:
-	
+
 };
