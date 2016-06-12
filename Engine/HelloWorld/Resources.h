@@ -15,6 +15,7 @@
 #define		TEX_BOY				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/main body.tga"
 #define		TEX_TIGER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/tiger.bmp"
 #define		TEX_DEFAULT			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/texture.png"
+#define		TEX_BB8				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/Body diff MAP.jpg"
 
 // shader
 #define		PHONG_BUMP_REFLECT	"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/Phong_bump_reflect.fx"

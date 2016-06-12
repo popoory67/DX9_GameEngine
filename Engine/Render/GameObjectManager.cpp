@@ -26,7 +26,7 @@ GameObjectManager& GameObjectManager::Get()
 	return *_instance;
 }
 
-void GameObjectManager::AddGame(GameObjectPtr gameObject)
+void GameObjectManager::AddGame(const GameObjectPtr gameObject)
 {
 	_gameVector.push_back(gameObject);
 }
@@ -47,6 +47,7 @@ void GameObjectManager::RunUpdate()
 	}
 }
 
+// GameObject를 모두 삭제해야함
 void GameObjectManager::Clear()
 {
 	_gameVector.clear();

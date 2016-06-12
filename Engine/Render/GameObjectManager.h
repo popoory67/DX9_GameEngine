@@ -15,7 +15,7 @@ public:
 
 public:
 
-	void AddGame(GameObjectPtr gameObject);
+	void AddGame(const GameObjectPtr gameObject);
 
 	void InitGame();
 

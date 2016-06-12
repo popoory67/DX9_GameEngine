@@ -2,6 +2,7 @@
 
 #include "GameObject.h"
 
+
 class GameManager : public GameObject
 {
 public:
@@ -10,14 +11,15 @@ public:
 
 	~GameManager();
 
-	void Start();
+	virtual void Start();
 
-	void Update();
+	virtual void Update();
 
 	void KeyInput();
 
-	void Release();
+	virtual void Release();
 
 private:
 
 };
+

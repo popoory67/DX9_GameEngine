@@ -153,7 +153,10 @@ namespace ObjLoader
 
 		FILE* pFile = _tfopen(file_name.c_str(), TEXT("r"));
 
-		if (!pFile) return 0;
+		if (!pFile)
+		{
+			return 0;
+		}
 
 		ObjMaterial* pMat = NULL;
 
@@ -165,64 +168,101 @@ namespace ObjLoader
 
 			if (0 == strncmp("newmtl ", buffer, 7))
 			{
-				pMat = new ObjMaterial;
+				pMat = new ObjMaterial();
 				materials.push_back(pMat);
 				sscanf(buffer + 7, "%s", pMat->_name);
 			}
 
+			// skip anything until we find a newmtl statement.
 			else if (pMat == NULL)
-				continue; // Skip anything until we find a newmtl statement.
+			{
+				continue;
+			}
 
 			else if (0 == _strnicmp("ka ", buffer, 3))
+			{
 				ReadKx(buffer, pMat->_ambient);
+			}
 
 			else if (0 == _strnicmp("ks ", buffer, 3))
+			{
 				ReadKx(buffer, pMat->_specular);
+			}
 
 			else if (0 == _strnicmp("kd ", buffer, 3))
+			{
 				ReadKx(buffer, pMat->_diffuse);
+			}
 
 			else if (0 == _strnicmp("tf ", buffer, 3))
+			{
 				ReadKx(buffer, pMat->_transFilter);
+			}
 
 			else if (0 == _strnicmp("tr ", buffer, 3))
+			{
 				pMat->_transparency = (float)atof(buffer + 3);
+			}
 
 			else if (0 == _strnicmp("d ", buffer, 2))
+			{
 				pMat->_transparency = (float)atof(buffer + 2);
+			}
 
 			else if (0 == _strnicmp("ns ", buffer, 3))
+			{
 				pMat->_shininess = (float)atof(buffer + 3);
+			}
 
 			else if (0 == _strnicmp("Ni ", buffer, 3))
+			{
 				pMat->_refraction = (float)atof(buffer + 3);
+			}
 
 			else if (0 == _strnicmp("illum ", buffer, 6))
+			{
 				pMat->_illumination = atoi(buffer + 6);
+			}
 
 			else if (0 == _strnicmp("map_Ka ", buffer, 7))
+			{
 				sscanf(buffer + 7, "%s", pMat->_ambientName);
+			}
 
 			else if (0 == _strnicmp("map_Kd ", buffer, 7))
+			{
 				sscanf(buffer + 7, "%s", pMat->_diffuseName);
+			}
 
 			else if (0 == _strnicmp("map_Ks ", buffer, 7))
+			{
 				sscanf(buffer + 7, "%s", pMat->_specularName);
+			}
 
 			else if (0 == _strnicmp("map_Ns ", buffer, 7))
+			{
 				sscanf(buffer + 7, "%s", pMat->_shininessName);
+			}
 
 			else if (0 == _strnicmp("map_Tr ", buffer, 7))
+			{
 				sscanf(buffer + 7, "%s", pMat->_transparencyName);
+			}
 
 			else if (0 == _strnicmp("map_Disp ", buffer, 7))
+			{
 				sscanf(buffer + 9, "%s", pMat->_displacementName);
+			}
 
 			else if (0 == _strnicmp("map_Bump ", buffer, 7))
+			{
 				sscanf(buffer + 9, "%s", pMat->_bumpName);
+			}
 
 			else if (0 == _strnicmp("map_Refl ", buffer, 7))
+			{
 				sscanf(buffer + 9, "%s", pMat->_reflectionName);
+			}
 
 		}
 

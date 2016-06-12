@@ -15,7 +15,7 @@ public:
 
 	void AddCamera();
 
-	CameraPtr GetCamera(const int& cameraID);
+	CameraPtr GetCamera(const int& cameraID) const;
 
 private:
 

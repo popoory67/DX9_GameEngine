@@ -27,6 +27,7 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="WindowSystem.h" />
+    <ClInclude Include="XMeshAnimationLoader.h" />
     <ClInclude Include="XMeshObject.h" />
     <ClInclude Include="ModelParser.h" />
     <ClInclude Include="ObjLoader.h" />
@@ -55,6 +56,7 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="WindowSystem.cpp" />
+    <ClCompile Include="XMeshAnimationLoader.cpp" />
     <ClCompile Include="XMeshObject.cpp" />
     <ClCompile Include="ModelParser.cpp" />
     <ClCompile Include="ObjLoader.cpp" />

@@ -17,9 +17,9 @@ public:
 
 	void SetCallback(function<void(int)> func);
 
-	int GetID();
+	int GetID() const { return _id; }
 
-	void SetID(int id);
+	void SetID(int id) { _id = id; }
 
 private:
 

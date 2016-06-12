@@ -1,7 +1,7 @@
 #include "CorePCH.h"
 #include "ThreadManager.h"
 
-ThreadManager* ThreadManager::_instance = NULL;
+ThreadManager* ThreadManager::_instance = nullptr;
 
 ThreadManager::ThreadManager() : _idCount(0)
 {

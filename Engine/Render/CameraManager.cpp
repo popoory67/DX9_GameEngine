@@ -39,7 +39,7 @@ void CameraManager::AddCamera()
 	_cameraVector.push_back(camera);
 }
 
-CameraPtr CameraManager::GetCamera(const int& cameraID)
+CameraPtr CameraManager::GetCamera(const int& cameraID) const
 {
 	return _cameraVector[cameraID];
 }

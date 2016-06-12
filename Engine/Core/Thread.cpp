@@ -45,16 +45,6 @@ void Thread::SetCallback(function<void(int)> func)
 	_callback = func;
 }
 
-int Thread::GetID()
-{
-	return _id;
-}
-
-void Thread::SetID(int id)
-{
-	_id = id;
-}
-
 
 void Thread::Run(function<void()> func)
 {

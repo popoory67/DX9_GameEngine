@@ -4,9 +4,6 @@
 #include "Matrix.h"
 #include "Shader.h"
 
-// test
-#define DEFAULT_TEX			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/texture.png"
-
 class ObjMeshObject
 {
 
@@ -35,18 +32,19 @@ public:
 
 	static ObjMeshObject* Create(const string& fileName);
 
-	MeshData* GetMeshData() { return _mesh; }
+	MeshData* GetMeshData() const { return _mesh; }
 
-	LPDIRECT3DTEXTURE9 GetTexture() { return _texture; }
+	LPDIRECT3DTEXTURE9 GetTexture() const { return _texture; }
 
-	Shader* GetShader() { return _shader; }
+	Shader* GetShader() const { return _shader; }
 
-	Matrix* GetMatrix() { return _matrix; }
+	Matrix* GetMatrix() const { return _matrix; }
 
 	void LoadTexture(const string& fileName);
 
 private:
 
+	// create mesh
 	HRESULT Init(const ObjMesh& objMesh, bool flipTriangles, bool flipUVs);
 
 	// this optimization requires sorting and/or searching which can be quite slow for heavy meshes.

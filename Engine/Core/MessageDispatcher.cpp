@@ -2,7 +2,7 @@
 #include "MessageDispatcher.h"
 
 
-MessageDispatcher* MessageDispatcher::_instance = NULL;
+MessageDispatcher* MessageDispatcher::_instance = nullptr;
 
 MessageDispatcher::MessageDispatcher()
 {

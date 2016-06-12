@@ -6,7 +6,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	if (WindowSystem::Get().Init())
 	{
-		// callback test
+		// test
 		GameObjectPtr game(new GameManager());
 		GameObjectManager::Get().AddGame(game);
 

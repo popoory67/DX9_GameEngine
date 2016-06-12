@@ -8,6 +8,7 @@
 #include <memory>
 #include <mutex>
 #include <iostream>
+#include <assert.h>
 
 using namespace std;
 

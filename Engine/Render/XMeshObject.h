@@ -65,24 +65,24 @@ public:
 	 * get modeling data.
 	 * @returns mesh, texture and meterials data.
 	 */
-	MeshData* GetMeshData()
+	MeshData GetMeshData() const
 	{
-		MeshData* object = new MeshData();
+		MeshData object;
 
-		object->_mesh = _mesh;
-		object->_texture = _texture;
-		object->_d3dxMaterials = _d3dxMaterials;
-		object->_materials = _materials;
-		object->_numMaterials = _numMaterials;
+		object._mesh = _mesh;
+		object._texture = _texture;
+		object._d3dxMaterials = _d3dxMaterials;
+		object._materials = _materials;
+		object._numMaterials = _numMaterials;
 
 		return object;
 	}
 
 	// get shader instance
-	Shader* GetShader() { return _shader; }
+	Shader* GetShader() const { return _shader; }
 
 	// get matrix instance
-	Matrix* GetMatrix() { return _matrix; }
+	Matrix* GetMatrix() const { return _matrix; }
 
 public:
 

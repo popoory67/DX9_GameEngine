@@ -49,7 +49,7 @@
     <Filter Include="DirectX\D3D11\Render">
       <UniqueIdentifier>{8ca05ca7-9623-4cff-9149-8eaf4b4be347}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DirectX\Windoiw">
+    <Filter Include="DirectX\Window">
       <UniqueIdentifier>{0828c405-d37d-40cf-a8b9-6e4cf392baf4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -111,10 +111,13 @@
       <Filter>GameBase</Filter>
     </ClInclude>
     <ClInclude Include="WindowSystem.h">
-      <Filter>DirectX\Windoiw</Filter>
+      <Filter>DirectX\Window</Filter>
     </ClInclude>
     <ClInclude Include="MeshManager.h">
       <Filter>DirectX\D3D9\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="XMeshAnimationLoader.h">
+      <Filter>DirectX\D3D9\3D Model\X</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -164,10 +167,13 @@
       <Filter>GameBase</Filter>
     </ClCompile>
     <ClCompile Include="WindowSystem.cpp">
-      <Filter>DirectX\Windoiw</Filter>
+      <Filter>DirectX\Window</Filter>
     </ClCompile>
     <ClCompile Include="MeshManager.cpp">
       <Filter>DirectX\D3D9\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="XMeshAnimationLoader.cpp">
+      <Filter>DirectX\D3D9\3D Model\X</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

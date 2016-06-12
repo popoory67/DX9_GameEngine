@@ -21,6 +21,7 @@
     <ClInclude Include="Thread.h" />
     <ClInclude Include="ThreadHeader.h" />
     <ClInclude Include="ThreadManager.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="KeyInput.cpp" />

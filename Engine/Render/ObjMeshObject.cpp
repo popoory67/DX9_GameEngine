@@ -4,6 +4,8 @@
 #include "RenderMacros.h"
 #include "CreateD3D9.h"
 
+#include "Util.h"
+
 // this structure describes a face vertex in an obj mesh
 struct ObjTriVertex
 {
@@ -98,13 +100,14 @@ ObjMeshObject* ObjMeshObject::Create(const string& fileName)
 {
 	ObjMesh objMesh;
 
+	// .obj 데이터를 받아옴
 	if (ObjLoader::LoadObj(fileName, &objMesh) < 0)
 	{
-		OutputDebugString(TEXT("Failed to load the specified obj file!"));
-
+		assert(Util::Error("Failed to load the obj file"));
 		return nullptr;
 	}
 
+	// 메시 생성
 	ObjMeshObject* mesh = new ObjMeshObject();
 
 	auto meshLoad = FAILED(mesh->Init(objMesh, false, true));

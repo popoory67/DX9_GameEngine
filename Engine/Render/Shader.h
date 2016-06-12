@@ -12,9 +12,9 @@ public:
 
 	static Shader* Create();
 
-	LPD3DXEFFECT GetEffect() { return _d3dEffect; }
+	LPD3DXEFFECT GetEffect() const { return _d3dEffect; }
 
-	FuncVoid GetShaderFunc() { return _shaderFunc; }
+	FuncVoid GetShaderFunc() const { return _shaderFunc; }
 
 	void SetShaderFunc(FuncVoid func) { _shaderFunc = func; }
 

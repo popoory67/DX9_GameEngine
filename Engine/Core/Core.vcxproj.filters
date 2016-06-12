@@ -38,6 +38,7 @@
     <ClInclude Include="ThreadHeader.h">
       <Filter>Thread</Filter>
     </ClInclude>
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Thread.cpp">

@@ -61,7 +61,8 @@ int Message::GetMessageIntWithKey(string key, unsigned int count/* = 0*/)
 		}
 	}
 
-	// Assert //
+	// assert
+	assert(Util::Error("get message"));
 
 	return 0;
 }
@@ -76,7 +77,8 @@ float Message::GetMessageFloatWithKey(string key, unsigned int count/* = 0*/)
 		}
 	}
 
-	// Assert //
+	// assert
+	assert(Util::Error("get message"));
 
 	return 0;
 }
@@ -91,7 +93,8 @@ void* Message::GetMessagePointerWithKey(string key, unsigned int count/* = 0*/)
 		}
 	}
 
-	// Assert //
+	// assert
+	assert(Util::Error("get message"));
 
 	return NULL;
 }
@@ -103,7 +106,8 @@ int Message::GetMessageInt(unsigned int count/* = 0*/)
 		return _vecDataInt[count];
 	}
 
-	// Assert //
+	// assert
+	assert(Util::Error("get message"));
 
 	return 0;
 }
@@ -115,7 +119,8 @@ float Message::GetMessageFloat(unsigned int count/* = 0*/)
 		return _vecDataFloat[count];
 	}
 
-	// Assert //
+	// assert
+	assert(Util::Error("get message"));
 
 	return 0;
 }
@@ -127,7 +132,8 @@ void* Message::GetMessagePointer(unsigned int count/* = 0*/)
 		return _vecDataPointer[count];
 	}
 
-	// Assert //
+	// assert
+	assert(Util::Error("get message"));
 
 	return NULL;
 }

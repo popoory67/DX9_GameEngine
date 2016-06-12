@@ -32,7 +32,7 @@ public:
 
 	static Camera* Create();
 
-	CameraMatrix* GetCameraMatrix()
+	CameraMatrix* GetCameraMatrix() const
 	{
 		CameraMatrix* mat = new CameraMatrix();
 
@@ -53,7 +53,7 @@ public:
 
 	void Position();
 
-	int GetID() { return _id; }
+	int GetID() const { return _id; }
 
 	void SetID(int id) { _id = id; }
 

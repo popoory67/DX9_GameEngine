@@ -15,8 +15,14 @@
     <ClInclude Include="Application.h">
       <Filter>Src\Game</Filter>
     </ClInclude>
+    <ClInclude Include="KeyController.h">
+      <Filter>Src\Game</Filter>
+    </ClInclude>
     <ClInclude Include="Resources.h">
-      <Filter>Src</Filter>
+      <Filter>Src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Src\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +34,12 @@
     </ClCompile>
     <ClCompile Include="HelloWorldWin32.cpp">
       <Filter>Src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyController.cpp">
+      <Filter>Src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Src\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

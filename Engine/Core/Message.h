@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CorePCH.h"
+#include "Util.h"
 
 class Message
 {

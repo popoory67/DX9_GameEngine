@@ -80,10 +80,10 @@ void MeshManager::XFileRender()
 	{
 		auto meshData		= (*xFileIter)->GetMeshData();
 
-		auto mesh			= meshData->_mesh; // mesh data
-		auto texture		= meshData->_texture; // texture
-		auto numMaterials	= meshData->_numMaterials; // the number of materials
-		auto materials		= meshData->_materials; // meterial data
+		auto mesh			= meshData._mesh; // mesh data
+		auto texture		= meshData._texture; // texture
+		auto numMaterials	= meshData._numMaterials; // the number of materials
+		auto materials		= meshData._materials; // meterial data
 		auto matrix			= (*xFileIter)->GetMatrix(); // mesh matrix object
 		auto effect			= (*xFileIter)->GetShader()->GetEffect(); // effect
 		//auto shader = (*xFileIter)->GetShader();
