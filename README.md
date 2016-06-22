@@ -6,7 +6,7 @@ Basically, The Engine is designed component structure.
 
 - simple usability
 - basic game framework
-- .x and .obj mesh file rendering
+- .x and .obj mesh file parsing and rendering
 - animating 3d mesh
 - shader
 - support messaging system
