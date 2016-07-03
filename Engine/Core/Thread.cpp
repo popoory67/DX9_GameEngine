@@ -34,12 +34,6 @@ void Thread::Detach()
 	_thread.detach();
 }
 
-void Thread::Destroy()
-{
-	delete this;
-}
-
-
 void Thread::SetCallback(function<void(int)> func)
 {
 	_callback = func;

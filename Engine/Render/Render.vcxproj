@@ -27,11 +27,14 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="WindowSystem.h" />
-    <ClInclude Include="XMeshAnimationLoader.h" />
+    <ClInclude Include="XMeshAnimation.h" />
     <ClInclude Include="XMeshObject.h" />
     <ClInclude Include="ModelParser.h" />
     <ClInclude Include="ObjLoader.h" />
-    <ClInclude Include="MeshManager.h" />
+    <ClInclude Include="MeshManager.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="D3D9Header.h" />
     <ClInclude Include="RenderMacros.h" />
     <ClInclude Include="RenderPCH.h" />
@@ -56,11 +59,14 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="WindowSystem.cpp" />
-    <ClCompile Include="XMeshAnimationLoader.cpp" />
+    <ClCompile Include="XMeshAnimation.cpp" />
     <ClCompile Include="XMeshObject.cpp" />
     <ClCompile Include="ModelParser.cpp" />
     <ClCompile Include="ObjLoader.cpp" />
-    <ClCompile Include="MeshManager.cpp" />
+    <ClCompile Include="MeshManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <ItemGroup>

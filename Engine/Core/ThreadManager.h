@@ -10,10 +10,6 @@ public:
 
 	static ThreadManager& Get();
 
-	int AddThread(Thread* thread);
-
-	int AddThread(Thread* thread, function<void(int)> callback);
-
 	int AddThread(function<void()> func);
 
 	int AddThread(function<void()> func, function<void(int)> callback);

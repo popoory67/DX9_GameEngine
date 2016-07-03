@@ -19,7 +19,7 @@ private:
 
 		LPDIRECT3DVERTEXBUFFER9 _VB;
 
-		MeshData() : _vertexSize(0), _FVF(0), _VB(NULL)
+		MeshData() : _vertexSize(0), _FVF(0), _VB(nullptr)
 		{
 
 		}
@@ -30,6 +30,7 @@ public:
 	ObjMeshObject();
 	~ObjMeshObject();
 
+	// mesh create
 	static ObjMeshObject* Create(const string& fileName);
 
 	MeshData* GetMeshData() const { return _mesh; }
@@ -39,6 +40,8 @@ public:
 	Shader* GetShader() const { return _shader; }
 
 	Matrix* GetMatrix() const { return _matrix; }
+
+public:
 
 	void LoadTexture(const string& fileName);
 

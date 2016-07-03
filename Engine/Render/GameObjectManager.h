@@ -2,8 +2,8 @@
 
 #include "GameObject.h"
 
-typedef shared_ptr<GameObject>	GameObjectPtr;
-typedef vector<GameObjectPtr>	GameObjectVector;
+using GameObjectPtr		= shared_ptr< GameObject >;
+using GameObjectVector	= vector< GameObjectPtr >;
 
 class GameObjectManager
 {

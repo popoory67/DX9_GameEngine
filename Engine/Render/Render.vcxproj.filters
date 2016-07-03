@@ -116,7 +116,7 @@
     <ClInclude Include="MeshManager.h">
       <Filter>DirectX\D3D9\3D Model</Filter>
     </ClInclude>
-    <ClInclude Include="XMeshAnimationLoader.h">
+    <ClInclude Include="XMeshAnimation.h">
       <Filter>DirectX\D3D9\3D Model\X</Filter>
     </ClInclude>
   </ItemGroup>
@@ -172,7 +172,7 @@
     <ClCompile Include="MeshManager.cpp">
       <Filter>DirectX\D3D9\3D Model</Filter>
     </ClCompile>
-    <ClCompile Include="XMeshAnimationLoader.cpp">
+    <ClCompile Include="XMeshAnimation.cpp">
       <Filter>DirectX\D3D9\3D Model\X</Filter>
     </ClCompile>
   </ItemGroup>

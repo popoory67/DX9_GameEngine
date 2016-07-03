@@ -5,6 +5,7 @@
 //#include "CreateD3D11.h"
 #include "CameraManager.h"
 
+
 MeshManager* MeshManager::_instance = nullptr;
 
 MeshManager::MeshManager()
@@ -40,7 +41,7 @@ void MeshManager::AddMesh(ObjMeshObjectPtr mesh)
 	_objVector.push_back(mesh);
 }
 
-ObjMeshObjectPtr MeshManager::GetMesh(const int& id)
+ObjMeshObjectPtr MeshManager::GetMesh(const int& id) const
 {
 	return _objVector[id];
 }

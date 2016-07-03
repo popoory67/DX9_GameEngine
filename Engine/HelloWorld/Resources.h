@@ -5,6 +5,7 @@
  */
 
 // resource
+#define		X_WARRIOR			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/warrior.X"
 #define		X_BOY				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/main body.X"
 #define		X_TIGER				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/tiger.x"
 #define		OBJ_BB8				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/bb8.obj"
@@ -12,6 +13,7 @@
 #define		OBJ_POT				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/test.obj"
  
 // texture
+#define		TEX_WARRIOR			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/Warrior.bmp"
 #define		TEX_BOY				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/main body.tga"
 #define		TEX_TIGER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/tiger.bmp"
 #define		TEX_DEFAULT			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/texture.png"

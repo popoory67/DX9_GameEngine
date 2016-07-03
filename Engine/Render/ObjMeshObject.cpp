@@ -6,6 +6,9 @@
 
 #include "Util.h"
 
+
+
+
 // this structure describes a face vertex in an obj mesh
 struct ObjTriVertex
 {
@@ -21,8 +24,6 @@ struct ObjTriangle
 };
 
 typedef vector< ObjTriangle > ObjTriangleList;
-
-
 
 // adds an .obj face to the specified triangle list. 
 // If the face is not triangular, it is triangulated by taking, for the (n)th vertex, 

@@ -2,13 +2,10 @@
 
 #include "CreateD3D9.h"
 
-#define FOV				(D3DX_PI/4.0f) // 시야각
-
-#define ASPECT_RATIO	(SCREEN_WIDTH/(float)SCREEN_HEIGHT) // 화면의 종횡비
-
-#define NEAR_PLANE		1 // 근접 평면
-#define FAR_PLANE		10000 // 원거리 평면
-
+#define FOV				( D3DX_PI/4.0f ) // 시야각
+#define ASPECT_RATIO	( SCREEN_WIDTH/(float)SCREEN_HEIGHT ) // 화면의 종횡비
+#define NEAR_PLANE		1		// 근접 평면
+#define FAR_PLANE		100000	// 원거리 평면
 
 class Camera
 {
@@ -32,7 +29,7 @@ public:
 
 	static Camera* Create();
 
-	CameraMatrix* GetCameraMatrix() const
+	const CameraMatrix* GetCameraMatrix() const
 	{
 		CameraMatrix* mat = new CameraMatrix();
 
@@ -49,11 +46,11 @@ public:
 
 	void Init();
 
-	void Rotate();
+	void SetRotate();
 
-	void Position();
+	void SetPosition(float x = 0, float y = 0, float z = 0);
 
-	int GetID() const { return _id; }
+	const int GetID() const { return _id; }
 
 	void SetID(int id) { _id = id; }
 

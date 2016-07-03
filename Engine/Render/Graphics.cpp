@@ -4,7 +4,6 @@
 #include "CreateD3D9.h"
 #include "MeshManager.h"
 
-
 Graphics* Graphics::_instance = nullptr;
 
 Graphics::Graphics()
@@ -38,7 +37,7 @@ void Graphics::Init(HWND hWnd)
 
 void Graphics::Clear()
 {
-	MeshManager::Get().Clear();
+	//MeshManager::Get().Clear();
 
 	D3D9_INSTANCE.Clear();
 }
@@ -83,4 +82,7 @@ void Graphics::RenderState()
 
 	// option : 기본컬링, CCW(반시계), CW(시계), NONE(컬링 안함)
 	D3D9_DEVICE->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
+
+	// for sphere render
+	D3D9_DEVICE->SetRenderState(D3DRS_LIGHTING, FALSE);
 }

@@ -68,7 +68,8 @@ void CreateD3D9::Create(HWND hWnd)
 		d3dpp.BackBufferHeight		= SCREEN_HEIGHT;
 	}
 
-	if (FAILED(_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &_d3dDevice)))
+	if (FAILED(_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, 
+		hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &_d3dDevice)))
 	{
 		return;
 	}

@@ -13,8 +13,6 @@ public:
 
 	void Detach();
 
-	void Destroy();
-
 	void SetCallback(function<void(int)> func);
 
 	int GetID() const { return _id; }

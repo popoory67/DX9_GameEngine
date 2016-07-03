@@ -7,7 +7,6 @@ public:
 	Matrix();
 	~Matrix();
 
-	// pch가 바뀔때마다 inline 외부참조 문제 발생
 	D3DXMATRIX Transform();
 
 	D3DXMATRIX Scale(float xpos = 1, float ypos = 1, float zpos = 1);

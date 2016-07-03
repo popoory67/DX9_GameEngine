@@ -27,25 +27,6 @@ ThreadManager& ThreadManager::Get()
 	return *_instance;
 }
 
-int ThreadManager::AddThread(Thread* thread)
-{
-	return AddThread(thread, nullptr);
-}
-
-int ThreadManager::AddThread(Thread* thread, function<void(int)> callback)
-{
-	int id = _idCount;
-
-	thread->SetID(id);
-	thread->SetCallback(callback);
-
-	_thread.push_back(thread);
-
-	_idCount++;
-
-	return _idCount;
-}
-
 int ThreadManager::AddThread(function<void()> func)
 {
 	return AddThread(func, nullptr);
@@ -73,19 +54,23 @@ void ThreadManager::Update()
 	{
 		for (int i = 0; i < _removeThread.size(); i++)
 		{
-			for (auto it = _thread.begin(); it != _thread.end(); it++)
+			for (auto it = _thread.begin(); it != _thread.end();) //it++)
 			{
 				if ((*it)->GetID() == _removeThread[i])
 				{
 					(*it)->Detach();
 
-					(*it)->Destroy();
-
+					delete (*it);
 					(*it) = nullptr;
 
-					_thread.erase(it);
+					_thread.erase(it++);
 
 					break;
+				}
+
+				else
+				{
+					it++;
 				}
 			}
 		}
