@@ -1,49 +1,31 @@
 #pragma once
 
 #include "ObjLoader.h"
-#include "Matrix.h"
-#include "Shader.h"
+#include "MeshModel.h"
 
-class ObjMeshObject
+
+class ObjMeshObject;
+
+using ObjMeshPtr = shared_ptr<ObjMeshObject>;
+
+
+class ObjMeshObject : public MeshModel
 {
-
-private:
-
-	struct MeshData
-	{
-		UINT _triCount;
-
-		UINT _vertexSize;
-
-		DWORD _FVF;
-
-		LPDIRECT3DVERTEXBUFFER9 _VB;
-
-		MeshData() : _vertexSize(0), _FVF(0), _VB(nullptr)
-		{
-
-		}
-	};
-
 public:
 
 	ObjMeshObject();
-	~ObjMeshObject();
+	virtual ~ObjMeshObject();
 
 	// mesh create
-	static ObjMeshObject* Create(const string& fileName);
-
-	MeshData* GetMeshData() const { return _mesh; }
-
-	LPDIRECT3DTEXTURE9 GetTexture() const { return _texture; }
-
-	Shader* GetShader() const { return _shader; }
-
-	Matrix* GetMatrix() const { return _matrix; }
+	static ObjMeshPtr Create( const string& fileName );
 
 public:
 
+	// load texture file
 	void LoadTexture(const string& fileName);
+
+	// mesh render
+	virtual void Render();
 
 private:
 
@@ -53,11 +35,12 @@ private:
 	// this optimization requires sorting and/or searching which can be quite slow for heavy meshes.
 	HRESULT InitVB(const ObjMesh& objMesh, bool flipTriangles, bool flipUVs);
 
-	void Clear();
-
 private:
 
-	MeshData* _mesh;
+	UINT _triCount;
+	UINT _vertexSize;
+	DWORD _FVF;
+	LPDIRECT3DVERTEXBUFFER9 _VB;
 
 	// bounding box
 	D3DXVECTOR3 _bbmin;
@@ -65,10 +48,4 @@ private:
 
 	// texture
 	LPDIRECT3DTEXTURE9 _texture;
-
-	// shader
-	Shader* _shader;
-
-	// object transform
-	Matrix* _matrix;
 };

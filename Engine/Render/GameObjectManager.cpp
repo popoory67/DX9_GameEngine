@@ -10,10 +10,7 @@ GameObjectManager::GameObjectManager()
 
 GameObjectManager::~GameObjectManager()
 {
-	if (_instance)
-	{
-		SAFE_DELETE(_instance);
-	}
+	SAFE_DELETE( _instance );
 }
 
 GameObjectManager& GameObjectManager::Get()

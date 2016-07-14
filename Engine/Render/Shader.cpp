@@ -12,29 +12,29 @@ Shader::Shader()
 
 Shader::~Shader()
 {
-	Clear();
+	SAFE_RELEASE( _d3dEffect );
 }
 
 
-Shader* Shader::Create()
+ShaderPtr Shader::Create()
 {
-	Shader* shader = new Shader();
+	ShaderPtr shader( new Shader() );
 
-	shader->LoadShader(DEFAULT_SHADER);
+	shader->LoadShader( DEFAULT_SHADER );
 
 	return shader;
 }
 
-void Shader::LoadShader(const string& fileName)
+void Shader::LoadShader( const string& fileName )
 {
-	LPD3DXBUFFER			error			= NULL;
-	DWORD					shaderFlags		= 0;
+	LPD3DXBUFFER			error = NULL;
+	DWORD					shaderFlags = 0;
 
 	shaderFlags |= D3DXSHADER_DEBUG; // 컴파일러가 디버그 정보를 생성하도록 함
-	
-	auto openEffectFile = D3DXCreateEffectFromFile(D3D9_DEVICE, fileName.c_str(), NULL, NULL, shaderFlags, NULL, &_d3dEffect, &error);
 
-	assert(!FAILED(openEffectFile));
+	auto openEffectFile = D3DXCreateEffectFromFile( D3D9_DEVICE, fileName.c_str(), NULL, NULL, shaderFlags, NULL, &_d3dEffect, &error );
+
+	assert( !FAILED( openEffectFile ) );
 
 	if (error)
 	{
@@ -44,5 +44,5 @@ void Shader::LoadShader(const string& fileName)
 
 void Shader::Clear()
 {
-	SAFE_RELEASE(_d3dEffect);
+	SAFE_RELEASE( _d3dEffect );
 }

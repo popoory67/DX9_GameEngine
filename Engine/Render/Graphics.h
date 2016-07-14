@@ -11,8 +11,6 @@ public:
 
 	void Init(HWND hWnd);
 
-	void Clear();
-
 	void RenderScene();
 
 	void RenderState();

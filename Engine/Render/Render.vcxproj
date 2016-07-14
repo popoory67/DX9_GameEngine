@@ -23,11 +23,12 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectHeader.h" />
     <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="MeshModel.h" />
     <ClInclude Include="ObjMeshObject.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="WindowSystem.h" />
-    <ClInclude Include="XMeshAnimation.h" />
+    <ClInclude Include="XBoneHierarchyLoader.h" />
     <ClInclude Include="XMeshObject.h" />
     <ClInclude Include="ModelParser.h" />
     <ClInclude Include="ObjLoader.h" />
@@ -40,6 +41,7 @@
     <ClInclude Include="RenderPCH.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="XSkinnedMesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
@@ -55,11 +57,12 @@
     <ClCompile Include="D3D11Renderer.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
+    <ClCompile Include="MeshModel.cpp" />
     <ClCompile Include="ObjMeshObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="WindowSystem.cpp" />
-    <ClCompile Include="XMeshAnimation.cpp" />
+    <ClCompile Include="XBoneHierarchyLoader.cpp" />
     <ClCompile Include="XMeshObject.cpp" />
     <ClCompile Include="ModelParser.cpp" />
     <ClCompile Include="ObjLoader.cpp" />
@@ -68,6 +71,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="XSkinnedMesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.vcxproj">

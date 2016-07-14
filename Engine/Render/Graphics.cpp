@@ -4,6 +4,7 @@
 #include "CreateD3D9.h"
 #include "MeshManager.h"
 
+
 Graphics* Graphics::_instance = nullptr;
 
 Graphics::Graphics()
@@ -13,10 +14,7 @@ Graphics::Graphics()
 
 Graphics::~Graphics()
 {
-	if (_instance)
-	{
-		SAFE_DELETE(_instance);
-	}
+	SAFE_DELETE(_instance);
 }
 
 Graphics& Graphics::Get()
@@ -35,12 +33,6 @@ void Graphics::Init(HWND hWnd)
 	D3D9_INSTANCE.Init(hWnd);
 }
 
-void Graphics::Clear()
-{
-	//MeshManager::Get().Clear();
-
-	D3D9_INSTANCE.Clear();
-}
 
 void Graphics::RenderScene()
 {

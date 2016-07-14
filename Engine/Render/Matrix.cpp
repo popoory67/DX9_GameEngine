@@ -15,6 +15,12 @@ Matrix::~Matrix()
 
 }
 
+MatrixPtr Matrix::Create()
+{
+	MatrixPtr matrix( new Matrix() );
+
+	return matrix;
+}
 
 D3DXMATRIX Matrix::Transform()
 {

@@ -2,7 +2,10 @@
 
 #define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/ObjViewer.fx"
 
-typedef function<void()>		FuncVoid;
+class Shader;
+
+using ShaderPtr = shared_ptr<Shader>;
+using FuncVoid = function<void()>;
 
 class Shader
 {
@@ -10,7 +13,7 @@ public:
 	Shader();
 	~Shader();
 
-	static Shader* Create();
+	static ShaderPtr Create();
 
 	LPD3DXEFFECT GetEffect() const { return _d3dEffect; }
 

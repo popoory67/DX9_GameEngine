@@ -5,12 +5,7 @@
 
 #define GET_MESH(id)	MeshManager::Get().GetMesh(id)
 
-using XMeshObjectPtr = shared_ptr< XMeshObject >;
-using XMeshVector = vector< XMeshObjectPtr >;
-
-using ObjMeshObjectPtr = shared_ptr< ObjMeshObject >;
-using ObjMeshVector = vector< ObjMeshObjectPtr >;
-
+using MeshVector = vector< MeshModelPtr >;
 
 class MeshManager
 {
@@ -23,24 +18,13 @@ public:
 
 public:
 
-	// get .obj vector
-	ObjMeshVector GetObjVector() const { return _objVector; }
+	MeshModelPtr GetMesh( const int& id ) const;
 
-	// get .x vector
-	XMeshVector GetXVector() const { return _xVector; }
+	// add mesh
+	void AddMesh( MeshModelPtr mesh );
 
-	// add .x file mesh
-	void AddMesh( XMeshObjectPtr mesh );
-
-	// add .obj file mesh
-	void AddMesh( ObjMeshObjectPtr mesh );
-
-	// get .obj mesh
-	ObjMeshObjectPtr GetMesh( const int& id ) const;
 
 public:
-
-	void Init();
 
 	void Render();
 
@@ -50,14 +34,9 @@ private:
 
 	MeshManager();
 
-	void XFileRender();
-
-	void ObjFileRender();
-
 private:
 
 	static MeshManager* _instance;
 
-	XMeshVector _xVector;
-	ObjMeshVector _objVector;
+	MeshVector _meshVector;
 };

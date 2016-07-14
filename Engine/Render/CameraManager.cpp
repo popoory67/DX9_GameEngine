@@ -13,10 +13,7 @@ CameraManager::~CameraManager()
 {
 	Clear();
 
-	if (_instance)
-	{
-		SAFE_DELETE(_instance);
-	}
+	SAFE_DELETE( _instance );
 }
 
 

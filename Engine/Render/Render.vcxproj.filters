@@ -52,6 +52,9 @@
     <Filter Include="DirectX\Window">
       <UniqueIdentifier>{0828c405-d37d-40cf-a8b9-6e4cf392baf4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DirectX\D3D9\3D Model\X\Animation">
+      <UniqueIdentifier>{24862b71-5745-4d86-ab34-07ef57356624}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderPCH.h" />
@@ -116,8 +119,14 @@
     <ClInclude Include="MeshManager.h">
       <Filter>DirectX\D3D9\3D Model</Filter>
     </ClInclude>
-    <ClInclude Include="XMeshAnimation.h">
-      <Filter>DirectX\D3D9\3D Model\X</Filter>
+    <ClInclude Include="XBoneHierarchyLoader.h">
+      <Filter>DirectX\D3D9\3D Model\X\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="XSkinnedMesh.h">
+      <Filter>DirectX\D3D9\3D Model\X\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshModel.h">
+      <Filter>DirectX\D3D9\3D Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -172,8 +181,14 @@
     <ClCompile Include="MeshManager.cpp">
       <Filter>DirectX\D3D9\3D Model</Filter>
     </ClCompile>
-    <ClCompile Include="XMeshAnimation.cpp">
-      <Filter>DirectX\D3D9\3D Model\X</Filter>
+    <ClCompile Include="XBoneHierarchyLoader.cpp">
+      <Filter>DirectX\D3D9\3D Model\X\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="XSkinnedMesh.cpp">
+      <Filter>DirectX\D3D9\3D Model\X\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshModel.cpp">
+      <Filter>DirectX\D3D9\3D Model</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

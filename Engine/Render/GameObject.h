@@ -34,7 +34,8 @@ protected:
 
 			if (!component)
 			{
-				SAFE_DELETE(component);
+				delete (component);
+				component = nullptr;
 
 				continue;
 			}

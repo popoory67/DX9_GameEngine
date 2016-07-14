@@ -11,10 +11,7 @@ WindowSystem::WindowSystem()
 
 WindowSystem::~WindowSystem()
 {
-	if (_instance)
-	{
-		SAFE_DELETE (_instance);
-	}
+	SAFE_DELETE( _instance );
 }
 
 WindowSystem& WindowSystem::Get()
@@ -43,8 +40,6 @@ bool WindowSystem::Init()
 
 void WindowSystem::Clear()
 {
-	Graphics::Get().Clear();
-
 	ReleaseWindows();
 }
 

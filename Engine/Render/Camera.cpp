@@ -12,9 +12,9 @@ Camera::~Camera()
 
 }
 
-Camera* Camera::Create()
+CameraPtr Camera::Create()
 {
-	Camera* camera = new Camera();
+	CameraPtr camera( new Camera() );
 
 	camera->Init();
 
@@ -25,22 +25,22 @@ void Camera::Init()
 {
 	// world
 	//D3DXMatrixRotationY(&_world, timeGetTime() / 1000.0f);
-	D3DXMatrixIdentity(&_world);
+	D3DXMatrixIdentity( &_world );
 
 	// view
-	_eyePt = D3DXVECTOR3(0.0f, 3.0f, -10.0f); // camera position
-	_lookAtPt = D3DXVECTOR3(0.0f, 0.0f, 0.0f); // look at point
-	_upVec = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+	_eyePt = D3DXVECTOR3( 0.0f, 3.0f, -10.0f ); // camera position
+	_lookAtPt = D3DXVECTOR3( 0.0f, 0.0f, 0.0f ); // look at point
+	_upVec = D3DXVECTOR3( 0.0f, 1.0f, 0.0f );
 
-	D3DXMatrixLookAtLH(&_view, &_eyePt, &_lookAtPt, &_upVec);
+	D3DXMatrixLookAtLH( &_view, &_eyePt, &_lookAtPt, &_upVec );
 
 	// projection
-	D3DXMatrixPerspectiveFovLH(&_proj, FOV, 1.0f, NEAR_PLANE, FAR_PLANE);
+	D3DXMatrixPerspectiveFovLH( &_proj, FOV, 1.0f, NEAR_PLANE, FAR_PLANE );
 
 	// transform camera
-	D3D9_DEVICE->SetTransform(D3DTS_WORLD, &_world);
-	D3D9_DEVICE->SetTransform(D3DTS_VIEW, &_view);
-	D3D9_DEVICE->SetTransform(D3DTS_PROJECTION, &_proj);
+	D3D9_DEVICE->SetTransform( D3DTS_WORLD, &_world );
+	D3D9_DEVICE->SetTransform( D3DTS_VIEW, &_view );
+	D3D9_DEVICE->SetTransform( D3DTS_PROJECTION, &_proj );
 }
 
 void Camera::SetRotate()
@@ -48,9 +48,9 @@ void Camera::SetRotate()
 
 }
 
-void Camera::SetPosition(float x /* = 0 */, float y /* = 0 */, float z /* = 0 */)
+void Camera::SetPosition( float x /* = 0 */, float y /* = 0 */, float z /* = 0 */ )
 {
-	_eyePt += D3DXVECTOR3(x, y, z);
+	_eyePt += D3DXVECTOR3( x, y, z );
 
-	D3DXMatrixLookAtLH(&_view, &_eyePt, &_lookAtPt, &_upVec);
+	D3DXMatrixLookAtLH( &_view, &_eyePt, &_lookAtPt, &_upVec );
 }

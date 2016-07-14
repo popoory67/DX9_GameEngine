@@ -33,13 +33,13 @@ void GameManager::Start()
 	////object->GetMatrix()->Rotate();
 	//MeshManager::Get().AddMesh(object);
 
-	//XMeshObjectPtr tiger(XMeshObject::Create(X_TIGER));
-	//tiger->LoadModel(X_TIGER);
-	//tiger->LoadTexture(TEX_TIGER);
-	//tiger->GetMatrix()->Scale(10, 10, 10);
-	//tiger->GetMatrix()->Position(10, 10, 10);
-	////tiger->GetShader()->LoadShader(DEFAULT_SHADER);
-	//MeshManager::Get().AddMesh(tiger);
+	XMeshPtr tiger( XMeshObject::Create( X_TIGER ) );
+	//tiger->LoadModel( X_TIGER );
+	tiger->LoadTexture( TEX_TIGER );
+	tiger->GetMatrix()->Scale( 10, 10, 10 );
+	tiger->GetMatrix()->Position( 10, 10, 10 );
+	tiger->GetShader()->LoadShader( DEFAULT_SHADER );
+	MeshManager::Get().AddMesh( tiger );
 
 	// obj mesh
 	//ObjMeshObjectPtr ironMan(ObjMeshObject::Create(OBJ_IRON));
@@ -50,23 +50,23 @@ void GameManager::Start()
 	//ironMan->GetShader()->LoadShader(DEFAULT_SHADER);
 	//MeshManager::Get().AddMesh(ironMan);
 
-	//ObjMeshObjectPtr bb8(ObjMeshObject::Create(OBJ_BB8));
-	//bb8->GetMatrix()->Scale(0.1f, 0.1f, 0.1f);
-	//bb8->GetMatrix()->Position(-0, -0, 0);
-	//bb8->LoadTexture(TEX_BB8);
-	////mesh2->GetShader()->LoadShader(DEFAULT_SHADER);
-	//MeshManager::Get().AddMesh(bb8);
+	ObjMeshPtr bb8( ObjMeshObject::Create( OBJ_BB8 ) );
+	bb8->GetMatrix()->Scale( 0.1f, 0.1f, 0.1f );
+	bb8->GetMatrix()->Position( -0, -0, 0 );
+	bb8->LoadTexture( TEX_BB8 );
+	//bb8->GetShader()->LoadShader( DEFAULT_SHADER );
+	MeshManager::Get().AddMesh( bb8 );
 
-	ObjMeshObjectPtr pot( ObjMeshObject::Create( OBJ_POT ) );
-	pot->GetMatrix()->Scale( 5, 5, 5 );
-	pot->GetMatrix()->Position( -10.0f, 0.0f, -10.0f );
-	MeshManager::Get().AddMesh( pot );
+	//ObjMeshObjectPtr pot( ObjMeshObject::Create( OBJ_POT ) );
+	//pot->GetMatrix()->Scale( 5, 5, 5 );
+	//pot->GetMatrix()->Position( -10.0f, 0.0f, -10.0f );
+	//MeshManager::Get().AddMesh( pot );
 
-	//GameObject* con(new KeyController());
-	//GameObject* col(new Collision());
+	//shared_ptr<GameObject> con(new KeyController());
+	//shared_ptr<GameObject> col(new Collision());
 
-	//AddComponent(con);
-	//AddComponent(col);
+	//AddComponent(con.get());
+	//AddComponent(col.get());
 
 	//GetComponent<Collision>().test();
 }

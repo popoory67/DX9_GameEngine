@@ -1,11 +1,17 @@
 #pragma once
 
+class Matrix;
+
+using MatrixPtr = shared_ptr<Matrix>;
+
 class Matrix
 {
 public:
 
 	Matrix();
 	~Matrix();
+
+	static MatrixPtr Create();
 
 	D3DXMATRIX Transform();
 

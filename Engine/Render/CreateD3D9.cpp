@@ -10,10 +10,9 @@ CreateD3D9::CreateD3D9() : _d3d(NULL), _d3dDevice(NULL)
 
 CreateD3D9::~CreateD3D9()
 {
-	if (_instance)
-	{
-		SAFE_DELETE(_instance);
-	}
+	Clear();
+
+	SAFE_DELETE(_instance);
 }
 
 

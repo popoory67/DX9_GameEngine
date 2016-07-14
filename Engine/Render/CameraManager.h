@@ -2,8 +2,9 @@
 
 #include "Camera.h"
 
-typedef shared_ptr<Camera>		CameraPtr;
-typedef vector<CameraPtr>		CameraVector;
+class CameraManager;
+
+using CameraVector = vector<CameraPtr>;
 
 class CameraManager
 {

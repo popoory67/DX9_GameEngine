@@ -7,6 +7,10 @@
 #define NEAR_PLANE		1		// 근접 평면
 #define FAR_PLANE		100000	// 원거리 평면
 
+class Camera;
+
+using CameraPtr = shared_ptr<Camera>;
+
 class Camera
 {
 private:
@@ -27,7 +31,7 @@ public:
 	Camera();
 	~Camera();
 
-	static Camera* Create();
+	static CameraPtr Create();
 
 	const CameraMatrix* GetCameraMatrix() const
 	{
@@ -48,11 +52,11 @@ public:
 
 	void SetRotate();
 
-	void SetPosition(float x = 0, float y = 0, float z = 0);
+	void SetPosition( float x = 0, float y = 0, float z = 0 );
 
 	const int GetID() const { return _id; }
 
-	void SetID(int id) { _id = id; }
+	void SetID( int id ) { _id = id; }
 
 private:
 
