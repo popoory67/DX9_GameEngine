@@ -11,7 +11,7 @@ struct BoneMesh : public D3DXMESHCONTAINER
 {
 	ID3DXMesh* _originalMesh;
 	vector<D3DMATERIAL9> _materials;
-	vector<IDirect3DTexture9*> _textures;
+	//vector<IDirect3DTexture9*> _textures;
 
 	DWORD _numAttributeGroups;
 	D3DXATTRIBUTERANGE* _attributeTable;

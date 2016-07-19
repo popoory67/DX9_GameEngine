@@ -21,8 +21,11 @@ public:
 
 public:
 
+	// load mesh model
+	virtual void LoadModel( const string& fileName );
+
 	// load texture file
-	void LoadTexture(const string& fileName);
+	virtual void LoadTexture( const string& fileName );
 
 	// mesh render
 	virtual void Render();

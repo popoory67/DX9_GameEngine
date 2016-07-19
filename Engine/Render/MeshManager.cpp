@@ -32,11 +32,10 @@ MeshManager& MeshManager::Get()
 }
 
 
-void MeshManager::AddMesh( MeshModelPtr mesh )
+void MeshManager::AddMesh( const MeshModelPtr mesh )
 {
 	_meshVector.push_back( mesh );
 }
-
 
 MeshModelPtr MeshManager::GetMesh( const int& id ) const
 {

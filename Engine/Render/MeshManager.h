@@ -1,7 +1,6 @@
 #pragma once
 
-#include "XMeshObject.h"
-#include "ObjMeshObject.h"
+#include "MeshModel.h"
 
 #define GET_MESH(id)	MeshManager::Get().GetMesh(id)
 
@@ -21,8 +20,7 @@ public:
 	MeshModelPtr GetMesh( const int& id ) const;
 
 	// add mesh
-	void AddMesh( MeshModelPtr mesh );
-
+	void AddMesh( const MeshModelPtr mesh );
 
 public:
 

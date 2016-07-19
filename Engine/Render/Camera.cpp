@@ -28,7 +28,7 @@ void Camera::Init()
 	D3DXMatrixIdentity( &_world );
 
 	// view
-	_eyePt = D3DXVECTOR3( 0.0f, 3.0f, -10.0f ); // camera position
+	_eyePt = D3DXVECTOR3( 0.0f, 150, -150 ); // camera position
 	_lookAtPt = D3DXVECTOR3( 0.0f, 0.0f, 0.0f ); // look at point
 	_upVec = D3DXVECTOR3( 0.0f, 1.0f, 0.0f );
 

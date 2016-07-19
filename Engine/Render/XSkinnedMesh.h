@@ -1,24 +1,34 @@
 #pragma once
 
+#include "XMeshObject.h"
 #include "XBoneHierarchyLoader.h"
 
 class XSkinnedMesh;
 
-using XAnimatedObjectPtr = shared_ptr<XSkinnedMesh>;
+using XAnimatedObjectPtr = shared_ptr< XSkinnedMesh >;
 
-class XSkinnedMesh
+class XSkinnedMesh : public XMeshObject
 {
 public:
 
 	XSkinnedMesh();
-	~XSkinnedMesh();
+	virtual ~XSkinnedMesh();
 
-	void Load( const string& fileName );
+	static XAnimatedObjectPtr Create( const string& fileName );
 
-	void RenderSkeleton( Bone* bone = nullptr, Bone* parent = nullptr );
+	// Load data
+	virtual void LoadModel( const string& fileName );
 
-	void Render( const BoneFrame* bone = nullptr );
+	virtual void LoadTexture( const string& fileName );
 
+	// Render
+	//void RenderSkeleton( Bone* bone = nullptr, Bone* parent = nullptr );
+
+	virtual void Render();
+
+	void Render( const BoneFrame* bone );
+
+	// Animation
 	void SetAnimation( int getAnimNum, int setTrackNum );
 
 	void SetPose( float time );
@@ -40,18 +50,21 @@ private:
 
 	LPD3DXANIMATIONCONTROLLER _animation;
 
+	//vector<D3DMATERIAL9> _materials;
+	IDirect3DTexture9* _texture;
+
 private:
 
 	// Related to create skeleton
-	LPD3DXMESH _sphereMesh;
+	//LPD3DXMESH _sphereMesh;
 };
-
-struct Vertex
-{
-	Vertex() {}
-
-	Vertex( D3DXVECTOR3 pos, D3DCOLOR color ) : _pos( pos ), _color( color ) {}
-
-	D3DXVECTOR3 _pos;
-	D3DCOLOR _color;
-};
+//
+//struct Vertex
+//{
+//	Vertex() {}
+//
+//	Vertex( D3DXVECTOR3 pos, D3DCOLOR color ) : _pos( pos ), _color( color ) {}
+//
+//	D3DXVECTOR3 _pos;
+//	D3DCOLOR _color;
+//};

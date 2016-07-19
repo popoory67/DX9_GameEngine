@@ -20,16 +20,3 @@ void MeshModel::SetObjectName( const string& objectName )
 	_objectName = objectName;
 }
 
-
-ShaderPtr MeshModel::GetShader() const
-{ 
-	return _shader; 
-}
-
-
-MatrixPtr MeshModel::GetMatrix() const
-{ 
-	return _matrix; 
-}
-
-

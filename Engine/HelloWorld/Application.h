@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
-
+#include "XSkinnedMesh.h"
 
 class GameManager : public GameObject
 {
@@ -20,6 +20,8 @@ public:
 	virtual void Release();
 
 private:
+
+	XAnimatedObjectPtr warrior;
 
 };
 

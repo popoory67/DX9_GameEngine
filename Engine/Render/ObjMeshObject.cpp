@@ -85,24 +85,28 @@ void AddObjFace( ObjTriangleList& objTriangleList, const ObjMesh& objMesh, UINT 
 
 ObjMeshPtr ObjMeshObject::Create( const string& fileName )
 {
+	ObjMeshPtr objMesh( new ObjMeshObject() );
+
+	objMesh->LoadModel( fileName );
+
+	return objMesh;
+}
+
+void ObjMeshObject::LoadModel( const string& fileName )
+{
 	shared_ptr<ObjMesh> objMesh( new ObjMesh() );
 
 	// .obj 데이터를 받아옴
 	if (ObjLoader::LoadObj( fileName, objMesh.get() ) < 0)
 	{
 		assert( Util::Error( "Failed to load the obj file" ) );
-		return nullptr;
 	}
 
 	// 메시 생성
-	ObjMeshPtr mesh( new ObjMeshObject() );
-
-	auto meshLoad = FAILED( mesh->Init( *objMesh, false, true ) );
+	auto objMeshLoad = FAILED( Init( *objMesh, false, true ) );
 
 	// assert
-	assert( !meshLoad );
-
-	return mesh;
+	assert( !objMeshLoad );
 }
 
 

@@ -4,7 +4,6 @@
 #include "CreateD3D9.h"
 #include "MeshManager.h"
 
-
 Graphics* Graphics::_instance = nullptr;
 
 Graphics::Graphics()

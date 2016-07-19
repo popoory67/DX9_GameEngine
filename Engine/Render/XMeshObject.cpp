@@ -3,6 +3,7 @@
 
 #include "CreateD3D9.h"
 #include "CameraManager.h"
+#include "MeshManager.h"
 
 
 XMeshObject::XMeshObject() : _mtrlBuffer( nullptr )
@@ -12,8 +13,6 @@ XMeshObject::XMeshObject() : _mtrlBuffer( nullptr )
 
 XMeshObject::XMeshObject( const string& object_name )
 {
-	XMeshObject();
-
 	SetObjectName( object_name );
 }
 
@@ -50,30 +49,30 @@ void XMeshObject::LoadModel( const string& fileName )
 	_d3dxMaterials = (D3DXMATERIAL*)_mtrlBuffer->GetBufferPointer();
 
 	// default texture
-	assert( LoadTexture( DEFAULT_TEX ) );
+	LoadTexture( DEFAULT_TEX );
 }
 
-bool XMeshObject::LoadTexture( const string& fileName )
+void XMeshObject::LoadTexture( const string& fileName )
 {
 	// if texture does not exist
 	if (fileName.c_str() == nullptr || lstrlenA( fileName.c_str() ) < 0)
 	{
-		return false;
+		//assert( Util::Error( "invalid file name" ) );
 	}
 
 	if ((_materials = new D3DMATERIAL9[_numMaterials]) == nullptr)
 	{
-		return false;
+		//assert( Util::Error( "fail to allocate materials" ) );
 	}
 
 	if ((_texture = new LPDIRECT3DTEXTURE9[_numMaterials]) == nullptr)
 	{
-		return false;
+		//assert( Util::Error( "fail to allocate d3d texture" ) );
 	}
 
 	for (auto i = 0; i < _numMaterials; i++)
 	{
-		_materials[i] = _d3dxMaterials[i].MatD3D;		// 재질 정보 복사
+		_materials[i] = _d3dxMaterials[i].MatD3D;			// 재질 정보 복사
 		_materials[i].Ambient = _materials[i].Diffuse;		// 재질용 주변광 색깔 설정
 
 		_texture[i] = nullptr;
@@ -83,8 +82,6 @@ bool XMeshObject::LoadTexture( const string& fileName )
 		// if fail to load texture, assert
 		assert( !FAILED( textureLoad ) );
 	}
-
-	return true;
 }
 
 void XMeshObject::Render()
@@ -103,6 +100,7 @@ void XMeshObject::Render()
 			// start shader render
 			effect->BeginPass( 0 );
 
+			// shader
 			auto shaderFunc = bind(
 				[&]()
 				{

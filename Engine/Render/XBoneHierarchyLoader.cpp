@@ -54,7 +54,7 @@ HRESULT BoneHierarchyLoader::CreateMeshContainer( LPCSTR Name,
 		memcpy(&mtrl, &pMaterials[i], sizeof(D3DXMATERIAL));
 		boneMesh->_materials.push_back(mtrl.MatD3D);
 
-		IDirect3DTexture9* newTexture = nullptr;
+		/*IDirect3DTexture9* newTexture = nullptr;
 
 		if (mtrl.pTextureFilename != nullptr)
 		{
@@ -64,7 +64,7 @@ HRESULT BoneHierarchyLoader::CreateMeshContainer( LPCSTR Name,
 			D3DXCreateTextureFromFile(device, texFileName, &newTexture);
 		}
 
-		boneMesh->_textures.push_back(newTexture);
+		boneMesh->_textures.push_back(newTexture);*/
 	}
 
 	if (pSkinInfo != nullptr)

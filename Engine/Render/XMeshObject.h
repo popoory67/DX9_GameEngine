@@ -20,10 +20,10 @@ public:
 public:
 
 	// load .x file modeling
-	void LoadModel( const string& fileName );
+	virtual void LoadModel( const string& fileName );
 
 	// load texture
-	bool LoadTexture( const string& fileName );
+	virtual void LoadTexture( const string& fileName );
 
 	// Render
 	virtual void Render();

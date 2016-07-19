@@ -12,7 +12,7 @@ using MeshModelPtr = shared_ptr<MeshModel>;
 
 /**
  * this is abstraction class of mesh object classes that is the file extension of 'x', 'obj' and etc...
- * the class is base on every mesh class.
+ * the class is basic on every mesh class.
  * the reason for using abstraction is to prevent to declare unnecessary data structure (vector to manage modeling objects in the MeshManager).
  */
 class MeshModel
@@ -29,10 +29,16 @@ public:
 	void SetObjectName( const string& objectName );
 
 	// get shader instance.
-	virtual ShaderPtr GetShader() const;
+	ShaderPtr GetShader() const { return _shader; }
 
 	// get matrix instance.
-	virtual MatrixPtr GetMatrix() const;
+	MatrixPtr GetMatrix() const { return _matrix; }
+
+	// load mesh model
+	virtual void LoadModel( const string& fileName ) = 0;
+
+	// load texture file
+	virtual void LoadTexture( const string& fileName ) = 0;
 
 	// user must take shape thr Render function.
 	virtual void Render() = 0;

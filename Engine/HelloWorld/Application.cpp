@@ -6,6 +6,9 @@
 #include "InputHeader.h"
 #include "GameObjectHeader.h"
 
+#include "XMeshObject.h"
+#include "ObjMeshObject.h"
+
 // test
 #include "Resources.h"
 #include "KeyController.h"
@@ -57,6 +60,15 @@ void GameManager::Start()
 	//bb8->GetShader()->LoadShader( DEFAULT_SHADER );
 	MeshManager::Get().AddMesh( bb8 );
 
+	warrior = XSkinnedMesh::Create( X_WARRIOR );
+	warrior->LoadTexture( TEX_WARRIOR );
+	warrior->GetMatrix()->Scale( 0.5f, 0.5f, 0.5f );
+	warrior->GetMatrix()->Rotate( 0, 0, 0 );
+	warrior->GetMatrix()->Position( 0, 0, 0 );
+	warrior->SetAnimation( 2, 0 );
+	warrior->SetPose( 0.0001 );
+	MeshManager::Get().AddMesh( warrior );
+
 	//ObjMeshObjectPtr pot( ObjMeshObject::Create( OBJ_POT ) );
 	//pot->GetMatrix()->Scale( 5, 5, 5 );
 	//pot->GetMatrix()->Position( -10.0f, 0.0f, -10.0f );
@@ -80,7 +92,7 @@ void GameManager::KeyInput()
 {
 	if (KEY_INPUT.IsKeyDown( VK_F1 ))
 	{
-		GET_MESH( 0 )->GetMatrix()->Position( 0, 0, -10 );
+		GET_MESH( 2 )->GetMatrix()->Position( 0, 0, -10 );
 	}
 
 	if (KEY_INPUT.IsKeyDown( VK_UP ))
