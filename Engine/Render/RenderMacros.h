@@ -1,9 +1,5 @@
 #pragma once
 
-#define WINDOW_MODE					1
-
-//#define DEBUG
-//#define RELEASE
 
 // utilize key input
 #define KEY_DOWN(vk_code)	((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)

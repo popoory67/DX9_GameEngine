@@ -13,7 +13,8 @@ using MeshModelPtr = shared_ptr<MeshModel>;
 /**
  * this is abstraction class of mesh object classes that is the file extension of 'x', 'obj' and etc...
  * the class is basic on every mesh class.
- * the reason for using abstraction is to prevent to declare unnecessary data structure (vector to manage modeling objects in the MeshManager).
+ * the reason for using abstraction is to prevent to declare unnecessary data structure
+ * (vector to manage modeling objects in the MeshManager).
  */
 class MeshModel
 {

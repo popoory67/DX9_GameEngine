@@ -1,7 +1,8 @@
 #pragma once
 
 #include "GameObject.h"
-#include "XSkinnedMesh.h"
+
+#include "D3DXHeader.h"
 
 class GameManager : public GameObject
 {
@@ -15,9 +16,9 @@ public:
 
 	virtual void Update();
 
-	void KeyInput();
-
 	virtual void Release();
+
+	void KeyInput();
 
 private:
 

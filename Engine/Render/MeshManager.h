@@ -2,9 +2,12 @@
 
 #include "MeshModel.h"
 
-#define GET_MESH(id)	MeshManager::Get().GetMesh(id)
+#define GET_MESH(id)	MeshManager::Get()->GetMesh(id)
 
-using MeshVector = vector< MeshModelPtr >;
+class MeshManager;
+
+using MeshManagerPtr = shared_ptr<MeshManager>; // MeshManager*;
+using MeshVector = vector<MeshModelPtr>;
 
 class MeshManager
 {
@@ -13,7 +16,7 @@ public:
 	~MeshManager();
 
 	// singleton
-	static MeshManager& Get();
+	static MeshManagerPtr Get();
 
 public:
 
@@ -34,7 +37,7 @@ private:
 
 private:
 
-	static MeshManager* _instance;
+	static MeshManagerPtr _instance;
 
 	MeshVector _meshVector;
 };

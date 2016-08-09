@@ -4,9 +4,6 @@
     <Filter Include="OpenGL">
       <UniqueIdentifier>{35a63cb4-e1f9-45ae-a3fa-6841acea17a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameBase">
-      <UniqueIdentifier>{e1e9458e-702d-4ccf-bb7b-3402d7d053ad}</UniqueIdentifier>
-    </Filter>
     <Filter Include="DirectX">
       <UniqueIdentifier>{e0154d85-c18a-4d4f-8238-4ed2e15a222b}</UniqueIdentifier>
     </Filter>
@@ -18,9 +15,6 @@
     </Filter>
     <Filter Include="DirectX\D3D9\Transform">
       <UniqueIdentifier>{f6d70cca-a6d4-46c7-87b8-da67def9e2f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DirectX\D3D9\Camera">
-      <UniqueIdentifier>{7cdaa2e3-3e80-4623-befd-f3510b759e6f}</UniqueIdentifier>
     </Filter>
     <Filter Include="DirectX\D3D9\Device">
       <UniqueIdentifier>{783e9430-9546-47af-92b1-bb8db02ed359}</UniqueIdentifier>
@@ -55,6 +49,9 @@
     <Filter Include="DirectX\D3D9\3D Model\X\Animation">
       <UniqueIdentifier>{24862b71-5745-4d86-ab34-07ef57356624}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DirectX\Camera">
+      <UniqueIdentifier>{7cdaa2e3-3e80-4623-befd-f3510b759e6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderPCH.h" />
@@ -62,9 +59,6 @@
       <Filter>OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="RenderMacros.h" />
-    <ClInclude Include="Graphics.h">
-      <Filter>DirectX\D3D9\Render</Filter>
-    </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>DirectX\D3D9\Shader</Filter>
     </ClInclude>
@@ -72,7 +66,7 @@
       <Filter>DirectX\D3D9\Transform</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>DirectX\D3D9\Camera</Filter>
+      <Filter>DirectX\Camera</Filter>
     </ClInclude>
     <ClInclude Include="D3D9Header.h">
       <Filter>DirectX\D3D9</Filter>
@@ -83,9 +77,6 @@
     <ClInclude Include="CreateD3D11.h">
       <Filter>DirectX\D3D11\Device</Filter>
     </ClInclude>
-    <ClInclude Include="ModelParser.h">
-      <Filter>DirectX\D3D11\3D Model</Filter>
-    </ClInclude>
     <ClInclude Include="CreateD3D9.h">
       <Filter>DirectX\D3D9\Device</Filter>
     </ClInclude>
@@ -93,7 +84,7 @@
       <Filter>DirectX\D3D11\Render</Filter>
     </ClInclude>
     <ClInclude Include="CameraManager.h">
-      <Filter>DirectX\D3D9\Camera</Filter>
+      <Filter>DirectX\Camera</Filter>
     </ClInclude>
     <ClInclude Include="ObjLoader.h">
       <Filter>DirectX\D3D9\3D Model\Obj</Filter>
@@ -103,15 +94,6 @@
     </ClInclude>
     <ClInclude Include="XMeshObject.h">
       <Filter>DirectX\D3D9\3D Model\X</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>GameBase</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjectManager.h">
-      <Filter>GameBase</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjectHeader.h">
-      <Filter>GameBase</Filter>
     </ClInclude>
     <ClInclude Include="WindowSystem.h">
       <Filter>DirectX\Window</Filter>
@@ -128,13 +110,16 @@
     <ClInclude Include="MeshModel.h">
       <Filter>DirectX\D3D9\3D Model</Filter>
     </ClInclude>
+    <ClInclude Include="D3D9Renderer.h">
+      <Filter>DirectX\D3D9\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DXHeader.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CreateWindowGL.cpp">
       <Filter>OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics.cpp">
-      <Filter>DirectX\D3D9\Render</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>DirectX\D3D9\Shader</Filter>
@@ -145,9 +130,6 @@
     <ClCompile Include="CreateD3D11.cpp">
       <Filter>DirectX\D3D11\Device</Filter>
     </ClCompile>
-    <ClCompile Include="ModelParser.cpp">
-      <Filter>DirectX\D3D11\3D Model</Filter>
-    </ClCompile>
     <ClCompile Include="CreateD3D9.cpp">
       <Filter>DirectX\D3D9\Device</Filter>
     </ClCompile>
@@ -155,10 +137,10 @@
       <Filter>DirectX\D3D11\Render</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>DirectX\D3D9\Camera</Filter>
+      <Filter>DirectX\Camera</Filter>
     </ClCompile>
     <ClCompile Include="CameraManager.cpp">
-      <Filter>DirectX\D3D9\Camera</Filter>
+      <Filter>DirectX\Camera</Filter>
     </ClCompile>
     <ClCompile Include="ObjLoader.cpp">
       <Filter>DirectX\D3D9\3D Model\Obj</Filter>
@@ -168,12 +150,6 @@
     </ClCompile>
     <ClCompile Include="XMeshObject.cpp">
       <Filter>DirectX\D3D9\3D Model\X</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>GameBase</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjectManager.cpp">
-      <Filter>GameBase</Filter>
     </ClCompile>
     <ClCompile Include="WindowSystem.cpp">
       <Filter>DirectX\Window</Filter>
@@ -189,6 +165,9 @@
     </ClCompile>
     <ClCompile Include="MeshModel.cpp">
       <Filter>DirectX\D3D9\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D9Renderer.cpp">
+      <Filter>DirectX\D3D9\Render</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

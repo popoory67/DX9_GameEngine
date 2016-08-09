@@ -43,18 +43,23 @@ D3DXMATRIX Matrix::Rotate(float xpos, float ypos, float zpos)
 {
 	if (xpos != 0)
 	{
-		D3DXMatrixRotationX(&_rotation, xpos);
+		D3DXVECTOR3 v( 1, 0, 0 );
+		D3DXMatrixRotationAxis( &_rotation, &v, xpos );
 	}
 
 	if (ypos != 0)
 	{
-		D3DXMatrixRotationY(&_rotation, ypos);
+		D3DXVECTOR3 v( 0, 1, 0 );
+		D3DXMatrixRotationAxis( &_rotation, &v, ypos );
 	}
 
 	if (zpos != 0)
 	{
-		D3DXMatrixRotationZ(&_rotation, zpos);
+		D3DXVECTOR3 v( 0, 0, 1 );
+		D3DXMatrixRotationAxis( &_rotation, &v, zpos );
 	}
+
+	//D3DXMatrixRotationYawPitchRoll( &_rotation, xpos, ypos, zpos );
 
 	return _rotation;
 }

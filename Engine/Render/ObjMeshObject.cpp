@@ -121,7 +121,7 @@ void ObjMeshObject::LoadTexture( const string& fileName )
 
 void ObjMeshObject::Render()
 {
-	auto cameraMatrix = CameraManager::Get().GetCamera( 0 )->GetCameraMatrix(); // camera matrix
+	auto cameraMatrix = CameraManager::Get()->GetCamera( 0 )->GetCameraMatrix(); // camera matrix
 	auto effect = _shader->GetEffect(); // d3d effect
 
 	UINT pass = 0;

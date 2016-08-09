@@ -20,17 +20,14 @@
     </ClInclude>
     <ClInclude Include="D3D11Header.h" />
     <ClInclude Include="D3D11Renderer.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameObjectHeader.h" />
-    <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="D3DXHeader.h" />
     <ClInclude Include="MeshModel.h" />
     <ClInclude Include="ObjMeshObject.h" />
-    <ClInclude Include="Graphics.h" />
+    <ClInclude Include="D3D9Renderer.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="WindowSystem.h" />
     <ClInclude Include="XBoneHierarchyLoader.h" />
     <ClInclude Include="XMeshObject.h" />
-    <ClInclude Include="ModelParser.h" />
     <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="MeshManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -55,16 +52,13 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="D3D11Renderer.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="MeshModel.cpp" />
     <ClCompile Include="ObjMeshObject.cpp" />
-    <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="D3D9Renderer.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="WindowSystem.cpp" />
     <ClCompile Include="XBoneHierarchyLoader.cpp" />
     <ClCompile Include="XMeshObject.cpp" />
-    <ClCompile Include="ModelParser.cpp" />
     <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="MeshManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>

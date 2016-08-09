@@ -1,17 +1,19 @@
 #pragma once
+#include "RenderPCH.h"
 
-#include "ModelParser.h"
+class D3D11Renderer;
+
+using D3D11RendererPtr = shared_ptr<D3D11Renderer>;
 
 class D3D11Renderer
 {
 public:
 
-	D3D11Renderer();
 	~D3D11Renderer();
 
-	void Init(HWND hWnd);
+	static D3D11RendererPtr Get();
 
-	void Release();
+	void Init( HWND hWnd );
 
 	void RenderScene();
 
@@ -19,6 +21,8 @@ public:
 
 private:
 
-	ModelParser*			_model;
+	D3D11Renderer();
+
+	static D3D11RendererPtr _instance;
 };
 

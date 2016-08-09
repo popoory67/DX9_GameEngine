@@ -28,7 +28,7 @@ void Camera::Init()
 	D3DXMatrixIdentity( &_world );
 
 	// view
-	_eyePt = D3DXVECTOR3( 0.0f, 150, -150 ); // camera position
+	_eyePt = D3DXVECTOR3( 0.0f, 79, -70 ); // camera position
 	_lookAtPt = D3DXVECTOR3( 0.0f, 0.0f, 0.0f ); // look at point
 	_upVec = D3DXVECTOR3( 0.0f, 1.0f, 0.0f );
 
@@ -53,4 +53,6 @@ void Camera::SetPosition( float x /* = 0 */, float y /* = 0 */, float z /* = 0 *
 	_eyePt += D3DXVECTOR3( x, y, z );
 
 	D3DXMatrixLookAtLH( &_view, &_eyePt, &_lookAtPt, &_upVec );
+	D3D9_DEVICE->SetTransform( D3DTS_VIEW, &_view );
+	D3D9_DEVICE->SetTransform( D3DTS_PROJECTION, &_proj );
 }

@@ -86,7 +86,7 @@ void XMeshObject::LoadTexture( const string& fileName )
 
 void XMeshObject::Render()
 {
-	auto cameraMatrix = CameraManager::Get().GetCamera( 0 )->GetCameraMatrix(); // camera matrix
+	auto cameraMatrix = CameraManager::Get()->GetCamera( 0 )->GetCameraMatrix(); // camera matrix
 	auto effect = _shader->GetEffect(); // d3d effect
 
 	UINT pass = 0;

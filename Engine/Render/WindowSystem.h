@@ -1,11 +1,11 @@
 #pragma once
 
+#include "D3DXHeader.h"
+
 #include "InputHeader.h"
-#include "D3D9Header.h"
-#include "D3D11Header.h"
 #include "GameObjectHeader.h"
 
-#define FULL_SCREEN				0
+#define FULL_SCREEN SCREEN_MODE
 
 class WindowSystem
 {

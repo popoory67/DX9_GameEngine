@@ -2,7 +2,7 @@
 #include "CameraManager.h"
 
 
-CameraManager* CameraManager::_instance = nullptr;
+CameraManagerPtr CameraManager::_instance = nullptr;
 
 CameraManager::CameraManager()
 {
@@ -13,18 +13,19 @@ CameraManager::~CameraManager()
 {
 	Clear();
 
-	SAFE_DELETE( _instance );
+	// this is when shared_ptr is not using
+	//SAFE_DELETE( _instance );
 }
 
 
-CameraManager& CameraManager::Get()
+CameraManagerPtr CameraManager::Get()
 {
 	if (!_instance)
 	{
-		_instance = new CameraManager();
+		_instance.reset( new CameraManager() ); // = new CameraManager();
 	}
 
-	return *_instance;
+	return _instance;
 }
 
 void CameraManager::AddCamera()

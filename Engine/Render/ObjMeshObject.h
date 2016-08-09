@@ -3,11 +3,9 @@
 #include "ObjLoader.h"
 #include "MeshModel.h"
 
-
 class ObjMeshObject;
 
 using ObjMeshPtr = shared_ptr<ObjMeshObject>;
-
 
 class ObjMeshObject : public MeshModel
 {

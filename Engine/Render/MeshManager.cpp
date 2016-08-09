@@ -6,29 +6,29 @@
 #include "CameraManager.h"
 
 
-MeshManager* MeshManager::_instance = nullptr;
+MeshManagerPtr MeshManager::_instance = nullptr;
 
 MeshManager::MeshManager()
 {
-	CameraManager::Get().AddCamera();
+	CameraManager::Get()->AddCamera();
 }
 
 MeshManager::~MeshManager()
 {
 	Clear();
 
-	SAFE_DELETE( _instance );
+	//SAFE_DELETE( _instance );
 }
 
 
-MeshManager& MeshManager::Get()
+MeshManagerPtr MeshManager::Get()
 {
 	if (!_instance)
 	{
-		_instance = new MeshManager();
+		_instance.reset( new MeshManager() ); //= new MeshManager();
 	}
 
-	return *_instance;
+	return _instance;
 }
 
 

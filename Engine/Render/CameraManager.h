@@ -4,19 +4,21 @@
 
 class CameraManager;
 
+using CameraManagerPtr = shared_ptr<CameraManager>; // CameraManager*;
 using CameraVector = vector<CameraPtr>;
+
 
 class CameraManager
 {
 public:
-	
+
 	~CameraManager();
 
-	static CameraManager& Get();
+	static CameraManagerPtr Get();
 
 	void AddCamera();
 
-	CameraPtr GetCamera(const int& cameraID) const;
+	CameraPtr GetCamera( const int& cameraID ) const;
 
 private:
 
@@ -26,11 +28,11 @@ private:
 
 private:
 
-	static CameraManager* _instance;
-
-	int _idCount = 0; // 0 is main camera
+	static CameraManagerPtr _instance;
 
 	CameraVector _cameraVector;
+	
+	int _idCount = 0; // 0 is main camera
 
 };
 

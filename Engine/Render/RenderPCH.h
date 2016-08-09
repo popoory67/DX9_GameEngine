@@ -1,5 +1,11 @@
 #pragma once
 
+// Window screen : false, Full screen : true
+#define SCREEN_MODE			false
+
+#define SCREEN_WIDTH		1280
+#define SCREEN_HEIGHT		720
+
 #include <Windows.h>
 #include <WindowsX.h>
 
@@ -20,15 +26,15 @@ using namespace std;
 
 #include "RenderMacros.h" 
 
-// D3D9
+
+//#if (_D3DX_VERSION <= 9)
 #include <d3d9.h>
 #include <d3dx9.h>
- 
+
 #pragma comment (lib, "d3d9.lib")
 #pragma comment (lib, "d3dx9.lib")
 #pragma comment (lib, "winmm.lib")
-
-// D3D11
+//#else
 #include <dxgi.h>
 #include <d3dcommon.h>
 #include <d3d11.h>
@@ -38,7 +44,9 @@ using namespace std;
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dx11.lib")
 #pragma comment(lib, "d3dx10.lib")
- 
+//#endif
+
+
 // GL
 //#include <gl\glew.h>
 //#include <GLFW\glfw3.h>

@@ -10,6 +10,9 @@
     <Filter Include="Input">
       <UniqueIdentifier>{be9dba01-160f-40c2-94f8-ddfb1eef7c4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{a8895a7c-a7e9-4d4b-917c-2e131f15514e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Thread.h">
@@ -39,6 +42,15 @@
       <Filter>Thread</Filter>
     </ClInclude>
     <ClInclude Include="Util.h" />
+    <ClInclude Include="GameObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectHeader.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectManager.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Thread.cpp">
@@ -55,6 +67,12 @@
     </ClCompile>
     <ClCompile Include="KeyInput.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

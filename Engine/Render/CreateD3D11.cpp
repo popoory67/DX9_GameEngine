@@ -2,7 +2,7 @@
 #include "CreateD3D11.h"
 
 
-CreateD3D11* CreateD3D11::_instance = NULL;
+D3D11Ptr CreateD3D11::_instance = nullptr;
 
 CreateD3D11::CreateD3D11()
 {
@@ -19,17 +19,17 @@ CreateD3D11::CreateD3D11()
 
 CreateD3D11::~CreateD3D11()
 {
-
+	Release();
 }
 
-CreateD3D11& CreateD3D11::Get()
+D3D11Ptr CreateD3D11::Get()
 {
 	if (!_instance)
 	{
-		_instance = new CreateD3D11();
+		_instance.reset( new CreateD3D11() );
 	}
 
-	return *_instance;
+	return _instance;
 }
 
 bool CreateD3D11::Init(int screenWidth, int screenHeight, bool vsync, HWND hwnd, bool fullscreen, float screenDepth, float screenNear)
