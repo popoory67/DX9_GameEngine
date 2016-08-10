@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{14D221F1-5F9F-4861-A5A8-142DD7AC39A0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Engine\Source\Developer\Core\Core.vcxproj", "{40760B53-DA78-4435-9181-759427A57C5D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Render", "Engine\Source\Developer\Render\Render.vcxproj", "{221448F2-C9D4-4970-82BB-C275CAB92FF5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorld", "Engine\HelloWorld\HelloWorld.vcxproj", "{436697F6-AC38-4041-A9CC-A0833FBEBDA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40760B53-DA78-4435-9181-759427A57C5D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{40760B53-DA78-4435-9181-759427A57C5D}.Debug|Win32.Build.0 = Debug|Win32
+		{40760B53-DA78-4435-9181-759427A57C5D}.Release|Win32.ActiveCfg = Release|Win32
+		{40760B53-DA78-4435-9181-759427A57C5D}.Release|Win32.Build.0 = Release|Win32
+		{221448F2-C9D4-4970-82BB-C275CAB92FF5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{221448F2-C9D4-4970-82BB-C275CAB92FF5}.Debug|Win32.Build.0 = Debug|Win32
+		{221448F2-C9D4-4970-82BB-C275CAB92FF5}.Release|Win32.ActiveCfg = Release|Win32
+		{221448F2-C9D4-4970-82BB-C275CAB92FF5}.Release|Win32.Build.0 = Release|Win32
+		{436697F6-AC38-4041-A9CC-A0833FBEBDA9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{436697F6-AC38-4041-A9CC-A0833FBEBDA9}.Debug|Win32.Build.0 = Debug|Win32
+		{436697F6-AC38-4041-A9CC-A0833FBEBDA9}.Release|Win32.ActiveCfg = Release|Win32
+		{436697F6-AC38-4041-A9CC-A0833FBEBDA9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40760B53-DA78-4435-9181-759427A57C5D} = {14D221F1-5F9F-4861-A5A8-142DD7AC39A0}
+		{221448F2-C9D4-4970-82BB-C275CAB92FF5} = {14D221F1-5F9F-4861-A5A8-142DD7AC39A0}
+	EndGlobalSection
+EndGlobal

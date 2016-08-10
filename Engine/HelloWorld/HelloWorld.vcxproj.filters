@@ -29,9 +29,6 @@
     <ClCompile Include="Application.cpp">
       <Filter>Src\Game</Filter>
     </ClCompile>
-    <ClCompile Include="HelloWorldGL.cpp">
-      <Filter>Src\Main</Filter>
-    </ClCompile>
     <ClCompile Include="HelloWorldWin32.cpp">
       <Filter>Src\Main</Filter>
     </ClCompile>
