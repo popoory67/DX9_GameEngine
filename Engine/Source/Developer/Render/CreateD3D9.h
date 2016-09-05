@@ -1,6 +1,5 @@
 #pragma once
 
-//#include "RenderPCH.h"
 #include <memory>
 #include <d3dx9.h>
 
@@ -13,7 +12,7 @@ class CreateD3D9;
 
 using D3D9Ptr = shared_ptr<CreateD3D9>; // CreateD3D9*;
 
-class CreateD3D9 //DLLEXPORT CreateD3D9
+class CreateD3D9
 {
 public:
 

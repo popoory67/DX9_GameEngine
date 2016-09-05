@@ -1,5 +1,6 @@
 #include "CWindowSystem.h"
 
+
 extern "C"
 {
 	HWND Init( HINSTANCE applicationInstance, HWND hWnd )

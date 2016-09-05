@@ -1,7 +1,8 @@
 #pragma once
 
-
 #pragma warning (disable : 4996)
+
+#include <vector>
 
 #define LINE_BUFF_SIZE 4096
 

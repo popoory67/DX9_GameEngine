@@ -1,5 +1,7 @@
 #pragma once
 
+#include "RenderPCH.h"
+
 #include "CoreMacros.h"
 #include "D3DXHeader.h"
 #include "InputHeader.h"

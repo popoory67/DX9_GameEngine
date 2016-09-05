@@ -1,6 +1,7 @@
 #pragma once
 
 #include <d3dx9.h>
+#include <functional>
 
 #define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/ObjViewer.fx"
 
