@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="WinApp">
+      <UniqueIdentifier>{a6bfeddb-1353-43c3-8cbb-160a134006dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\app.ico">
+      <Filter>Resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\app.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Sources\WindowsApplication.cpp">
+      <Filter>WinApp</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\AssemblyInfo.cpp" />
+    <ClCompile Include="Sources\WindowSystem.cpp">
+      <Filter>WinApp</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\CWindowSystem.cpp">
+      <Filter>WinApp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sources\WindowsApplication.h">
+      <Filter>WinApp</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\resource.h" />
+    <ClInclude Include="Sources\WindowSystem.h">
+      <Filter>WinApp</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\CWinAPI.h">
+      <Filter>WinApp</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\CWindowSystem.h">
+      <Filter>WinApp</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

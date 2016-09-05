@@ -1,5 +1,7 @@
 #pragma once
 
+#include <d3dx9.h>
+
 class Matrix;
 
 using MatrixPtr = shared_ptr<Matrix>;

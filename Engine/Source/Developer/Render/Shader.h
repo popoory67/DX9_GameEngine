@@ -1,5 +1,7 @@
 #pragma once
 
+#include <d3dx9.h>
+
 #define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/ObjViewer.fx"
 
 class Shader;

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <d3dx9.h>
+
 using BoneFrame = D3DXFRAME;
 
 struct Bone : public D3DXFRAME

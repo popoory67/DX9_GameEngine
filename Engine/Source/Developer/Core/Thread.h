@@ -1,5 +1,8 @@
 #pragma once
 
+#include <thread>
+#include <mutex>
+
 class Thread
 {
 public:

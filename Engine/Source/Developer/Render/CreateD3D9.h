@@ -1,6 +1,10 @@
 #pragma once
 
-#include "RenderPCH.h"
+//#include "RenderPCH.h"
+#include <memory>
+#include <d3dx9.h>
+
+using namespace std;
 
 #define	D3D9_INSTANCE	CreateD3D9::Get()
 #define D3D9_DEVICE		CreateD3D9::Get()->GetDevice()

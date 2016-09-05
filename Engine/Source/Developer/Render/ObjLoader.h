@@ -1,5 +1,6 @@
 #pragma once
 
+
 #pragma warning (disable : 4996)
 
 #define LINE_BUFF_SIZE 4096
@@ -104,7 +105,7 @@ struct ObjMesh
 		unsigned int _firstFace;
 		unsigned int _numFaces;
 	};
-
+	
 	std::vector< Float3 > _vertices;
 	std::vector< Float3 > _normals;
 	std::vector< Float2 > _texCoords;

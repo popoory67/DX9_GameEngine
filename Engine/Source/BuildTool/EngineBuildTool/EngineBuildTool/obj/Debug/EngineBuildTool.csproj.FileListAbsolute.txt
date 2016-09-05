@@ -1,0 +1,19 @@
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\bin\Debug\EngineBuildTool.exe.config
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\bin\Debug\EngineBuildTool.exe
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\bin\Debug\EngineBuildTool.pdb
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\EngineBuildTool.csprojResolveAssemblyReference.cache
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\MainWindow.baml
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\MainWindow.g.cs
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\App.g.cs
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\EngineBuildTool_MarkupCompile.cache
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\EngineBuildTool.g.resources
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\EngineBuildTool.Properties.Resources.resources
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\EngineBuildTool.csproj.GenerateResource.Cache
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\EngineBuildTool.exe
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\EngineBuildTool.pdb
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\Simple Styles.baml
+C:\Users\boseul\Documents\GitHub\NinetailEngine\Engine\Source\BuildTool\EngineBuildTool\EngineBuildTool\obj\Debug\App.baml
+C:\Users\boseul\Documents\GitHub\NinetailEngine\exe\Debug\EngineBuildTool.exe.config
+C:\Users\boseul\Documents\GitHub\exe\Debug\EngineBuildTool.exe.config
+C:\Users\boseul\Documents\GitHub\exe\Debug\EngineBuildTool.exe
+C:\Users\boseul\Documents\GitHub\exe\Debug\EngineBuildTool.pdb

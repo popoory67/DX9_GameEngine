@@ -1,4 +1,7 @@
 #include "RenderPCH.h"
+
+#include <d3dx9.h>
+
 #include "ObjMeshObject.h"
 
 #include "RenderMacros.h"

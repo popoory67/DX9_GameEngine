@@ -29,7 +29,7 @@ D3D11RendererPtr D3D11Renderer::Get()
 void D3D11Renderer::Init( HWND hWnd )
 {
 	// D3D11 ÃÊ±âÈ­
-	D3D11_INSTANCE->Init( 800, 600, VSYNC_ENABLED, hWnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR );
+	D3D11_INSTANCE->Init( 800, 600, VSYNC_ENABLED, hWnd, SCREEN_MODE, SCREEN_DEPTH, SCREEN_NEAR );
 }
 
 
@@ -40,7 +40,7 @@ void D3D11Renderer::RenderScene()
 
 	RenderState();
 
-	//Renderer::Get()->Render();
+	//mashmanager::Get()->Render();
 
 	D3D11_INSTANCE->EndScene();
 }

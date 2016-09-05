@@ -1,5 +1,8 @@
 #pragma once
 
+#include <d3dx9.h>
+#include <string>
+
 #include "Matrix.h"
 #include "Shader.h"
 

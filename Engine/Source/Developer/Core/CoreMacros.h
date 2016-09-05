@@ -1,6 +1,8 @@
+
+
 // simplify DLL export and import definitions
-#define DLLEXPORT __declspec(dllexport)
-#define DLLIMPORT __declspec(dllimport)
+#define DLL_EXPORT __declspec(dllexport)
+#define DLL_IMPORT __declspec(dllimport)
 
 #ifndef SAFE_DELETE
 // for pointers allocated with new.
