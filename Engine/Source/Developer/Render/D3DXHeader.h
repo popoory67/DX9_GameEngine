@@ -1,15 +1,19 @@
 #pragma once
 
-// Version check
-#define _D3DX_VERSION_9			9
-#define _D3DX_VERSION_11		11
+enum D3DX_VERSION_TYPE
+{
+	D3DX_VERSION_9 = 0,
+	D3DX_VERSION_11
+};
 
-#ifndef _D3DX_VERSION
-#define _D3DX_VERSION _D3DX_VERSION_9
+#ifndef CHECK_D3DX_VERSION
+#define CHECK_D3DX_VERSION	1//D3DX_VERSION_TYPE::D3DX_VERSION_9
 #endif
 
-#if (_D3DX_VERSION <= 9)
+
+#if (CHECK_D3DX_VERSION == 0)//D3DX_VERSION_TYPE::D3DX_VERSION_9)
 #include "D3D9Header.h"
 #else
 #include "D3D11Header.h"
 #endif
+

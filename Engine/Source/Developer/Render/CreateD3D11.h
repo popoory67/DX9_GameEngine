@@ -1,28 +1,15 @@
 #pragma once
 
-//#include <dxgi.h>
-//#include <d3dcommon.h>
-//#include <d3d11.h>
-//#include <d3dx10math.h>
-//
-//#pragma comment(lib, "dxgi.lib")
-//#pragma comment(lib, "d3d11.lib")
-//#pragma comment(lib, "d3dx11.lib")
-//#pragma comment(lib, "d3dx10.lib")
+#include <memory>
+#include <d3d11.h>
+#include <DirectXMath.h>
 
+using namespace std;
+using namespace DirectX;	// included windows 8.1
 
-#define	D3D11_INSTANCE	CreateD3D11::Get()
-#define D3D11_DEVICE	CreateD3D11::Get()->GetDevice()
+#define	D3D11_INSTANCE			CreateD3D11::Get()
+#define D3D11_DEVICE			CreateD3D11::Get()->GetDevice()
 
-#define FULL_SCREEN				false
-#define VSYNC_ENABLED			true
-#define SCREEN_DEPTH			1000.0f
-#define SCREEN_NEAR				0.1f
-
-//const bool	FULL_SCREEN			= false;
-//const bool	VSYNC_ENABLED		= true;
-//const float SCREEN_DEPTH		= 1000.0f;
-//const float SCREEN_NEAR			= 0.1f;
 
 class CreateD3D11;
 
@@ -36,20 +23,20 @@ public:
 
 	static D3D11Ptr Get();
 
-	bool Init( int, int, bool, HWND, bool, float, float );
-	void Release();
-
-	void BeginScene( float, float, float, float );
-	void EndScene();
-
 	ID3D11Device* GetDevice();
 	ID3D11DeviceContext* GetDeviceContext();
 
-	void GetProjectionMatrix( D3DXMATRIX& );
-	void GetWorldMatrix( D3DXMATRIX& );
-	void GetOrthoMatrix( D3DXMATRIX& );
+	void GetProjectionMatrix( XMMATRIX& projectionMatrix );
+	void GetWorldMatrix( XMMATRIX& worldMatrix );
+	void GetOrthoMatrix( XMMATRIX& orthoMatrix );
 
-	void GetVideoCardInfo( char*, int& );
+	void GetVideoCardInfo( char* cardName, int& memory );
+
+	bool Init( int screenWidth, int screenHeight, bool vsync, HWND hwnd, bool fullscreen, float screenDepth, float screenNear );
+	void Release();
+
+	void BeginScene( float red, float green, float blue, float alpha );
+	void EndScene();
 
 private:
 
@@ -72,7 +59,12 @@ private:
 	ID3D11DepthStencilView* _depthStencilView;
 	ID3D11RasterizerState* _rasterState;
 
-	D3DXMATRIX _projectionMatrix;
-	D3DXMATRIX _worldMatrix;
-	D3DXMATRIX _orthoMatrix;
+	//ID3D11BlendState*				g_pBlendState = nullptr;
+	//ID3D11Buffer*					g_pcBuffer = nullptr;
+	//ID3D11VertexShader*                 g_pvsFBX = nullptr;
+	//ID3D11PixelShader*                  g_ppsFBX = nullptr;
+
+	XMMATRIX _projectionMatrix;
+	XMMATRIX _worldMatrix;
+	XMMATRIX _orthoMatrix;
 };
