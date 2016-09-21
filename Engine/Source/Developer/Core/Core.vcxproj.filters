@@ -74,5 +74,6 @@
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="Util.cpp" />
   </ItemGroup>
 </Project>

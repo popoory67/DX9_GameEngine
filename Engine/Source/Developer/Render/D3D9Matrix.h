@@ -2,18 +2,18 @@
 
 #include <d3dx9.h>
 
-class Matrix;
+class D3D9Matrix;
 
-using MatrixPtr = shared_ptr<Matrix>;
+using D3D9MatrixPtr = shared_ptr<D3D9Matrix>;
 
-class Matrix
+class D3D9Matrix
 {
 public:
 
-	Matrix();
-	~Matrix();
+	D3D9Matrix();
+	~D3D9Matrix();
 
-	static MatrixPtr Create();
+	static D3D9MatrixPtr Create();
 
 	D3DXMATRIX Transform();
 

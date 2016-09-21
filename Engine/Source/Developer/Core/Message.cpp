@@ -21,21 +21,21 @@ Message* Message::Create()
 	return object;
 }
 
-void Message::AddMessageWithKey(string key, void* message)
+void Message::AddMessageWithKey( string key, void* message )
 {
-	_mapDataPointer[key].push_back(message);
+	_mapDataPointer[key].push_back( message );
 }
 
 
-void Message::AddMessage(void* message)
+void Message::AddMessage( void* message )
 {
-	_vecDataPointer.push_back(message);
+	_vecDataPointer.push_back( message );
 }
 
 
-void* Message::GetMessagePointerWithKey(string key, unsigned int count/* = 0*/)
+void* Message::GetMessagePointerWithKey( string key, unsigned int count/* = 0*/ )
 {
-	if (_mapDataPointer.find(key) != _mapDataPointer.end())
+	if (_mapDataPointer.find( key ) != _mapDataPointer.end())
 	{
 		if (_mapDataPointer[key].size() > count)
 		{
@@ -44,13 +44,13 @@ void* Message::GetMessagePointerWithKey(string key, unsigned int count/* = 0*/)
 	}
 
 	// assert
-	assert(Util::Error("get message"));
+	assert( Util::ErrorMessage( "get message" ) );
 
 	return NULL;
 }
 
 
-void* Message::GetMessagePointer(unsigned int count/* = 0*/)
+void* Message::GetMessagePointer( unsigned int count/* = 0*/ )
 {
 	if (_vecDataPointer.size() > count)
 	{
@@ -58,7 +58,7 @@ void* Message::GetMessagePointer(unsigned int count/* = 0*/)
 	}
 
 	// assert
-	assert(Util::Error("get message"));
+	assert( Util::ErrorMessage( "get message" ) );
 
 	return NULL;
 }

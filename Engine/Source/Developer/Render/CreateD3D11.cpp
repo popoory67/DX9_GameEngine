@@ -414,50 +414,42 @@ void CreateD3D11::Release()
 
 	if (_rasterState)
 	{
-		_rasterState->Release();
-		_rasterState = 0;
+		SAFE_RELEASE( _rasterState );
 	}
 
 	if (_depthStencilView)
 	{
-		_depthStencilView->Release();
-		_depthStencilView = 0;
+		SAFE_RELEASE( _depthStencilView );
 	}
 
 	if (_depthStencilState)
 	{
-		_depthStencilState->Release();
-		_depthStencilState = 0;
+		SAFE_RELEASE( _depthStencilState );
 	}
 
 	if (_depthStencilBuffer)
 	{
-		_depthStencilBuffer->Release();
-		_depthStencilBuffer = 0;
+		SAFE_RELEASE( _depthStencilBuffer );
 	}
 
 	if (_renderTargetView)
 	{
-		_renderTargetView->Release();
-		_renderTargetView = 0;
+		SAFE_RELEASE( _renderTargetView );
 	}
 
 	if (_deviceContext)
 	{
-		_deviceContext->Release();
-		_deviceContext = 0;
+		SAFE_RELEASE( _deviceContext );
 	}
 
 	if (_device)
 	{
-		_device->Release();
-		_device = 0;
+		SAFE_RELEASE( _device );
 	}
 
 	if (_swapChain)
 	{
-		_swapChain->Release();
-		_swapChain = 0;
+		SAFE_RELEASE( _swapChain );
 	}
 }
 
@@ -476,8 +468,6 @@ void CreateD3D11::BeginScene( float red, float green, float blue, float alpha )
 
 	// 깊이 버퍼를 지웁니다.
 	_deviceContext->ClearDepthStencilView( _depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0 );
-
-	return;
 }
 
 
@@ -495,6 +485,4 @@ void CreateD3D11::EndScene()
 		// 가능한 한 빠르게 표시합니다.
 		_swapChain->Present( 0, 0 );
 	}
-
-	return;
 }

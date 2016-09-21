@@ -1,42 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Src">
-      <UniqueIdentifier>{e79b9e58-3db5-4033-b5e4-cd691f445f44}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Game">
+    <Filter Include="Game">
       <UniqueIdentifier>{1a17e28f-86b5-47c5-aba8-04a5d2c93f90}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Main">
+    <Filter Include="Main">
       <UniqueIdentifier>{b769c1a7-49e2-4e97-bbcb-8ae02f1ba8e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
-      <Filter>Src\Game</Filter>
+      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="KeyController.h">
-      <Filter>Src\Game</Filter>
+      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Resources.h">
-      <Filter>Src\Game</Filter>
+      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">
-      <Filter>Src\Game</Filter>
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
-      <Filter>Src\Game</Filter>
+      <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="HelloWorldWin32.cpp">
-      <Filter>Src\Main</Filter>
+      <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="KeyController.cpp">
-      <Filter>Src\Game</Filter>
+      <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Collision.cpp">
-      <Filter>Src\Game</Filter>
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

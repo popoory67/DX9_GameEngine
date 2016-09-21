@@ -1,6 +1,6 @@
 #include "CorePCH.h"
 #include "GameObject.h"
-
+#include "GameObjectManager.h"
 
 GameObject::GameObject()
 {
@@ -12,9 +12,9 @@ GameObject::~GameObject()
 
 }
 
-void GameObject::AddComponent(GameObject* component)
+void GameObject::AddComponent( GameObject* component )
 {
-	_componentVector.push_back(component);
+	_componentVector.push_back( component );
 }
 
 void GameObject::Start()

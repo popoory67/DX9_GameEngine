@@ -20,30 +20,23 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\WindowsApplication.cpp">
-      <Filter>WinApp</Filter>
-    </ClCompile>
     <ClCompile Include="Sources\AssemblyInfo.cpp" />
-    <ClCompile Include="Sources\WindowSystem.cpp">
-      <Filter>WinApp</Filter>
-    </ClCompile>
     <ClCompile Include="Sources\CWindowSystem.cpp">
       <Filter>WinApp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sources\WindowsApplication.h">
-      <Filter>WinApp</Filter>
-    </ClInclude>
     <ClInclude Include="Sources\resource.h" />
-    <ClInclude Include="Sources\WindowSystem.h">
-      <Filter>WinApp</Filter>
-    </ClInclude>
     <ClInclude Include="Sources\CWinAPI.h">
       <Filter>WinApp</Filter>
     </ClInclude>
     <ClInclude Include="Sources\CWindowSystem.h">
       <Filter>WinApp</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test.lua">
+      <Filter>WinApp</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -15,4 +15,3 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	WindowSystem::Get().Clear();
 }
-

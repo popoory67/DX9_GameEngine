@@ -1,8 +1,8 @@
 #include "RenderPCH.h"
-#include "Matrix.h"
+#include "D3D9Matrix.h"
 
 
-Matrix::Matrix()
+D3D9Matrix::D3D9Matrix()
 {
 	D3DXMatrixIdentity(&_scale);
 	D3DXMatrixIdentity(&_rotation);
@@ -10,19 +10,19 @@ Matrix::Matrix()
 }
 
 
-Matrix::~Matrix()
+D3D9Matrix::~D3D9Matrix()
 {
 
 }
 
-MatrixPtr Matrix::Create()
+D3D9MatrixPtr D3D9Matrix::Create()
 {
-	MatrixPtr matrix( new Matrix() );
+	D3D9MatrixPtr matrix( new D3D9Matrix() );
 
 	return matrix;
 }
 
-D3DXMATRIX Matrix::Transform()
+D3DXMATRIX D3D9Matrix::Transform()
 {
 	D3DXMATRIX worldMatrix;
 
@@ -32,14 +32,14 @@ D3DXMATRIX Matrix::Transform()
 }
 
 
-D3DXMATRIX Matrix::Scale(float xpos, float ypos, float zpos)
+D3DXMATRIX D3D9Matrix::Scale( float xpos, float ypos, float zpos )
 {
 	D3DXMatrixScaling(&_scale, xpos, ypos, zpos);
 
 	return _scale;
 }
 
-D3DXMATRIX Matrix::Rotate(float xpos, float ypos, float zpos)
+D3DXMATRIX D3D9Matrix::Rotate( float xpos, float ypos, float zpos )
 {
 	if (xpos != 0)
 	{
@@ -64,7 +64,7 @@ D3DXMATRIX Matrix::Rotate(float xpos, float ypos, float zpos)
 	return _rotation;
 }
 
-D3DXMATRIX Matrix::Position(float xpos, float ypos, float zpos)
+D3DXMATRIX D3D9Matrix::Position( float xpos, float ypos, float zpos )
 {
 	D3DXMatrixTranslation(&_position, xpos, ypos, zpos);
 

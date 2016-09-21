@@ -5,16 +5,16 @@
 
 #define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/ObjViewer.fx"
 
-class Shader;
+class D3D9Shader;
 
-using ShaderPtr = shared_ptr<Shader>;
+using ShaderPtr = shared_ptr<D3D9Shader>;
 using FuncVoid = function<void()>;
 
-class Shader
+class D3D9Shader
 {
 public:
-	Shader();
-	~Shader();
+	D3D9Shader();
+	~D3D9Shader();
 
 	static ShaderPtr Create();
 
@@ -27,8 +27,6 @@ public:
 public:
 
 	void LoadShader(const string& fileName);
-
-	void Clear();
 
 private:
 

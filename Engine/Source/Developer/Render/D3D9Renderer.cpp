@@ -4,6 +4,7 @@
 #include "CreateD3D9.h"
 #include "MeshManager.h"
 
+
 D3D9RendererPtr D3D9Renderer::_instance = nullptr;
 
 D3D9Renderer::D3D9Renderer()
@@ -36,7 +37,9 @@ void D3D9Renderer::Init( HWND hWnd )
 void D3D9Renderer::RenderScene()
 {
 	if (!D3D9_DEVICE)
-		return;
+	{
+		assert( Util::ErrorMessage( "D3D device is null" ) );
+	}
 
 	D3D9_DEVICE->Clear( 0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB( 50, 50, 50 ), 1.0f, 0 );
 

@@ -3,8 +3,8 @@
 #include <d3dx9.h>
 #include <string>
 
-#include "Matrix.h"
-#include "Shader.h"
+#include "D3D9Matrix.h"
+#include "D3D9Shader.h"
 
 #define DEFAULT_TEX "C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/texture.png"
 
@@ -36,7 +36,7 @@ public:
 	ShaderPtr GetShader() const { return _shader; }
 
 	// get matrix instance.
-	MatrixPtr GetMatrix() const { return _matrix; }
+	D3D9MatrixPtr GetMatrix() const { return _matrix; }
 
 	// load mesh model
 	virtual void LoadModel( const string& fileName ) = 0;
@@ -56,6 +56,6 @@ protected:
 	ShaderPtr _shader;
 
 	// mesh transform object
-	MatrixPtr _matrix;
+	D3D9MatrixPtr _matrix;
 };
 

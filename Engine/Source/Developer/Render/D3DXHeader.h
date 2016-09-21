@@ -1,19 +1,16 @@
 #pragma once
 
-enum D3DX_VERSION_TYPE
-{
-	D3DX_VERSION_9 = 0,
-	D3DX_VERSION_11
-};
+// check d3dx version
+#include "DXVersion.h"
 
-#ifndef CHECK_D3DX_VERSION
-#define CHECK_D3DX_VERSION	0//D3DX_VERSION_TYPE::D3DX_VERSION_9
-#endif
+// modeling
+#include "ObjMeshObject.h"
+#include "MeshManager.h"
 
+// camera view
+#include "CameraManager.h"
 
-#if (CHECK_D3DX_VERSION == 0)//D3DX_VERSION_TYPE::D3DX_VERSION_9)
-#include "D3D9Header.h"
-#else
-#include "D3D11Header.h"
-#endif
+// shader effect
+#include "D3D9Shader.h"
+
 

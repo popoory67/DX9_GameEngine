@@ -31,10 +31,31 @@ LPDIRECT3DDEVICE9 CreateD3D9::GetDevice()
 	return _d3dDevice;
 }
 
-void CreateD3D9::Create( HWND hWnd )
+LPDIRECT3DSURFACE9 CreateD3D9::UseBuildRenderView( bool isUsedRenderView )
+{
+	if (isUsedRenderView)
+	{
+		if (FAILED( _d3dDevice->CreateRenderTarget( SCREEN_WIDTH, SCREEN_HEIGHT,
+													D3DFMT_A8R8G8B8, D3DMULTISAMPLE_NONE, 0,
+													true, // lockable
+													&_d3dSurface, NULL ) ))
+		{
+			assert( Util::ErrorMessage( "Failed to create D3D render target" ) );
+		}
+
+		_d3dDevice->SetRenderTarget( 0, _d3dSurface );
+	}
+
+	return _d3dSurface;
+}
+
+
+void CreateD3D9::Init( HWND hWnd )
 {
 	if (NULL == (_d3d = Direct3DCreate9( D3D_SDK_VERSION )))
-		return;
+	{
+		assert( Util::ErrorMessage( "Failed to create D3D" ) );
+	}
 
 	D3DPRESENT_PARAMETERS d3dpp;
 
@@ -57,8 +78,10 @@ void CreateD3D9::Create( HWND hWnd )
 	if (d3dpp.Windowed)
 	{
 		d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
-		d3dpp.BackBufferWidth = D3DFMT_UNKNOWN;
-		d3dpp.BackBufferHeight = D3DFMT_UNKNOWN;
+		//d3dpp.BackBufferWidth = D3DFMT_UNKNOWN;
+		//d3dpp.BackBufferHeight = D3DFMT_UNKNOWN;
+		d3dpp.BackBufferWidth = SCREEN_WIDTH;
+		d3dpp.BackBufferHeight = SCREEN_HEIGHT;
 	}
 	else
 	{
@@ -70,22 +93,10 @@ void CreateD3D9::Create( HWND hWnd )
 	if (FAILED( _d3d->CreateDevice( D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL,
 		hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &_d3dDevice ) ))
 	{
-		return;
+		assert( Util::ErrorMessage( "Failed to create D3D device" ) );
 	}
 
 	_d3dPP = d3dpp;
-}
-
-
-void CreateD3D9::Init( HWND hWnd )
-{
-	Create( hWnd );
-
-	if (_d3d)
-	{
-		if (_d3dDevice)
-			_d3dDevice->Reset( &_d3dPP );
-	}
 }
 
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include <d3dx9.h>
 
 using BoneFrame = D3DXFRAME;

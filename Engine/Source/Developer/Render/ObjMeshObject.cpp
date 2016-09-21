@@ -33,7 +33,7 @@ struct ObjTriVertex
 // this structure describes a triangle in the obj mesh.
 struct ObjTriangle
 {
-	ObjTriVertex vertex[ 3 ];
+	ObjTriVertex vertex[3];
 };
 
 using ObjTriangleList = vector< ObjTriangle >;
@@ -43,7 +43,7 @@ using ObjTriangleList = vector< ObjTriangle >;
 // where n starts from 2, the triangle that consists of the first vertex, the (n)th vertex, and the (n-1)th vertex.
 void AddObjFace( ObjTriangleList& objTriangleList, const ObjMesh& objMesh, UINT objFaceIndex, bool flipTriangles, bool flipUVs )
 {
-	const ObjMesh::Face& objFace = objMesh._faces[ objFaceIndex ];
+	const ObjMesh::Face& objFace = objMesh._faces[objFaceIndex];
 
 	UINT triCount = objFace._verticesCount - 2;
 
@@ -51,9 +51,9 @@ void AddObjFace( ObjTriangleList& objTriangleList, const ObjMesh& objMesh, UINT 
 	{
 		ObjTriangle tri;
 
-		tri.vertex[ 0 ]._pos = objMesh._faceVertices[ objFace._firstVertex ];
-		tri.vertex[ 1 ]._pos = objMesh._faceVertices[ objFace._firstVertex + fv - 1 ];
-		tri.vertex[ 2 ]._pos = objMesh._faceVertices[ objFace._firstVertex + fv ];
+		tri.vertex[0]._pos = objMesh._faceVertices[objFace._firstVertex];
+		tri.vertex[1]._pos = objMesh._faceVertices[objFace._firstVertex + fv - 1];
+		tri.vertex[2]._pos = objMesh._faceVertices[objFace._firstVertex + fv];
 
 # ifdef DEBUG
 		if (tri.vertex[0]._pos >= objMesh.vertices.Size()) DebugBreak();
@@ -64,9 +64,9 @@ void AddObjFace( ObjTriangleList& objTriangleList, const ObjMesh& objMesh, UINT 
 
 		if (!objMesh._normals.empty() && objFace._firstNormal >= 0)
 		{
-			tri.vertex[ 0 ]._normal = objMesh._faceNormals[ objFace._firstNormal ];
-			tri.vertex[ 1 ]._normal = objMesh._faceNormals[ objFace._firstNormal + fv - 1 ];
-			tri.vertex[ 2 ]._normal = objMesh._faceNormals[ objFace._firstNormal + fv ];
+			tri.vertex[0]._normal = objMesh._faceNormals[objFace._firstNormal];
+			tri.vertex[1]._normal = objMesh._faceNormals[objFace._firstNormal + fv - 1];
+			tri.vertex[2]._normal = objMesh._faceNormals[objFace._firstNormal + fv];
 # ifdef DEBUG
 			if (tri.vertex[0]._normal >= objMesh.normals.Size()) DebugBreak();
 			if (tri.vertex[1]._normal >= objMesh.normals.Size()) DebugBreak();
@@ -76,9 +76,9 @@ void AddObjFace( ObjTriangleList& objTriangleList, const ObjMesh& objMesh, UINT 
 
 		if (!objMesh._texCoords.empty() && objFace._firstTexCoord >= 0)
 		{
-			tri.vertex[ 0 ]._tex = objMesh._faceTexCoords[ objFace._firstTexCoord ];
-			tri.vertex[ 1 ]._tex = objMesh._faceTexCoords[ objFace._firstTexCoord + fv - 1 ];
-			tri.vertex[ 2 ]._tex = objMesh._faceTexCoords[ objFace._firstTexCoord + fv ];
+			tri.vertex[0]._tex = objMesh._faceTexCoords[objFace._firstTexCoord];
+			tri.vertex[1]._tex = objMesh._faceTexCoords[objFace._firstTexCoord + fv - 1];
+			tri.vertex[2]._tex = objMesh._faceTexCoords[objFace._firstTexCoord + fv];
 		}
 
 		objTriangleList.push_back( tri );
@@ -102,7 +102,7 @@ void ObjMeshObject::LoadModel( const string& fileName )
 	// .obj 데이터를 받아옴
 	if (ObjLoader::LoadObj( fileName, objMesh.get() ) < 0)
 	{
-		assert( Util::Error( "Failed to load the obj file" ) );
+		assert( Util::ErrorMessage( "Failed to load the obj file" ) );
 	}
 
 	// 메시 생성
@@ -189,7 +189,7 @@ HRESULT ObjMeshObject::InitVB( const ObjMesh& objMesh, bool flipTriangles, bool 
 
 	SAFE_RELEASE( _VB );
 
-	_vertexSize = sizeof( D3DXVECTOR3 ); // Has at least positional data.
+	_vertexSize = sizeof( Float3 ); // Has at least positional data.
 
 	_FVF = D3DFVF_XYZ;
 
@@ -198,14 +198,14 @@ HRESULT ObjMeshObject::InitVB( const ObjMesh& objMesh, bool flipTriangles, bool 
 
 	if (hasNormals)
 	{
-		_vertexSize += sizeof( D3DXVECTOR3 );
+		_vertexSize += sizeof( Float3 );
 
 		_FVF |= D3DFVF_NORMAL;
 	}
 
 	if (hasTexCoords)
 	{
-		_vertexSize += sizeof( D3DXVECTOR2 );
+		_vertexSize += sizeof( Float2 );
 
 		_FVF |= (D3DFVF_TEX2 | D3DFVF_TEXCOORDSIZE2( 0 ));
 	}
@@ -224,14 +224,14 @@ HRESULT ObjMeshObject::InitVB( const ObjMesh& objMesh, bool flipTriangles, bool 
 
 	struct VBVertex
 	{
-		D3DXVECTOR3 pos;
-		D3DXVECTOR3 normal;
-		D3DXVECTOR2 tex;
+		Float3 pos;
+		Float3 normal;
+		Float2 tex;
 	};
 
 	UINT bufferSize = _triCount * _vertexSize * 3;
 
-	hr = D3D9_DEVICE->CreateVertexBuffer( bufferSize, D3DUSAGE_WRITEONLY, 
+	hr = D3D9_DEVICE->CreateVertexBuffer( bufferSize, D3DUSAGE_WRITEONLY,
 										  _FVF, D3DPOOL_DEFAULT, &_VB, NULL );
 
 	if (FAILED( hr ))
@@ -252,64 +252,75 @@ HRESULT ObjMeshObject::InitVB( const ObjMesh& objMesh, bool flipTriangles, bool 
 
 	if (flipTriangles)
 	{
-		vertexOrder[ 1 ] = 2; vertexOrder[ 2 ] = 1;
+		vertexOrder[1] = 2; vertexOrder[2] = 1;
 	}
 
 	for (UINT i = 0; i < triList.size(); i++)
 	{
-		ObjTriangle& tri = triList[ i ];
+		ObjTriangle& tri = triList[i];
 
 		// Compute the triangle's normal if the obj mesh does not have normals info.
-		D3DXVECTOR3 triNormal;
+		Float3 triNormal;
 
-		if (tri.vertex[ 0 ]._normal < 0)
+		if (tri.vertex[0]._normal < 0)
 		{
-			D3DXVECTOR3 vec1 = objMesh._vertices[ tri.vertex[ 2 ]._pos ] - objMesh._vertices[ tri.vertex[ 0 ]._pos ];
-			D3DXVECTOR3 vec2 = objMesh._vertices[ tri.vertex[ 2 ]._pos ] - objMesh._vertices[ tri.vertex[ 1 ]._pos ];
+			Float3 vec1 = objMesh._vertices[tri.vertex[2]._pos] - objMesh._vertices[tri.vertex[0]._pos];
+			Float3 vec2 = objMesh._vertices[tri.vertex[2]._pos] - objMesh._vertices[tri.vertex[1]._pos];
 
+#if (CHECK_DX_VERSION == 9)
 			if (flipTriangles)
 			{
 				D3DXVec3Cross( &triNormal, &vec2, &vec1 );
 			}
-
 			else
 			{
 				D3DXVec3Cross( &triNormal, &vec1, &vec2 );
 			}
-
 			D3DXVec3Normalize( &triNormal, &triNormal );
+#else
+			if (flipTriangles)
+			{
+				D3D11Math::Vec3Cross( &triNormal, &vec2, &vec1 );
+			}
+			else
+			{
+				D3D11Math::Vec3Cross( &triNormal, &vec1, &vec2 );
+			}
+			D3D11Math::Vec3Normalize( &triNormal, &triNormal );
+#endif
+
 		}
 
 		for (UINT tv = 0; tv < 3; tv++)
 		{
-			UINT v = vertexOrder[ tv ];
+			UINT v = vertexOrder[tv];
 
 			VBVertex* pVBVertex = (VBVertex*)pVBData;
 
-			pVBVertex->pos = objMesh._vertices[ tri.vertex[ v ]._pos ];
+			pVBVertex->pos = objMesh._vertices[tri.vertex[v]._pos];
 
-			if (tri.vertex[ v ]._normal < 0)
+			if (tri.vertex[v]._normal < 0)
 			{
 				pVBVertex->normal = triNormal;
 			}
 
 			else
 			{
-				pVBVertex->normal = objMesh._normals[ tri.vertex[ v ]._normal ];
+				pVBVertex->normal = objMesh._normals[tri.vertex[v]._normal];
 			}
 
-			if (hasTexCoords && tri.vertex[ v ]._tex >= 0)
+			if (hasTexCoords && tri.vertex[v]._tex >= 0)
 			{
 				if (flipUVs)
 				{
-					D3DXVECTOR2 tex = objMesh._texCoords[ tri.vertex[ v ]._tex ];
+					Float2 tex = objMesh._texCoords[tri.vertex[v]._tex];
 					tex.y = 1 - tex.y;
 					pVBVertex->tex = tex;
 				}
 
 				else
 				{
-					pVBVertex->tex = objMesh._texCoords[ tri.vertex[ v ]._tex ];
+					pVBVertex->tex = objMesh._texCoords[tri.vertex[v]._tex];
 				}
 			}
 

@@ -1,11 +1,10 @@
 #pragma once
 
-#include "CorePCH.h"
+#include <iostream>
+
+using namespace std;
 
 namespace Util
 {
-	bool Error( const string& errorMessage )
-	{
-		return false;
-	}
+	bool ErrorMessage( const string& errorMessage );
 }

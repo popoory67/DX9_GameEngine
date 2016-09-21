@@ -22,7 +22,9 @@ public:
 
 private:
 
-	//XAnimatedObjectPtr warrior;
+	XAnimatedObjectPtr _warrior;
+	XMeshPtr _object;
 
+	float x, y, z;
 };
 

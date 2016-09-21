@@ -261,8 +261,7 @@ void XSkinnedMesh::UpdateMatrices( Bone* bone, D3DXMATRIX* parentMatrix )
 {
 	if (!bone)
 	{
-		// assert
-		return;
+		assert( Util::ErrorMessage( "Bone is null" ) );
 	}
 
 	// 부모 변환 행렬과 복합된 월드 변환 행렬을 계산

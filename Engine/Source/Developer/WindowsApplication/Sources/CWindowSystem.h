@@ -10,26 +10,29 @@
 #include "CWinAPI.h"	// Header for changing Windows API to usable one on "C++/CLI".
 						// This declare should be located under the bottom.
 
+
 #define FULL_SCREEN		SCREEN_MODE
+
 
 extern "C"
 {
-	HWND _hWnd;
-	HINSTANCE _hInstance;
+	HWND _hWnd = nullptr;
+
+	HINSTANCE _hInstance = nullptr;
+
 	LPCSTR _applicationName;
 
-	DLL_EXPORT HWND Init( HINSTANCE applicationInstance, HWND hWndParent );
+	// D3D Render
+	DLL_EXPORT void* WINAPI InitScene();
 
-	DLL_EXPORT void Clear();
+	DLL_EXPORT void Render();
 
-	void Run();
+	DLL_EXPORT void ReleaseScene();
 
-	HWND InitWindows( HINSTANCE applicationInstance, HWND hWndParent );
+	HWND InitWindows();
 
 	void DestroyWindows();
 
 	LRESULT CALLBACK MessageHandler( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
-
-	static LRESULT CALLBACK WindowProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
 }
 

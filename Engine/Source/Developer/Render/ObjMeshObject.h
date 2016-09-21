@@ -3,9 +3,13 @@
 #include "ObjLoader.h"
 #include "MeshModel.h"
 
+using namespace ObjLoader;
+
 class ObjMeshObject;
 
 using ObjMeshPtr = shared_ptr<ObjMeshObject>;
+using Float3 = ObjMesh::Float3;
+using Float2 = ObjMesh::Float2;
 
 class ObjMeshObject : public MeshModel
 {
@@ -31,10 +35,10 @@ public:
 private:
 
 	// create mesh
-	HRESULT Init(const ObjMesh& objMesh, bool flipTriangles, bool flipUVs);
+	HRESULT Init( const ObjMesh& objMesh, bool flipTriangles, bool flipUVs );
 
 	// this optimization requires sorting and/or searching which can be quite slow for heavy meshes.
-	HRESULT InitVB(const ObjMesh& objMesh, bool flipTriangles, bool flipUVs);
+	HRESULT InitVB( const ObjMesh& objMesh, bool flipTriangles, bool flipUVs );
 
 private:
 
@@ -44,8 +48,8 @@ private:
 	LPDIRECT3DVERTEXBUFFER9 _VB;
 
 	// bounding box
-	D3DXVECTOR3 _bbmin;
-	D3DXVECTOR3 _bbmax;
+	Float3 _bbmin;
+	Float3 _bbmax;
 
 	// texture
 	LPDIRECT3DTEXTURE9 _texture;

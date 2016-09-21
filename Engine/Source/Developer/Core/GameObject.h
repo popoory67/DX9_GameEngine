@@ -16,11 +16,8 @@ public:
 
 	// equal
 	// Getcomponent, Addcomponent 다양한 형태로
-	// 
 
-	/**
-	 * GameObject를 상속받은 클래스를 받아와 컴포넌트로 추가함
-	 */
+	// GameObject를 상속받은 클래스를 받아와 컴포넌트로 추가함
 	void AddComponent(GameObject* component);
 
 	/**
@@ -37,15 +34,13 @@ public:
 			if (!component)
 			{
 				delete (component);
-				component = nullptr;
+				// component = nullptr;
 
 				continue;
 			}
 
 			return *component;
 		}
-	
-		//return nullptr;
 	}
 
 private:

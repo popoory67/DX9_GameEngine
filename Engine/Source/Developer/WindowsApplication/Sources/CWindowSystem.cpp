@@ -1,85 +1,104 @@
 #include "CWindowSystem.h"
-
+#include "Application.h"
 
 extern "C"
 {
-	HWND Init( HINSTANCE applicationInstance, HWND hWnd )
+
+	void* WINAPI InitScene()
 	{
-		_hWnd = InitWindows( applicationInstance, hWnd );
+		_hWnd = InitWindows();
 
-		if (!_hWnd)
-		{
-			return nullptr;
-		}
-
-		// d3d9 initialization
-#if (CHECK_D3DX_VERSION == 0) //D3DX_VERSION_9)
+#if (CHECK_DX_VERSION == 9) //D3DX_VERSION_9)
 		D3D9Renderer::Get()->Init( _hWnd );
 #else
-		D3D11Renderer::Get()->Init( _hWnd );
+		D3D11Renderer::Get()->RenderScene();
 #endif
 
-		return _hWnd;
+		// Get d3d surface
+		auto d3dSurface = D3D9_INSTANCE->UseBuildRenderView( true );
+
+		// test
+		GameObjectPtr game( new GameManager() );
+		GameObjectManager::Get().AddGame( game );
+
+		// All game initialization
+		GameObjectManager::Get().InitGame();
+
+		return d3dSurface;
 	}
 
+	void Render()
+	{
 
-	void Clear()
+#if (CHECK_DX_VERSION == 9) //D3DX_VERSION_9)
+		D3D9Renderer::Get()->RenderScene();
+#else
+		D3D11Renderer::Get()->RenderScene();
+#endif
+
+		// call all update function.
+		GameObjectManager::Get().RunUpdate();
+	}
+
+	void ReleaseScene()
 	{
 		DestroyWindows();
 	}
 
-	void Run()
-	{
-		// all game initialization
-		GameObjectManager::Get().InitGame();
 
-		MSG msg;
-		ZeroMemory( &msg, sizeof( msg ) );
+//	void Run()
+//	{
+//		// all game initialization
+//		GameObjectManager::Get().InitGame();
+//
+//		MSG msg;
+//		ZeroMemory( &msg, sizeof( msg ) );
+//
+//		while (true) //msg.message != WM_QUIT)
+//		{
+//			if (PeekMessage( &msg, NULL, 0U, 0U, PM_REMOVE ))
+//			{
+//				TranslateMessage( &msg );
+//				DispatchMessage( &msg );
+//			}
+//
+//			else
+//			{
+//				if (KEY_INPUT.IsKeyDown( VK_ESCAPE ))
+//				{
+//					PostMessage( _hWnd, WM_DESTROY, 0, 0 );
+//					return;
+//				}
+//
+//				// render
+//#if (CHECK_D3DX_VERSION == 0)//D3DX_VERSION_9)
+//				D3D9Renderer::Get()->RenderScene();
+//#else
+//				D3D11Renderer::Get()->RenderScene();
+//#endif
+//
+//				// call all update function.
+//				GameObjectManager::Get().RunUpdate();
+//			}
+//		}
+//	}
 
-		while (true) //msg.message != WM_QUIT)
-		{
-			if (PeekMessage( &msg, NULL, 0U, 0U, PM_REMOVE ))
-			{
-				TranslateMessage( &msg );
-				DispatchMessage( &msg );
-			}
-
-			else
-			{
-				if (KEY_INPUT.IsKeyDown( VK_ESCAPE ))
-				{
-					PostMessage( _hWnd, WM_DESTROY, 0, 0 );
-					return;
-				}
-
-				// render
-#if (CHECK_D3DX_VERSION == 0)//D3DX_VERSION_9)
-				D3D9Renderer::Get()->RenderScene();
-#else
-				D3D11Renderer::Get()->RenderScene();
-#endif
-
-				// call all update function.
-				GameObjectManager::Get().RunUpdate();
-			}
-		}
-	}
-
-	HWND InitWindows( HINSTANCE applicationInstance, HWND hWndParent )
+	HWND InitWindows()
 	{
 		WNDCLASSEX		wc;
 		DEVMODE			dmScreenSettings;
 		int				posX, posY;
 
-		// 이 어플리케이션의 인스턴스를 가져옴
-		_hInstance = applicationInstance; //GetModuleHandle( NULL );
+
+		// 인스턴스를 가져옴
+		_hInstance = GetModuleHandle( NULL );
 
 		// 어플리케이션의 이름을 설정
 		_applicationName = "Ninetail Engine";
 
 		// 윈도우 클래스를 기본 설정으로 맞춤
 		wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
-		wc.lpfnWndProc = WindowProc;
+		wc.lpfnWndProc = MessageHandler;
 		wc.cbClsExtra = 0;
 		wc.cbWndExtra = 0;
 		wc.hInstance = _hInstance;
@@ -133,25 +152,17 @@ extern "C"
 		}
 
 		// 설정한 것을 가지고 창을 만들고 그 핸들을 가져옵니다
-		HWND hWnd = CreateWindowEx( WS_EX_APPWINDOW, 
-									_applicationName, _applicationName,
-									WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN, //WS_OVERLAPPEDWINDOW,
-									posX, posY, 
-									screenWidth, screenHeight, 
-									hWndParent, 
-									NULL, 
-									_hInstance, 
-									NULL );
+		_hWnd = CreateWindowEx( WS_EX_APPWINDOW, 
+								_applicationName, _applicationName,
+								WS_OVERLAPPEDWINDOW,
+								posX, posY,
+								screenWidth, screenHeight,
+								NULL,
+								NULL,
+								_hInstance,
+								NULL );
 
-		// 윈도우를 화면에 표시하고 포커스를 줍니다
-		ShowWindow( hWnd, SW_SHOW );
-		SetForegroundWindow( hWnd );
-		SetFocus( hWnd );
-
-		// 마우스 커서 (표시 : true)
-		ShowCursor( true );
-
-		return hWnd;
+		return _hWnd;
 	}
 
 	void DestroyWindows()
@@ -178,54 +189,6 @@ extern "C"
 
 	LRESULT CALLBACK MessageHandler( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
 	{
-		switch (message)
-		{
-			// 키보드가 키가 눌렸는지 확인
-			case WM_KEYDOWN:
-			{
-				KEY_INPUT.KeyDown( (unsigned int)wParam );
-				return 0;
-			}
-
-			// 키보드의 눌린 키가 떼어졌는지 확인
-			case WM_KEYUP:
-			{
-				KEY_INPUT.KeyUp( (unsigned int)wParam );
-				return 0;
-			}
-
-			// 다른 메세지들은 사용하지 않으므로 기본 메세지 처리기에 전달
-			default:
-			{
-				return DefWindowProc( hWnd, message, wParam, lParam );
-			}
-		}
+		return DefWindowProc( hWnd, message, wParam, lParam );
 	}
-
-	LRESULT CALLBACK WindowProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
-	{
-		switch (message)
-		{
-			// 윈도우가 제거되었는지 확인합니다
-			case WM_DESTROY:
-			{
-				PostQuitMessage( 0 );
-				return 0;
-			}
-
-			// 윈도우가 닫히는지 확인합니다
-			case WM_CLOSE:
-			{
-				PostQuitMessage( 0 );
-				return 0;
-			}
-
-			// 다른 모든 메세지들은 system 클래스의 메세지 처리기에 전달합니다
-			default:
-			{
-				return MessageHandler( hWnd, message, wParam, lParam );
-			}
-		}
-	}
-
 }

@@ -3,12 +3,14 @@
 #include <memory>
 #include <d3d11.h>
 #include <DirectXMath.h>
+#include "Util.h"
 
 using namespace std;
-using namespace DirectX;	// included windows 8.1
+using namespace DirectX;	// included from windows 8.1
 
 #define	D3D11_INSTANCE			CreateD3D11::Get()
 #define D3D11_DEVICE			CreateD3D11::Get()->GetDevice()
+#define D3D11_DEVICE_CONTEXT	CreateD3D11::Get()->GetDeviceContext()
 
 
 class CreateD3D11;

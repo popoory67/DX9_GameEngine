@@ -1,12 +1,12 @@
 #pragma once
 
-
 class Message;		// pointer로만 사용되기 때문에 include 대신 전방 선언
 
-typedef function< void() >						FuncVoid;
-typedef function< void(Message*) >				FuncMessage;
-typedef map< string, vector< FuncVoid > >		MessageVectorFuncVoid;
-typedef map< string, vector< FuncMessage > >	MessageVectorFuncMessage;
+using FuncVoid = function< void() >;
+using FuncMessage = function< void( Message* ) >;
+
+using MessageVectorFuncVoid = map< string, vector< FuncVoid > >;
+using MessageVectorFuncMessage = map< string, vector< FuncMessage > >;
 
 
 class MessageDispatcher

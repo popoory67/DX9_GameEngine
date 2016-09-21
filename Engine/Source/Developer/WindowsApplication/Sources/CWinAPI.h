@@ -20,6 +20,15 @@ WINUSERAPI BOOL WINAPI DestroyWindow( _In_ HWND hWnd );
 [DllImport( "user32.dll" )]
 WINUSERAPI int WINAPI GetSystemMetrics( _In_ int nIndex );
 
+//[DllImport( "user32.dll" )]
+//#ifdef UNICODE
+//WINUSERAPI uint WINAPI MessageBoxW( _In_opt_ HWND hWnd, _In_opt_ LPCWSTR lpText, _In_opt_ LPCWSTR lpCaption, _In_ UINT uType );
+//#define MessageBox  MessageBoxW
+//#else
+//WINUSERAPI int WINAPI MessageBoxA( _In_opt_ HWND hWnd, _In_opt_ LPCSTR lpText, _In_opt_ LPCSTR lpCaption, _In_ UINT uType );
+//#define MessageBox  MessageBoxA
+//#endif // !UNICODE
+
 [DllImport( "user32.dll" )]
 #ifdef UNICODE
 WINUSERAPI BOOL WINAPI PeekMessageW( _Out_ LPMSG lpMsg, _In_opt_ HWND hWnd, _In_ UINT wMsgFilterMin, _In_ UINT wMsgFilterMax, _In_ UINT wRemoveMsg );

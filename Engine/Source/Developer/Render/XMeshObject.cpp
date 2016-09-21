@@ -57,17 +57,17 @@ void XMeshObject::LoadTexture( const string& fileName )
 	// if texture does not exist
 	if (fileName.c_str() == nullptr || lstrlenA( fileName.c_str() ) < 0)
 	{
-		//assert( Util::Error( "invalid file name" ) );
+		assert( Util::ErrorMessage( "Invalid file name" ) );
 	}
 
 	if ((_materials = new D3DMATERIAL9[_numMaterials]) == nullptr)
 	{
-		//assert( Util::Error( "fail to allocate materials" ) );
+		assert( Util::ErrorMessage( "Failed to allocate materials" ) );
 	}
 
 	if ((_texture = new LPDIRECT3DTEXTURE9[_numMaterials]) == nullptr)
 	{
-		//assert( Util::Error( "fail to allocate d3d texture" ) );
+		assert( Util::ErrorMessage( "Failed to allocate d3d texture" ) );
 	}
 
 	for (auto i = 0; i < _numMaterials; i++)

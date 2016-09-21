@@ -1,31 +1,30 @@
 #include "RenderPCH.h"
-#include "Shader.h"
+#include "D3D9Shader.h"
 
 #include "CreateD3D9.h"
 
 
-Shader::Shader()
+D3D9Shader::D3D9Shader()
 {
 
 }
 
-
-Shader::~Shader()
+D3D9Shader::~D3D9Shader()
 {
 	SAFE_RELEASE( _d3dEffect );
 }
 
 
-ShaderPtr Shader::Create()
+ShaderPtr D3D9Shader::Create()
 {
-	ShaderPtr shader( new Shader() );
+	ShaderPtr shader( new D3D9Shader() );
 
 	shader->LoadShader( DEFAULT_SHADER );
 
 	return shader;
 }
 
-void Shader::LoadShader( const string& fileName )
+void D3D9Shader::LoadShader( const string& fileName )
 {
 	LPD3DXBUFFER			error = NULL;
 	DWORD					shaderFlags = 0;
@@ -38,11 +37,6 @@ void Shader::LoadShader( const string& fileName )
 
 	if (error)
 	{
-		error->Release();
+		SAFE_RELEASE( error );
 	}
-}
-
-void Shader::Clear()
-{
-	SAFE_RELEASE( _d3dEffect );
 }

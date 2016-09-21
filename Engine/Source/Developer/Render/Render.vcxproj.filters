@@ -7,53 +7,35 @@
     <Filter Include="DirectX\D3D9">
       <UniqueIdentifier>{afdd4318-f7de-41e0-8118-d8bd93a6609a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DirectX\D3D9\3D Model">
-      <UniqueIdentifier>{1b439ceb-e621-4c28-81cd-9e8d67a24234}</UniqueIdentifier>
-    </Filter>
     <Filter Include="DirectX\D3D11">
       <UniqueIdentifier>{a938566c-8b6f-49fb-a209-2b032cc963f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DirectX\D3D11\3D Model">
-      <UniqueIdentifier>{a29e96cb-c7ba-454d-984a-97506af319d9}</UniqueIdentifier>
+    <Filter Include="DirectX\3D Model">
+      <UniqueIdentifier>{97d2de69-5cde-4f63-8d60-ce193a0aba19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D9\X">
+      <UniqueIdentifier>{1b439ceb-e621-4c28-81cd-9e8d67a24234}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderPCH.h" />
     <ClInclude Include="RenderMacros.h" />
-    <ClInclude Include="MeshModel.h">
-      <Filter>DirectX\D3D9\3D Model</Filter>
-    </ClInclude>
     <ClInclude Include="D3DXHeader.h">
       <Filter>DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="ObjLoader.h">
-      <Filter>DirectX\D3D9\3D Model</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjMeshObject.h">
-      <Filter>DirectX\D3D9\3D Model</Filter>
-    </ClInclude>
     <ClInclude Include="XBoneHierarchyLoader.h">
-      <Filter>DirectX\D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D9\X</Filter>
     </ClInclude>
     <ClInclude Include="XSkinnedMesh.h">
-      <Filter>DirectX\D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D9\X</Filter>
     </ClInclude>
     <ClInclude Include="XMeshObject.h">
-      <Filter>DirectX\D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D9\X</Filter>
     </ClInclude>
     <ClInclude Include="CreateD3D9.h">
       <Filter>DirectX\D3D9</Filter>
     </ClInclude>
     <ClInclude Include="D3D9Renderer.h">
-      <Filter>DirectX\D3D9</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>DirectX\D3D9</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix.h">
-      <Filter>DirectX\D3D9</Filter>
-    </ClInclude>
-    <ClInclude Include="MeshManager.h">
       <Filter>DirectX\D3D9</Filter>
     </ClInclude>
     <ClInclude Include="CreateD3D11.h">
@@ -68,45 +50,57 @@
     <ClInclude Include="CameraManager.h">
       <Filter>DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="D3D9Header.h">
+    <ClInclude Include="WindowSystem.h">
       <Filter>DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="D3D11Header.h">
+    <ClInclude Include="D3D11Math.h">
+      <Filter>DirectX\D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshModel.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLoader.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMeshObject.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshManager.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="DXVersion.h">
       <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Shader.h">
+      <Filter>DirectX\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11Shader.h">
+      <Filter>DirectX\D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11Header.h">
+      <Filter>DirectX\D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Header.h">
+      <Filter>DirectX\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Matrix.h">
+      <Filter>DirectX\D3D9</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MeshModel.cpp">
-      <Filter>DirectX\D3D9\3D Model</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjLoader.cpp">
-      <Filter>DirectX\D3D9\3D Model</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjMeshObject.cpp">
-      <Filter>DirectX\D3D9\3D Model</Filter>
-    </ClCompile>
     <ClCompile Include="XBoneHierarchyLoader.cpp">
-      <Filter>DirectX\D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D9\X</Filter>
     </ClCompile>
     <ClCompile Include="XSkinnedMesh.cpp">
-      <Filter>DirectX\D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D9\X</Filter>
     </ClCompile>
     <ClCompile Include="XMeshObject.cpp">
-      <Filter>DirectX\D3D9\3D Model</Filter>
+      <Filter>DirectX\D3D9\X</Filter>
     </ClCompile>
     <ClCompile Include="CreateD3D9.cpp">
       <Filter>DirectX\D3D9</Filter>
     </ClCompile>
     <ClCompile Include="D3D9Renderer.cpp">
-      <Filter>DirectX\D3D9</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>DirectX\D3D9</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>DirectX\D3D9</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshManager.cpp">
       <Filter>DirectX\D3D9</Filter>
     </ClCompile>
     <ClCompile Include="CreateD3D11.cpp">
@@ -122,5 +116,32 @@
       <Filter>DirectX</Filter>
     </ClCompile>
     <ClCompile Include="RenderPCH.cpp" />
+    <ClCompile Include="WindowSystem.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshModel.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLoader.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMeshObject.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshManager.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D11Math.cpp">
+      <Filter>DirectX\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D9Shader.cpp">
+      <Filter>DirectX\D3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D11Shader.cpp">
+      <Filter>DirectX\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D9Matrix.cpp">
+      <Filter>DirectX\D3D9</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

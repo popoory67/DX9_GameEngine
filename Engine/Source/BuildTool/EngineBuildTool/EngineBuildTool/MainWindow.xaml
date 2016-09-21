@@ -1,11 +1,24 @@
 ﻿<Window x:Class="EngineBuildTool.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:System.Windows.Interop;assembly=PresentationCore"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
-        <Border x:Name="RenderView" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="520" Margin="0,49,0,0" VerticalAlignment="Top" Width="581"/>
-        <Border x:Name="DataView" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="520" Margin="586,49,0,0" VerticalAlignment="Top" Width="206"/>
-        <TextBox x:Name="Position_x" HorizontalAlignment="Left" Height="23" Margin="611,71,0,0" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="46"/>
+
+        <!-- Render View -->
+        <Border x:Name="RenderView" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="520" Margin="0,49,0,0" VerticalAlignment="Top" Width="581">
+            <Image x:Name="imgelt" Margin="0,-1,-1,0">
+                <Image.Source>
+                    <i:D3DImage x:Name="d3dimg" />
+                </Image.Source>
+            </Image>
+        </Border>
+
+        <!-- Data View -->
+        <Border x:Name="DataView" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="520" Margin="581,49,0,0" VerticalAlignment="Top" Width="211">
+            <TabPanel x:Name="DataPanel" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+            </TabPanel>
+        </Border>
 
     </Grid>
 </Window>
