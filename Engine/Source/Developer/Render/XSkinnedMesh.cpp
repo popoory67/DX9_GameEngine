@@ -1,6 +1,6 @@
 #include "RenderPCH.h"
 #include "XSkinnedMesh.h"
-#include "CreateD3D9.h"
+#include "D3D9Device.h"
 #include "CameraManager.h"
 
 XSkinnedMesh::XSkinnedMesh()

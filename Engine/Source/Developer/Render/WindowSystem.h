@@ -3,7 +3,7 @@
 #include "CoreMacros.h"
 #include "D3DXHeader.h"
 #include "InputHeader.h"
-#include "GameObjectHeader.h"
+#include "BehaviourManager.h"
 
 #define FULL_SCREEN		SCREEN_MODE
 

@@ -1,17 +1,23 @@
-/**
- * this is test class
- */
-
 #pragma once
 
-#include "GameObject.h"
+#include "Component.h"
+#include "MessageHeader.h"
 
-class Collision : public GameObject
+#include "DynamicWorld.h"
+#include "RigidBody.h"
+
+class Collision : public Component
 {
 public:
 	Collision();
 	~Collision();
 
-	void test() {};
+	void Init();
+
+	void SimulateGravity( function<void( float )> func, RigidBody* rigidbody );
+	
+private:
+
+	int _i = 0;
 };
 

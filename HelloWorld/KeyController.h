@@ -4,14 +4,22 @@
 
 #pragma once
 
-#include "GameObject.h"
+#include "Component.h"
+#include "InputHeader.h"
+#include "XMeshObject.h"
 
-class KeyController : public GameObject
+class KeyController : public Component
 {
 public:
 	KeyController();
 	~KeyController();
 
-	//void test() {};
+	void KeyInput();
+
+	void KeyInput( XMeshPtr model );
+
+private:
+
+	float _x, _y, _z;
 };
 

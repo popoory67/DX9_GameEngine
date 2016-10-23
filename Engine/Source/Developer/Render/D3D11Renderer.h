@@ -2,10 +2,12 @@
 
 #include "RenderPCH.h"
 
+// Window screen : false
+// Full screen : true
+#define SCREEN_MODE			false
 
-const bool	VSYNC_ENABLED			= true;
-const float SCREEN_DEPTH			= 1000.0f;
-const float SCREEN_NEAR				= 0.1f;
+#define SCREEN_WIDTH		1280
+#define SCREEN_HEIGHT		720
 
 
 class D3D11Renderer;

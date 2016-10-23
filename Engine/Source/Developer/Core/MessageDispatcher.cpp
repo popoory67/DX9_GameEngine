@@ -11,51 +11,57 @@ MessageDispatcher::MessageDispatcher()
 
 MessageDispatcher::~MessageDispatcher()
 {
-	if ( _instance ) delete (_instance);
+	if (_instance)
+	{
+		SAFE_DELETE( _instance );
+	}
 }
 
-MessageDispatcher& MessageDispatcher::Get()
+MessageDispatcher* MessageDispatcher::Get()
 {
-	if ( !_instance )
+	if (!_instance)
 	{
 		_instance = new MessageDispatcher();
 	}
 
-	return *_instance;
+	return _instance;
 }
 
-void MessageDispatcher::AddObserver(string key, FuncVoid func)
+void MessageDispatcher::AddObserver( string key, FuncVoid func )
 {
-	_messageVectorV[key].push_back(func);
+	_messageVectorVoid[key].push_back( func );
 }
 
-void MessageDispatcher::AddObserver(string key, FuncMessage func)
+void MessageDispatcher::AddObserver( string key, FuncMessage func )
 {
-	_messageVectorM[key].push_back(func);
+	_messageVectorMessage[key].push_back( func );
 }
 
-void MessageDispatcher::SendMessage(string key)
+void MessageDispatcher::SendMessage( string key )
 {
-	SendMessage(key, NULL);
+	SendMessage( key, NULL );
 }
 
-void MessageDispatcher::SendMessage(string key, Message* message)
+void MessageDispatcher::SendMessage( string key, Message* message )
 {
-	if (_messageVectorV.find(key) != _messageVectorV.end())
+	if (_messageVectorVoid.find( key ) != _messageVectorVoid.end())
 	{
-		for (auto i = 0; i < _messageVectorV[key].size(); i++)
+		for (auto i = 0; i < _messageVectorVoid[key].size(); i++)
 		{
-			_messageVectorV[key][i]();
+			_messageVectorVoid[key][i]();
 		}
 	}
 
-	if (_messageVectorM.find(key) != _messageVectorM.end())
+	if (_messageVectorMessage.find( key ) != _messageVectorMessage.end())
 	{
-		for (auto i = 0; i < _messageVectorM[key].size(); i++)
+		for (auto i = 0; i < _messageVectorMessage[key].size(); i++)
 		{
-			_messageVectorM[key][i](message);
+			_messageVectorMessage[key][i]( message );
 		}
 	}
 
-	if ( message ) delete (message);
+	if (message)
+	{
+		delete (message);
+	}
 }

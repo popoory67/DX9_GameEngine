@@ -20,14 +20,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraManager.h" />
-    <ClInclude Include="CreateD3D11.h" />
-    <ClInclude Include="CreateD3D9.h" />
+    <ClInclude Include="CollisionShapeRenderer.h" />
+    <ClInclude Include="D3D11Device.h" />
+    <ClInclude Include="D3D9Device.h" />
     <ClInclude Include="D3D11Header.h" />
     <ClInclude Include="D3D11Math.h" />
     <ClInclude Include="D3D11Renderer.h" />
     <ClInclude Include="D3D11Shader.h" />
     <ClInclude Include="D3DXHeader.h" />
     <ClInclude Include="DXVersion.h" />
+    <ClInclude Include="ICamera.h" />
+    <ClInclude Include="DevicePlatform.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="MeshModel.h" />
     <ClInclude Include="ObjMeshObject.h" />
     <ClInclude Include="D3D9Renderer.h" />
@@ -52,11 +56,15 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraManager.cpp" />
-    <ClCompile Include="CreateD3D11.cpp" />
-    <ClCompile Include="CreateD3D9.cpp" />
+    <ClCompile Include="CollisionShapeRenderer.cpp" />
+    <ClCompile Include="D3D11Device.cpp" />
+    <ClCompile Include="D3D9Device.cpp" />
     <ClCompile Include="D3D11Math.cpp" />
     <ClCompile Include="D3D11Renderer.cpp" />
     <ClCompile Include="D3D11Shader.cpp" />
+    <ClCompile Include="ICamera.cpp" />
+    <ClCompile Include="DevicePlatform.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MeshModel.cpp" />
     <ClCompile Include="ObjMeshObject.cpp" />
     <ClCompile Include="D3D9Renderer.cpp" />
@@ -81,6 +89,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.vcxproj">
       <Project>{ed61170b-90e1-41c4-b0a9-b6357168b43a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Physics\Physics.vcxproj">
+      <Project>{ed7cc59e-47e1-4c7d-80b7-28e0a8edb07f}</Project>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -147,8 +158,9 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\Core;..\..\ThirdParty\FBX\2016.0\include;..\..\ThirdParty\DirectXMesh\Inc;..\..\ThirdParty\DirectXTK\Inc;..\..\ThirdParty\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Physics;..\Core;..\..\ThirdParty\DirectX\Include;..\..\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>RenderPCH.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -156,7 +168,7 @@
       <AdditionalLibraryDirectories>$(MS_DIRECTX)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\Build;..\..\ThirdParty\FBX\2016.0\lib\vs2013\x86;..\..\ThirdParty\DirectXMesh\Lib;..\..\ThirdParty\DirectXTK\Lib;..\..\ThirdParty\DirectX\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Build;..\..\ThirdParty\DirectX\Lib\x86;..\..\ThirdParty\Bullet\bullet3-2.83.7\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d9.lib;d3dx9.lib;d3d11.lib;d3dx11.lib;d3dx10.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
@@ -197,7 +209,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\Core;..\..\ThirdParty\FBX\2016.0\include;..\..\ThirdParty\DirectXMesh\Inc;..\..\ThirdParty\DirectXTK\Inc;..\..\ThirdParty\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Physics;..\Core;..\..\ThirdParty\DirectX\Include;..\..\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>RenderPCH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -208,7 +220,7 @@
       <AdditionalLibraryDirectories>$(MS_DIRECTX)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\Build;..\..\ThirdParty\FBX\2016.0\lib\vs2013\x86;..\..\ThirdParty\DirectXMesh\Lib;..\..\ThirdParty\DirectXTK\Lib;..\..\ThirdParty\DirectX\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Build;..\..\ThirdParty\DirectX\Lib\x86;..\..\ThirdParty\Bullet\bullet3-2.83.7\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d9.lib;d3dx9.lib;d3d11.lib;d3dx11.lib;d3dx10.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>

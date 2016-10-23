@@ -22,11 +22,11 @@ public:
 
 	FuncVoid GetShaderFunc() const { return _shaderFunc; }
 
-	void SetShaderFunc(FuncVoid func) { _shaderFunc = func; }
+	void SetShaderFunc( FuncVoid func ) { _shaderFunc = func; }
 
 public:
 
-	void LoadShader(const string& fileName);
+	void LoadShader( const string& fileName );
 
 private:
 

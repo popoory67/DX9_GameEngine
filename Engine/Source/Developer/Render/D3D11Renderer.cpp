@@ -1,8 +1,16 @@
 #include "RenderPCH.h"
 #include "D3D11Renderer.h"
 
-#include "CreateD3D11.h"
+#include "D3D11Device.h"
 #include "MeshManager.h"
+
+// Window screen : false
+// Full screen : true
+#define SCREEN_MODE			false
+
+#define SCREEN_WIDTH		1280
+#define SCREEN_HEIGHT		720
+
 
 D3D11RendererPtr D3D11Renderer::_instance = nullptr;
 
@@ -35,7 +43,7 @@ void D3D11Renderer::Init( HWND hWnd )
 	}
 
 	// D3D11 ÃÊ±âÈ­
-	D3D11_INSTANCE->Init( 800, 600, VSYNC_ENABLED, hWnd, SCREEN_MODE, SCREEN_DEPTH, SCREEN_NEAR );
+	D3D11_INSTANCE->Init( hWnd, SCREEN_MODE, SCREEN_WIDTH, SCREEN_HEIGHT );
 }
 
 

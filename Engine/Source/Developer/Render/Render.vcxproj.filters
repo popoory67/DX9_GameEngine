@@ -16,6 +16,9 @@
     <Filter Include="DirectX\D3D9\X">
       <UniqueIdentifier>{1b439ceb-e621-4c28-81cd-9e8d67a24234}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DirectX\Collision">
+      <UniqueIdentifier>{3a1b7932-8aa5-405d-b9d3-fa69f96974fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderPCH.h" />
@@ -32,14 +35,8 @@
     <ClInclude Include="XMeshObject.h">
       <Filter>DirectX\D3D9\X</Filter>
     </ClInclude>
-    <ClInclude Include="CreateD3D9.h">
-      <Filter>DirectX\D3D9</Filter>
-    </ClInclude>
     <ClInclude Include="D3D9Renderer.h">
       <Filter>DirectX\D3D9</Filter>
-    </ClInclude>
-    <ClInclude Include="CreateD3D11.h">
-      <Filter>DirectX\D3D11</Filter>
     </ClInclude>
     <ClInclude Include="D3D11Renderer.h">
       <Filter>DirectX\D3D11</Filter>
@@ -86,6 +83,18 @@
     <ClInclude Include="D3D9Matrix.h">
       <Filter>DirectX\D3D9</Filter>
     </ClInclude>
+    <ClInclude Include="ICamera.h" />
+    <ClInclude Include="D3D11Device.h">
+      <Filter>DirectX\D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Device.h">
+      <Filter>DirectX\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="DevicePlatform.h" />
+    <ClInclude Include="CollisionShapeRenderer.h">
+      <Filter>DirectX\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XBoneHierarchyLoader.cpp">
@@ -97,14 +106,8 @@
     <ClCompile Include="XMeshObject.cpp">
       <Filter>DirectX\D3D9\X</Filter>
     </ClCompile>
-    <ClCompile Include="CreateD3D9.cpp">
-      <Filter>DirectX\D3D9</Filter>
-    </ClCompile>
     <ClCompile Include="D3D9Renderer.cpp">
       <Filter>DirectX\D3D9</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateD3D11.cpp">
-      <Filter>DirectX\D3D11</Filter>
     </ClCompile>
     <ClCompile Include="D3D11Renderer.cpp">
       <Filter>DirectX\D3D11</Filter>
@@ -142,6 +145,18 @@
     </ClCompile>
     <ClCompile Include="D3D9Matrix.cpp">
       <Filter>DirectX\D3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="ICamera.cpp" />
+    <ClCompile Include="D3D11Device.cpp">
+      <Filter>DirectX\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D9Device.cpp">
+      <Filter>DirectX\D3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="DevicePlatform.cpp" />
+    <ClCompile Include="CollisionShapeRenderer.cpp">
+      <Filter>DirectX\Collision</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

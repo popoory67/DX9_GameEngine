@@ -1,7 +1,7 @@
 #pragma once
 
 // create d3d9 device and window
-#include "CreateD3D9.h"
+#include "D3D9Device.h"
 
 // mesh objects
 #include "XSkinnedMesh.h"

@@ -1,0 +1,36 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.idb
+*.aps
+*.tlog
+*.vcproj.*.user
+*.vcxproj.user
+*.vcxproj.filters
+*.csproj.user
+*.vspscc
+*_i.c
+*.i
+*.icf
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.sbr
+*.sdf
+ipch/
+*.opensdf
+*.opendb
+.vs/
+*.VC.db
+Engine/Source/Developer/Build

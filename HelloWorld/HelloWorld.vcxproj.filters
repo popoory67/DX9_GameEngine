@@ -21,6 +21,9 @@
     <ClInclude Include="Collision.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -33,6 +36,9 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Collision.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>

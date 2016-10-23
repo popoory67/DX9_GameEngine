@@ -21,25 +21,28 @@
   <ItemGroup>
     <ClInclude Include="CoreMacros.h" />
     <ClInclude Include="CorePCH.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameObjectHeader.h" />
-    <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="GameBehaviour.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="BehaviourManager.h" />
     <ClInclude Include="KeyInput.h" />
     <ClInclude Include="InputHeader.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="MessageDispatcher.h" />
     <ClInclude Include="MessageHeader.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Thread.h" />
     <ClInclude Include="ThreadHeader.h" />
     <ClInclude Include="ThreadManager.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameObjectManager.cpp" />
+    <ClCompile Include="GameBehaviour.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="BehaviourManager.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="MessageDispatcher.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Thread.cpp" />
     <ClCompile Include="ThreadManager.cpp" />
     <ClCompile Include="Util.cpp" />

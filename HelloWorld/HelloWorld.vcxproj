@@ -53,7 +53,8 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\Engine\Source\ThirdParty\Lua\5.1\x86\include;..\Engine\Source\Developer\Core;..\Engine\Source\Developer\Render;..\Engine\Source\ThirdParty\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;..\Engine\Source\Developer\Physics;..\Engine\Source\ThirdParty\Lua\5.1\x86\include;..\Engine\Source\Developer\Render;..\Engine\Source\Developer\Core;..\Engine\Source\ThirdParty\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -80,7 +81,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\Engine\Source\ThirdParty\Lua\5.1\x86\include;..\Engine\Source\Developer\Core;..\Engine\Source\Developer\Render;..\Engine\Source\ThirdParty\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;..\Engine\Source\Developer\Physics;..\Engine\Source\ThirdParty\Lua\5.1\x86\include;..\Engine\Source\Developer\Physics;..\Engine\Source\Developer\Render;..\Engine\Source\Developer\Core;..\Engine\Source\ThirdParty\DirectX\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -105,6 +106,7 @@
     <ClInclude Include="Collision.h" />
     <ClInclude Include="KeyController.h" />
     <ClInclude Include="Resources.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -114,10 +116,14 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="KeyController.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Source\Developer\Core\Core.vcxproj">
       <Project>{40760b53-da78-4435-9181-759427a57c5d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine\Source\Developer\Physics\Physics.vcxproj">
+      <Project>{ed7cc59e-47e1-4c7d-80b7-28e0a8edb07f}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Engine\Source\Developer\Render\Render.vcxproj">
       <Project>{221448f2-c9d4-4970-82bb-c275cab92ff5}</Project>

@@ -5,7 +5,7 @@
 #include "ObjMeshObject.h"
 
 #include "RenderMacros.h"
-#include "CreateD3D9.h"
+#include "D3D9Device.h"
 #include "CameraManager.h"
 
 #include "Util.h"
@@ -13,7 +13,9 @@
 
 ObjMeshObject::ObjMeshObject()
 {
+	_shader = D3D9Shader::Create();
 
+	_matrix = D3D9Matrix::Create();
 }
 
 ObjMeshObject::~ObjMeshObject()

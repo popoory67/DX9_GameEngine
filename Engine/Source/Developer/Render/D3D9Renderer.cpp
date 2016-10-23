@@ -1,8 +1,8 @@
 #include "RenderPCH.h"
 #include "D3D9Renderer.h"
-
-#include "CreateD3D9.h"
+#include "D3D9Device.h"
 #include "MeshManager.h"
+#include "CollisionShapeRenderer.h"
 
 
 D3D9RendererPtr D3D9Renderer::_instance = nullptr;
@@ -30,7 +30,7 @@ D3D9RendererPtr D3D9Renderer::Get()
 void D3D9Renderer::Init( HWND hWnd )
 {
 	// D3D9 ÃÊ±âÈ­
-	D3D9_INSTANCE->Init( hWnd );
+	D3D9_INSTANCE->Init( hWnd, SCREEN_MODE, SCREEN_WIDTH, SCREEN_HEIGHT );
 }
 
 
@@ -45,11 +45,15 @@ void D3D9Renderer::RenderScene()
 
 	if (D3D9_DEVICE->BeginScene())
 	{
-		// rendering option
+		// Rendering property
 		RenderState();
 
-		// render mesh objects
+		// Render mesh objects
 		MeshManager::Get()->Render();
+
+		// Render wire frame
+		CollisionShapeRenderer::Get()->Render();
+		//_collision->DrawGrid( 30.0f, 30.0f, 20, 20, D3DCOLOR_COLORVALUE( 1.0f, 1.0f, 1.0f, .2f ) );
 
 		D3D9_DEVICE->EndScene();
 	}

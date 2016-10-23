@@ -1,14 +1,16 @@
 #include "RenderPCH.h"
 #include "XMeshObject.h"
 
-#include "CreateD3D9.h"
+#include "D3D9Device.h"
 #include "CameraManager.h"
 #include "MeshManager.h"
 
 
 XMeshObject::XMeshObject() : _mtrlBuffer( nullptr )
 {
+	_shader = D3D9Shader::Create();
 
+	_matrix = D3D9Matrix::Create();
 }
 
 XMeshObject::XMeshObject( const string& object_name )

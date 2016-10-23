@@ -1,7 +1,7 @@
 #include "RenderPCH.h"
 #include "D3D11Shader.h"
 #include "Util.h"
-#include "CreateD3D11.h"
+#include "D3D11Device.h"
 
 D3D11Shader::D3D11Shader() : _vsBlob( nullptr ), _psBlob( nullptr ), _vsShader( nullptr ), _psShader( nullptr )
 {

@@ -1,7 +1,7 @@
 #include "RenderPCH.h"
 #include "D3D9Shader.h"
 
-#include "CreateD3D9.h"
+#include "D3D9Device.h"
 
 
 D3D9Shader::D3D9Shader()
@@ -29,7 +29,7 @@ void D3D9Shader::LoadShader( const string& fileName )
 	LPD3DXBUFFER			error = NULL;
 	DWORD					shaderFlags = 0;
 
-	shaderFlags |= D3DXSHADER_DEBUG; // 컴파일러가 디버그 정보를 생성하도록 함
+	shaderFlags |= D3DXSHADER_DEBUG; // This makes to create debug data by compiler
 
 	auto openEffectFile = D3DXCreateEffectFromFile( D3D9_DEVICE, fileName.c_str(), NULL, NULL, shaderFlags, NULL, &_d3dEffect, &error );
 

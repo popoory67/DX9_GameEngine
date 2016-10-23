@@ -1,16 +1,17 @@
 #pragma once
 
-#include "GameObject.h"
+#include "GameBehaviour.h"
 
 #include "D3DXHeader.h"
+#include "Collision.h"
 
-class GameManager : public GameObject
+class MyGameManager : public GameBehaviour
 {
 public:
 
-	GameManager();
+	MyGameManager();
 
-	~GameManager();
+	~MyGameManager();
 
 	virtual void Start();
 
@@ -18,13 +19,18 @@ public:
 
 	virtual void Release();
 
-	void KeyInput();
-
 private:
 
-	XAnimatedObjectPtr _warrior;
-	XMeshPtr _object;
+	XAnimatedObjectPtr _warrior; //XAnimatedObjectPtr _warrior;
+	XMeshPtr _object; //XMeshPtr _object;
+	//MeshModelPtr _bb8;
 
-	float x, y, z;
+	Collision* _col;
+
+	RigidBody* _fallRigid;
+	RigidBody* _fallRigid2;
+	RigidBody* _planeRigid;
+
+	float _x, _y, _z;
 };
 

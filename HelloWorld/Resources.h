@@ -7,6 +7,7 @@
 #define		OBJ_BB8				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/bb8.obj"
 #define		OBJ_IRON			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/IronMan.obj"
 #define		OBJ_POT				"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/test.obj"
+#define		OBJ_HANZO			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/HanzoFBXClean.obj"
  
 // texture
 #define		TEX_WARRIOR			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/Warrior.bmp"

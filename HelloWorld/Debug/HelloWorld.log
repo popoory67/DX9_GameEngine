@@ -1,5 +1,5 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Application.cpp
-c:\users\boseul\documents\github\ninetailengine\engine\source\developer\render\camera.h(38): warning C4316: 'Camera::CameraMatrix': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
-c:\users\boseul\documents\github\ninetailengine\helloworld\application.cpp(87): warning C4305: '인수' : 'double'에서 'float'(으)로 잘립니다.
-  HelloWorld.vcxproj -> C:\Users\boseul\Documents\GitHub\NinetailEngine\HelloWorld\\..\..\exe\Debug\HelloWorld.exe
+c:\users\boseul\documents\github\se_ninetailengine\engine\source\developer\render\camera.h(34): warning C4316: 'Camera::CameraMatrix': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+c:\users\boseul\documents\github\se_ninetailengine\engine\source\developer\core\component.h(38): warning C4715: 'Component::GetComponent<KeyController>' : 모든 제어 경로에서 값을 반환하지는 않습니다.
+  HelloWorld.vcxproj -> C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\HelloWorld\\..\..\exe\Debug\HelloWorld.exe

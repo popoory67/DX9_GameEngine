@@ -1,5 +1,6 @@
 #include "RenderPCH.h"
 #include "D3D11Math.h"
+#include "Util.h"
 
 namespace D3D11Math
 {
@@ -46,6 +47,11 @@ namespace D3D11Math
 
 	Vector3 Vector3::operator / (float mul) const
 	{
+		if (mul == 0)
+		{
+			assert(Util::ErrorMessage("The parameter is 0. It is invaild access."));
+		}
+
 		return Vector3( x / mul, y / mul, z / mul );
 	}
 
