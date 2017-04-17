@@ -1,11 +1,13 @@
 #pragma once
 
+#include <list>
 #include <d3dx9.h>
 #include <btBulletCollisionCommon.h>
 #include <btBulletDynamicsCommon.h>
 #include "D3D9Shader.h"
 
-#define WIRE_FRAME_SHADER "C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Resource/wireframe.fx"
+#define WIRE_FRAME_SHADER "C:/Users/boseul/Documents/GitHub/NinetailEngine/Resource/wireframe.fx"
+
 
 struct LineVertex
 {
@@ -23,7 +25,12 @@ struct CollisionWireFrame
 	btRigidBody* _rigidBody;
 	DWORD _color;
 
-	CollisionWireFrame() : _color( 0xFF0000FF )
+	CollisionWireFrame() : _color(0xFF0000FF), _rigidBody(nullptr)
+	{
+
+	}
+
+	CollisionWireFrame( btRigidBody* rigidBody ) : _rigidBody( rigidBody )
 	{
 
 	}
@@ -38,14 +45,16 @@ public:
 
 	void Render();
 
-	void AddWireFrame( CollisionWireFrame* _wireRender );
-
 	void SetViewProjectTM( D3DXMATRIX viewProjection )
 	{
 		_viewProjection = viewProjection;
 	}
 
-	void DrawGrid( float xLength, float yLength, int xGrid, int yGrid, DWORD color );
+	void AddWireFrame( CollisionWireFrame* _wireRender );
+	void AddDynamicWireFrame( CollisionWireFrame* _wireRender );
+
+	void RemoveWireFrame( CollisionWireFrame* _wireRender );
+	void RemoveDynamicWireFrame( CollisionWireFrame* _wireRender );
 
 private:
 
@@ -101,4 +110,5 @@ private:
 	static CollisionShapeRenderer* _instance;
 
 	vector<CollisionWireFrame*> _colVector;
+	list<CollisionWireFrame*> _dynamicColList;
 };

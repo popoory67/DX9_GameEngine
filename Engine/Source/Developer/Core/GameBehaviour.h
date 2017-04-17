@@ -2,6 +2,7 @@
 
 #include "Component.h"
 
+// custom component
 class GameBehaviour : public Component
 {
 public:

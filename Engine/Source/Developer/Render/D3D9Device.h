@@ -18,7 +18,7 @@ class D3D9 : public DevicePlatform
 {
 public:
 
-	~D3D9();
+	virtual ~D3D9();
 
 	/**
 	 * Gets the singleton instance of the D3D class.

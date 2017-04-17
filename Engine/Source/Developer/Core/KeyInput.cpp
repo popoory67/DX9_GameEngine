@@ -43,17 +43,17 @@ void KeyInput::Init()
 }
 
 // mutex
-void KeyInput::KeyDown(unsigned int key)
+void KeyInput::KeyDown( unsigned int key )
 {
 	_keys[key] = true;
 }
 
-void KeyInput::KeyUp(unsigned int key)
+void KeyInput::KeyUp( unsigned int key )
 {
 	_keys[key] = false;
 }
 
-bool KeyInput::IsKeyDown(unsigned int key)
+bool KeyInput::IsKeyDown( unsigned int key )
 {
 	return _keys[key];
 }

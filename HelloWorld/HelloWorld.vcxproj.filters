@@ -7,38 +7,38 @@
     <Filter Include="Main">
       <UniqueIdentifier>{b769c1a7-49e2-4e97-bbcb-8ae02f1ba8e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{5d0fe7c2-bdc2-4968-aa80-bf472fa18277}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="AppDelegate.h">
+      <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="KeyController.h">
+    <ClInclude Include="Define.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Resources.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Collision.h">
+    <ClInclude Include="TestScene.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="View.h">
+    <ClInclude Include="TestCustomComponent.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="HelloWorldWin32.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="KeyController.cpp">
+    <ClCompile Include="AppDelegate.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="View.cpp">
+    <ClCompile Include="TestCustomComponent.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>

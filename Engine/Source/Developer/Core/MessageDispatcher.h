@@ -1,16 +1,15 @@
 #pragma once
 
-class Message;		// pointer로만 사용되기 때문에 include 대신 전방 선언
+class Message;
 
-using FuncVoid = function< void() >;	// 인수가 없는 함수형
-using FuncMessage = function< void( Message* ) >;	// 인수가 메시지인 함수형
-
-using MessageVectorFuncVoid = map< string, vector< FuncVoid > >;
-using MessageVectorFuncMessage = map< string, vector< FuncMessage > >;
-
+using FuncVoid		= function< void() >;			// 인수가 없는 함수형
+using FuncMessage	= function< void( Message* ) >;	// 인수가 메시지인 함수형
 
 class MessageDispatcher
 {
+	using MessageVectorFuncVoid		= map< string, vector< FuncVoid > >;
+	using MessageVectorFuncMessage	= map< string, vector< FuncMessage > >;
+
 public:
 
 	~MessageDispatcher();

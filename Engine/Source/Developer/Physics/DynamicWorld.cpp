@@ -50,5 +50,5 @@ void DynamicWorld::Init()
 
 	// The world.
 	_dynamicsWorld = new btDiscreteDynamicsWorld( _dispatcher, _broadphase, _solver, _collisionConfiguration );
-	_dynamicsWorld->setGravity( btVector3( 0, -9.8f, 0 ) );	// 중력의 방향과 크기
+	_dynamicsWorld->setGravity( btVector3( 0, -10, 0 ) );	// 중력의 방향과 크기
 }

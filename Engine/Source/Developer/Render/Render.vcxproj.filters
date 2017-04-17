@@ -95,6 +95,16 @@
     <ClInclude Include="CollisionShapeRenderer.h">
       <Filter>DirectX\Collision</Filter>
     </ClInclude>
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="CollisionRenderUtil.h">
+      <Filter>DirectX\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="FbxLoader.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="FbxMeshObject.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XBoneHierarchyLoader.cpp">
@@ -157,6 +167,13 @@
     <ClCompile Include="DevicePlatform.cpp" />
     <ClCompile Include="CollisionShapeRenderer.cpp">
       <Filter>DirectX\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="FbxLoader.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="FbxMeshObject.cpp">
+      <Filter>DirectX\3D Model</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

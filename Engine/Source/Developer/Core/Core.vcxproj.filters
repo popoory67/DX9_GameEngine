@@ -10,13 +10,7 @@
     <Filter Include="Input">
       <UniqueIdentifier>{be9dba01-160f-40c2-94f8-ddfb1eef7c4c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game">
-      <UniqueIdentifier>{24dc35ae-8223-47b8-8c1b-dcb2c39a7260}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Scene">
-      <UniqueIdentifier>{123e05d2-5258-4aa5-acd1-03fcffa7d49e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Object">
+    <Filter Include="Object">
       <UniqueIdentifier>{93c37122-a88e-4a14-9175-d1afd57f5f52}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -48,17 +42,26 @@
       <Filter>Thread</Filter>
     </ClInclude>
     <ClInclude Include="Util.h" />
-    <ClInclude Include="Scene.h">
-      <Filter>Game\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="GameBehaviour.h">
-      <Filter>Game\Object</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>Game\Object</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="BehaviourManager.h">
-      <Filter>Game\Object</Filter>
+    <ClInclude Include="Scene.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyCode.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -78,17 +81,24 @@
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="Util.cpp" />
-    <ClCompile Include="Scene.cpp">
-      <Filter>Game\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="GameBehaviour.cpp">
-      <Filter>Game\Object</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Game\Object</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="BehaviourManager.cpp">
-      <Filter>Game\Object</Filter>
+    <ClCompile Include="CorePCH.cpp" />
+    <ClCompile Include="Scene.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

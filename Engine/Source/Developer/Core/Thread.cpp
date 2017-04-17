@@ -13,20 +13,20 @@ Thread::~Thread()
 
 }
 
-Thread* Thread::Create(function<void()> func)
+Thread* Thread::Create( function<void()> func )
 {
 	Thread* object = new Thread();
 
-	object->Init(func);
+	object->Init( func );
 
 	return object;
 }
 
-void Thread::Init(function<void()> func)
+void Thread::Init( function<void()> func )
 {
-	auto threadRunfunc = bind(&Thread::Run, this, func);
+	auto threadRunfunc = bind( &Thread::Run, this, func );
 
-	_thread = thread(threadRunfunc);
+	_thread = thread( threadRunfunc );
 }
 
 void Thread::Detach()
@@ -34,22 +34,22 @@ void Thread::Detach()
 	_thread.detach();
 }
 
-void Thread::SetCallback(function<void(int)> func)
+void Thread::SetCallback( function<void( int )> func )
 {
 	_callback = func;
 }
 
 
-void Thread::Run(function<void()> func)
+void Thread::Run( function<void()> func )
 {
 	func();
 
 	// callback
 	if (_callback)
 	{
-		_callback(_id);
-	}	
-	
+		_callback( _id );
+	}
+
 	// delete
-	ThreadManager::Get().RemoveThread(_id);
+	ThreadManager::Get().RemoveThread( _id );
 }

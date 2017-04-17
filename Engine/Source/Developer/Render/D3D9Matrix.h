@@ -15,17 +15,24 @@ private:
 public:
 
 	D3D9Matrix();
-	~D3D9Matrix();
+	virtual ~D3D9Matrix();
 
 	static D3D9MatrixPtr Create();
 
 	virtual D3D9MatrixType Transform()
 	{
-		D3DXMATRIX worldMatrix;
+		D3DXMATRIX world;
 
-		worldMatrix = _scale * _rotation * _position;
+		world = _scale * _rotation * _position * _world;
 
-		return worldMatrix;
+		return world;
+	}
+
+	virtual D3D9MatrixType SetWorld( D3DXMATRIX world )
+	{
+		_world = world;
+
+		return _world;
 	}
 
 	virtual D3D9MatrixType SetScale( float xpos = 1, float ypos = 1, float zpos = 1 )
@@ -34,35 +41,28 @@ public:
 
 		return _scale;
 	}
-	
+
+	virtual D3D9MatrixType SetScale( D3DXMATRIX scale )
+	{
+		_scale = scale;
+
+		return _scale;
+	}
+
 	virtual D3D9MatrixType SetRotate( float xpos = 0, float ypos = 0, float zpos = 0 )
 	{
-		if (xpos != 0)
-		{
-			D3DXVECTOR3 v( 1, 0, 0 );
-			//D3DXMatrixRotationAxis( &_rotation, &v, xpos );
-			D3DXMatrixRotationX( &_rotation, xpos );
-		}
-
-		if (ypos != 0)
-		{
-			D3DXVECTOR3 v( 0, 1, 0 );
-			D3DXMatrixRotationY( &_rotation, ypos );
-			//D3DXMatrixRotationAxis( &_rotation, &v, ypos );
-		}
-
-		if (zpos != 0)
-		{
-			D3DXVECTOR3 v( 0, 0, 1 );
-			//D3DXMatrixRotationAxis( &_rotation, &v, zpos );
-			D3DXMatrixRotationZ( &_rotation, zpos );
-		}
-
-		//D3DXMatrixRotationYawPitchRoll( &_rotation, xpos, ypos, zpos );
+		D3DXMatrixRotationYawPitchRoll( &_rotation, ypos, xpos, zpos );
 
 		return _rotation;
 	}
-	
+
+	virtual D3D9MatrixType SetRotate( D3DXMATRIX rotation )
+	{
+		_rotation = rotation;
+
+		return _rotation;
+	}
+
 	virtual D3D9MatrixType SetPosition( float xpos = 0, float ypos = 0, float zpos = 0 )
 	{
 		D3DXMatrixTranslation( &_position, xpos, ypos, zpos );
@@ -70,7 +70,16 @@ public:
 		return _position;
 	}
 
+	virtual D3D9MatrixType SetPosition( D3DXMATRIX position )
+	{
+		_position = position;
+
+		return _position;
+	}
+
 private:
+
+	D3DXMATRIX _world;
 
 	D3DXMATRIX _scale;
 	D3DXMATRIX _rotation;

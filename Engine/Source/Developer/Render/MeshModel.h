@@ -6,7 +6,7 @@
 #include "D3D9Matrix.h"
 #include "D3D9Shader.h"
 
-#define DEFAULT_TEX "C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/texture.png"
+#define DEFAULT_TEX "C:/Users/boseul/Documents/GitHub/NinetailEngine/Resource/texture.png"
 
 
 class MeshModel;

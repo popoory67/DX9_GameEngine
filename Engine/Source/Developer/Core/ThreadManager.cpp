@@ -3,7 +3,7 @@
 
 ThreadManager* ThreadManager::_instance = nullptr;
 
-ThreadManager::ThreadManager() : _idCount(0)
+ThreadManager::ThreadManager() : _idCount( 0 )
 {
 
 }
@@ -27,21 +27,21 @@ ThreadManager& ThreadManager::Get()
 	return *_instance;
 }
 
-int ThreadManager::AddThread(function<void()> func)
+int ThreadManager::AddThread( function<void()> func )
 {
-	return AddThread(func, nullptr);
+	return AddThread( func, nullptr );
 }
 
-int ThreadManager::AddThread(function<void()> func, function<void(int)> callback)
+int ThreadManager::AddThread( function<void()> func, function<void( int )> callback )
 {
-	Thread* thread = Thread::Create(func);
+	Thread* thread = Thread::Create( func );
 
 	int id = _idCount;
 
-	thread->SetID(id);
-	thread->SetCallback(callback);
+	thread->SetID( id );
+	thread->SetCallback( callback );
 
-	_thread.push_back(thread);
+	_thread.push_back( thread );
 
 	_idCount++;
 
@@ -63,7 +63,7 @@ void ThreadManager::Update()
 					delete (*it);
 					(*it) = nullptr;
 
-					_thread.erase(it++);
+					_thread.erase( it++ );
 
 					break;
 				}
@@ -80,12 +80,12 @@ void ThreadManager::Update()
 	}
 }
 
-void ThreadManager::RemoveThread(int id)
+void ThreadManager::RemoveThread( int id )
 {
-	_removeThread.push_back(id);
+	_removeThread.push_back( id );
 }
 
-Thread* ThreadManager::GetThread(int id)
+Thread* ThreadManager::GetThread( int id )
 {
 	// find thread
 	for (auto it = _thread.begin(); it != _thread.end(); it++)

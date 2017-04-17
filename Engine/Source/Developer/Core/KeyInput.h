@@ -5,7 +5,7 @@
 class KeyInput
 {
 public:
-	
+
 	~KeyInput();
 
 	static KeyInput& Get();
@@ -14,14 +14,14 @@ public:
 
 	void Init();
 
-	void KeyDown(unsigned int);
+	void KeyDown( unsigned int key );
 
-	void KeyUp(unsigned int);
+	void KeyUp( unsigned int key );
 
-	bool IsKeyDown(unsigned int);
+	bool IsKeyDown( unsigned int key );
 
 	void Clear();
-
+	
 private:
 
 	KeyInput();

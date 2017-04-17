@@ -10,3 +10,17 @@ Scene::Scene()
 Scene::~Scene()
 {
 }
+
+Scene* Scene::Create()
+{
+	Scene* scene = new Scene();
+
+	scene->Init();
+
+	return scene;
+}
+
+void Scene::Init()
+{
+	_rootGameObjects = new RootGameObjects();
+}

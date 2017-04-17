@@ -159,7 +159,7 @@ void XSkinnedMesh::Render()
 	//			effect->SetMatrix( "mWVP", &mWVP );
 	//			effect->SetMatrix( "mWIT", &mWIT );
 
-	//			effect->SetFloatArray( "vEye", &cameraMatrix->_eyePt.x, 3 );
+	//			effect->SetFloatArray( "vEye", &cameraMatrix->_eyeVec.x, 3 );
 	//			effect->CommitChanges();
 	//		}
 	//	);

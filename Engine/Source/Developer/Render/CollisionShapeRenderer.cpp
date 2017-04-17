@@ -3,6 +3,7 @@
 #include "D3D9Device.h"
 #include "CameraManager.h"
 
+
 #define INDEX_SIZE		24
 
 
@@ -16,18 +17,21 @@ D3DXMATRIX btTransformToD3DXMATIRX( const btTransform& transform )
 	btVector3 L = transform.getBasis().getColumn( 2 );
 	btVector3 P = transform.getOrigin();
 
-	D3DXMATRIX matM;
-	matM._11 = R.m_floats[0]; matM._12 = R.m_floats[1]; matM._13 = R.m_floats[2]; matM._14 = 0.f;
-	matM._21 = U.m_floats[0]; matM._22 = U.m_floats[1]; matM._23 = U.m_floats[2]; matM._24 = 0.f;
-	matM._31 = L.m_floats[0]; matM._32 = L.m_floats[1]; matM._33 = L.m_floats[2]; matM._34 = 0.f;
-	matM._41 = P.m_floats[0]; matM._42 = P.m_floats[1]; matM._43 = P.m_floats[2]; matM._44 = 1.f;
+	D3DXMATRIX mat;
+	mat._11 = R.m_floats[0]; mat._12 = R.m_floats[1]; mat._13 = R.m_floats[2]; mat._14 = 0.f;
+	mat._21 = U.m_floats[0]; mat._22 = U.m_floats[1]; mat._23 = U.m_floats[2]; mat._24 = 0.f;
+	mat._31 = L.m_floats[0]; mat._32 = L.m_floats[1]; mat._33 = L.m_floats[2]; mat._34 = 0.f;
+	mat._41 = P.m_floats[0]; mat._42 = P.m_floats[1]; mat._43 = P.m_floats[2]; mat._44 = 1.f;
 
-	return matM;
+	return mat;
 }
 
 CollisionShapeRenderer::CollisionShapeRenderer()
 {
 	_shader = D3D9Shader::Create();
+
+	_colVector.clear();
+	_dynamicColList.clear();
 
 	CreateMatrixStack();
 	CreateEffect();
@@ -39,6 +43,13 @@ CollisionShapeRenderer::~CollisionShapeRenderer()
 
 	SAFE_RELEASE( _wireBoxVertexBuffer );
 	SAFE_RELEASE( _wireBoxIndexBuffer );
+
+	SAFE_RELEASE( _wireHalfSphereVertexBuffer );
+	SAFE_RELEASE( _wireCylinderVertexBuffer );
+	SAFE_RELEASE( _wireCylinderCloseVertexBuffer );
+	SAFE_RELEASE( _wireSphereVertexBuffer );
+
+	SAFE_DELETE( _instance );
 }
 
 CollisionShapeRenderer* CollisionShapeRenderer::Get()
@@ -56,8 +67,55 @@ void CollisionShapeRenderer::AddWireFrame( CollisionWireFrame* _wireRender )
 	_colVector.push_back( _wireRender );
 }
 
+void CollisionShapeRenderer::AddDynamicWireFrame( CollisionWireFrame* _wireRender )
+{
+	_dynamicColList.push_back( _wireRender );
+}
+
+
+void CollisionShapeRenderer::RemoveWireFrame( CollisionWireFrame* _wireRender )
+{
+	for (auto iter = _colVector.begin(); iter != _colVector.end();)
+	{
+		if (*iter == _wireRender)
+		{
+			SAFE_DELETE( *iter );
+			iter = _colVector.erase( iter );
+
+			return;
+		}
+		iter++;
+	}
+}
+
+void CollisionShapeRenderer::RemoveDynamicWireFrame( CollisionWireFrame* _wireRender )
+{
+	for (auto iter = _dynamicColList.begin(); iter != _dynamicColList.end(); iter++)
+	{
+		if (*iter == _wireRender)
+		{
+			SAFE_DELETE( *iter );
+
+			_dynamicColList.remove( *iter );
+		}
+	}
+}
+
 void CollisionShapeRenderer::Render()
 {
+	if (_dynamicColList.size() > 5)
+	{
+		_dynamicColList.pop_front();
+	}
+
+	for (auto iter = _dynamicColList.begin(); iter != _dynamicColList.end(); iter++)
+	{
+		auto cameraMatrix = CameraManager::Get()->GetCamera( 0 )->GetCameraMatrix();
+		auto mat = cameraMatrix->_view * cameraMatrix->_proj;
+		SetViewProjectTM( mat );
+		RenderWireRigidBody( (*iter)->_rigidBody, (*iter)->_color );
+	}
+
 	for (auto iter = _colVector.begin(); iter != _colVector.end(); iter++)
 	{
 		auto cameraMatrix = CameraManager::Get()->GetCamera( 0 )->GetCameraMatrix();
@@ -66,45 +124,6 @@ void CollisionShapeRenderer::Render()
 		RenderWireRigidBody( (*iter)->_rigidBody, (*iter)->_color );
 	}
 }
-
-void CollisionShapeRenderer::DrawGrid( float xLength, float yLength, int xGrid, int yGrid, DWORD color )
-{
-	LineVertex *pVertex;
-	int iCount;
-	float xStep, yStep;
-
-	pVertex = new LineVertex[2 * (xGrid + 1) + 2 * (yGrid + 1)];
-
-	xStep = 2.0f*xLength / xGrid;
-	yStep = 2.0f*yLength / yGrid;
-
-
-	iCount = 0;
-	for (int i = 0; i <= xGrid; i += 1)
-	{
-		pVertex[iCount]._pos.x = -xLength + i*xStep; pVertex[iCount]._pos.y = -yLength; pVertex[iCount]._pos.z = 0.0f; pVertex[iCount]._diffuse = color;
-		iCount += 1;
-
-		pVertex[iCount]._pos.x = -xLength + i*xStep; pVertex[iCount]._pos.y = +yLength; pVertex[iCount]._pos.z = 0.0f; pVertex[iCount]._diffuse = color;
-		iCount += 1;
-	}
-
-	for (int i = 0; i <= yGrid; i += 1)
-	{
-		pVertex[iCount]._pos.x = -xLength; pVertex[iCount]._pos.y = -yLength + i*yStep; pVertex[iCount]._pos.z = 0.0f; pVertex[iCount]._diffuse = color;
-		iCount += 1;
-
-		pVertex[iCount]._pos.x = xLength; pVertex[iCount]._pos.y = -yLength + i*yStep; pVertex[iCount]._pos.z = 0.0f; pVertex[iCount]._diffuse = color;
-		iCount += 1;
-	}
-
-	D3D9_DEVICE->SetTransform( D3DTS_WORLD, _matrixStack->GetTop() );
-	D3D9_DEVICE->SetFVF( LineVertex::GetFVF() );
-	D3D9_DEVICE->DrawPrimitiveUP( D3DPT_LINELIST, iCount / 2, pVertex, sizeof( LineVertex ) );
-
-	delete[] pVertex;
-}
-
 
 void CollisionShapeRenderer::CreateEffect()
 {
@@ -131,16 +150,45 @@ void CollisionShapeRenderer::CreateWireBox()
 	D3D9_DEVICE->CreateVertexBuffer( vertexListSize, 0, D3DFVF_XYZ | D3DFVF_DIFFUSE,
 									 D3DPOOL_MANAGED, &_wireBoxVertexBuffer, NULL );
 
-	vertex[0]._pos.x = -1.0f; vertex[0]._pos.y = 1.0f; vertex[0]._pos.z = -1.0f; vertex[0]._diffuse = color;
-	vertex[1]._pos.x = -1.0f; vertex[1]._pos.y = -1.0f; vertex[1]._pos.z = -1.0f; vertex[1]._diffuse = color;
-	vertex[2]._pos.x = 1.0f; vertex[2]._pos.y = -1.0f; vertex[2]._pos.z = -1.0f; vertex[2]._diffuse = color;
-	vertex[3]._pos.x = 1.0f; vertex[3]._pos.y = 1.0f; vertex[3]._pos.z = -1.0f; vertex[3]._diffuse = color;
+	vertex[0]._pos.x = -1.0f; 
+	vertex[0]._pos.y = 1.0f; 
+	vertex[0]._pos.z = -1.0f; 
+	vertex[0]._diffuse = color;
 
+	vertex[1]._pos.x = -1.0f; 
+	vertex[1]._pos.y = -1.0f; 
+	vertex[1]._pos.z = -1.0f; 
+	vertex[1]._diffuse = color;
 
-	vertex[4]._pos.x = -1.0f; vertex[4]._pos.y = 1.0f; vertex[4]._pos.z = 1.0f; vertex[4]._diffuse = color;
-	vertex[5]._pos.x = -1.0f; vertex[5]._pos.y = -1.0f; vertex[5]._pos.z = 1.0f; vertex[5]._diffuse = color;
-	vertex[6]._pos.x = 1.0f; vertex[6]._pos.y = -1.0f; vertex[6]._pos.z = 1.0f; vertex[6]._diffuse = color;
-	vertex[7]._pos.x = 1.0f; vertex[7]._pos.y = 1.0f; vertex[7]._pos.z = 1.0f; vertex[7]._diffuse = color;
+	vertex[2]._pos.x = 1.0f; 
+	vertex[2]._pos.y = -1.0f; 
+	vertex[2]._pos.z = -1.0f;
+	vertex[2]._diffuse = color;
+
+	vertex[3]._pos.x = 1.0f; 
+	vertex[3]._pos.y = 1.0f; 
+	vertex[3]._pos.z = -1.0f; 
+	vertex[3]._diffuse = color;
+
+	vertex[4]._pos.x = -1.0f; 
+	vertex[4]._pos.y = 1.0f; 
+	vertex[4]._pos.z = 1.0f; 
+	vertex[4]._diffuse = color;
+
+	vertex[5]._pos.x = -1.0f; 
+	vertex[5]._pos.y = -1.0f; 
+	vertex[5]._pos.z = 1.0f; 
+	vertex[5]._diffuse = color;
+
+	vertex[6]._pos.x = 1.0f; 
+	vertex[6]._pos.y = -1.0f;
+	vertex[6]._pos.z = 1.0f; 
+	vertex[6]._diffuse = color;
+
+	vertex[7]._pos.x = 1.0f; 
+	vertex[7]._pos.y = 1.0f; 
+	vertex[7]._pos.z = 1.0f; 
+	vertex[7]._diffuse = color;
 
 	VOID* vertices = NULL;
 
@@ -190,29 +238,41 @@ void CollisionShapeRenderer::CreateWireHalfSphere( int slices, int stacks, DWORD
 	{
 		for (j = 0; j < stacks; j += 1)
 		{
-			vertex[vertexCount]._pos.x = sinf( thetaStep*j )*cosf( phiStep*i );	vertex[vertexCount]._pos.y = sinf( thetaStep*j )*sinf( phiStep*i );	vertex[vertexCount]._pos.z = cosf( thetaStep*j );
+			vertex[vertexCount]._pos.x = sinf( thetaStep*j )*cosf( phiStep*i );	
+			vertex[vertexCount]._pos.y = sinf( thetaStep*j )*sinf( phiStep*i );	
+			vertex[vertexCount]._pos.z = cosf( thetaStep*j );
 			vertex[vertexCount]._diffuse = color;
 			vertexCount += 1;
 
-			vertex[vertexCount]._pos.x = sinf( thetaStep*(j + 1) )*cosf( phiStep*i );	vertex[vertexCount]._pos.y = sinf( thetaStep*(j + 1) )*sinf( phiStep*i );	vertex[vertexCount]._pos.z = cosf( thetaStep*(j + 1) );
+			vertex[vertexCount]._pos.x = sinf( thetaStep*(j + 1) )*cosf( phiStep*i );	
+			vertex[vertexCount]._pos.y = sinf( thetaStep*(j + 1) )*sinf( phiStep*i );	
+			vertex[vertexCount]._pos.z = cosf( thetaStep*(j + 1) );
 			vertex[vertexCount]._diffuse = color;
 			vertexCount += 1;
 
-			vertex[vertexCount]._pos.x = sinf( thetaStep*(j + 1) )*cosf( phiStep*(i + 1) );	vertex[vertexCount]._pos.y = sinf( thetaStep*(j + 1) )*sinf( phiStep*(i + 1) );	vertex[vertexCount]._pos.z = cosf( thetaStep*(j + 1) );
+			vertex[vertexCount]._pos.x = sinf( thetaStep*(j + 1) )*cosf( phiStep*(i + 1) );
+			vertex[vertexCount]._pos.y = sinf( thetaStep*(j + 1) )*sinf( phiStep*(i + 1) );	
+			vertex[vertexCount]._pos.z = cosf( thetaStep*(j + 1) );
 			vertex[vertexCount]._diffuse = color;
 			vertexCount += 1;
 
 			if (j != 0)
 			{
-				vertex[vertexCount]._pos.x = sinf( thetaStep*j )*cosf( phiStep*i );	vertex[vertexCount]._pos.y = sinf( thetaStep*j )*sinf( phiStep*i );	vertex[vertexCount]._pos.z = cosf( thetaStep*j );
+				vertex[vertexCount]._pos.x = sinf( thetaStep*j )*cosf( phiStep*i );	
+				vertex[vertexCount]._pos.y = sinf( thetaStep*j )*sinf( phiStep*i );	
+				vertex[vertexCount]._pos.z = cosf( thetaStep*j );
 				vertex[vertexCount]._diffuse = color;
 				vertexCount += 1;
 
-				vertex[vertexCount]._pos.x = sinf( thetaStep*(j + 1) )*cosf( phiStep*(i + 1) );	vertex[vertexCount]._pos.y = sinf( thetaStep*(j + 1) )*sinf( phiStep*(i + 1) );	vertex[vertexCount]._pos.z = cosf( thetaStep*(j + 1) );
+				vertex[vertexCount]._pos.x = sinf( thetaStep*(j + 1) )*cosf( phiStep*(i + 1) );
+				vertex[vertexCount]._pos.y = sinf( thetaStep*(j + 1) )*sinf( phiStep*(i + 1) );	
+				vertex[vertexCount]._pos.z = cosf( thetaStep*(j + 1) );
 				vertex[vertexCount]._diffuse = color;
 				vertexCount += 1;
 
-				vertex[vertexCount]._pos.x = sinf( thetaStep*j )*cosf( phiStep*(i + 1) );	vertex[vertexCount]._pos.y = sinf( thetaStep*j )*sinf( phiStep*(i + 1) );	vertex[vertexCount]._pos.z = cosf( thetaStep*j );
+				vertex[vertexCount]._pos.x = sinf( thetaStep*j )*cosf( phiStep*(i + 1) );	
+				vertex[vertexCount]._pos.y = sinf( thetaStep*j )*sinf( phiStep*(i + 1) );	
+				vertex[vertexCount]._pos.z = cosf( thetaStep*j );
 				vertex[vertexCount]._diffuse = color;
 				vertexCount += 1;
 			}
@@ -483,7 +543,7 @@ void CollisionShapeRenderer::CreateWireSphere( int slices, int stacks, DWORD col
 
 void CollisionShapeRenderer::RenderWireRigidBody( btRigidBody *rigidBody, DWORD color )
 {
-	if (!rigidBody)
+	if (!rigidBody || !rigidBody->getCollisionShape() || !rigidBody->getMotionState())
 	{
 		return;
 	}
