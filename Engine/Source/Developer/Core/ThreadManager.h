@@ -5,20 +5,20 @@
 class ThreadManager
 {
 public:
-	
+
 	~ThreadManager();
 
 	static ThreadManager& Get();
 
-	int AddThread(function<void()> func);
+	int AddThread( function<void()> func );
 
-	int AddThread(function<void()> func, function<void(int)> callback);
+	int AddThread( function<void()> func, function<void( int )> callback );
 
 	void Update();
 
-	void RemoveThread(int id);
+	void RemoveThread( int id );
 
-	Thread* GetThread(int id);
+	Thread* GetThread( int id );
 
 private:
 

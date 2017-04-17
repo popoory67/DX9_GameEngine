@@ -34,3 +34,4 @@ ipch/
 .vs/
 *.VC.db
 Engine/Source/Developer/Build
+Engine/Source/ThirdParty

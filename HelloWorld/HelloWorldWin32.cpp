@@ -1,17 +1,9 @@
-#include "WindowSystem.h"
-#include "Application.h"
-
+#include <Windows.h>
+#include "AppDelegate.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	if (WindowSystem::Get().Init())
-	{
-		// test
-		GameBehaviourPtr game( new MyGameManager() );
-		BehaviourManager::Get().AddGame( game );
+	AppDelegate app;
 
-		WindowSystem::Get().Run();
-	}
-
-	WindowSystem::Get().Clear();
+	app.Run();
 }

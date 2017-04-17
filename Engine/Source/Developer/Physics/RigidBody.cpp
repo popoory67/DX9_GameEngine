@@ -12,13 +12,12 @@ RigidBody::~RigidBody()
 	DynamicWorld::Get()->GetDynamicWorld()->removeRigidBody( _rigidBody );
 
 	delete(_rigidBody->getMotionState());
+	delete(_rigidBody->getCollisionShape());
 
 	SAFE_DELETE( _rigidBody );
-	SAFE_DELETE( _colShape );
 }
 
-
-void RigidBody::CreateRigidBody( btDefaultMotionState* motionState, btRigidBody::btRigidBodyConstructionInfo& rigidBodyCI )
+void RigidBody::CreateRigidBody( btRigidBody::btRigidBodyConstructionInfo& rigidBodyCI )
 {
 	_rigidBody = new btRigidBody( rigidBodyCI );
 
@@ -26,11 +25,10 @@ void RigidBody::CreateRigidBody( btDefaultMotionState* motionState, btRigidBody:
 }
 
 
-void RigidBody::CreateRigidBody( btDefaultMotionState* motionState,
-								 const btScalar mass,
+void RigidBody::CreateRigidBody( const btScalar mass,
 								 const btVector3& inertia )
 {
-	btRigidBody::btRigidBodyConstructionInfo rigidBodyCI( mass, motionState, _colShape, inertia );
+	btRigidBody::btRigidBodyConstructionInfo rigidBodyCI( mass, _motionState, _colShape, inertia );
 
 	rigidBodyCI.m_restitution = _property._restitution;
 	rigidBodyCI.m_friction = _property._friction;
@@ -49,7 +47,7 @@ void RigidBody::SetCollisionShape( btCollisionShape* colShape )
 }
 
 
-btDefaultMotionState* RigidBody::CreateMotionState( const btTransform& transform ) const
+void RigidBody::CreateMotionState( const btTransform& transform )
 {
 	btDefaultMotionState* motionState;
 
@@ -63,15 +61,13 @@ btDefaultMotionState* RigidBody::CreateMotionState( const btTransform& transform
 		motionState = new btDefaultMotionState( transform );
 	}
 
-	return motionState;
+	_motionState = motionState;
 }
 
-
-btRigidBody::btRigidBodyConstructionInfo RigidBody::CreateRigidbodyConstructionInfo( btDefaultMotionState* motionState,
-																					 const btScalar mass,
+btRigidBody::btRigidBodyConstructionInfo RigidBody::CreateRigidbodyConstructionInfo( const btScalar mass,
 																					 const btVector3& inertia ) const
 {
-	btRigidBody::btRigidBodyConstructionInfo rigidBodyCI( mass, motionState, _colShape, inertia );
+	btRigidBody::btRigidBodyConstructionInfo rigidBodyCI( mass, _motionState, _colShape, inertia );
 
 	rigidBodyCI.m_restitution = _property._restitution;
 	rigidBodyCI.m_friction = _property._friction;

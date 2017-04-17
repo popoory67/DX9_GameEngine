@@ -3,7 +3,7 @@
 #include <d3dx9.h>
 #include <functional>
 
-#define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Engine/Resource/ObjViewer.fx"
+#define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Resource/ObjViewer.fx"
 
 class D3D9Shader;
 
@@ -14,7 +14,7 @@ class D3D9Shader
 {
 public:
 	D3D9Shader();
-	~D3D9Shader();
+	virtual ~D3D9Shader();
 
 	static ShaderPtr Create();
 

@@ -1,0 +1,3 @@
+
+
+static bool gUnitClear = false;

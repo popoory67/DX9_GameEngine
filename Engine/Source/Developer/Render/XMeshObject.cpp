@@ -89,6 +89,7 @@ void XMeshObject::LoadTexture( const string& fileName )
 void XMeshObject::Render()
 {
 	auto cameraMatrix = CameraManager::Get()->GetCamera( 0 )->GetCameraMatrix(); // camera matrix
+	auto cameraVector = CameraManager::Get()->GetCamera( 0 )->GetCameraVector(); // camera vector
 	auto effect = _shader->GetEffect(); // d3d effect
 
 	UINT pass = 0;
@@ -121,7 +122,7 @@ void XMeshObject::Render()
 					effect->SetMatrix( "mWVP", &mWVP );
 					effect->SetMatrix( "mWIT", &mWIT );
 
-					effect->SetFloatArray( "vEye", &cameraMatrix->_eyePt.x, 3 );
+					effect->SetFloatArray( "vEye", &cameraVector->_eyeVec.x, 3 );
 					effect->CommitChanges();
 				}
 			);

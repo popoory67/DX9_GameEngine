@@ -57,7 +57,7 @@ void WindowSystem::Clear()
 void WindowSystem::Run()
 {
 	// all game initialization
-	BehaviourManager::Get().InitGame();
+	SceneManager::Get().InitGame();
 
 	MSG msg;
 	ZeroMemory( &msg, sizeof( msg ) );
@@ -86,7 +86,7 @@ void WindowSystem::Run()
 #endif
 
 			// call all update function.
-			BehaviourManager::Get().RunUpdate();
+			SceneManager::Get().RunUpdate();
 		}
 	}
 }

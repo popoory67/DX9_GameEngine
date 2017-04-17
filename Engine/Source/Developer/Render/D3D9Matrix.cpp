@@ -4,9 +4,10 @@
 
 D3D9Matrix::D3D9Matrix()
 {
-	D3DXMatrixIdentity(&_scale);
-	D3DXMatrixIdentity(&_rotation);
-	D3DXMatrixIdentity(&_position);
+	D3DXMatrixIdentity( &_world );
+	D3DXMatrixIdentity( &_scale );
+	D3DXMatrixIdentity( &_rotation );
+	D3DXMatrixIdentity( &_position );
 }
 
 

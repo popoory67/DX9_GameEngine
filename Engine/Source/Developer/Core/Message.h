@@ -28,9 +28,7 @@ private:
 
 private:
 
-	map<string, vector<void*>>	_mapDataPointer;
-
 	vector<void*> _vecDataPointer;
-
+	map<string, vector<void*>>	_mapDataPointer;
 };
 
