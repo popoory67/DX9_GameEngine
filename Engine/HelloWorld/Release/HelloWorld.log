@@ -1,6 +1,0 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-LINK : warning C4727: 타임스탬프가 동일한 c:\users\boseul\documents\github\ninetailengine\ninetailengine\render\release\render.pch PCH가 C:\Users\boseul\Documents\GitHub\NinetailEngine\NinetailEngine\Render\Release\MeshRenderer.obj 및 C:\Users\boseul\Documents\GitHub\NinetailEngine\NinetailEngine\Render\Release\CreateDeviceD3DX.obj에 있습니다.  첫 번째 PCH를 사용합니다.
-LINK : warning C4727: 타임스탬프가 동일한 c:\users\boseul\documents\github\ninetailengine\ninetailengine\render\release\render.pch PCH가 C:\Users\boseul\Documents\GitHub\NinetailEngine\NinetailEngine\Render\Release\Matrix.obj 및 C:\Users\boseul\Documents\GitHub\NinetailEngine\NinetailEngine\Render\Release\MeshObject.obj에 있습니다.  첫 번째 PCH를 사용합니다.
-  코드를 생성하고 있습니다.
-  코드를 생성했습니다.
-  HelloWorld.vcxproj -> C:\Users\boseul\Documents\GitHub\NinetailEngine\NinetailEngine\HelloWorld\\..\..\Build\Release\HelloWorld.exe

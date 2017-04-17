@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="DirectX">
+      <UniqueIdentifier>{e0154d85-c18a-4d4f-8238-4ed2e15a222b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D9">
+      <UniqueIdentifier>{afdd4318-f7de-41e0-8118-d8bd93a6609a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D11">
+      <UniqueIdentifier>{a938566c-8b6f-49fb-a209-2b032cc963f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\3D Model">
+      <UniqueIdentifier>{97d2de69-5cde-4f63-8d60-ce193a0aba19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\D3D9\X">
+      <UniqueIdentifier>{1b439ceb-e621-4c28-81cd-9e8d67a24234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\Collision">
+      <UniqueIdentifier>{3a1b7932-8aa5-405d-b9d3-fa69f96974fa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RenderPCH.h" />
+    <ClInclude Include="RenderMacros.h" />
+    <ClInclude Include="D3DXHeader.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="XBoneHierarchyLoader.h">
+      <Filter>DirectX\D3D9\X</Filter>
+    </ClInclude>
+    <ClInclude Include="XSkinnedMesh.h">
+      <Filter>DirectX\D3D9\X</Filter>
+    </ClInclude>
+    <ClInclude Include="XMeshObject.h">
+      <Filter>DirectX\D3D9\X</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Renderer.h">
+      <Filter>DirectX\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11Renderer.h">
+      <Filter>DirectX\D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraManager.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowSystem.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11Math.h">
+      <Filter>DirectX\D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshModel.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLoader.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMeshObject.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshManager.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="DXVersion.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Shader.h">
+      <Filter>DirectX\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11Shader.h">
+      <Filter>DirectX\D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11Header.h">
+      <Filter>DirectX\D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Header.h">
+      <Filter>DirectX\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Matrix.h">
+      <Filter>DirectX\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="ICamera.h" />
+    <ClInclude Include="D3D11Device.h">
+      <Filter>DirectX\D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9Device.h">
+      <Filter>DirectX\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="DevicePlatform.h" />
+    <ClInclude Include="CollisionShapeRenderer.h">
+      <Filter>DirectX\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="CollisionRenderUtil.h">
+      <Filter>DirectX\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="FbxLoader.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+    <ClInclude Include="FbxMeshObject.h">
+      <Filter>DirectX\3D Model</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="XBoneHierarchyLoader.cpp">
+      <Filter>DirectX\D3D9\X</Filter>
+    </ClCompile>
+    <ClCompile Include="XSkinnedMesh.cpp">
+      <Filter>DirectX\D3D9\X</Filter>
+    </ClCompile>
+    <ClCompile Include="XMeshObject.cpp">
+      <Filter>DirectX\D3D9\X</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D9Renderer.cpp">
+      <Filter>DirectX\D3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D11Renderer.cpp">
+      <Filter>DirectX\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderPCH.cpp" />
+    <ClCompile Include="WindowSystem.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshModel.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLoader.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMeshObject.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshManager.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D11Math.cpp">
+      <Filter>DirectX\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D9Shader.cpp">
+      <Filter>DirectX\D3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D11Shader.cpp">
+      <Filter>DirectX\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D9Matrix.cpp">
+      <Filter>DirectX\D3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="ICamera.cpp" />
+    <ClCompile Include="D3D11Device.cpp">
+      <Filter>DirectX\D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D9Device.cpp">
+      <Filter>DirectX\D3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="DevicePlatform.cpp" />
+    <ClCompile Include="CollisionShapeRenderer.cpp">
+      <Filter>DirectX\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="FbxLoader.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+    <ClCompile Include="FbxMeshObject.cpp">
+      <Filter>DirectX\3D Model</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

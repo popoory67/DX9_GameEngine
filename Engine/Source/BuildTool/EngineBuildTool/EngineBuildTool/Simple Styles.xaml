@@ -1,0 +1,1121 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+	
+	<!-- SimpleStyles.XAML은 나만의 컨트롤을 직접 만들기 위한 간편한 시작점이 되는 컨트롤 스타일 집합을 정의합니다.-->
+	
+	<!-- 브러시 : 모든 컨트롤의 배경, 전경, 선택, 활성화 상태 등의 색을 정의하는 데 사용됩니다.
+	컨트롤의 색은 브러시만 변경하면 간단히 바꿀 수 있지만 새 도형을 추가하거나 정렬을 변경하려면 템플릿도 편집해야 합니다. -->
+	
+	<!-- NormalBrush는 SimpleButton, SimpleRepeatButton의 Background로 사용됩니다. -->
+	<LinearGradientBrush x:Key="NormalBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#EEE" Offset="0.0"/>
+		<GradientStop Color="#CCC" Offset="1.0"/>
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="NormalBorderBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#CCC" Offset="0.0"/>
+		<GradientStop Color="#444" Offset="1.0"/>
+	</LinearGradientBrush>
+	
+	<!-- LightBrush는 Menu, TabControl 배경 등의 콘텐츠 영역에 사용됩니다. -->
+	<LinearGradientBrush x:Key="LightBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#FFF" Offset="0.0"/>
+		<GradientStop Color="#EEE" Offset="1.0"/>
+	</LinearGradientBrush>
+	
+	<!-- MouseOverBrush는 Button, RadioButton, CheckBox의 MouseOver에 사용됩니다.-->
+	<LinearGradientBrush x:Key="MouseOverBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#FFF" Offset="0.0"/>
+		<GradientStop Color="#AAA" Offset="1.0"/>
+	</LinearGradientBrush>
+	
+	<!-- PressedBrush는 Button, RadioButton, CheckBox의 Pressed에 사용됩니다.-->
+	<LinearGradientBrush x:Key="PressedBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#BBB" Offset="0.0"/>
+		<GradientStop Color="#EEE" Offset="0.1"/>
+		<GradientStop Color="#EEE" Offset="0.9"/>
+		<GradientStop Color="#FFF" Offset="1.0"/>
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="PressedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#444" Offset="0.0"/>
+		<GradientStop Color="#888" Offset="1.0"/>
+	</LinearGradientBrush>
+
+	<!-- SelectedBackgroundBrush는 ListBoxItem, ComboBoxItem의 Selected 항목에 사용됩니다.-->
+	<SolidColorBrush x:Key="SelectedBackgroundBrush" Color="#DDD"/>	
+
+	<!-- DisabledBrush는 각 컨트롤의 Disabled 모양에 사용됩니다.-->
+	<SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888"/>
+	<SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE"/>
+	<SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA"/>
+
+	<!-- ScrollViewer, TreeView, ListBox, Expander, TextBox, TabControl의 배경에 사용됩니다. -->
+	<SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF"/>
+	
+	<!-- DefaultedBorderBrush는 KeyBoardFocus를 표시하는 데 사용됩니다.-->
+	<LinearGradientBrush x:Key="DefaultedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#777" Offset="0.0"/>
+		<GradientStop Color="#000" Offset="1.0"/>
+	</LinearGradientBrush>
+
+	<SolidColorBrush x:Key="SolidBorderBrush" Color="#888"/>
+	<SolidColorBrush x:Key="LightBorderBrush" Color="#AAA"/>
+	<SolidColorBrush x:Key="LightColorBrush" Color="#DDD"/>
+	
+	<!-- Checkmark, RadioButton, TreeViewItem, ExpanderToggleButton 문자 모양에 사용됩니다.-->
+	<SolidColorBrush x:Key="GlyphBrush" Color="#444"/>
+	
+	
+	<!-- Style 및 Template 쌍은 각 컨트롤 Part를 정의하는 데 사용됩니다. -->
+	<!-- Style은 컨트롤의 기본값을 제공하고 Template은 각 컨트롤의 요소를 제공합니다. -->
+	
+	<!-- SimpleButtonFocusVisual은 SimpleButton 컨트롤 주위의 키보드 포커스를 표시하는 데 사용됩니다. -->
+	<Style x:Key="SimpleButtonFocusVisual">
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border>
+						<Rectangle Margin="2" Stroke="#60000000" StrokeThickness="1" StrokeDashArray="1 2"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleButton - 이 컨트롤은 각 상태의 브러시를 설정합니다. 설정된 브러시는 정적 리소스이므로 위쪽에 나열되어야 합니다. -->
+	<Style x:Key="SimpleButton" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+		<Setter Property="FocusVisualStyle" Value="{DynamicResource SimpleButtonFocusVisual}"/>
+		<Setter Property="Background" Value="{DynamicResource NormalBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					
+					<!-- 요소를 추가하여 단추를 손쉽게 사용자 지정할 수 있도록 Grid를 루트로 사용합니다.-->
+					<Grid x:Name="Grid">
+						<Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}"/>
+						
+						<!-- ContentPresenter에는 컨트롤을 통해 텍스트 콘텐츠 등이 배치됩니다. -->
+						<!-- 바인딩은 템플릿을 편집하지 않고 컨트롤을 매개 변수화하는 데 유용합니다.-->
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+					</Grid>
+					
+					<!--각 상태는 템플릿의 Border에 브러시를 설정합니다. -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsKeyboardFocused" Value="true">
+							<Setter Property="BorderBrush" Value="{DynamicResource DefaultedBorderBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter Property="Background" Value="{DynamicResource MouseOverBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="true">
+							<Setter Property="Background" Value="{DynamicResource PressedBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource PressedBorderBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="true"/>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style x:Key="RadioButtonFocusVisual">
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border>
+						<Rectangle Margin="15,0,0,0" Stroke="#60000000" StrokeThickness="1" StrokeDashArray="1 2"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style x:Key="CheckBoxFocusVisual">
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border>
+						<Rectangle Margin="15,0,0,0" Stroke="#60000000" StrokeThickness="1" StrokeDashArray="1 2"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleCheckBox -->
+	<Style x:Key="SimpleCheckBox" TargetType="{x:Type CheckBox}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="FocusVisualStyle" Value="{DynamicResource CheckBoxFocusVisual}"/>
+		<Setter Property="Background" Value="{DynamicResource NormalBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type CheckBox}">
+					
+					<!-- BulletDecorator는 확인 표시와 콘텐츠 간 기준 맞춤을 제공하는 데 사용됩니다.-->
+					<BulletDecorator Background="Transparent">
+						<BulletDecorator.Bullet>
+							<Grid Width="13" Height="13">
+								<Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+								<Path x:Name="CheckMark" Stroke="{DynamicResource GlyphBrush}" StrokeThickness="2" SnapsToDevicePixels="False" Data="M 0 0 L 13 13 M 0 13 L 13 0"/>
+							</Grid>
+						</BulletDecorator.Bullet>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+					</BulletDecorator>
+					
+					<!-- IsChecked 확인란에 따라 Visibility 옵션을 사용하여 CheckMark를 숨기거나 표시합니다.-->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsChecked" Value="false">
+							<Setter Property="Visibility" Value="Collapsed" TargetName="CheckMark"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter Property="Background" Value="{DynamicResource MouseOverBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="true">
+							<Setter Property="Background" Value="{DynamicResource PressedBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource PressedBorderBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleRadioButton -->
+	<Style x:Key="SimpleRadioButton" TargetType="{x:Type RadioButton}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="FocusVisualStyle" Value="{DynamicResource RadioButtonFocusVisual}"/>
+		<Setter Property="Background" Value="{DynamicResource NormalBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type RadioButton}">
+				
+					<!-- BulletDecorator는 확인 표시와 콘텐츠 간 기준 맞춤을 제공하는 데 사용됩니다.-->
+					<BulletDecorator Background="Transparent">
+						<BulletDecorator.Bullet>
+							<Grid Width="13" Height="13">
+								<Ellipse x:Name="Ellipse_Border" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="1"/>
+								<Ellipse Margin="4" x:Name="CheckMark" Fill="{DynamicResource GlyphBrush}"/>
+							</Grid>
+						</BulletDecorator.Bullet>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+					</BulletDecorator>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsChecked" Value="false">
+							<Setter Property="Visibility" Value="Collapsed" TargetName="CheckMark"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter Property="Fill" Value="{DynamicResource MouseOverBrush}" TargetName="Ellipse_Border"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="true">
+							<Setter Property="Fill" Value="{DynamicResource PressedBrush}" TargetName="Ellipse_Border"/>
+							<Setter Property="Stroke" Value="{DynamicResource GlyphBrush}" TargetName="Ellipse_Border"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Fill" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Ellipse_Border"/>
+							<Setter Property="Stroke" Value="#40000000" TargetName="Ellipse_Border"/>
+							<Setter Property="Foreground" Value="#80000000"/>
+						</Trigger>
+						
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleRepeatButton - SimpleScrollBar의 위로 이동 단추와 아래로 이동 단추에 사용됩니다.-->
+	<Style x:Key="SimpleRepeatButton" d:IsControlPart="True" TargetType="{x:Type RepeatButton}" BasedOn="{x:Null}">
+		<Setter Property="Background" Value="{DynamicResource NormalBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type RepeatButton}">
+					<Grid>
+						<Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+						<ContentPresenter HorizontalAlignment="Center" x:Name="ContentPresenter" VerticalAlignment="Center" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsKeyboardFocused" Value="true">
+							<Setter Property="BorderBrush" Value="{DynamicResource DefaultedBorderBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter Property="Background" Value="{DynamicResource MouseOverBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="true">
+							<Setter Property="Background" Value="{DynamicResource PressedBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource PressedBorderBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleThumb - Thumb은 Scrollbar의 끌어서 이동할 수 있는 부분입니다. -->
+	<Style x:Key="SimpleThumbStyle" d:IsControlPart="True" TargetType="{x:Type Thumb}" BasedOn="{x:Null}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Thumb}">
+					<Grid Margin="0,0,0,0" x:Name="Grid">
+						<Rectangle HorizontalAlignment="Stretch" x:Name="Rectangle" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="2" RadiusY="2" Fill="{DynamicResource NormalBrush}" Stroke="{DynamicResource NormalBorderBrush}"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True"/>
+						<Trigger Property="IsEnabled" Value="False"/>
+						<Trigger Property="IsDragging" Value="True"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleScrollRepeatButtonStyle - Scrollbar에서 Thumb의 위아래로 이동하는 데 사용되는 RepeatButton입니다. 스크롤 막대 위에 표시되지 않도록 투명하게 설정됩니다.-->
+	<Style x:Key="SimpleScrollRepeatButtonStyle" d:IsControlPart="True" TargetType="{x:Type RepeatButton}">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Focusable" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type RepeatButton}">
+					<Grid>
+						<Rectangle Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleScrollBar - SimpleThumb, SimpleRepeatButton 및 SimpleScrollRepeatButton을 사용합니다.-->
+	
+	<Style x:Key="SimpleScrollBar" TargetType="{x:Type ScrollBar}">
+		<Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
+		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ScrollBar}">
+					<Grid x:Name="GridRoot" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Background="{TemplateBinding Background}">
+						<Grid.RowDefinitions>
+							<RowDefinition MaxHeight="18"/>
+							<RowDefinition Height="0.00001*"/>
+							<RowDefinition MaxHeight="18"/>
+						</Grid.RowDefinitions>
+						
+						<RepeatButton x:Name="DecreaseRepeat" Style="{DynamicResource SimpleRepeatButton}" Command="ScrollBar.LineUpCommand">
+							<Grid>
+								<Path x:Name="DecreaseArrow" Stroke="{TemplateBinding Foreground}" StrokeThickness="1" Data="M 0 4 L 8 4 L 4 0 Z"/>
+							</Grid>
+						</RepeatButton>
+						
+						<!-- Track은 특수 레이아웃 컨테이너로서 Thumb과 Thumb 양쪽에서 스크롤 이동을 실행하는 RepeatButton의 크기를 지정합니다. -->
+						<Track Grid.Row="1" x:Name="PART_Track" Orientation="Vertical" IsDirectionReversed="true">
+							<Track.Thumb>
+								<Thumb Style="{DynamicResource SimpleThumbStyle}"/>
+							</Track.Thumb>
+							<Track.IncreaseRepeatButton>
+								<RepeatButton x:Name="PageUp" Style="{DynamicResource SimpleScrollRepeatButtonStyle}" Command="ScrollBar.PageDownCommand"/>
+							</Track.IncreaseRepeatButton>
+							<Track.DecreaseRepeatButton>
+								<RepeatButton x:Name="PageDown" Style="{DynamicResource SimpleScrollRepeatButtonStyle}" Command="ScrollBar.PageUpCommand"/>
+							</Track.DecreaseRepeatButton>
+						</Track>
+						
+						<RepeatButton Grid.Row="2" x:Name="IncreaseRepeat" Style="{DynamicResource SimpleRepeatButton}" Command="ScrollBar.LineDownCommand">
+							<Grid>
+								<Path x:Name="IncreaseArrow" Stroke="{TemplateBinding Foreground}" StrokeThickness="1" Data="M 0 0 L 4 4 L 8 0 Z"/>
+							</Grid>
+						</RepeatButton>
+					</Grid>
+					
+					<!-- ScrollBar의 템플릿을 하나 사용하여 해당 컨트롤을 Horizontal로 회전합니다.
+					또한 Up 및 Down 명령 대신 Left 및 Right 명령을 실행하도록 명령을 변경합니다. -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="Orientation" Value="Horizontal">
+
+							<!-- ScrollBar를 Vertical에서 Horizontal로 회전합니다.-->
+							<Setter Property="LayoutTransform" TargetName="GridRoot">
+								<Setter.Value>
+									<RotateTransform Angle="-90"/>
+								</Setter.Value>
+							</Setter>
+							
+							<!-- Track은 내부적으로 Orientation에 바인딩되므로 Vertical로 다시 회전해야 합니다. -->
+							<Setter TargetName="PART_Track" Property="Orientation" Value="Vertical"/>
+					
+							<!-- Horizontal 명령을 실행하도록 명령을 변경합니다.-->
+							<Setter Property="Command" Value="ScrollBar.LineLeftCommand" TargetName="DecreaseRepeat"/>
+							<Setter Property="Command" Value="ScrollBar.LineRightCommand" TargetName="IncreaseRepeat"/>
+							<Setter Property="Command" Value="ScrollBar.PageLeftCommand" TargetName="PageDown"/>
+							<Setter Property="Command" Value="ScrollBar.PageRightCommand" TargetName="PageUp"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleScrollViewer 
+	ScrollViewer는 ContentPresenter와 Horizontal 및 Vertical ScrollBar가 있는 Grid 컨트롤입니다. 
+	ListBox, MenuItem, ComboBox 및 TreeView에 사용됩니다. -->
+	<Style x:Key="SimpleScrollViewer" TargetType="{x:Type ScrollViewer}" BasedOn="{x:Null}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ScrollViewer}">
+					<Grid Background="{TemplateBinding Background}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<ScrollContentPresenter Grid.Column="0" Grid.Row="0" Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" CanContentScroll="{TemplateBinding CanContentScroll}"/>
+						
+						<!-- ScrollBars의 표시 유형은 컨트롤의 구현에 따라 제어됩니다.-->
+						<ScrollBar Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Grid.Column="0" Grid.Row="1" x:Name="PART_HorizontalScrollBar" Style="{DynamicResource SimpleScrollBar}" Orientation="Horizontal" Value="{Binding Path=HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" Minimum="0" Maximum="{TemplateBinding ScrollableWidth}" />
+						<ScrollBar Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Grid.Column="1" Grid.Row="0" x:Name="PART_VerticalScrollBar" Style="{DynamicResource SimpleScrollBar}" Orientation="Vertical" Value="{Binding Path=VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" Minimum="0" Maximum="{TemplateBinding ScrollableHeight}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleListBox - SimpleScrollViewer를 사용하여 항목을 스크롤 가능하게 만들고 SimpleListBoxItem이 각 항목의 모양을 정의할 수 있도록 합니다.-->
+	<Style x:Key="SimpleListBox" TargetType="{x:Type ListBox}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource SolidBorderBrush}"/>
+		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBox}">
+					<Grid>
+						<Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+						<ScrollViewer Margin="1" Style="{DynamicResource SimpleScrollViewer}" Focusable="false" Background="{TemplateBinding Background}">
+							
+							<!-- StackPanel은 IsItemsHost를 True로 설정하여 자식 항목을 표시하는 데 사용됩니다.-->
+							<StackPanel Margin="2" IsItemsHost="true"/>
+							
+						</ScrollViewer>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsGrouping" Value="true">
+							<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleListBoxItem - ListBox의 각 Item에 사용됩니다. 항목의 콘텐츠는 ContentPresenter에 배치됩니다.-->
+	
+	<Style x:Key="SimpleListBoxItem" d:IsControlPart="True" TargetType="{x:Type ListBoxItem}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="OverridesDefaultStyle" Value="true"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBoxItem}">
+					<Grid SnapsToDevicePixels="true">
+						<Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						
+						<!-- 항목의 선택 색을 설정하려면 IsSelected SelectedBackgroundBrush를 변경하십시오.-->
+						<Trigger Property="IsSelected" Value="true">
+							<Setter Property="Background" Value="{DynamicResource SelectedBackgroundBrush}" TargetName="Border"/>
+						</Trigger>
+						
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleExpanderToggleButton - 이 Button은 Expander 컨트롤에 사용됩니다. 이 Button을 토글하면 Up_Arrow 및 Down_Arrow의 표시 유형이 전환됩니다.-->
+	<ControlTemplate x:Key="ExpanderToggleButton" TargetType="{x:Type ToggleButton}">
+		<Grid>
+			<Rectangle Margin="0,0,0,0" x:Name="Rectangle" Fill="Transparent" Stroke="{DynamicResource NormalBorderBrush}"/>
+			<Path HorizontalAlignment="Center" x:Name="Up_Arrow" VerticalAlignment="Center" Fill="{DynamicResource GlyphBrush}" Data="M 0 0 L 4 4 L 8 0 Z"/>
+			<Path Visibility="Collapsed" HorizontalAlignment="Center" x:Name="Down_Arrow" VerticalAlignment="Center" Fill="{DynamicResource GlyphBrush}" Data="M 0 4 L 4 0 L 8 4 Z"/>
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsMouseOver" Value="true">
+				<Setter Property="Fill" Value="{DynamicResource MouseOverBrush}" TargetName="Rectangle"/>
+			</Trigger>
+			<Trigger Property="IsPressed" Value="true">
+				<Setter Property="Fill" Value="{DynamicResource PressedBrush}" TargetName="Rectangle"/>
+			</Trigger>
+			<Trigger Property="IsChecked" Value="true">
+				<Setter Property="Visibility" Value="Visible" TargetName="Down_Arrow"/>
+				<Setter Property="Visibility" Value="Collapsed" TargetName="Up_Arrow"/>
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter Property="Fill" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Rectangle"/>
+				<Setter Property="Stroke" Value="{DynamicResource DisabledBorderBrush}" TargetName="Rectangle"/>
+				<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+				<Setter Property="Fill" Value="{DynamicResource DisabledForegroundBrush}" TargetName="Up_Arrow"/>
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	
+	<!-- SimpleExpander 
+	 SimplerExpanderToggleButton을 사용합니다. 확장되도록 ContentPresenter에 Visibility를 설정합니다.
+	 제한 : SimpleExpander는 아래쪽으로만 확장합니다.-->
+	<Style x:Key="SimpleExpander" TargetType="{x:Type Expander}">
+		<Setter Property="Background" Value="{DynamicResource LightBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Expander}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="*" x:Name="ContentRow"/>
+						</Grid.RowDefinitions>
+						<Border Grid.Row="0" x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2,2,0,0">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="20"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								<ToggleButton Template="{DynamicResource ExpanderToggleButton}" Background="{DynamicResource NormalBrush}" IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True"/>
+								<ContentPresenter Grid.Column="1" Margin="4" RecognizesAccessKey="True" ContentSource="Header"/>
+							</Grid>
+						</Border>
+						<Border Visibility="Collapsed" Grid.Row="1" x:Name="ExpandSite" Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1,0,1,1" CornerRadius="0,0,2,2">
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="false"/>
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsExpanded" Value="True">
+							<Setter Property="Visibility" Value="Visible" TargetName="ExpandSite"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleComboBoxToggleButton - ComboBox에서 ComboBoxPopup을 확장하고 축소하는 데 사용됩니다.-->
+	<ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition Width="20"/>
+			</Grid.ColumnDefinitions>
+			<Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Stretch" x:Name="Rectangle" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="5" RadiusY="5" Fill="{DynamicResource NormalBrush}" Stroke="{DynamicResource NormalBorderBrush}"/>
+			<Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="5" RadiusY="5" Fill="{DynamicResource WindowBackgroundBrush}" Stroke="{DynamicResource NormalBorderBrush}"/>
+			<Path Grid.Column="1" HorizontalAlignment="Center" x:Name="Arrow" VerticalAlignment="Center" Fill="{DynamicResource GlyphBrush}" Data="M 0 0 L 4 4 L 8 0 Z"/>
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsMouseOver" Value="true">
+				<Setter Property="Fill" Value="{DynamicResource MouseOverBrush}" TargetName="Rectangle"/>
+			</Trigger>
+			<Trigger Property="IsChecked" Value="true">
+				<Setter Property="Fill" Value="{DynamicResource PressedBrush}" TargetName="Rectangle"/>
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter Property="Fill" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Rectangle"/>
+				<Setter Property="Stroke" Value="{DynamicResource DisabledBorderBrush}" TargetName="Rectangle"/>
+				<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+				<Setter Property="Fill" Value="{DynamicResource DisabledForegroundBrush}" TargetName="Arrow"/>
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	
+	<!-- ComboBox에서 선택한 항목이 포함되어 있는 영역입니다.-->
+	
+	<ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+		<!-- 이름을 PART_ContentHost로 지정해야 합니다. -->
+		<Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}"/>
+	</ControlTemplate>
+	
+	<!-- SimpleComboBox 
+	ComboBoxToggleButton을 사용하여 Popup 컨트롤을 확장 및 축소합니다.
+	SimpleScrollViewer를 사용하여 항목을 스크롤 가능하게 만들고 SimpleComboBoxItem이 각 항목의 모양을 정의할 수 있도록 합니다. 
+	Popup에는 StackPanel의 항목 목록이 표시됩니다.-->
+	
+	<Style x:Key="SimpleComboBox" TargetType="{x:Type ComboBox}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ComboBox}">
+					<Grid>
+						<!-- ToggleButton은 ComboBox에 직접 데이터 바인딩되어 IsDropDownOpen을 토글합니다.-->
+						<ToggleButton Grid.Column="2" Template="{DynamicResource ComboBoxToggleButton}" x:Name="ToggleButton" Focusable="false" IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
+						<ContentPresenter HorizontalAlignment="Left" Margin="3,3,23,3" x:Name="ContentSite" VerticalAlignment="Center" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" IsHitTestVisible="False"/>
+						
+						<!-- TextBox의 이름을 PART_EditableTextBox로 지정하지 않으면 ComboBox에서 인식되지 않습니다.-->
+						<TextBox Visibility="Hidden" Template="{DynamicResource ComboBoxTextBox}" HorizontalAlignment="Left" Margin="3,3,23,3" x:Name="PART_EditableTextBox" Style="{x:Null}" VerticalAlignment="Center" Focusable="True" Background="Transparent" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+						
+						<!-- Popup에는 ComboBox의 항목 목록이 표시됩니다. IsOpen은 ComboBoxToggleButton을 통해 토글되는 IsDropDownOpen에 데이터 바인딩됩니다. -->
+						<Popup IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom" x:Name="Popup" Focusable="False" AllowsTransparency="True" PopupAnimation="Slide">
+							<Grid MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{TemplateBinding ActualWidth}" x:Name="DropDown" SnapsToDevicePixels="True">
+								<Border x:Name="DropDownBorder" Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1"/>
+								<ScrollViewer Margin="4,6,4,6" Style="{DynamicResource SimpleScrollViewer}" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+							
+									<!-- StackPanel은 IsItemsHost를 True로 설정하여 자식 항목을 표시하는 데 사용됩니다.-->
+									<StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+								
+								</ScrollViewer>
+							</Grid>
+						</Popup>
+					</Grid>
+					<ControlTemplate.Triggers>						
+						<!-- DropDown이 비어 있는 경우 최소 크기를 강제 적용합니다. -->
+						<Trigger Property="HasItems" Value="false">
+							<Setter Property="MinHeight" Value="95" TargetName="DropDownBorder"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+						</Trigger>
+						<Trigger Property="IsGrouping" Value="true">
+							<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+						</Trigger>
+						<Trigger Property="AllowsTransparency" SourceName="Popup" Value="true">
+							<Setter Property="CornerRadius" Value="4" TargetName="DropDownBorder"/>
+							<Setter Property="Margin" Value="0,2,0,0" TargetName="DropDownBorder"/>
+						</Trigger>
+						<Trigger Property="IsEditable" Value="true">
+							<Setter Property="IsTabStop" Value="false"/>
+							<Setter Property="Visibility" Value="Visible" TargetName="PART_EditableTextBox"/>
+							<Setter Property="Visibility" Value="Hidden" TargetName="ContentSite"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleComboBoxItem - ComboBox 내의 각 항목에 사용됩니다. 아래의 각 항목에 대해 선택한 색을 변경할 수 있습니다.-->
+	<Style x:Key="SimpleComboBoxItem" d:IsControlPart="True" TargetType="{x:Type ComboBoxItem}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ComboBoxItem}">
+					<Grid SnapsToDevicePixels="true">
+						<Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+					
+						<!-- 항목의 선택 색을 설정하려면 IsHighlighted SelectedBackgroundBrush를 변경하십시오.-->
+						<Trigger Property="IsHighlighted" Value="true">
+							<Setter Property="Background" Value="{DynamicResource SelectedBackgroundBrush}" TargetName="Border"/>
+						</Trigger>
+						
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleSimpleProgressBar
+	 두 가지 Border 컨트롤을 사용하여 Track 및 Progress를 표시하는 템플릿입니다. 
+	 제한 : 가로 방향 ProgressBar만 지원합니다.-->
+	<Style x:Key="SimpleProgressBar" TargetType="{x:Type ProgressBar}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ProgressBar}">
+					<Grid>
+					
+						<!-- 이 Border는 트랙입니다. 이름을 PART_Track으로 지정해야 합니다. -->
+						<Border x:Name="PART_Track" Background="{DynamicResource PressedBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1" CornerRadius="2"/>
+						
+						<!-- 이 Border는 진행률을 표시합니다. 컨트롤이 작동하려면 이름을 PART_Indicator로 지정해야 합니다. -->
+						<Border HorizontalAlignment="Left" x:Name="PART_Indicator" Background="{DynamicResource MouseOverBrush}" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="1" CornerRadius="2"/>
+					
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleTextBox -->
+	<Style x:Key="SimpleTextBox" TargetType="{x:Type TextBox}">
+		<Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+		<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+		<Setter Property="AllowDrop" Value="true"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TextBox}">
+					<Grid>
+						<Border x:Name="Border" Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1" Padding="2" CornerRadius="2">
+							
+							<!-- ScrollViewer에 Content를 배치하는 구현입니다. 컨트롤이 작동하려면 이름을 PART_ContentHost로 지정해야 합니다.-->
+							<ScrollViewer Margin="0" x:Name="PART_ContentHost" Style="{DynamicResource SimpleScrollViewer}" Background="{TemplateBinding Background}"/>
+						
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleLabel - 이 템플릿은 Label의 콘텐츠를 표시하는 ContentPresenter입니다.-->
+	<Style x:Key="SimpleLabel" TargetType="{x:Type Label}">
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+		<Setter Property="VerticalContentAlignment" Value="Top"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Label}">
+					<Grid>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleMenu - 이 템플릿은 StackPanel을 사용하여 MenuItem의 레이아웃을 설정합니다. --> 
+	<Style x:Key="SimpleMenu" TargetType="{x:Type Menu}">
+		<Setter Property="Background" Value="{DynamicResource LightBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+		<Setter Property="SnapsToDevicePixels" Value="True"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Menu}">
+					<Grid>
+						<Border Margin="1" x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+						<StackPanel Background="{TemplateBinding Background}" IsItemsHost="True" ClipToBounds="True" Orientation="Horizontal"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- 이 BitmapEffect는 SimpleMenuItem에 사용됩니다.-->
+	<DropShadowBitmapEffect x:Key="PopupDropShadow" ShadowDepth="1.5" Softness="0.15"/>
+	
+	<!-- SimpleMenuItem - 트리거를 사용하여 Role 속성을 통해 설정되는 네 가지 서로 다른 메뉴 항목 정렬을 제공하는 템플릿입니다.--> 
+	<Style x:Key="SimpleMenuItem" TargetType="{x:Type MenuItem}">
+		<Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+		<Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type MenuItem}">
+					<Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+						<Grid>
+							
+							<!-- Grid는 Arrow와 Icon, Content, Glyph 확인 표시의 열과 결합하여 다음 수준을 표시하는 데 사용됩니다.
+							 Size 공유는 Grid에서 각 MenuItem의 Icon, Content, Arrow를 서로 맞추는 데 사용됩니다. -->
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition MinWidth="17" Width="Auto" SharedSizeGroup="MenuItemIconColumnGroup"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGTColumnGroup"/>
+								<ColumnDefinition Width="14"/>
+							</Grid.ColumnDefinitions>
+							
+							<!-- ContentPresenter는 필요한 경우 Icon을 표시합니다.-->
+							<ContentPresenter Margin="4,0,6,0" x:Name="Icon" VerticalAlignment="Center" ContentSource="Icon"/>
+							
+							<!-- Glyph는 필요한 경우 선택 가능한 메뉴에 사용되는 확인 표시입니다.-->
+							<Grid Visibility="Hidden" Margin="4,0,6,0" x:Name="GlyphPanel" VerticalAlignment="Center">
+								<Path x:Name="GlyphPanelpath" VerticalAlignment="Center" Fill="{TemplateBinding Foreground}" Data="M0,2 L0,4.8 L2.5,7.4 L7.1,2.8 L7.1,0 L2.5,4.6 z" FlowDirection="LeftToRight"/>
+							</Grid>
+							
+							<!-- 메뉴 텍스트 등의 콘텐츠입니다. -->
+							<ContentPresenter Grid.Column="1" Margin="{TemplateBinding Padding}" x:Name="HeaderHost" RecognizesAccessKey="True" ContentSource="Header"/>
+							
+							<!-- 메뉴의 다음 수준을 가리키는 화살표로 경로 표시-->
+							<Grid Grid.Column="3" Margin="4,0,6,0" x:Name="ArrowPanel" VerticalAlignment="Center">
+								<Path x:Name="ArrowPanelPath" VerticalAlignment="Center" Fill="{TemplateBinding Foreground}" Data="M0,0 L0,8 L4,4 z"/>
+							</Grid>
+							
+							<!-- Popup은 항목의 수준에 따라 아래쪽이나 가로 방향으로 확장되는 메뉴의 본문입니다.-->
+							<Popup IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" x:Name="SubMenuPopup" Focusable="false" AllowsTransparency="true" PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}" VerticalOffset="-3">
+								<Grid x:Name="SubMenu">
+									<Border x:Name="SubMenuBorder" Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1"/>
+									
+									<!-- StackPanel에는 IsItemsHost=True로 설정된 속성이 있어 메뉴의 자식 항목을 포함합니다.-->
+									<StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle"/>
+								</Grid>
+							</Popup>
+							
+						</Grid>
+					</Border>
+					
+					<!-- Role을 통해 메뉴의 다양한 수준을 표시하도록 MenuItem의 네 가지 정렬을 다시 구성합니다. -->
+					<ControlTemplate.Triggers>
+					
+						<!-- Role = TopLevelHeader : 메뉴의 루트 메뉴 항목입니다. Popup이 아래쪽으로 확장합니다.-->
+						<Trigger Property="Role" Value="TopLevelHeader">
+							<Setter Property="Margin" Value="0,1,0,1"/>
+							<Setter Property="Padding" Value="6,3,6,3"/>
+							<Setter Property="Grid.IsSharedSizeScope" Value="true"/>
+							<Setter Property="Placement" Value="Bottom" TargetName="SubMenuPopup"/>
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
+						</Trigger>
+						
+						<!-- Role = TopLevelItem : 자식 항목이 없는 최상위 수준에서 가져온 자식 메뉴 항목입니다.-->
+						<Trigger Property="Role" Value="TopLevelItem">
+							<Setter Property="Margin" Value="0,1,0,1"/>
+							<Setter Property="Padding" Value="6,3,6,3"/>
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
+						</Trigger>
+						
+						<!-- Role = SubMenuHeader : 자식 항목이 없는 자식 메뉴 항목입니다. -->
+						<Trigger Property="Role" Value="SubmenuHeader">
+							<Setter Property="DockPanel.Dock" Value="Top"/>
+							<Setter Property="Padding" Value="0,2,0,2"/>
+							<Setter Property="Grid.IsSharedSizeScope" Value="true"/>
+						</Trigger>
+						
+						<!-- Role = SubMenuItem : 자식 항목이 있는 자식 메뉴 항목입니다.-->
+						<Trigger Property="Role" Value="SubmenuItem">
+							<Setter Property="DockPanel.Dock" Value="Top"/>
+							<Setter Property="Padding" Value="0,2,0,2"/>
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
+						</Trigger>
+						<Trigger Property="IsSuspendingPopupAnimation" Value="true">
+							<Setter Property="PopupAnimation" Value="None" TargetName="SubMenuPopup"/>
+						</Trigger>
+						
+						<!-- Icon이 없으면 Icon Content를 축소합니다. -->
+						<Trigger Property="Icon" Value="{x:Null}">
+							<Setter Property="Visibility" Value="Collapsed" TargetName="Icon"/>
+						</Trigger>
+						
+						<!-- GlyphPanel에는 CheckMark가 포함되어 있습니다. -->
+						<Trigger Property="IsChecked" Value="true">
+							<Setter Property="Visibility" Value="Visible" TargetName="GlyphPanel"/>
+							<Setter Property="Visibility" Value="Collapsed" TargetName="Icon"/>
+						</Trigger>
+						
+						<Trigger Property="AllowsTransparency" SourceName="SubMenuPopup" Value="true">
+							<Setter Property="Margin" Value="0,0,3,3" TargetName="SubMenu"/>
+							<Setter Property="SnapsToDevicePixels" Value="true" TargetName="SubMenu"/>
+							<Setter Property="BitmapEffect" Value="{DynamicResource PopupDropShadow}" TargetName="SubMenuBorder"/>
+						</Trigger>
+						
+						<!-- Menu Highlight와 IsEnabled에 시스템 색 사용-->
+						<Trigger Property="IsHighlighted" Value="true">
+							<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" TargetName="Border"/>
+							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- SimpleSeparator - 이 템플릿은 메뉴의 Separator로 사용됩니다. --> 
+	<Style x:Key="SimpleSeparator" TargetType="{x:Type Separator}">
+		<Setter Property="Height" Value="1"/>
+		<Setter Property="Margin" Value="0,2,0,2"/>
+		<Setter Property="Focusable" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Separator}">
+					<Border BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1"/>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- SimpleTabControl 
+	이 템플릿은 각 탭에 SimpleTabItem을 사용합니다. TabItem은 TabPanel에 배치됩니다.
+	제한 : SimpleTabControl은 Tab 컨트롤의 위쪽에만 Tab이 표시되도록 합니다. TabPanel을 재배치하여 위치를 변경할 수 있습니다.-->
+	
+	<Style x:Key="SimpleTabControl" TargetType="{x:Type TabControl}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TabControl}">
+					<Grid KeyboardNavigation.TabNavigation="Local">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						
+						<!-- TabPanel은 선택될 경우 TabItem의 줄 바꿈 및 순서 조정을 가능하게 하는 레이아웃 컨테이너입니다.
+						IsItemsHost = True로 표시되어 있기 때문에 프로그램에서 이 컨트롤의 사용을 인식합니다.-->
+						<TabPanel Grid.Row="0" Margin="0,0,4,-1" x:Name="HeaderPanel" Background="Transparent" IsItemsHost="True" Panel.ZIndex="1" KeyboardNavigation.TabIndex="1"/>
+						
+						<Border Grid.Row="1" x:Name="Border" Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1" CornerRadius="2" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabNavigation="Local" KeyboardNavigation.TabIndex="2">
+							
+							<!-- 콘텐츠를 전환합니다. 이 컨트롤의 이름은 PART_SelectedContentHost로 지정해야 합니다.-->
+							<ContentPresenter Margin="4" x:Name="PART_SelectedContentHost" ContentSource="SelectedContent"/>
+							
+						</Border>
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!--SimpleTabItem -->
+	<Style x:Key="SimpleTabItem" d:IsControlPart="True" TargetType="{x:Type TabItem}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TabItem}">
+					<Grid>
+						<Border Margin="0,0,-4,0" x:Name="Border" Background="{DynamicResource LightBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1,1,1,1" CornerRadius="2,12,0,0">
+							<ContentPresenter HorizontalAlignment="Center" Margin="12,2,12,2" x:Name="ContentSite" VerticalAlignment="Center" RecognizesAccessKey="True" ContentSource="Header"/>
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsSelected" Value="True">
+							<Setter Property="Panel.ZIndex" Value="100"/>
+							<Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderThickness" Value="1,1,1,0" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!--SimpleSimpleSliderThumb - Thumb은 Slider의 끌어서 이동할 수 있는 부분입니다.-->
+	<Style x:Key="SimpleSliderThumb" d:IsControlPart="True" TargetType="{x:Type Thumb}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="Height" Value="14"/>
+		<Setter Property="Width" Value="14"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Thumb}">
+					<Grid>
+						<Ellipse x:Name="Ellipse" Fill="{DynamicResource NormalBrush}" Stroke="{DynamicResource NormalBorderBrush}" StrokeThickness="1"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Fill" Value="{DynamicResource MouseOverBrush}" TargetName="Ellipse"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Fill" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Ellipse"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!--SimpleSimpleSlider
+	ScrollBar와 유사하게 Track을 사용하여 Up 및 Down RepeatButton이 있고 끌어서 이동할 수 있는 Thumb의 레이아웃을 설정합니다.
+	Page Up 및 Down RepeatButton에 SimpleSliderThumb 및 SimpleScrollRepeatButtonStyle을 사용합니다.-->
+	<Style x:Key="SimpleSlider" TargetType="{x:Type Slider}">
+		<Setter Property="Background" Value="{DynamicResource LightBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Slider}">
+					<Grid x:Name="GridRoot">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						
+						<!-- TickBar는 Slider의 눈금을 표시합니다. -->
+						<TickBar Visibility="Collapsed" x:Name="TopTick" Height="4" SnapsToDevicePixels="True" Placement="Top" Fill="{DynamicResource GlyphBrush}"/>
+						<Border Grid.Row="1" Margin="0" x:Name="Border" Height="4" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2"/>
+						
+						<!-- Track은 RepeatButton과 Thumb의 레이아웃을 설정합니다.-->
+						<Track Grid.Row="1" x:Name="PART_Track">
+							<Track.Thumb>
+								<Thumb Style="{DynamicResource SimpleSliderThumb}"/>
+							</Track.Thumb>
+							<Track.IncreaseRepeatButton>
+								<RepeatButton Style="{DynamicResource SimpleScrollRepeatButtonStyle}" Command="Slider.IncreaseLarge"/>
+							</Track.IncreaseRepeatButton>
+							<Track.DecreaseRepeatButton>
+								<RepeatButton Style="{DynamicResource SimpleScrollRepeatButtonStyle}" Command="Slider.DecreaseLarge"/>
+							</Track.DecreaseRepeatButton>
+						</Track>
+						
+						<TickBar Visibility="Collapsed" Grid.Row="2" x:Name="BottomTick" Height="4" SnapsToDevicePixels="True" Placement="Bottom" Fill="{TemplateBinding Foreground}"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="TickPlacement" Value="TopLeft">
+							<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+						</Trigger>
+						<Trigger Property="TickPlacement" Value="BottomRight">
+							<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+						</Trigger>
+						<Trigger Property="TickPlacement" Value="Both">
+							<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+							<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+						</Trigger>
+						
+						<!-- 회전을 사용하여 기본 Horizontal에서 Vertical Slider를 만듭니다.-->
+						<Trigger Property="Orientation" Value="Vertical">
+							<Setter Property="LayoutTransform" TargetName="GridRoot">
+								<Setter.Value>
+									<RotateTransform Angle="-90"/>
+								</Setter.Value>
+							</Setter>
+							<!-- Track은 방향에 따라 자동으로 회전하므로 강제로 되돌려야 합니다. -->
+							<Setter TargetName="PART_Track" Property="Orientation" Value="Horizontal"/>
+						</Trigger>
+						
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!--SimpleTreeView - ScrollViewer 내에서 TreeViewItem의 레이아웃을 설정합니다.-->
+	<Style x:Key="SimpleTreeView" TargetType="{x:Type TreeView}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TreeView}">
+					<Grid>
+						<Border x:Name="Border" Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1" CornerRadius="1">
+							<ScrollViewer Style="{DynamicResource SimpleScrollViewer}" Focusable="False" Background="{TemplateBinding Background}" Padding="4" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="False">
+								<ItemsPresenter/>
+							</ScrollViewer>
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!--SimpleTreeViewItemToggleButton - TreeViewItem을 확장하고 축소하는 + 및 - 단추입니다.-->
+	<Style x:Key="SimpleTreeViewItemToggleButton" d:IsControlPart="True" TargetType="{x:Type ToggleButton}">
+		<Setter Property="Focusable" Value="False"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ToggleButton}">
+					<Grid Width="15" Height="13" Background="Transparent">
+						<Path Visibility="Collapsed" HorizontalAlignment="Left" Margin="1,1,1,1" x:Name="IsExpandedPath" VerticalAlignment="Center" Fill="{DynamicResource GlyphBrush}" Data="M 0 4 L 8 4 L 4 8 Z"/>
+						<Path HorizontalAlignment="Left" Margin="1,1,1,1" x:Name="ExpandPath" VerticalAlignment="Center" Fill="{DynamicResource GlyphBrush}" Data="M 4 0 L 8 4 L 4 8 Z"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter Property="Visibility" Value="Visible" TargetName="IsExpandedPath"/>
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ExpandPath"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!--SimpleTreeViewItem - TreeViewItem 템플릿에는 자식 항목을 표시할 수 있도록 확장되는 ItemsHost 컨트롤인 Body 및 Item을 표시하는 헤더가 있습니다.-->
+	<Style x:Key="SimpleTreeViewItem" d:IsControlPart="True" TargetType="{x:Type TreeViewItem}">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+		<Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+		<Setter Property="Padding" Value="1,0,0,0"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TreeViewItem}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition MinWidth="19" Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+						<ToggleButton x:Name="Expander" Style="{DynamicResource SimpleTreeViewItemToggleButton}" IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
+						<Border Grid.Column="1" x:Name="Selection_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" x:Name="PART_Header" ContentSource="Header"/>
+						</Border>
+						<ItemsPresenter Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" x:Name="ItemsHost"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsExpanded" Value="false">
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ItemsHost"/>
+						</Trigger>
+						<Trigger Property="HasItems" Value="false">
+							<Setter Property="Visibility" Value="Hidden" TargetName="Expander"/>
+						</Trigger>
+						<Trigger Property="IsSelected" Value="true">
+							<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" TargetName="Selection_Border"/>
+							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsSelected" Value="true"/>
+								<Condition Property="IsSelectionActive" Value="false"/>
+							</MultiTrigger.Conditions>
+							<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Selection_Border"/>
+							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+						</MultiTrigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>
