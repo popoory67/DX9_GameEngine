@@ -10,7 +10,7 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
-	Clear();
+	ClearScenes();
 
 	SAFE_DELETE( _instance );
 }
@@ -27,20 +27,27 @@ SceneManager& SceneManager::Get()
 
 void SceneManager::AddScene( Scene* scene )
 {
-	_sceneVector.push_back(scene);
+	scene->SetSceneNumber(_sceneCount);
+	_sceneCount++;
+
+	_scenes.push_back(scene);
 }
 
-void SceneManager::InitGame()
+void SceneManager::InitScenes()
 {
-	// Scene vector
-	for (auto iter = _sceneVector.begin(); iter != _sceneVector.end(); iter++)
+	// The vector of scenes
+	for (auto iter = _scenes.begin(); iter != _scenes.end(); iter++)
 	{
-		auto rootGameObjectVector = (*iter)->GetRoots(); // Root game object vector
+		auto rootGameObjectVector = (*iter)->GetRootGameObjects(); 
 
+		// The vector of root game objects
 		for (auto sceneIter = rootGameObjectVector.begin(); sceneIter != rootGameObjectVector.end(); sceneIter++)
 		{
+			// The vector of child game objects
+
 			auto components = (*sceneIter)->GetComponents();
 
+			// The vector of components
 			for (auto componentsIter = components.begin(); componentsIter != components.end(); componentsIter++)
 			{
 				// Run game behaviour
@@ -51,11 +58,11 @@ void SceneManager::InitGame()
 	}
 }
 
-void SceneManager::RunUpdate()
+void SceneManager::UpdateScenes()
 {
-	for (auto iter = _sceneVector.begin(); iter != _sceneVector.end(); iter++)
+	for (auto iter = _scenes.begin(); iter != _scenes.end(); iter++)
 	{
-		auto rootGameObjectVector = (*iter)->GetRoots();
+		auto rootGameObjectVector = (*iter)->GetRootGameObjects();
 
 		for (auto sceneIter = rootGameObjectVector.begin(); sceneIter != rootGameObjectVector.end(); sceneIter++)
 		{
@@ -70,11 +77,11 @@ void SceneManager::RunUpdate()
 	}
 }
 
-void SceneManager::Clear()
+void SceneManager::ClearScenes()
 {
-	for (auto iter = _sceneVector.begin(); iter != _sceneVector.end(); iter++)
+	for (auto iter = _scenes.begin(); iter != _scenes.end(); iter++)
 	{
-		auto rootGameObjectVector = (*iter)->GetRoots();
+		auto rootGameObjectVector = (*iter)->GetRootGameObjects();
 
 		for (auto sceneIter = rootGameObjectVector.begin(); sceneIter != rootGameObjectVector.end(); sceneIter++)
 		{
@@ -88,5 +95,5 @@ void SceneManager::Clear()
 		}
 	}
 
-	_sceneVector.clear();
+	_scenes.clear();
 }

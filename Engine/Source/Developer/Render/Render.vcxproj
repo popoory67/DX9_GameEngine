@@ -37,6 +37,7 @@
     <ClInclude Include="DevicePlatform.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MeshModel.h" />
+    <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="ObjMeshObject.h" />
     <ClInclude Include="D3D9Renderer.h" />
     <ClInclude Include="D3D9Matrix.h" />
@@ -73,6 +74,7 @@
     <ClCompile Include="DevicePlatform.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MeshModel.cpp" />
+    <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="ObjMeshObject.cpp" />
     <ClCompile Include="D3D9Renderer.cpp" />
     <ClCompile Include="D3D9Matrix.cpp" />

@@ -7,10 +7,12 @@
 class MeshManager;
 
 using MeshManagerPtr = shared_ptr<MeshManager>; // MeshManager*;
-using MeshVector = vector<MeshModelPtr>;
+
 
 class MeshManager
 {
+	using MeshModels = vector<MeshModelPtr>;
+
 public:
 
 	~MeshManager();
@@ -39,5 +41,5 @@ private:
 
 	static MeshManagerPtr _instance;
 
-	MeshVector _meshVector;
+	MeshModels _models;
 };

@@ -3,9 +3,14 @@
 #include "GameObject.h"
 
 
+using RootGameObjects = vector<GameObject*>;
+using RootGameObjectsPtr = shared_ptr<RootGameObjects>;
+
 class Scene : public GameObject
 {
-	using RootGameObjects = vector<GameObject*>;
+	using GameObject::AddChild;
+	using GameObject::GetChildren;
+	using GameObject::RemoveChild;
 
 public:
 	Scene();
@@ -13,28 +18,22 @@ public:
 
 	static Scene* Create();
 
-	RootGameObjects& GetRoots()
+	void SetSceneNumber(unsigned int number)
 	{
-		return *_rootGameObjects;
+		_sceneNumber = number;
 	}
 
-	void AddRootGameObject(GameObject* gameObject)
-	{
-		_rootGameObjects->push_back(gameObject);
-	}
+	RootGameObjects& GetRootGameObjects();
 
-	//using GameObject::AddChild;
+	void AddRootGameObject(GameObject* gameObject);
 
-protected:
-
-	void Init();
+	GameObject* GetRootGameObject(GameObject* gameObject);
+	GameObject* GetRootGameObject(string name);
 
 private:
 
-	RootGameObjects* _rootGameObjects = nullptr;
+	RootGameObjectsPtr _rootGameObjects = nullptr;
 
-	unsigned int _sceneNumber;
-
-
+	unsigned int _sceneNumber = 0;
 };
 

@@ -1,7 +1,8 @@
 #include "RenderPCH.h"
 #include "D3D9Shader.h"
-
 #include "D3D9Device.h"
+
+#define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Resource/ObjViewer.fx"
 
 
 D3D9Shader::D3D9Shader()
@@ -26,14 +27,21 @@ ShaderPtr D3D9Shader::Create()
 
 void D3D9Shader::LoadShader( const string& fileName )
 {
+	if (fileName.empty())
+	{
+		return;
+	}
+
 	LPD3DXBUFFER			error = NULL;
 	DWORD					shaderFlags = 0;
 
 	shaderFlags |= D3DXSHADER_DEBUG; // This makes to create debug data by compiler
 
-	auto openEffectFile = D3DXCreateEffectFromFile( D3D9_DEVICE, fileName.c_str(), NULL, NULL, shaderFlags, NULL, &_d3dEffect, &error );
+	auto loadEffectFile = FAILED(	D3DXCreateEffectFromFile( D3D9_DEVICE,
+									fileName.c_str(),
+									NULL, NULL, shaderFlags, NULL, &_d3dEffect, &error ) );
 
-	assert( !FAILED( openEffectFile ) );
+	assert( !loadEffectFile );
 
 	if (error)
 	{

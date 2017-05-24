@@ -23,7 +23,7 @@ public:
 	virtual void LoadModel( const string& fileName );
 
 	// load texture
-	virtual void LoadTexture( const string& fileName );
+	virtual void LoadTexture( const string& fileName = DEFAULT_TEX );
 
 	// Render
 	virtual void Render();

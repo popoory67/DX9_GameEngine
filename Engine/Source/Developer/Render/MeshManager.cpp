@@ -15,8 +15,6 @@ MeshManager::MeshManager()
 MeshManager::~MeshManager()
 {
 	Clear();
-
-	//SAFE_DELETE( _instance );
 }
 
 
@@ -24,7 +22,7 @@ MeshManagerPtr MeshManager::Get()
 {
 	if (!_instance)
 	{
-		_instance.reset( new MeshManager() ); //= new MeshManager();
+		_instance.reset( new MeshManager() );
 	}
 
 	return _instance;
@@ -33,22 +31,22 @@ MeshManagerPtr MeshManager::Get()
 
 void MeshManager::AddMesh( const MeshModelPtr mesh )
 {
-	_meshVector.push_back( mesh );
+	_models.push_back( mesh );
 }
 
 MeshModelPtr MeshManager::GetMesh( const int& id ) const
 {
-	return _meshVector[id];
+	return _models[id];
 }
 
 
 void MeshManager::Render()
 {
-	if (_meshVector.size() > 0)
+	if (_models.size() > 0)
 	{
-		auto iter = _meshVector.begin();
+		auto iter = _models.begin();
 
-		while (iter != _meshVector.end())
+		while (iter != _models.end())
 		{
 			(*iter)->Render();
 
@@ -60,5 +58,5 @@ void MeshManager::Render()
 
 void MeshManager::Clear()
 {
-	_meshVector.clear();
+	_models.clear();
 }

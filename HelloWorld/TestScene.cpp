@@ -1,17 +1,17 @@
 #include "TestScene.h"
 #include "SceneManager.h"
-#include "Resources.h"
 
+#include "TestGameObject.h"
 #include "TestCustomComponent.h"
 
 TestScene::TestScene()
 {
-	
+	_rootGameObject = new GameObject();
 }
 
 TestScene::~TestScene()
 {
-	
+	SAFE_DELETE(_rootGameObject);
 }
 
 TestScene* TestScene::Create()
@@ -20,18 +20,23 @@ TestScene* TestScene::Create()
 	TestScene* ret = new TestScene();
 	ret->Init();
 
-	// Create test root game object
-	GameObject* testGameObject = new GameObject();
-	ret->AddRootGameObject(testGameObject);
-
-	// Create test game behaviour
-	TestCustomComponent* testComponent = new TestCustomComponent();
-
-	// Add game behaviour
-	testGameObject->AddComponent(testComponent);
-
 	// Add scene
 	SceneManager::Get().AddScene( ret );
 
 	return ret;
+}
+
+void TestScene::Init()
+{
+	TestGameObject* gameObject = new TestGameObject();
+	gameObject->Init();
+	_rootGameObject = gameObject;
+
+ 	Scene::AddRootGameObject(_rootGameObject); // Add a root game object to this scene
+
+	// Create a test game behaviour
+	TestCustomComponent* testComponent = new TestCustomComponent();
+
+	// Add a game behaviour
+	_rootGameObject->AddComponent(testComponent);
 }

@@ -5,7 +5,7 @@
 
 class SceneManager
 {
-	using SceneVector = vector<Scene*>;
+	using Scenes = vector<Scene*>;
 
 public:
 
@@ -15,15 +15,13 @@ public:
 
 public:
 
-	static Scene* CreateScene();
-
 	void AddScene( Scene* scene );
 
-	void InitGame();
+	void InitScenes();
 
-	void RunUpdate();
+	void UpdateScenes();
 
-	void Clear();
+	void ClearScenes();
 
 private:
 
@@ -33,6 +31,8 @@ private:
 
 	static SceneManager* _instance;
 
-	SceneVector _sceneVector;
+	Scenes _scenes;
+
+	unsigned int _sceneCount = 0;
 };
 

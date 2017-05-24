@@ -3,7 +3,6 @@
 #include <d3dx9.h>
 #include <functional>
 
-#define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Resource/ObjViewer.fx"
 
 class D3D9Shader;
 
