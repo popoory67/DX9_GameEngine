@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{D2D132BF-4526-39AE-B25E-77B0753E7241}</ProjectGUID>
+    <ProjectGUID>{968AAC4D-72C5-3CB6-AC40-15D6FDB8D90F}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>Bullet3OpenCL_clew</ProjectName>
@@ -58,26 +58,26 @@
   <PropertyGroup Label="UserMacros" />
     <PropertyGroup>
       <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\lib\Debug\</OutDir>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\lib\Debug\</OutDir>
       <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Bullet3OpenCL_clew.dir\Debug\</IntDir>
       <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Bullet3OpenCL_clew_Debug</TargetName>
       <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\lib\Release\</OutDir>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\lib\Release\</OutDir>
       <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Bullet3OpenCL_clew.dir\Release\</IntDir>
       <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Bullet3OpenCL_clew</TargetName>
       <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\lib\MinSizeRel\</OutDir>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\lib\MinSizeRel\</OutDir>
       <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Bullet3OpenCL_clew.dir\MinSizeRel\</IntDir>
       <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Bullet3OpenCL_clew_MinsizeRel</TargetName>
       <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\lib\RelWithDebInfo\</OutDir>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\lib\RelWithDebInfo\</OutDir>
       <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Bullet3OpenCL_clew.dir\RelWithDebInfo\</IntDir>
       <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Bullet3OpenCL_clew_RelWithDebugInfo</TargetName>
       <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
     </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -96,10 +96,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_DEBUG;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_CLEW;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -112,7 +112,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
@@ -130,10 +130,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_CLEW;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -146,7 +146,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
@@ -164,10 +164,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_CLEW;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -180,7 +180,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -198,10 +198,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_CLEW;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -213,10 +213,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt</Message>
+    <CustomBuild Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 -BC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp
+C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 -BC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -224,12 +224,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 -BC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp
+C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 -BC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -237,12 +237,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 -BC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp
+C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 -BC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -250,12 +250,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 -BC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp
+C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 -BC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -263,51 +263,51 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3OpenCL/CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\clew\clew.c" >
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\clew\clew.c" >
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CompileAsC</CompileAs>
     </ClCompile>
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\BroadphaseCollision\b3GpuGridBroadphase.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\BroadphaseCollision\b3GpuSapBroadphase.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\BroadphaseCollision\b3GpuParallelLinearBvhBroadphase.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\BroadphaseCollision\b3GpuParallelLinearBvh.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\Initialize\b3OpenCLUtils.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3ContactCache.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3ConvexHullContact.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3GjkEpa.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3GjkPairDetector.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3OptimizedBvh.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3QuantizedBvh.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3StridingMeshInterface.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3TriangleCallback.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3TriangleIndexVertexArray.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3VoronoiSimplexSolver.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3BoundSearchCL.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3FillCL.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3LauncherCL.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3PrefixScanCL.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3PrefixScanFloat4CL.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3RadixSort32CL.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\Raycast\b3GpuRaycast.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuGenericConstraint.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuJacobiContactSolver.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuNarrowPhase.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuPgsConstraintSolver.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuPgsContactSolver.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuRigidBodyPipeline.cpp"  />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3Solver.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\BroadphaseCollision\b3GpuGridBroadphase.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\BroadphaseCollision\b3GpuSapBroadphase.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\BroadphaseCollision\b3GpuParallelLinearBvhBroadphase.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\BroadphaseCollision\b3GpuParallelLinearBvh.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\Initialize\b3OpenCLUtils.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3ContactCache.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3ConvexHullContact.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3GjkEpa.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3GjkPairDetector.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3OptimizedBvh.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3QuantizedBvh.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3StridingMeshInterface.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3TriangleCallback.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3TriangleIndexVertexArray.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\NarrowphaseCollision\b3VoronoiSimplexSolver.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3BoundSearchCL.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3FillCL.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3LauncherCL.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3PrefixScanCL.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3PrefixScanFloat4CL.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\ParallelPrimitives\b3RadixSort32CL.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\Raycast\b3GpuRaycast.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuGenericConstraint.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuJacobiContactSolver.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuNarrowPhase.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuPgsConstraintSolver.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuPgsContactSolver.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3GpuRigidBodyPipeline.cpp"  />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\Bullet3OpenCL\RigidBody\b3Solver.cpp"  />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/ZERO_CHECK.vcxproj">
-      <Project>42CBC0A5-2D34-3480-9D8C-256F21733D1C</Project>
+    <ProjectReference Include="C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/ZERO_CHECK.vcxproj">
+      <Project>AD5CE80F-87B1-33A9-9689-82D5597C99B0</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

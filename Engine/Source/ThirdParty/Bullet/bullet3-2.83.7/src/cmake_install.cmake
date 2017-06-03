@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src
+# Install script for directory: C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,17 +29,17 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3OpenCL/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3Serialize/Bullet2FileLoader/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3Dynamics/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3Collision/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3Geometry/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/Bullet3Common/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/BulletInverseDynamics/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/BulletSoftBody/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/BulletCollision/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/BulletDynamics/cmake_install.cmake")
-  include("C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/LinearMath/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3OpenCL/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3Serialize/Bullet2FileLoader/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3Dynamics/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3Collision/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3Geometry/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/Bullet3Common/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/BulletInverseDynamics/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/BulletSoftBody/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/BulletCollision/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/BulletDynamics/cmake_install.cmake")
+  include("C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/LinearMath/cmake_install.cmake")
 
 endif()
 
