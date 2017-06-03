@@ -58,26 +58,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\lib\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\lib\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">LinearMath.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">LinearMath_Debug</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\lib\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\lib\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LinearMath.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LinearMath</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\lib\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\lib\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">LinearMath.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">LinearMath_MinsizeRel</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\lib\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\lib\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">LinearMath.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">LinearMath_RelWithDebugInfo</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -88,7 +88,7 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_DEBUG;_DEBUG;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -96,10 +96,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_DEBUG;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -112,7 +112,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
@@ -131,10 +131,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -147,7 +147,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
@@ -166,10 +166,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -182,7 +182,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -200,10 +200,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -215,10 +215,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/LinearMath/CMakeLists.txt</Message>
+    <CustomBuild Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/LinearMath/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 -BC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp
+C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 -BC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -226,12 +226,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/LinearMath/CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/LinearMath/CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/LinearMath/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/LinearMath/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 -BC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp
+C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 -BC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -239,12 +239,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/LinearMath/CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/LinearMath/CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/LinearMath/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/LinearMath/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 -BC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp
+C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 -BC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -252,12 +252,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/LinearMath/CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/LinearMath/CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/LinearMath/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/LinearMath/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 -BC:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp
+C:\Users\boseul\Desktop\cmake-3.5.0-win32-x86\bin\cmake.exe -HC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 -BC:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7 --check-stamp-file C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -265,50 +265,50 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/LinearMath/CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/LinearMath/CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btAabbUtil2.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btAlignedAllocator.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btAlignedObjectArray.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btConvexHull.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btConvexHullComputer.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btDefaultMotionState.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btGeometryUtil.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btGrahamScan2dConvexHull.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btHashMap.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btIDebugDraw.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btList.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btMatrix3x3.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btMinMax.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btMotionState.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btPolarDecomposition.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btPoolAllocator.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btQuadWord.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btQuaternion.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btQuickprof.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btRandom.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btScalar.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btSerializer.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btStackAlloc.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btTransform.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btTransformUtil.h" />
-    <ClInclude Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btVector3.h" />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btAlignedAllocator.cpp" />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btConvexHull.cpp" />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btConvexHullComputer.cpp" />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btGeometryUtil.cpp" />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btPolarDecomposition.cpp" />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btQuickprof.cpp" />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btSerializer.cpp" />
-    <ClCompile Include="C:\Users\boseul\Documents\GitHub\SE_NinetailEngine\Engine\Source\ThirdParty\Bullet\bullet3-2.83.7\src\LinearMath\btVector3.cpp" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btAabbUtil2.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btAlignedAllocator.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btAlignedObjectArray.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btConvexHull.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btConvexHullComputer.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btDefaultMotionState.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btGeometryUtil.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btGrahamScan2dConvexHull.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btHashMap.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btIDebugDraw.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btList.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btMatrix3x3.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btMinMax.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btMotionState.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btPolarDecomposition.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btPoolAllocator.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btQuadWord.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btQuaternion.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btQuickprof.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btRandom.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btScalar.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btSerializer.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btStackAlloc.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btTransform.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btTransformUtil.h" />
+    <ClInclude Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btVector3.h" />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btAlignedAllocator.cpp" />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btConvexHull.cpp" />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btConvexHullComputer.cpp" />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btGeometryUtil.cpp" />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btPolarDecomposition.cpp" />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btQuickprof.cpp" />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btSerializer.cpp" />
+    <ClCompile Include="C:\Users\boseul\Desktop\bullet_test\bullet3-2.83.7\src\LinearMath\btVector3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/ZERO_CHECK.vcxproj">
-      <Project>42CBC0A5-2D34-3480-9D8C-256F21733D1C</Project>
+    <ProjectReference Include="C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/ZERO_CHECK.vcxproj">
+      <Project>AD5CE80F-87B1-33A9-9689-82D5597C99B0</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,8 +2,6 @@
 
 #include <btBulletDynamicsCommon.h>
 
-
-
 class RigidBody
 {
 private:

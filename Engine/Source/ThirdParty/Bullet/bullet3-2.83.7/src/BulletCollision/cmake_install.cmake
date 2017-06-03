@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/boseul/Documents/GitHub/SE_NinetailEngine/Engine/Source/ThirdParty/Bullet/bullet3-2.83.7/src/BulletCollision
+# Install script for directory: C:/Users/boseul/Desktop/bullet_test/bullet3-2.83.7/src/BulletCollision
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
