@@ -3,6 +3,7 @@
 #include <d3dx9.h>
 #include <string>
 
+#include "Component.h"
 #include "D3D9Matrix.h"
 #include "D3D9Shader.h"
 
@@ -14,48 +15,47 @@ class MeshModel;
 using MeshModelPtr = shared_ptr<MeshModel>;
 
 /**
- * this is abstraction class of mesh object classes that is the file extension of 'x', 'obj' and etc...
- * the class is basic on every mesh class.
- * the reason for using abstraction is to prevent to declare unnecessary data structure
+ * This is abstraction class of mesh object classes that is the file extension of 'x', 'obj' and etc...
+ * The class is basic on every mesh class.
+ * The reason for using abstraction is to prevent to declare unnecessary data structure
  * (vector to manage modeling objects in the MeshManager).
  */
-class MeshModel
+class MeshModel : public Component
 {
 public:
-
 	MeshModel();
 	virtual ~MeshModel();
 
 	/**
-	 * the function to name this model.
-	 * if you don't want to set object name, set the dafault name "Unknown".
+	 * The function to name this model.
+	 * If you don't want to set object name, set the dafault name "Unknown".
 	 */
 	void SetObjectName( const string& objectName );
 
-	// get shader instance.
+	// Get shader instance.
 	ShaderPtr GetShader() const { return _shader; }
 
-	// get matrix instance.
+	// Get matrix instance.
 	D3D9MatrixPtr GetMatrix() const { return _matrix; }
 
-	// load mesh model
+	// Load mesh model
 	virtual void LoadModel( const string& fileName ) = 0;
 
-	// load texture file
-	virtual void LoadTexture( const string& fileName ) = 0;
+	// Load texture file
+	virtual void LoadTexture( const string& fileName = DEFAULT_TEX ) = 0;
 
-	// user must take shape thr Render function.
+	// A user must take shape the Render function.
 	virtual void Render() = 0;
 
 protected:
 
-	// modeling name
+	// Modeling name
 	string _objectName;
 
-	// shader object
+	// Shader object
 	ShaderPtr _shader;
 
-	// mesh transform object
+	// Mesh transform object
 	D3D9MatrixPtr _matrix;
 };
 

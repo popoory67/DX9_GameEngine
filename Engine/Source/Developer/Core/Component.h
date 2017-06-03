@@ -1,13 +1,11 @@
 #pragma once
 
 #include "Object.h"
-//#include "GameObject.h"
 
 class GameObject;
 
 class Component : public Object
 {
-
 
 public:
 	Component();
@@ -29,8 +27,8 @@ public:
 
 protected:
 
-	string _tag = "";
-	GameObject* _gameObject = nullptr; // GameObject에 Add가 된 component이면 할당됨
+	string			_tag		= "";
+	GameObject*		_gameObject = nullptr; // GameObject에 Add가 된 component이면 할당됨
 	// Transform _transform = _gameObject->transform;
 
 };

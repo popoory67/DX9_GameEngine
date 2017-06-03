@@ -13,6 +13,5 @@
 // for use with COM pointers
 #define SAFE_RELEASE(p)			{ if(p) { (p)->Release(); (p) = nullptr; } }
 
-
 #define MIN(x,y)				( (x)<(y)? (x) : (y) )
 #define MAX(x,y)				( (x)>(y)? (x) : (y) )

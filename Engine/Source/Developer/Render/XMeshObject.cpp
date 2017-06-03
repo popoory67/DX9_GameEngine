@@ -57,9 +57,9 @@ void XMeshObject::LoadModel( const string& fileName )
 void XMeshObject::LoadTexture( const string& fileName )
 {
 	// if texture does not exist
-	if (fileName.c_str() == nullptr || lstrlenA( fileName.c_str() ) < 0)
+	if (fileName.empty() || fileName.c_str() == nullptr || lstrlenA( fileName.c_str() ) < 0)
 	{
-		assert( Util::ErrorMessage( "Invalid file name" ) );
+		assert( Util::ErrorMessage( "Invalid texture file name" ) );
 	}
 
 	if ((_materials = new D3DMATERIAL9[_numMaterials]) == nullptr)
@@ -88,8 +88,8 @@ void XMeshObject::LoadTexture( const string& fileName )
 
 void XMeshObject::Render()
 {
-	auto cameraMatrix = CameraManager::Get()->GetCamera( 0 )->GetCameraMatrix(); // camera matrix
-	auto cameraVector = CameraManager::Get()->GetCamera( 0 )->GetCameraVector(); // camera vector
+	auto cameraMatrix = CameraManager::Get().GetCamera( 0 )->GetCameraMatrix(); // camera matrix
+	auto cameraVector = CameraManager::Get().GetCamera( 0 )->GetCameraVector(); // camera vector
 	auto effect = _shader->GetEffect(); // d3d effect
 
 	UINT pass = 0;
@@ -114,15 +114,15 @@ void XMeshObject::Render()
 					}
 
 					D3DXMATRIX mWVP, mWI, mWIT;
-					mWVP = cameraMatrix->_world * _matrix->Transform() * cameraMatrix->_view * cameraMatrix->_proj;
-					D3DXMatrixInverse( &mWI, NULL, &cameraMatrix->_world );
+					mWVP = cameraMatrix._world * _matrix->Transform() * cameraMatrix._view * cameraMatrix._proj;
+					D3DXMatrixInverse( &mWI, NULL, &cameraMatrix._world );
 					D3DXMatrixTranspose( &mWIT, &mWI );
 
-					effect->SetMatrix( "mWorld", &cameraMatrix->_world );
+					effect->SetMatrix( "mWorld", &cameraMatrix._world );
 					effect->SetMatrix( "mWVP", &mWVP );
 					effect->SetMatrix( "mWIT", &mWIT );
 
-					effect->SetFloatArray( "vEye", &cameraVector->_eyeVec.x, 3 );
+					effect->SetFloatArray( "vEye", &cameraVector._eyeVec.x, 3 );
 					effect->CommitChanges();
 				}
 			);

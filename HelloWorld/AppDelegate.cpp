@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "TestScene.h"
+#include "WindowSystem.h"
 
 AppDelegate::AppDelegate()
 {
@@ -10,14 +11,9 @@ AppDelegate::~AppDelegate()
 {
 }
 
-void AppDelegate::Init()
-{
-	auto game = TestScene::Create();
-}
-
 void AppDelegate::Run()
 {
-	Init();
+	TestScene::Create();
 
 	Application::Run();
 }

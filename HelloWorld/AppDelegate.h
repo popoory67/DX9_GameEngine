@@ -8,7 +8,6 @@ public:
 	AppDelegate();
 	virtual ~AppDelegate();
 
-	virtual void Init();
-	virtual void Run();
+	void Run();
 };
 

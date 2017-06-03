@@ -5,23 +5,23 @@
 
 using namespace FbxLoader;
 
-using XMFLOAT4 = DirectX::XMFLOAT4;
-using XMFLOAT3 = DirectX::XMFLOAT3;
-using XMFLOAT2 = DirectX::XMFLOAT2;
+using DXFLOAT4 = DirectX::XMFLOAT4;
+using DXFLOAT3 = DirectX::XMFLOAT3;
+using DXFLOAT2 = DirectX::XMFLOAT2;
 
 struct VertexData
 {
-	XMFLOAT3 _pos;
-	XMFLOAT3 _normal;
-	XMFLOAT2 _texcoord;
+	DXFLOAT3 _pos;
+	DXFLOAT3 _normal;
+	DXFLOAT2 _texcoord;
 };
 
 struct FbxMaterialData
 {
-	XMFLOAT4 _ambient;
-	XMFLOAT4 _diffuse;
-	XMFLOAT4 _specular;
-	XMFLOAT4 _emmisive;
+	DXFLOAT4 _ambient;
+	DXFLOAT4 _diffuse;
+	DXFLOAT4 _specular;
+	DXFLOAT4 _emmisive;
 };
 
 struct FbxMaterial

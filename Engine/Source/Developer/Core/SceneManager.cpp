@@ -1,5 +1,7 @@
 #include "CorePCH.h"
 #include "SceneManager.h"
+#include "ThreadManager.h"
+#include "Util.h"
 
 SceneManager* SceneManager::_instance = nullptr;
 
@@ -10,7 +12,7 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
-	Clear();
+	ClearScenes();
 
 	SAFE_DELETE( _instance );
 }
@@ -25,68 +27,163 @@ SceneManager& SceneManager::Get()
 	return *_instance;
 }
 
-void SceneManager::AddScene( Scene* scene )
+void SceneManager::AddScene( Scene& scene )
 {
-	_sceneVector.push_back(scene);
-}
+	scene.SetSceneNumber(_sceneCount);
+	_sceneCount++;
 
-void SceneManager::InitGame()
-{
-	// Scene vector
-	for (auto iter = _sceneVector.begin(); iter != _sceneVector.end(); iter++)
+	_scenes.push_back(&scene);
+
+	if (_scenes.size() == 1)
 	{
-		auto rootGameObjectVector = (*iter)->GetRoots(); // Root game object vector
-
-		for (auto sceneIter = rootGameObjectVector.begin(); sceneIter != rootGameObjectVector.end(); sceneIter++)
-		{
-			auto components = (*sceneIter)->GetComponents();
-
-			for (auto componentsIter = components.begin(); componentsIter != components.end(); componentsIter++)
-			{
-				// Run game behaviour
-				dynamic_cast<GameBehaviour*>(*componentsIter)->Start();
-			}
-
-		}
+		_currentScene = &scene;
 	}
 }
 
-void SceneManager::RunUpdate()
+Scene* SceneManager::AddScene(string sceneName)
 {
-	for (auto iter = _sceneVector.begin(); iter != _sceneVector.end(); iter++)
+	Scene* scene = Scene::Create(_sceneCount, sceneName);
+	_sceneCount++;
+
+	_scenes.push_back(scene);
+
+	if (_scenes.size() == 1)
 	{
-		auto rootGameObjectVector = (*iter)->GetRoots();
+		_currentScene = scene;
+	}
 
-		for (auto sceneIter = rootGameObjectVector.begin(); sceneIter != rootGameObjectVector.end(); sceneIter++)
-		{
-			auto components = (*sceneIter)->GetComponents();
+	return scene;
+}
 
-			for (auto componentsIter = components.begin(); componentsIter != components.end(); componentsIter++)
-			{
-				// Run game behaviour
-				dynamic_cast<GameBehaviour*>(*componentsIter)->Update();
-			}
-		}
+Scene* SceneManager::GetScene(UINT sceneNumber) const
+{
+	auto ret = find_if(_scenes.begin(), _scenes.end(),
+					[&](Scene* scene) 
+					{ 
+						if (sceneNumber == scene->GetSceneNumber())
+							return scene;
+					});
+
+	return *ret;
+}
+
+Scene* SceneManager::GetScene(string sceneName) const
+{
+	auto ret = find_if(_scenes.begin(), _scenes.end(),
+					[&](Scene* scene)
+					{
+						if (sceneName == scene->GetSceneName())
+							return scene;
+					});
+
+	return *ret;
+}
+
+void SceneManager::CallScene(Scene& scene)
+{
+	_currentScene = &scene;
+}
+
+void SceneManager::InitScenes()
+{
+	if (!_currentScene)
+	{
+		assert(Util::ErrorMessage("Null exception for current scene(Init)"));
+		return;
+	}
+
+	auto roots = _currentScene->GetRootGameObjects();
+
+	for (auto root = roots.begin(); root != roots.end(); root++)
+	{
+		(*root)->Init();
+
+		Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Start) );
+
+		RunBehaviours(*root, Start);
 	}
 }
 
-void SceneManager::Clear()
+void SceneManager::UpdateScenes()
 {
-	for (auto iter = _sceneVector.begin(); iter != _sceneVector.end(); iter++)
+	if (!_currentScene)
 	{
-		auto rootGameObjectVector = (*iter)->GetRoots();
+		assert(Util::ErrorMessage("Null exception for current scene(Update)"));
+		return;
+	}
 
-		for (auto sceneIter = rootGameObjectVector.begin(); sceneIter != rootGameObjectVector.end(); sceneIter++)
+	auto roots = _currentScene->GetRootGameObjects();
+
+	for (auto root = roots.begin(); root != roots.end(); root++)
+	{
+		Thread* thread = Thread::Create(bind(&SceneManager::SearchGameObjects, this, *root, Update));
+
+		RunBehaviours(*root, Update);
+	}
+}
+
+void SceneManager::ClearScenes()
+{
+	if (!_currentScene)
+	{
+		assert(Util::ErrorMessage("Null exception for current scene(Clear)"));
+		return;
+	}
+
+	auto roots = _currentScene->GetRootGameObjects();
+
+	for (auto root = roots.begin(); root != roots.end(); root++)
+	{
+		Thread* thread = Thread::Create(bind(&SceneManager::SearchGameObjects, this, *root, Clear));
+
+		RunBehaviours(*root, Clear);
+	}
+
+	_scenes.clear();
+}
+
+void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
+{
+	// child object
+	auto children = gameObject->GetChildren();
+
+	if (children.empty())
+	{
+		return;
+	}
+
+	for (auto child = children.begin(); child != children.end(); child++)
+	{
+		SearchGameObjects(*child, state);
+
+		RunBehaviours(*child, state);
+	}
+};
+
+void SceneManager::RunBehaviours(GameObject* gameObject, State state)
+{
+	auto components = gameObject->GetComponents();
+
+	for (auto component = components.begin(); component != components.end(); component++)
+	{
+		auto gameBehaviour = dynamic_cast<GameBehaviour*>(*component);
+
+		if (gameBehaviour)
 		{
-			auto components = (*sceneIter)->GetComponents();
-
-			for (auto componentsIter = components.begin(); componentsIter != components.end(); componentsIter++)
+			switch (state)
 			{
-				// Run game behaviour
-				dynamic_cast<GameBehaviour*>(*componentsIter)->Release();
+			case Start:
+				gameBehaviour->Start();
+				break;
+
+			case Update:
+				gameBehaviour->Update();
+				break;
+
+			case Clear:
+				gameBehaviour->Release();
+				break;
 			}
 		}
 	}
-
-	_sceneVector.clear();
 }

@@ -4,6 +4,7 @@
 #include "MeshManager.h"
 #include "CollisionShapeRenderer.h"
 
+#include "MeshRenderer.h"
 
 D3D9RendererPtr D3D9Renderer::_instance = nullptr;
 
@@ -31,25 +32,25 @@ void D3D9Renderer::Init( HWND hWnd )
 {
 	// D3D9 ÃÊ±âÈ­
 	D3D9_INSTANCE->Init( hWnd, SCREEN_MODE, SCREEN_WIDTH, SCREEN_HEIGHT );
+
+	if (!D3D9_DEVICE)
+	{
+		assert(Util::ErrorMessage("D3D device is null"));
+	}
+
+	D3D9_DEVICE->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(50, 50, 50), 1.0f, 0);
 }
 
 
 void D3D9Renderer::RenderScene()
 {
-	if (!D3D9_DEVICE)
-	{
-		assert( Util::ErrorMessage( "D3D device is null" ) );
-	}
-
-	D3D9_DEVICE->Clear( 0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB( 50, 50, 50 ), 1.0f, 0 );
-
 	if (D3D9_DEVICE->BeginScene())
 	{
 		// Rendering property
 		RenderState();
 
 		// Render mesh objects
-		MeshManager::Get()->Render();
+		MeshManager::Get().Render();
 
 		// Render wire frame
 		CollisionShapeRenderer::Get()->Render();

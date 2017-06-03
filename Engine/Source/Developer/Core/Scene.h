@@ -3,38 +3,42 @@
 #include "GameObject.h"
 
 
+using RootGameObjects = vector<GameObject*>;
+using RootGameObjectsPtr = shared_ptr<RootGameObjects>;
+
 class Scene : public GameObject
 {
-	using RootGameObjects = vector<GameObject*>;
+	using GameObject::AddChild;
+	using GameObject::GetChildren;
+	using GameObject::RemoveChild;
 
 public:
 	Scene();
 	virtual ~Scene();
 
-	static Scene* Create();
+	static Scene* Create(unsigned int number = 0, string name = "Unknown");
 
-	RootGameObjects& GetRoots()
-	{
-		return *_rootGameObjects;
-	}
+	// Get scene data
+	unsigned int GetSceneNumber() { return _sceneNumber; }
+	string GetSceneName() { return _sceneName; }
 
-	void AddRootGameObject(GameObject* gameObject)
-	{
-		_rootGameObjects->push_back(gameObject);
-	}
+	// Set scene data
+	void SetSceneNumber(unsigned int number) { _sceneNumber = number; }
+	void SetSceneName(string name) { _sceneName = name; }
 
-	//using GameObject::AddChild;
+	// The methods of root game object
+	RootGameObjects& GetRootGameObjects();
 
-protected:
+	void AddRootGameObject(GameObject* gameObject);
 
-	void Init();
+	GameObject* GetRootGameObject(GameObject* gameObject);
+	GameObject* GetRootGameObject(string name);
 
 private:
 
-	RootGameObjects* _rootGameObjects = nullptr;
+	RootGameObjectsPtr _rootGameObjects = nullptr;
 
-	unsigned int _sceneNumber;
-
-
+	unsigned int _sceneNumber = 0;
+	string _sceneName;
 };
 

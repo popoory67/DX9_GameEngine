@@ -7,7 +7,8 @@ public:
 	Application();
 	virtual ~Application();
 
-	virtual void Init();
-	virtual void Run();
+	void Init();
+
+	void Run();
 };
 

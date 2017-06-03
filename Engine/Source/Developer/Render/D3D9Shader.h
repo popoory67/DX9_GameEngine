@@ -5,6 +5,7 @@
 
 #define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Resource/ObjViewer.fx"
 
+
 class D3D9Shader;
 
 using ShaderPtr = shared_ptr<D3D9Shader>;

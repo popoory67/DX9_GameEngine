@@ -7,7 +7,7 @@
     <Filter Include="Main">
       <UniqueIdentifier>{b769c1a7-49e2-4e97-bbcb-8ae02f1ba8e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject">
+    <Filter Include="GameObjects">
       <UniqueIdentifier>{5d0fe7c2-bdc2-4968-aa80-bf472fa18277}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -15,17 +15,17 @@
     <ClInclude Include="AppDelegate.h">
       <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="Define.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Resources.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="TestScene.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="TestCustomComponent.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="TestGameObject.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBehaviour.h">
+      <Filter>GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -38,8 +38,11 @@
     <ClCompile Include="TestScene.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="TestCustomComponent.cpp">
-      <Filter>Game</Filter>
+    <ClCompile Include="TestGameObject.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBehaviour.cpp">
+      <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

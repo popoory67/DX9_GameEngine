@@ -34,7 +34,6 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Thread.h" />
-    <ClInclude Include="ThreadHeader.h" />
     <ClInclude Include="ThreadManager.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
