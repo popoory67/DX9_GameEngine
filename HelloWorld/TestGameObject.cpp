@@ -4,7 +4,6 @@
 
 TestGameObject::TestGameObject()
 {
-
 }
 
 TestGameObject::~TestGameObject()
@@ -16,5 +15,7 @@ void TestGameObject::Init()
 {	
 	_mesh = new MeshRenderer();
 	_mesh->Create(X_BOY);
-	AddComponent(_mesh);
+
+	// Add a game behaviour
+	AddComponent(&_testBehaviour);
 }

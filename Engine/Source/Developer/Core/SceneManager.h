@@ -3,9 +3,17 @@
 #include "Scene.h"
 #include "GameBehaviour.h"
 
+
 class SceneManager
 {
 	using Scenes = vector<Scene*>;
+
+	enum State
+	{
+		Start = 0,
+		Update,
+		Clear
+	};
 
 public:
 
@@ -15,24 +23,36 @@ public:
 
 public:
 
-	void AddScene( Scene* scene );
+	// The methods for Scene
+	void		AddScene( Scene& scene );
+	Scene*		AddScene( string sceneName = "Unknown" );
 
-	void InitScenes();
+	Scene*		GetScene( UINT sceneNumber ) const;
+	Scene*		GetScene( string sceneName ) const;
 
-	void UpdateScenes();
+	void		CallScene( Scene& scene );
 
-	void ClearScenes();
+	// The methods for Scenes
+	void		InitScenes();
+	void		UpdateScenes();
+	void		ClearScenes();
 
 private:
 
 	SceneManager();
 
+	void		SearchGameObjects(GameObject* gameObject, State state);
+
+	void		RunBehaviours(GameObject* gameObject, State state);
+
 private:
 
-	static SceneManager* _instance;
+	static SceneManager*	_instance;
 
-	Scenes _scenes;
+	Scene*		_currentScene = nullptr;
 
-	unsigned int _sceneCount = 0;
+	Scenes		_scenes;
+
+	UINT		_sceneCount = 0;
 };
 

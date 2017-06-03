@@ -12,7 +12,7 @@ public:
 
 	MeshModelPtr GetModel();
 
-	void Create(string fileName, const string& textureName = "", const string& shaderName = "");
+	void Create(string fileName, const string& textureName = DEFAULT_TEX, const string& shaderName = DEFAULT_SHADER);
 
 private:
 

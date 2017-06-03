@@ -5,6 +5,7 @@
 //#include "FbxMeshObject.h"
 #include "MeshManager.h"
 
+MeshManager* MeshManager::_instance = nullptr;
 
 MeshRenderer::MeshRenderer()
 {
@@ -51,5 +52,5 @@ void MeshRenderer::Create(string fileName, const string& textureName, const stri
 	_mesh->LoadTexture(textureName);
 	_mesh->GetShader()->LoadShader(shaderName);
 
-	MeshManager::Get()->AddMesh(_mesh);
+	MeshManager::Get().AddMesh(_mesh);
 }

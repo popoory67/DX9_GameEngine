@@ -2,11 +2,7 @@
 
 #include "Camera.h"
 
-class CameraManager;
-
-using CameraManagerPtr = shared_ptr<CameraManager>; // CameraManager*;
-using CameraVector = vector<CameraPtr>;
-
+using Cameras		= vector<CameraPtr>;
 
 class CameraManager
 {
@@ -14,25 +10,25 @@ public:
 
 	~CameraManager();
 
-	static CameraManagerPtr Get();
+	static CameraManager&	Get();
 
-	void AddCamera();
+	void		AddCamera();
 
-	CameraPtr GetCamera( const int& cameraID ) const;
+	CameraPtr	GetCamera( const int& cameraID ) const;
 
 private:
 
 	CameraManager();
 
-	void Clear();
+	void		Clear();
 
 private:
 
-	static CameraManagerPtr _instance;
+	static CameraManager*	_instance;
 
-	CameraVector _cameraVector;
+	Cameras		_cameras;
 	
-	int _idCount = 0; // 0 is main camera
+	int			_idCount		= 0; // 0 is main camera
 
 };
 

@@ -24,7 +24,7 @@
     <ClInclude Include="TestGameObject.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="TestCustomComponent.h">
+    <ClInclude Include="TestBehaviour.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClCompile Include="TestGameObject.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="TestCustomComponent.cpp">
+    <ClCompile Include="TestBehaviour.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>

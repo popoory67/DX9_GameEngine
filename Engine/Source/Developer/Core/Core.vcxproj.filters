@@ -38,9 +38,6 @@
       <Filter>Input</Filter>
     </ClInclude>
     <ClInclude Include="CoreMacros.h" />
-    <ClInclude Include="ThreadHeader.h">
-      <Filter>Thread</Filter>
-    </ClInclude>
     <ClInclude Include="Util.h" />
     <ClInclude Include="GameBehaviour.h">
       <Filter>Object</Filter>

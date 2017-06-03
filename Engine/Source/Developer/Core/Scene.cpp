@@ -12,9 +12,12 @@ Scene::~Scene()
 
 }
 
-Scene* Scene::Create()
+Scene* Scene::Create(unsigned int number, string name)
 {
 	Scene* scene = new Scene();
+
+	scene->SetSceneName(name);
+	scene->SetSceneNumber(number);
 
 	return scene;
 }

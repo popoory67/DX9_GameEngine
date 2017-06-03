@@ -2,8 +2,6 @@
 #include "D3D9Shader.h"
 #include "D3D9Device.h"
 
-#define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Resource/ObjViewer.fx"
-
 
 D3D9Shader::D3D9Shader()
 {
@@ -29,6 +27,7 @@ void D3D9Shader::LoadShader( const string& fileName )
 {
 	if (fileName.empty())
 	{
+		assert(Util::ErrorMessage("invalid shader file name"));
 		return;
 	}
 

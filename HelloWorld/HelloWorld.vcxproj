@@ -103,14 +103,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AppDelegate.h" />
-    <ClInclude Include="TestCustomComponent.h" />
+    <ClInclude Include="TestBehaviour.h" />
     <ClInclude Include="TestGameObject.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="Resources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AppDelegate.cpp" />
-    <ClCompile Include="TestCustomComponent.cpp" />
+    <ClCompile Include="TestBehaviour.cpp" />
     <ClCompile Include="TestGameObject.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="HelloWorldWin32.cpp">

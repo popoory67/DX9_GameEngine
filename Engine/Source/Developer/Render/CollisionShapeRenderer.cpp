@@ -110,16 +110,16 @@ void CollisionShapeRenderer::Render()
 
 	for (auto iter = _dynamicColList.begin(); iter != _dynamicColList.end(); iter++)
 	{
-		auto cameraMatrix = CameraManager::Get()->GetCamera( 0 )->GetCameraMatrix();
-		auto mat = cameraMatrix->_view * cameraMatrix->_proj;
+		auto cameraMatrix = CameraManager::Get().GetCamera( 0 )->GetCameraMatrix();
+		auto mat = cameraMatrix._view * cameraMatrix._proj;
 		SetViewProjectTM( mat );
 		RenderWireRigidBody( (*iter)->_rigidBody, (*iter)->_color );
 	}
 
 	for (auto iter = _colVector.begin(); iter != _colVector.end(); iter++)
 	{
-		auto cameraMatrix = CameraManager::Get()->GetCamera( 0 )->GetCameraMatrix();
-		auto mat = cameraMatrix->_view * cameraMatrix->_proj;
+		auto cameraMatrix = CameraManager::Get().GetCamera( 0 )->GetCameraMatrix();
+		auto mat = cameraMatrix._view * cameraMatrix._proj;
 		SetViewProjectTM( mat );
 		RenderWireRigidBody( (*iter)->_rigidBody, (*iter)->_color );
 	}

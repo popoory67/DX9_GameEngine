@@ -1,15 +1,12 @@
 #include "RenderPCH.h"
 #include "MeshManager.h"
-
 #include "D3D9Device.h"
 #include "CameraManager.h"
 
 
-MeshManagerPtr MeshManager::_instance = nullptr;
-
 MeshManager::MeshManager()
 {
-	CameraManager::Get()->AddCamera();
+	CameraManager::Get().AddCamera();
 }
 
 MeshManager::~MeshManager()
@@ -18,14 +15,14 @@ MeshManager::~MeshManager()
 }
 
 
-MeshManagerPtr MeshManager::Get()
+MeshManager& MeshManager::Get()
 {
 	if (!_instance)
 	{
-		_instance.reset( new MeshManager() );
+		_instance = new MeshManager();
 	}
 
-	return _instance;
+	return *_instance;
 }
 
 
@@ -44,7 +41,7 @@ void MeshManager::Render()
 {
 	if (_models.size() > 0)
 	{
-		auto iter = _models.begin();
+		auto iter	= _models.begin();
 
 		while (iter != _models.end())
 		{

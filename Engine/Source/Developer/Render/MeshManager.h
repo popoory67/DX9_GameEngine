@@ -4,10 +4,6 @@
 
 #define GET_MESH(id)	MeshManager::Get()->GetMesh(id)
 
-class MeshManager;
-
-using MeshManagerPtr = shared_ptr<MeshManager>; // MeshManager*;
-
 
 class MeshManager
 {
@@ -18,20 +14,16 @@ public:
 	~MeshManager();
 
 	// singleton
-	static MeshManagerPtr Get();
+	static MeshManager& Get();
 
 public:
 
-	MeshModelPtr GetMesh( const int& id ) const;
+	MeshModelPtr	GetMesh( const int& id ) const;
+	void			AddMesh( const MeshModelPtr mesh );
 
-	// add mesh
-	void AddMesh( const MeshModelPtr mesh );
+	void	Render();
 
-public:
-
-	void Render();
-
-	void Clear();
+	void	Clear();
 
 private:
 
@@ -39,7 +31,7 @@ private:
 
 private:
 
-	static MeshManagerPtr _instance;
+	static MeshManager*		_instance;
 
-	MeshModels _models;
+	MeshModels				_models;
 };

@@ -14,14 +14,24 @@ public:
 	GameObject();
 	virtual ~GameObject();
 
-	// The methods about game objects
-	void AddChild(GameObject* child);
-	void RemoveChild(GameObject* child);
-	GameObjects& GetChildren() { return _children; }
+	virtual void Init();
 
-	// The methods about components
-	Components& GetComponents() { return _components; }
-	void AddComponent(Component* component);
+	void	SetNumber(unsigned int number)	{ _number = number; }
+	void	SetName(string name)			{ _name = name; }
+
+	UINT	GetNumber()	const				{ return _number; }
+	string	GetName() const					{ return _name; }
+
+	// The methods for game objects
+	GameObjects&	GetChildren()			{ return _children; }
+
+	void			AddChild(GameObject* child);
+	void			RemoveChild(GameObject* child);
+
+	// The methods for components
+	Components&		GetComponents()			{ return _components; }
+
+	void			AddComponent(Component* component);
 
 	/**
 	* Find component and return it
@@ -49,11 +59,18 @@ public:
 
 	//}
 
+	// message
+
+
 private:
 
-	GameObjects _children; // binary tree
+	GameObjects		_children;
 
-	Components _components;
+	Components		_components;
+
+	// Datas
+	string			_name;
+	UINT			_number;
 
 };
 

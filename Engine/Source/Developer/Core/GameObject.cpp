@@ -11,6 +11,11 @@ GameObject::~GameObject()
 {
 }
 
+void GameObject::Init()
+{
+
+}
+
 void GameObject::AddChild(GameObject* child)
 {
 	_children.push_back(child);

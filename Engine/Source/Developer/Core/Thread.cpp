@@ -24,9 +24,9 @@ Thread* Thread::Create( function<void()> func )
 
 void Thread::Init( function<void()> func )
 {
-	auto threadRunfunc = bind( &Thread::Run, this, func );
+	auto threadfunc = bind( &Thread::Run, this, func );
 
-	_thread = thread( threadRunfunc );
+	_thread = thread(threadfunc);
 }
 
 void Thread::Detach()

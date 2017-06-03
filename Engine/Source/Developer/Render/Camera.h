@@ -30,9 +30,9 @@ public:
 	Camera();
 	virtual ~Camera();
 
-	static CameraPtr Create();
+	static CameraPtr		Create();
 
-	const CameraMatrix* GetCameraMatrix() const
+	const CameraMatrix&		GetCameraMatrix() const
 	{
 		CameraMatrix* mat = new CameraMatrix();
 
@@ -40,10 +40,10 @@ public:
 		mat->_view = _view;
 		mat->_proj = _proj;
 
-		return mat;
+		return *mat;
 	}
 
-	const CameraVector* GetCameraVector() const
+	const CameraVector&		GetCameraVector() const
 	{
 		CameraVector* vec = new CameraVector();
 
@@ -51,30 +51,30 @@ public:
 		vec->_lookVec = _lookVec;
 		vec->_upVec = _upVec;
 
-		return vec;
+		return *vec;
 	}
 
-	virtual void Init();
+	virtual void	Init();
 
-	virtual void SetRotate( float x = 0, float y = 0, float z = 0 );
+	virtual void	SetRotate( float x = 0, float y = 0, float z = 0 );
 
-	virtual void SetRotate( const D3DXVECTOR3* deltaVec, float speed );
+	virtual void	SetRotate( const D3DXVECTOR3* deltaVec, float speed );
 
-	virtual void SetPosition( float x = 0, float y = 0, float z = 0 );
+	virtual void	SetPosition( float x = 0, float y = 0, float z = 0 );
 
-	virtual void SetTransform();
+	virtual void	 SetTransform();
 
-	void MoveSideward( float speed );
+	void		MoveSideward( float speed );
 
-	void MoveForward( float	speed, float y = 0 );
+	void		MoveForward( float	speed, float y = 0 );
 
 private:
 
-	D3DXMATRIXA16 _world;
-	D3DXMATRIXA16 _view;
-	D3DXMATRIXA16 _proj;
+	D3DXMATRIXA16	_world;
+	D3DXMATRIXA16	_view;
+	D3DXMATRIXA16	_proj;
 
-	D3DXVECTOR3 _eyeVec;
-	D3DXVECTOR3 _lookVec;
-	D3DXVECTOR3 _upVec;
+	D3DXVECTOR3		_eyeVec;
+	D3DXVECTOR3		_lookVec;
+	D3DXVECTOR3		_upVec;
 };

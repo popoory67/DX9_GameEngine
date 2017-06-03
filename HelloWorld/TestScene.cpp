@@ -2,7 +2,6 @@
 #include "SceneManager.h"
 
 #include "TestGameObject.h"
-#include "TestCustomComponent.h"
 
 TestScene::TestScene()
 {
@@ -21,7 +20,7 @@ TestScene* TestScene::Create()
 	ret->Init();
 
 	// Add scene
-	SceneManager::Get().AddScene( ret );
+	SceneManager::Get().AddScene( *ret );
 
 	return ret;
 }
@@ -29,14 +28,7 @@ TestScene* TestScene::Create()
 void TestScene::Init()
 {
 	TestGameObject* gameObject = new TestGameObject();
-	gameObject->Init();
 	_rootGameObject = gameObject;
 
  	Scene::AddRootGameObject(_rootGameObject); // Add a root game object to this scene
-
-	// Create a test game behaviour
-	TestCustomComponent* testComponent = new TestCustomComponent();
-
-	// Add a game behaviour
-	_rootGameObject->AddComponent(testComponent);
 }

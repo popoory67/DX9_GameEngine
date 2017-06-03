@@ -13,3 +13,5 @@
 // for arrays allocated with new [].
 #define SAFE_DELETE_ARRAY(p)	{ if(p) { delete[] (p);   (p) = nullptr; } }
 #endif
+
+using UINT = unsigned int;

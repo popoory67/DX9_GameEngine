@@ -2,7 +2,7 @@
 #include "CameraManager.h"
 
 
-CameraManagerPtr CameraManager::_instance = nullptr;
+CameraManager* CameraManager::_instance = nullptr;
 
 CameraManager::CameraManager()
 {
@@ -18,14 +18,14 @@ CameraManager::~CameraManager()
 }
 
 
-CameraManagerPtr CameraManager::Get()
+CameraManager& CameraManager::Get()
 {
 	if (!_instance)
 	{
-		_instance.reset( new CameraManager() ); // = new CameraManager();
+		_instance = new CameraManager();
 	}
 
-	return _instance;
+	return *_instance;
 }
 
 void CameraManager::AddCamera()
@@ -34,15 +34,15 @@ void CameraManager::AddCamera()
 
 	camera->SetID(_idCount);
 
-	_cameraVector.push_back(camera);
+	_cameras.push_back(camera);
 }
 
 CameraPtr CameraManager::GetCamera(const int& cameraID) const
 {
-	return _cameraVector[cameraID];
+	return _cameras[cameraID];
 }
 
 void CameraManager::Clear()
 {
-	_cameraVector.clear();
+	_cameras.clear();
 }
