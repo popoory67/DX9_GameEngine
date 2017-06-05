@@ -14,16 +14,16 @@ MeshRenderer::MeshRenderer()
 
 MeshRenderer::~MeshRenderer()
 {
-
+	SAFE_DELETE(_mesh);
 }
 
 
-MeshModelPtr MeshRenderer::GetModel()
+MeshModel* MeshRenderer::GetModel()
 {
 	return _mesh;
 }
 
-MeshModelPtr MeshRenderer::Create(string fileName, const string& textureName, const string& shaderName)
+MeshModel* MeshRenderer::Create(string fileName, const string& textureName, const string& shaderName)
 {
 	string extension = Util::GetFileExtension(fileName);
 
@@ -35,12 +35,12 @@ MeshModelPtr MeshRenderer::Create(string fileName, const string& textureName, co
 
 	if (extension == "x" || extension == "X")
 	{
-		_mesh.reset(new XMeshObject());
+		_mesh = new XMeshObject();
 	}
 
 	else if (extension == "obj" || extension == "OBJ")
 	{
-		_mesh.reset(new ObjMeshObject());
+		_mesh = new ObjMeshObject();
 	}
 
 	else if (extension == "fbx" || extension == "FBX")

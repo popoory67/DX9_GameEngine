@@ -11,12 +11,12 @@ public:
 	MeshRenderer();
 	~MeshRenderer();
 
-	MeshModelPtr GetModel();
+	MeshModel*	Create(string fileName, const string& textureName = DEFAULT_TEX, const string& shaderName = DEFAULT_SHADER);
 
-	MeshModelPtr Create(string fileName, const string& textureName = DEFAULT_TEX, const string& shaderName = DEFAULT_SHADER);
+	MeshModel*	GetModel();
 
 private:
 
-	MeshModelPtr _mesh;
+	MeshModel*	_mesh;
 };
 

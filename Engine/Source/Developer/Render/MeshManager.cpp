@@ -6,6 +6,8 @@
 
 MeshManager::MeshManager()
 {
+	_models = new MeshModels();
+
 	CameraManager::Get().AddCamera();
 }
 
@@ -26,26 +28,26 @@ MeshManager& MeshManager::Get()
 }
 
 
-void MeshManager::AddMesh( const MeshModelPtr mesh )
+void MeshManager::AddMesh( MeshModel* mesh )
 {
-	_models.push_back( mesh );
+	_models->push_back( mesh );
 }
 
-MeshModelPtr MeshManager::GetMesh( const int& id ) const
-{
-	return _models[id];
-}
+//MeshModel* MeshManager::GetMesh( const int& id ) const
+//{
+//	return _models[id];
+//}
 
 
 void MeshManager::Render()
 {
-	if (!_models.empty())
+	if (!_models->empty())
 	{
-		int size = _models.size();
+		int size = _models->size();
 
-		auto iter	= _models.begin();
+		auto iter	= _models->begin();
 
-		while (iter != _models.end())
+		while (iter != _models->end())
 		{
 			(*iter)->Render();
 
@@ -57,5 +59,5 @@ void MeshManager::Render()
 
 void MeshManager::Clear()
 {
-	_models.clear();
+	_models->clear();
 }

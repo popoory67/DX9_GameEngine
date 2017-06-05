@@ -7,31 +7,31 @@
 
 class MeshManager
 {
-	using MeshModels = vector<MeshModelPtr>;
+	using MeshModels = vector<MeshModel*>;
 
 public:
 
 	~MeshManager();
 
 	// singleton
-	static MeshManager& Get();
+	static MeshManager&		Get();
 
 public:
 
-	MeshModelPtr	GetMesh( const int& id ) const;
-	void			AddMesh( const MeshModelPtr mesh );
+	//MeshModel*		GetMesh( const int& id ) const;
+	void			AddMesh( MeshModel* mesh );
 
-	void	Render();
-
-	void	Clear();
+	void			Render();
 
 private:
 
 	MeshManager();
 
+	void			Clear();
+
 private:
 
 	static MeshManager*		_instance;
 
-	MeshModels				_models;
+	MeshModels*				_models;
 };

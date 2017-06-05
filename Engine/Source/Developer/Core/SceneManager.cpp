@@ -97,10 +97,8 @@ void SceneManager::InitScenes()
 
 	for (auto root = roots.begin(); root != roots.end(); root++)
 	{
-		(*root)->Init();
-
-		Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Start) );
-		//SearchGameObjects(*root, Start);
+		//Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Start) );
+		SearchGameObjects(*root, Start);
 
 		RunBehaviours(*root, Start);
 	}
@@ -152,12 +150,12 @@ void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
 	// child object
 	auto children = gameObject->GetChildren();
 
-	if (children.empty())
+	if (children->empty())
 	{
 		return;
 	}
 
-	for (auto child = children.begin(); child != children.end(); child++)
+	for (auto child = children->begin(); child != children->end(); child++)
 	{
 		if (state == Start)
 			(*child)->Init();
@@ -172,7 +170,7 @@ void SceneManager::RunBehaviours(GameObject* gameObject, State state)
 {
 	auto components = gameObject->GetComponents();
 
-	for (auto component = components.begin(); component != components.end(); component++)
+	for (auto component = components->begin(); component != components->end(); component++)
 	{
 		auto gameBehaviour = dynamic_cast<GameBehaviour*>(*component);
 

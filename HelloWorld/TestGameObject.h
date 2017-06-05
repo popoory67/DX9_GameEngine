@@ -13,11 +13,13 @@ public:
 
 	virtual void	Init() override;
 
+	MeshModel*		GetModel()			{ return _meshRenderer->GetModel(); }
+
 private:
 
-	MeshRenderer*	_mesh = nullptr;
+	MeshRenderer*	_meshRenderer = nullptr;
 
-	TestBehaviour	_testBehaviour; // Create a test game behaviour
+	TestBehaviour*	_testBehaviour;
 
 };
 

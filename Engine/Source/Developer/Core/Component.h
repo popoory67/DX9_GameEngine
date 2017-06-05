@@ -4,6 +4,9 @@
 
 class GameObject;
 
+/**
+ * The component class is a prototype of all functions. 
+ */
 class Component : public Object
 {
 
@@ -25,11 +28,15 @@ public:
 
 	//}
 
+	void		SetGameObject( GameObject* gameObject )	{ _gameObject = gameObject; } // ¾èÀº º¹»ç, ±íÀº º¹»ç
+
+	GameObject*	GetGameObject()							{ return _gameObject; }
+
 protected:
 
 	string			_tag		= "";
+
 	GameObject*		_gameObject = nullptr; // GameObject¿¡ Add°¡ µÈ componentÀÌ¸é ÇÒ´çµÊ
-	// Transform _transform = _gameObject->transform;
 
 };
 
