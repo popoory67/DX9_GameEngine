@@ -11,7 +11,7 @@ public:
 	TestGameObject();
 	virtual ~TestGameObject();
 
-	virtual void	Init();
+	virtual void	Init() override;
 
 private:
 

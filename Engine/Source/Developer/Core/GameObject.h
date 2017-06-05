@@ -53,7 +53,7 @@ public:
 			return *component;
 		}
 	}
-
+	
 	//Component GetComponent(string type)
 	//{
 

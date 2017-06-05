@@ -1,16 +1,13 @@
 #include "TestScene.h"
 #include "SceneManager.h"
 
-#include "TestGameObject.h"
 
 TestScene::TestScene()
 {
-	_rootGameObject = new GameObject();
 }
 
 TestScene::~TestScene()
 {
-	SAFE_DELETE(_rootGameObject);
 }
 
 TestScene* TestScene::Create()
@@ -27,8 +24,13 @@ TestScene* TestScene::Create()
 
 void TestScene::Init()
 {
-	TestGameObject* gameObject = new TestGameObject();
-	_rootGameObject = gameObject;
+	for (int i = 0; i < 5; i++)
+	{
+		_gameObject[i] = new TestGameObject();
+		/*_child[i] = new TestGameObject();
 
- 	Scene::AddRootGameObject(_rootGameObject); // Add a root game object to this scene
+		_gameObject[i]->AddChild(_child[i]);*/
+
+		Scene::AddRootGameObject(_gameObject[i]); // Add a root game object to this scene
+	}
 }

@@ -1,6 +1,8 @@
 #include "RenderPCH.h"
 #include "WindowSystem.h"
 #include "DXVersion.h"
+#include "KeyInput.h"
+
 
 WindowSystem* WindowSystem::_instance = NULL;
 

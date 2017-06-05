@@ -12,6 +12,7 @@ TestBehaviour::~TestBehaviour()
 
 void TestBehaviour::Start()
 {
+	
 }
 
 void TestBehaviour::Update()

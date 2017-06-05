@@ -1,6 +1,6 @@
 #include "CorePCH.h"
 #include "Util.h"
-
+#include <direct.h>
 
 namespace Util
 {
@@ -15,4 +15,14 @@ namespace Util
 
 		return extension;
 	}
+
+	string GetProjectPath()
+	{
+		char strBuffer[1024];
+
+		string str = _getcwd(strBuffer, 1024);
+
+		return str;
+	}
+
 }

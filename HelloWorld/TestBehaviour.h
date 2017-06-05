@@ -8,11 +8,11 @@ public:
 	TestBehaviour();
 	~TestBehaviour();
 
-	virtual void		Start() override;
+	virtual void	Start() override;
 
-	virtual void		Update() override;
+	virtual void	Update() override;
 
-	virtual void		Release() override;
+	virtual void	Release() override;
 
 };
 

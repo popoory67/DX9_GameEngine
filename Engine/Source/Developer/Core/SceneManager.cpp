@@ -2,6 +2,7 @@
 #include "SceneManager.h"
 #include "ThreadManager.h"
 #include "Util.h"
+#include "Log.h"
 
 SceneManager* SceneManager::_instance = nullptr;
 
@@ -99,6 +100,7 @@ void SceneManager::InitScenes()
 		(*root)->Init();
 
 		Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Start) );
+		//SearchGameObjects(*root, Start);
 
 		RunBehaviours(*root, Start);
 	}
@@ -116,7 +118,7 @@ void SceneManager::UpdateScenes()
 
 	for (auto root = roots.begin(); root != roots.end(); root++)
 	{
-		Thread* thread = Thread::Create(bind(&SceneManager::SearchGameObjects, this, *root, Update));
+		Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Update) );
 
 		RunBehaviours(*root, Update);
 	}
@@ -134,7 +136,7 @@ void SceneManager::ClearScenes()
 
 	for (auto root = roots.begin(); root != roots.end(); root++)
 	{
-		Thread* thread = Thread::Create(bind(&SceneManager::SearchGameObjects, this, *root, Clear));
+		Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Clear) );
 
 		RunBehaviours(*root, Clear);
 	}
@@ -144,6 +146,9 @@ void SceneManager::ClearScenes()
 
 void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
 {
+	if (state == Start)
+		gameObject->Init();
+
 	// child object
 	auto children = gameObject->GetChildren();
 
@@ -154,6 +159,9 @@ void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
 
 	for (auto child = children.begin(); child != children.end(); child++)
 	{
+		if (state == Start)
+			(*child)->Init();
+
 		SearchGameObjects(*child, state);
 
 		RunBehaviours(*child, state);

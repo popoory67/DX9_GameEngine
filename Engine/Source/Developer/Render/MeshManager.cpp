@@ -39,8 +39,10 @@ MeshModelPtr MeshManager::GetMesh( const int& id ) const
 
 void MeshManager::Render()
 {
-	if (_models.size() > 0)
+	if (!_models.empty())
 	{
+		int size = _models.size();
+
 		auto iter	= _models.begin();
 
 		while (iter != _models.end())

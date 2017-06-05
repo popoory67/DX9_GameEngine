@@ -25,12 +25,11 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="KeyCode.h" />
+    <ClInclude Include="Log.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="KeyInput.h" />
-    <ClInclude Include="InputHeader.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="MessageDispatcher.h" />
-    <ClInclude Include="MessageHeader.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Thread.h" />
@@ -45,6 +44,7 @@
     <ClCompile Include="GameBehaviour.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="Message.cpp" />

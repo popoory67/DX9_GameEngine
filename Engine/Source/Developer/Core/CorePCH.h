@@ -14,3 +14,5 @@
 using namespace std;
 
 #include "CoreMacros.h"
+
+extern string PROJECT_PATH;

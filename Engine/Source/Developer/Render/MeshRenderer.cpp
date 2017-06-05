@@ -23,14 +23,14 @@ MeshModelPtr MeshRenderer::GetModel()
 	return _mesh;
 }
 
-void MeshRenderer::Create(string fileName, const string& textureName, const string& shaderName)
+MeshModelPtr MeshRenderer::Create(string fileName, const string& textureName, const string& shaderName)
 {
 	string extension = Util::GetFileExtension(fileName);
 
 	if (extension.empty())
 	{
 		assert(Util::ErrorMessage("it is wrong file extension."));
-		return;
+		return nullptr;
 	}
 
 	if (extension == "x" || extension == "X")
@@ -53,4 +53,6 @@ void MeshRenderer::Create(string fileName, const string& textureName, const stri
 	_mesh->GetShader()->LoadShader(shaderName);
 
 	MeshManager::Get().AddMesh(_mesh);
+
+	return _mesh;
 }

@@ -4,6 +4,7 @@
 
 TestGameObject::TestGameObject()
 {
+	_mesh = new MeshRenderer();
 }
 
 TestGameObject::~TestGameObject()
@@ -13,9 +14,13 @@ TestGameObject::~TestGameObject()
 
 void TestGameObject::Init()
 {	
-	_mesh = new MeshRenderer();
-	_mesh->Create(X_BOY);
+	auto model = _mesh->Create(X_BOY, TEX_BOY);
+
+	model->GetMatrix()->SetPosition(0, 0, 0);
+	model->GetMatrix()->SetScale(0.1f, 0.1f, 0.1f);
 
 	// Add a game behaviour
 	AddComponent(&_testBehaviour);
+
+	auto test = GetComponent<TestBehaviour>();
 }
