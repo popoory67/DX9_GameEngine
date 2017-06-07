@@ -6,6 +6,8 @@
 
 SceneManager* SceneManager::_instance = nullptr;
 
+mutex _mutex2;
+
 SceneManager::SceneManager()
 {
 }
@@ -97,7 +99,6 @@ void SceneManager::InitScenes()
 
 	for (auto root = roots.begin(); root != roots.end(); root++)
 	{
-		//Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Start) );
 		SearchGameObjects(*root, Start);
 
 		RunBehaviours(*root, Start);
@@ -105,21 +106,28 @@ void SceneManager::InitScenes()
 }
 
 void SceneManager::UpdateScenes()
-{
+{	
+	_mutex2.lock();
+	Util::PutLogMessage("//update");
+
 	if (!_currentScene)
 	{
 		assert(Util::ErrorMessage("Null exception for current scene(Update)"));
 		return;
 	}
 
+
+
 	auto roots = _currentScene->GetRootGameObjects();
 
 	for (auto root = roots.begin(); root != roots.end(); root++)
 	{
-		Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Update) );
+		SearchGameObjects(*root, Update);
 
 		RunBehaviours(*root, Update);
 	}
+
+	_mutex2.unlock();
 }
 
 void SceneManager::ClearScenes()
@@ -134,7 +142,7 @@ void SceneManager::ClearScenes()
 
 	for (auto root = roots.begin(); root != roots.end(); root++)
 	{
-		Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Clear) );
+		SearchGameObjects(*root, Clear);
 
 		RunBehaviours(*root, Clear);
 	}
@@ -145,7 +153,9 @@ void SceneManager::ClearScenes()
 void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
 {
 	if (state == Start)
+	{
 		gameObject->Init();
+	}
 
 	// child object
 	auto children = gameObject->GetChildren();
@@ -157,9 +167,6 @@ void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
 
 	for (auto child = children->begin(); child != children->end(); child++)
 	{
-		if (state == Start)
-			(*child)->Init();
-
 		SearchGameObjects(*child, state);
 
 		RunBehaviours(*child, state);

@@ -17,30 +17,30 @@ public:
 
 public:
 
-	bool Init();
+	bool		Init();
 
-	void Clear();
+	void		Clear();
 
-	void Run();
+	void		Run();
 
-	LRESULT CALLBACK MessageHandler( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
+	LRESULT CALLBACK	MessageHandler( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
 
 private:
 
 	WindowSystem();
 
-	HWND InitWindows();
+	HWND		InitWindows();
 
-	void DestroyWindows();
+	void		DestroyWindows();
 
 private:
 
-	static WindowSystem* _instance;
+	static WindowSystem*	_instance;
 
-	HWND _hWnd;
-	HINSTANCE _hInstance;
+	HWND		_hWnd;
+	HINSTANCE	_hInstance;
 
-	LPCSTR _applicationName;
+	LPCSTR		_applicationName;
 };
 
-static LRESULT CALLBACK WindowProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
+static LRESULT CALLBACK		WindowProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );

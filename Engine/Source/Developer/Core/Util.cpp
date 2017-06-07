@@ -1,6 +1,6 @@
 #include "CorePCH.h"
 #include "Util.h"
-#include <direct.h>
+#include "Log.h"
 
 namespace Util
 {
@@ -23,6 +23,13 @@ namespace Util
 		string str = _getcwd(strBuffer, 1024);
 
 		return str;
+	}
+
+	void PutLogMessage(const string& message)
+	{
+		Log::out << message + "\n";
+		Log::Flush();
+		std::ifstream(Log::path).rdbuf();
 	}
 
 }

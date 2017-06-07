@@ -3,15 +3,14 @@
 #include "DXVersion.h"
 #include "KeyInput.h"
 
+// test
+#include "ThreadManager.h"
 
 WindowSystem* WindowSystem::_instance = NULL;
 
-
 WindowSystem::WindowSystem() : _hWnd(nullptr)
 {
-
 }
-
 
 WindowSystem::~WindowSystem()
 {
@@ -45,6 +44,9 @@ bool WindowSystem::Init()
 	D3D11Renderer::Get()->Init( _hWnd );
 #endif
 
+	// all game initialization
+	SceneManager::Get().InitScenes();
+
 	return true;
 
 }
@@ -56,11 +58,9 @@ void WindowSystem::Clear()
 }
 
 
+
 void WindowSystem::Run()
 {
-	// all game initialization
-	SceneManager::Get().InitScenes();
-
 	MSG msg;
 	ZeroMemory( &msg, sizeof( msg ) );
 
@@ -80,15 +80,18 @@ void WindowSystem::Run()
 
 		else
 		{
+			//ThreadManager::Get().AddThread([]() { D3D9Renderer::Get()->RenderScene(); });
+			//ThreadManager::Get().AddThread([]() { SceneManager::Get().UpdateScenes(); });
+
+			ThreadManager::Get().Update();
+
 			// render
 #if (CHECK_DX_VERSION == 9)
-			D3D9Renderer::Get()->RenderScene();
+			//D3D9Renderer::Get()->RenderScene();
 #else
 			D3D11Renderer::Get()->RenderScene();
 #endif
-
-			// call all update function.
-			SceneManager::Get().UpdateScenes();
+			//SceneManager::Get().UpdateScenes(); // call all update function.
 		}
 	}
 }

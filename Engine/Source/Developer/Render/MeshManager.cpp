@@ -2,6 +2,7 @@
 #include "MeshManager.h"
 #include "D3D9Device.h"
 #include "CameraManager.h"
+#include "Log.h"
 
 
 MeshManager::MeshManager()
@@ -43,15 +44,11 @@ void MeshManager::Render()
 {
 	if (!_models->empty())
 	{
-		int size = _models->size();
+		int size	= _models->size();
 
-		auto iter	= _models->begin();
-
-		while (iter != _models->end())
+		for (auto iter = _models->begin(); iter != _models->end(); iter++)
 		{
 			(*iter)->Render();
-
-			iter++;
 		}
 	}
 }

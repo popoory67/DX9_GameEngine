@@ -16,7 +16,8 @@ public:
 	GameObject();
 	virtual ~GameObject();
 
-	// If you want to include any behaviours or components, you must declare 'add the component' in this function.
+	// If you want to include any behaviours or components, 
+	// you must declare 'add the component' in this function.
 	virtual void Init();
 
 	void	SetNumber(unsigned int number)	{ _number = number; }
