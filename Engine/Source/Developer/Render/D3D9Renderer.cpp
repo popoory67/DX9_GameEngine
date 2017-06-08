@@ -3,8 +3,8 @@
 #include "D3D9Device.h"
 #include "MeshManager.h"
 #include "CollisionShapeRenderer.h"
-
 #include "MeshRenderer.h"
+
 
 D3D9RendererPtr D3D9Renderer::_instance = nullptr;
 
@@ -48,21 +48,19 @@ void D3D9Renderer::RenderScene()
 	{
 		// Rendering property
 		RenderState();
-
+		
 		// Render mesh objects
 		MeshManager::Get().Render();
 
 		// Render wire frame
-		CollisionShapeRenderer::Get()->Render();
+		//CollisionShapeRenderer::Get()->Render();
 		//_collision->DrawGrid( 30.0f, 30.0f, 20, 20, D3DCOLOR_COLORVALUE( 1.0f, 1.0f, 1.0f, .2f ) );
 
 		D3D9_DEVICE->EndScene();
 	}
 
 	D3D9_DEVICE->Present( NULL, NULL, NULL, NULL );
-
 	D3D9_DEVICE->SetRenderState( D3DRS_FILLMODE, D3DFILL_SOLID );
-
 }
 
 void D3D9Renderer::RenderState()

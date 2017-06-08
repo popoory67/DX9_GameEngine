@@ -2,6 +2,7 @@
 #include "SceneManager.h"
 #include "ThreadManager.h"
 #include "Util.h"
+#include "Log.h"
 
 SceneManager* SceneManager::_instance = nullptr;
 
@@ -30,7 +31,7 @@ SceneManager& SceneManager::Get()
 void SceneManager::AddScene( Scene& scene )
 {
 	scene.SetSceneNumber(_sceneCount);
-	_sceneCount++;
+	++_sceneCount;
 
 	_scenes.push_back(&scene);
 
@@ -43,7 +44,7 @@ void SceneManager::AddScene( Scene& scene )
 Scene* SceneManager::AddScene(string sceneName)
 {
 	Scene* scene = Scene::Create(_sceneCount, sceneName);
-	_sceneCount++;
+	++_sceneCount;
 
 	_scenes.push_back(scene);
 
@@ -94,18 +95,16 @@ void SceneManager::InitScenes()
 
 	auto roots = _currentScene->GetRootGameObjects();
 
-	for (auto root = roots.begin(); root != roots.end(); root++)
+	for (auto root = roots.begin(); root != roots.end(); ++root)
 	{
-		(*root)->Init();
-
-		Thread* thread = Thread::Create( bind(&SceneManager::SearchGameObjects, this, *root, Start) );
+		SearchGameObjects(*root, Start);
 
 		RunBehaviours(*root, Start);
 	}
 }
 
 void SceneManager::UpdateScenes()
-{
+{	
 	if (!_currentScene)
 	{
 		assert(Util::ErrorMessage("Null exception for current scene(Update)"));
@@ -114,9 +113,9 @@ void SceneManager::UpdateScenes()
 
 	auto roots = _currentScene->GetRootGameObjects();
 
-	for (auto root = roots.begin(); root != roots.end(); root++)
+	for (auto root = roots.begin(); root != roots.end(); ++root)
 	{
-		Thread* thread = Thread::Create(bind(&SceneManager::SearchGameObjects, this, *root, Update));
+		SearchGameObjects(*root, Update);
 
 		RunBehaviours(*root, Update);
 	}
@@ -132,9 +131,9 @@ void SceneManager::ClearScenes()
 
 	auto roots = _currentScene->GetRootGameObjects();
 
-	for (auto root = roots.begin(); root != roots.end(); root++)
+	for (auto root = roots.begin(); root != roots.end(); ++root)
 	{
-		Thread* thread = Thread::Create(bind(&SceneManager::SearchGameObjects, this, *root, Clear));
+		SearchGameObjects(*root, Clear);
 
 		RunBehaviours(*root, Clear);
 	}
@@ -144,15 +143,20 @@ void SceneManager::ClearScenes()
 
 void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
 {
+	if (state == Start)
+	{
+		gameObject->Init();
+	}
+
 	// child object
 	auto children = gameObject->GetChildren();
 
-	if (children.empty())
+	if (children->empty())
 	{
 		return;
 	}
 
-	for (auto child = children.begin(); child != children.end(); child++)
+	for (auto child = children->begin(); child != children->end(); ++child)
 	{
 		SearchGameObjects(*child, state);
 
@@ -164,7 +168,7 @@ void SceneManager::RunBehaviours(GameObject* gameObject, State state)
 {
 	auto components = gameObject->GetComponents();
 
-	for (auto component = components.begin(); component != components.end(); component++)
+	for (auto component = components->begin(); component != components->end(); ++component)
 	{
 		auto gameBehaviour = dynamic_cast<GameBehaviour*>(*component);
 

@@ -2,10 +2,13 @@
 #include "MeshManager.h"
 #include "D3D9Device.h"
 #include "CameraManager.h"
+#include "Log.h"
 
 
 MeshManager::MeshManager()
 {
+	_models = new MeshModels();
+
 	CameraManager::Get().AddCamera();
 }
 
@@ -26,28 +29,26 @@ MeshManager& MeshManager::Get()
 }
 
 
-void MeshManager::AddMesh( const MeshModelPtr mesh )
+void MeshManager::AddMesh( MeshModel* mesh )
 {
-	_models.push_back( mesh );
+	_models->push_back( mesh );
 }
 
-MeshModelPtr MeshManager::GetMesh( const int& id ) const
-{
-	return _models[id];
-}
+//MeshModel* MeshManager::GetMesh( const int& id ) const
+//{
+//	return _models[id];
+//}
 
 
 void MeshManager::Render()
 {
-	if (_models.size() > 0)
+	if (!_models->empty())
 	{
-		auto iter	= _models.begin();
+		int size	= _models->size();
 
-		while (iter != _models.end())
+		for (auto iter = _models->begin(); iter != _models->end(); iter++)
 		{
 			(*iter)->Render();
-
-			iter++;
 		}
 	}
 }
@@ -55,5 +56,5 @@ void MeshManager::Render()
 
 void MeshManager::Clear()
 {
-	_models.clear();
+	_models->clear();
 }

@@ -54,23 +54,23 @@ void ThreadManager::Update()
 	{
 		for (int i = 0; i < _removeThread.size(); i++)
 		{
-			for (auto it = _thread.begin(); it != _thread.end();) //it++)
+			for (auto iter = _thread.begin(); iter != _thread.end();) //it++)
 			{
-				if ((*it)->GetID() == _removeThread[i])
+				if ((*iter)->GetID() == _removeThread[i])
 				{
-					(*it)->Detach();
+					(*iter)->Detach();
 
-					delete (*it);
-					(*it) = nullptr;
+					delete (*iter);
+					(*iter) = nullptr;
 
-					_thread.erase( it++ );
+					_thread.erase(iter++ );
 
 					break;
 				}
 
 				else
 				{
-					it++;
+					iter++;
 				}
 			}
 		}

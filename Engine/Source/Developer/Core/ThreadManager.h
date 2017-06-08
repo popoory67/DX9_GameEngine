@@ -10,15 +10,14 @@ public:
 
 	static ThreadManager& Get();
 
-	int AddThread( function<void()> func );
+	int			AddThread( function<void()> func );
+	int			AddThread( function<void()> func, function<void( int )> callback );
 
-	int AddThread( function<void()> func, function<void( int )> callback );
+	void		Update();
 
-	void Update();
+	void		RemoveThread( int id );
 
-	void RemoveThread( int id );
-
-	Thread* GetThread( int id );
+	Thread*		GetThread( int id );
 
 private:
 
@@ -26,14 +25,14 @@ private:
 
 private:
 
-	static ThreadManager* _instance;
+	static ThreadManager*	_instance;
 
-	int _idCount;
+	int				_idCount;
 
 	vector<Thread*> _thread;
 
-	vector<int> _removeThread;
+	vector<int>		_removeThread;
 
-	mutex _mtx;
+	mutex			_mtx;
 };
 

@@ -13,6 +13,9 @@
     <Filter Include="Object">
       <UniqueIdentifier>{93c37122-a88e-4a14-9175-d1afd57f5f52}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{89805253-a219-4559-bce1-ac6cce0ebf83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Thread.h">
@@ -22,9 +25,6 @@
       <Filter>Message</Filter>
     </ClInclude>
     <ClInclude Include="CorePCH.h" />
-    <ClInclude Include="MessageHeader.h">
-      <Filter>Message</Filter>
-    </ClInclude>
     <ClInclude Include="MessageDispatcher.h">
       <Filter>Message</Filter>
     </ClInclude>
@@ -34,11 +34,7 @@
     <ClInclude Include="KeyInput.h">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="InputHeader.h">
-      <Filter>Input</Filter>
-    </ClInclude>
     <ClInclude Include="CoreMacros.h" />
-    <ClInclude Include="Util.h" />
     <ClInclude Include="GameBehaviour.h">
       <Filter>Object</Filter>
     </ClInclude>
@@ -60,6 +56,12 @@
     <ClInclude Include="Object.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Thread.cpp">
@@ -77,7 +79,6 @@
     <ClCompile Include="KeyInput.cpp">
       <Filter>Input</Filter>
     </ClCompile>
-    <ClCompile Include="Util.cpp" />
     <ClCompile Include="GameBehaviour.cpp">
       <Filter>Object</Filter>
     </ClCompile>
@@ -96,6 +97,12 @@
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <direct.h>
+
 #include <vector>
 #include <map>
 #include <unordered_map>
@@ -14,3 +16,5 @@
 using namespace std;
 
 #include "CoreMacros.h"
+
+extern string PROJECT_PATH;

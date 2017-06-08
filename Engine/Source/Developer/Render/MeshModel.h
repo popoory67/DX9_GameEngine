@@ -12,8 +12,6 @@
 
 class MeshModel;
 
-using MeshModelPtr = shared_ptr<MeshModel>;
-
 /**
  * This is abstraction class of mesh object classes that is the file extension of 'x', 'obj' and etc...
  * The class is basic on every mesh class.

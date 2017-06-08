@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Scene.h"
-
+#include "TestGameObject.h"
 
 class TestScene : public Scene
 {
@@ -11,15 +11,13 @@ public:
 
 	static TestScene* Create();
 
-	GameObject& GetRootGameObject() { return *_rootGameObject; }
-
 private:
 
 	void Init();
 
 private:
-	
-	GameObject* _rootGameObject = nullptr;
 
+	TestGameObject* _gameObject[5];
+	//TestGameObject* _child[5];
 };
 

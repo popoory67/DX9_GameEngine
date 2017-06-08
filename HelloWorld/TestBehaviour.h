@@ -14,5 +14,10 @@ public:
 
 	virtual void		Release() override;
 
+private:
+
+	GameObject*			_gameObject;
+
+	float _test = 0.0f;
 };
 

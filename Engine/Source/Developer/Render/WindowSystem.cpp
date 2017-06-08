@@ -1,15 +1,16 @@
 #include "RenderPCH.h"
 #include "WindowSystem.h"
 #include "DXVersion.h"
+#include "KeyInput.h"
+
+// test
+#include "ThreadManager.h"
 
 WindowSystem* WindowSystem::_instance = NULL;
 
-
 WindowSystem::WindowSystem() : _hWnd(nullptr)
 {
-
 }
-
 
 WindowSystem::~WindowSystem()
 {
@@ -43,52 +44,68 @@ bool WindowSystem::Init()
 	D3D11Renderer::Get()->Init( _hWnd );
 #endif
 
+	// all game initialization
+	SceneManager::Get().InitScenes();
+
 	return true;
 
 }
-
 
 void WindowSystem::Clear()
 {
 	DestroyWindows();
 }
 
-
 void WindowSystem::Run()
 {
-	// all game initialization
-	SceneManager::Get().InitScenes();
-
 	MSG msg;
 	ZeroMemory( &msg, sizeof( msg ) );
 
+	Thread* renderThread = Thread::Create([]()
+	{
+		while (true)
+		{
+			D3D9Renderer::Get()->RenderScene();
+			Util::PutLogMessage("**render");
+		}
+	});
+
+	Thread* updateThread = Thread::Create([]()
+	{
+		while (true)
+		{
+			SceneManager::Get().UpdateScenes();
+			Util::PutLogMessage("//update");
+		}
+	});
+
 	while (true)
 	{
-		if (KEY_INPUT.IsKeyDown( VK_ESCAPE ))
+		if (KEY_INPUT.IsKeyDown(VK_ESCAPE))
 		{
-			PostMessage( _hWnd, WM_DESTROY, 0, 0 );
+			updateThread->Detach();
+			SAFE_DELETE(updateThread);
+			updateThread = nullptr;
+
+			renderThread->Detach();
+			SAFE_DELETE(renderThread);
+			renderThread = nullptr;
+
+			PostMessage(_hWnd, WM_DESTROY, 0, 0);
 			return;
 		}
 
-		if (PeekMessage( &msg, NULL, 0U, 0U, PM_REMOVE ))
+		if (PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
 		{
-			TranslateMessage( &msg );
-			DispatchMessage( &msg );
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
 		}
 
-		else
-		{
-			// render
-#if (CHECK_DX_VERSION == 9)
-			D3D9Renderer::Get()->RenderScene();
-#else
-			D3D11Renderer::Get()->RenderScene();
-#endif
-
-			// call all update function.
-			SceneManager::Get().UpdateScenes();
-		}
+		Util::PutLogMessage(">>Input");
 	}
+
+	renderThread->Update();
+	updateThread->Update();
 }
 
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "KeyCode.h"
+
 #define KEY_INPUT		KeyInput::Get()
 
 class KeyInput
@@ -12,16 +14,14 @@ public:
 
 	static KeyInput* Create();
 
-	void Init();
+	void	Init();
+	void	Clear();
 
-	void KeyDown( unsigned int key );
+	void	KeyDown( unsigned int key );
+	void	KeyUp( unsigned int key );
 
-	void KeyUp( unsigned int key );
+	bool	IsKeyDown( unsigned int key );
 
-	bool IsKeyDown( unsigned int key );
-
-	void Clear();
-	
 private:
 
 	KeyInput();
