@@ -1,6 +1,7 @@
 #include "TestBehaviour.h"
 #include "Util.h"
 #include "TestGameObject.h"
+#include "KeyInput.h"
 
 TestBehaviour::TestBehaviour()
 {
@@ -20,6 +21,13 @@ void TestBehaviour::Start()
 
 void TestBehaviour::Update()
 {
+	if (KEY_INPUT.IsKeyDown(VK_SPACE))
+	{
+		_gameObject->GetComponent<MeshModel>()->GetMatrix()->SetPosition(10 + _test, 0, 0);
+		_test += 0.1f;
+
+		KEY_INPUT.KeyUp(VK_SPACE);
+	}
 
 }
 

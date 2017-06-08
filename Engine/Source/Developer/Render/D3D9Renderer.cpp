@@ -5,10 +5,6 @@
 #include "CollisionShapeRenderer.h"
 #include "MeshRenderer.h"
 
-// test
-#include <mutex>
-
-mutex _mutex;
 
 D3D9RendererPtr D3D9Renderer::_instance = nullptr;
 
@@ -50,15 +46,11 @@ void D3D9Renderer::RenderScene()
 {
 	if (D3D9_DEVICE->BeginScene())
 	{
-		Util::PutLogMessage("**render");
-
 		// Rendering property
 		RenderState();
 		
-		_mutex.lock();
 		// Render mesh objects
 		MeshManager::Get().Render();
-		_mutex.unlock();
 
 		// Render wire frame
 		//CollisionShapeRenderer::Get()->Render();

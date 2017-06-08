@@ -29,6 +29,11 @@ void Thread::Init( function<void()> func )
 	_thread = thread(threadfunc);
 }
 
+void Thread::Update()
+{
+	_thread.join();
+}
+
 void Thread::Detach()
 {
 	_thread.detach();

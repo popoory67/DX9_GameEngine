@@ -16,6 +16,7 @@ public:
 	void		SetID( int id )		{ _id = id; }
 
 	void		Init( function<void()> func );
+	void		Update();
 	void		Detach();
 	void		SetCallback( function<void( int )> func );
 

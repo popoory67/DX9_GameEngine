@@ -18,5 +18,6 @@ private:
 
 	GameObject*			_gameObject;
 
+	float _test = 0.0f;
 };
 

@@ -6,8 +6,6 @@
 
 SceneManager* SceneManager::_instance = nullptr;
 
-mutex _mutex2;
-
 SceneManager::SceneManager()
 {
 }
@@ -33,7 +31,7 @@ SceneManager& SceneManager::Get()
 void SceneManager::AddScene( Scene& scene )
 {
 	scene.SetSceneNumber(_sceneCount);
-	_sceneCount++;
+	++_sceneCount;
 
 	_scenes.push_back(&scene);
 
@@ -46,7 +44,7 @@ void SceneManager::AddScene( Scene& scene )
 Scene* SceneManager::AddScene(string sceneName)
 {
 	Scene* scene = Scene::Create(_sceneCount, sceneName);
-	_sceneCount++;
+	++_sceneCount;
 
 	_scenes.push_back(scene);
 
@@ -97,7 +95,7 @@ void SceneManager::InitScenes()
 
 	auto roots = _currentScene->GetRootGameObjects();
 
-	for (auto root = roots.begin(); root != roots.end(); root++)
+	for (auto root = roots.begin(); root != roots.end(); ++root)
 	{
 		SearchGameObjects(*root, Start);
 
@@ -107,27 +105,20 @@ void SceneManager::InitScenes()
 
 void SceneManager::UpdateScenes()
 {	
-	_mutex2.lock();
-	Util::PutLogMessage("//update");
-
 	if (!_currentScene)
 	{
 		assert(Util::ErrorMessage("Null exception for current scene(Update)"));
 		return;
 	}
 
-
-
 	auto roots = _currentScene->GetRootGameObjects();
 
-	for (auto root = roots.begin(); root != roots.end(); root++)
+	for (auto root = roots.begin(); root != roots.end(); ++root)
 	{
 		SearchGameObjects(*root, Update);
 
 		RunBehaviours(*root, Update);
 	}
-
-	_mutex2.unlock();
 }
 
 void SceneManager::ClearScenes()
@@ -140,7 +131,7 @@ void SceneManager::ClearScenes()
 
 	auto roots = _currentScene->GetRootGameObjects();
 
-	for (auto root = roots.begin(); root != roots.end(); root++)
+	for (auto root = roots.begin(); root != roots.end(); ++root)
 	{
 		SearchGameObjects(*root, Clear);
 
@@ -165,7 +156,7 @@ void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
 		return;
 	}
 
-	for (auto child = children->begin(); child != children->end(); child++)
+	for (auto child = children->begin(); child != children->end(); ++child)
 	{
 		SearchGameObjects(*child, state);
 
@@ -177,7 +168,7 @@ void SceneManager::RunBehaviours(GameObject* gameObject, State state)
 {
 	auto components = gameObject->GetComponents();
 
-	for (auto component = components->begin(); component != components->end(); component++)
+	for (auto component = components->begin(); component != components->end(); ++component)
 	{
 		auto gameBehaviour = dynamic_cast<GameBehaviour*>(*component);
 
