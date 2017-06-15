@@ -14,6 +14,8 @@ SceneManager::~SceneManager()
 {
 	ClearScenes();
 
+	SAFE_DELETE(_currentScene);
+
 	SAFE_DELETE( _instance );
 }
 

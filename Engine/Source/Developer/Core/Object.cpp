@@ -1,5 +1,6 @@
 #include "CorePCH.h"
 #include "Object.h"
+#include "Thread.h"
 
 
 Object::Object()

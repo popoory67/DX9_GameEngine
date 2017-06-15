@@ -16,7 +16,7 @@ private:
 
 	GameObject*			_gameObject;
 
-	float _test = 0.0f;
-	float _test2 = 0.0f;
+	float		_test		= 0.0f;
+	float		_test2		= 0.0f;
 };
 
