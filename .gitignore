@@ -35,3 +35,4 @@ ipch/
 *.VC.db
 Engine/Source/Developer/Build
 Engine/Source/ThirdParty
+HelloWorld/log.txt

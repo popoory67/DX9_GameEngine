@@ -16,5 +16,6 @@
 using namespace std;
 
 #include "CoreMacros.h"
+#include "Util.h"
 
 extern string PROJECT_PATH;

@@ -9,9 +9,7 @@ public:
 	~TestBehaviour();
 
 	virtual void		Start() override;
-
 	virtual void		Update() override;
-
 	virtual void		Release() override;
 
 private:
@@ -19,5 +17,6 @@ private:
 	GameObject*			_gameObject;
 
 	float _test = 0.0f;
+	float _test2 = 0.0f;
 };
 

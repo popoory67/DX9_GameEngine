@@ -53,9 +53,6 @@
     <ClInclude Include="CameraManager.h">
       <Filter>DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="WindowSystem.h">
-      <Filter>DirectX</Filter>
-    </ClInclude>
     <ClInclude Include="D3D11Math.h">
       <Filter>DirectX\D3D11</Filter>
     </ClInclude>
@@ -114,6 +111,7 @@
     <ClInclude Include="MeshRenderer.h">
       <Filter>DirectX\3D Model</Filter>
     </ClInclude>
+    <ClInclude Include="WindowSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XBoneHierarchyLoader.cpp">
@@ -138,9 +136,6 @@
       <Filter>DirectX</Filter>
     </ClCompile>
     <ClCompile Include="RenderPCH.cpp" />
-    <ClCompile Include="WindowSystem.cpp">
-      <Filter>DirectX</Filter>
-    </ClCompile>
     <ClCompile Include="MeshModel.cpp">
       <Filter>DirectX\3D Model</Filter>
     </ClCompile>
@@ -187,5 +182,6 @@
     <ClCompile Include="MeshRenderer.cpp">
       <Filter>DirectX\3D Model</Filter>
     </ClCompile>
+    <ClCompile Include="WindowSystem.cpp" />
   </ItemGroup>
 </Project>

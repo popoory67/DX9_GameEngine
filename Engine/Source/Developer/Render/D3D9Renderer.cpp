@@ -37,13 +37,13 @@ void D3D9Renderer::Init( HWND hWnd )
 	{
 		assert(Util::ErrorMessage("D3D device is null"));
 	}
-
-	D3D9_DEVICE->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(50, 50, 50), 1.0f, 0);
 }
 
 
 void D3D9Renderer::RenderScene()
 {
+	D3D9_DEVICE->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(50, 50, 50), 1.0f, 0);
+
 	if (D3D9_DEVICE->BeginScene())
 	{
 		// Rendering property

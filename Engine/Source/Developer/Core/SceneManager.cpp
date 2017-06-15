@@ -1,7 +1,6 @@
 #include "CorePCH.h"
 #include "SceneManager.h"
 #include "ThreadManager.h"
-#include "Util.h"
 #include "Log.h"
 
 SceneManager* SceneManager::_instance = nullptr;

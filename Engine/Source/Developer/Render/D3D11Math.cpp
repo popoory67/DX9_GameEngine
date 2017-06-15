@@ -1,6 +1,5 @@
 #include "RenderPCH.h"
 #include "D3D11Math.h"
-#include "Util.h"
 
 namespace D3D11Math
 {

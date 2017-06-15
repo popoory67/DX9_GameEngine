@@ -21,6 +21,13 @@ Message* Message::Create()
 	return object;
 }
 
+void Message::Init()
+{
+	_mapDataPointer.clear();
+
+	_vecDataPointer.clear();
+}
+
 void Message::AddMessageWithKey( string key, void* message )
 {
 	_mapDataPointer[key].push_back( message );
@@ -61,12 +68,4 @@ void* Message::GetMessagePointer( unsigned int count/* = 0*/ )
 	assert( Util::ErrorMessage( "get message" ) );
 
 	return NULL;
-}
-
-
-void Message::Init()
-{
-	_mapDataPointer.clear();
-
-	_vecDataPointer.clear();
 }
