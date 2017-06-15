@@ -2,7 +2,6 @@
 
 #include <d3d11.h>
 #include <DirectXMath.h>
-#include "Util.h"
 #include "DevicePlatform.h"
 
 using namespace std;

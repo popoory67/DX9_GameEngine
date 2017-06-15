@@ -1,7 +1,6 @@
 #include "CorePCH.h"
 #include "SceneManager.h"
 #include "ThreadManager.h"
-#include "Util.h"
 #include "Log.h"
 
 SceneManager* SceneManager::_instance = nullptr;
@@ -14,6 +13,8 @@ SceneManager::SceneManager()
 SceneManager::~SceneManager()
 {
 	ClearScenes();
+
+	SAFE_DELETE(_currentScene);
 
 	SAFE_DELETE( _instance );
 }

@@ -15,6 +15,8 @@ MeshManager::MeshManager()
 MeshManager::~MeshManager()
 {
 	Clear();
+
+	SAFE_DELETE(_models);
 }
 
 

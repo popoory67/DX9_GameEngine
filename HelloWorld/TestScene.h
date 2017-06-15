@@ -17,7 +17,8 @@ private:
 
 private:
 
-	TestGameObject* _gameObject[5];
+	TestGameObject* _gameObject;
+	//TestGameObject* _gameObject[5];
 	//TestGameObject* _child[5];
 };
 

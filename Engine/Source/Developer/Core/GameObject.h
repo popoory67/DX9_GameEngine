@@ -26,20 +26,20 @@ public:
 	UINT	GetNumber()	const				{ return _number; }
 	string	GetName() const					{ return _name; }
 
-	// The methods for game objects
+	// The methods for game objects.
 	GameObjects*	GetChildren()			{ return _children; }
 
 	void			AddChild(GameObject* child);
 	void			RemoveChild(GameObject* child);
 
-	// The methods for components
+	// The methods for components.
 	Components*		GetComponents()			{ return _components; }
 
 	void			AddComponent(Component* component);
 	
 	/**
-	* Find component and return it
-	* @return the type of component
+	* Find component and return it.
+	* @return the type of component.
 	*/
 	template<class Type>
 	Type* GetComponent()
@@ -63,13 +63,14 @@ public:
 		string typeName = typeid(Type).name();
 		assert(Util::ErrorMessage("Not exist : " + typeName));
 	}
-	
-	//Component GetComponent(string type)
-	//{
 
-	//}
+	// Add observer that runs when a key calls.
+	void			AddObserver(string key, FuncVoid func);
+	void			AddObserver(string key, FuncMessage func);
 
-	// message
+	// Calls the methods mapped the key and message.
+	void			SendMessageToObservers(string key);
+	void			SendMessageToObservers(string key, Message* message);
 
 
 private:
@@ -77,6 +78,9 @@ private:
 	GameObjects*	_children;
 
 	Components*		_components;
+
+	VObservers*		_voidObservers;
+	MObservers*		_msgObservers;
 
 	// Datas
 	string			_name;

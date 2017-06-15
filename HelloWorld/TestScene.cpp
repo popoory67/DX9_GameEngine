@@ -24,13 +24,16 @@ TestScene* TestScene::Create()
 
 void TestScene::Init()
 {
-	for (int i = 0; i < 5; i++)
-	{
-		_gameObject[i] = new TestGameObject();
-		/*_child[i] = new TestGameObject();
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	_gameObject[i] = new TestGameObject();
+	//	/*_child[i] = new TestGameObject();
 
-		_gameObject[i]->AddChild(_child[i]);*/
+	//	_gameObject[i]->AddChild(_child[i]);*/
 
-		Scene::AddRootGameObject(_gameObject[i]); // Add a root game object to this scene
-	}
+	//	Scene::AddRootGameObject(_gameObject[i]); // Add a root game object to this scene
+	//}
+
+	_gameObject = new TestGameObject();
+	Scene::AddRootGameObject(_gameObject);
 }

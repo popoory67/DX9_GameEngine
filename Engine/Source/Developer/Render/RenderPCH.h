@@ -1,5 +1,7 @@
 #pragma once
 
+#include "CorePCH.h"
+
 #include <Windows.h>
 //#include <WindowsX.h>
 

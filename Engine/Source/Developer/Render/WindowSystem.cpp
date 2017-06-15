@@ -2,9 +2,7 @@
 #include "WindowSystem.h"
 #include "DXVersion.h"
 #include "KeyInput.h"
-
-// test
-#include "ThreadManager.h"
+#include "Thread.h"
 
 WindowSystem* WindowSystem::_instance = NULL;
 
@@ -65,8 +63,11 @@ void WindowSystem::Run()
 	{
 		while (true)
 		{
+#if (CHECK_DX_VERSION == 9)
 			D3D9Renderer::Get()->RenderScene();
-			Util::PutLogMessage("**render");
+#else
+			D3D11Renderer::Get()->RenderScene();
+#endif
 		}
 	});
 
@@ -75,7 +76,6 @@ void WindowSystem::Run()
 		while (true)
 		{
 			SceneManager::Get().UpdateScenes();
-			Util::PutLogMessage("//update");
 		}
 	});
 
@@ -100,8 +100,6 @@ void WindowSystem::Run()
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
-
-		Util::PutLogMessage(">>Input");
 	}
 
 	renderThread->Update();

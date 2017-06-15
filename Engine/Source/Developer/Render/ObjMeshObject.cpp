@@ -1,15 +1,9 @@
 #include "RenderPCH.h"
-
-#include <d3dx9.h>
-
 #include "ObjMeshObject.h"
-
 #include "RenderMacros.h"
 #include "D3D9Device.h"
 #include "CameraManager.h"
-
-#include "Util.h"
-
+#include <d3dx9.h>
 
 ObjMeshObject::ObjMeshObject()
 {
