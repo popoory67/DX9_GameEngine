@@ -4,8 +4,6 @@
 #include "D3DXHeader.h"
 #include "SceneManager.h"
 
-#define FULL_SCREEN		SCREEN_MODE
-
 
 class WindowSystem
 {

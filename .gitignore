@@ -4,6 +4,7 @@ ehthumbs.db
 
 # Ignore files build by Visual Studio
 *.obj
+*.lib
 *.exe
 *.pdb
 *.idb
@@ -35,4 +36,3 @@ ipch/
 *.VC.db
 Engine/Source/Developer/Build
 Engine/Source/ThirdParty
-HelloWorld/log.txt

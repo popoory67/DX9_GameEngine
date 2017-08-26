@@ -60,10 +60,9 @@ void ThreadManager::Update()
 				{
 					(*iter)->Detach();
 
-					delete (*iter);
-					(*iter) = nullptr;
+					SAFE_DELETE(*iter);
 
-					_thread.erase(iter++ );
+					iter = _thread.erase(iter);
 
 					break;
 				}

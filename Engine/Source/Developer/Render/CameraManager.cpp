@@ -13,8 +13,7 @@ CameraManager::~CameraManager()
 {
 	Clear();
 
-	// this is when shared_ptr is not using
-	//SAFE_DELETE( _instance );
+	SAFE_DELETE( _instance );
 }
 
 
@@ -30,7 +29,7 @@ CameraManager& CameraManager::Get()
 
 void CameraManager::AddCamera()
 {
-	CameraPtr camera(Camera::Create());
+	CameraPtr camera(DXCamera::Create());
 
 	camera->SetID(_idCount);
 

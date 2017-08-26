@@ -10,6 +10,11 @@ XSkinnedMesh::XSkinnedMesh()
 
 XSkinnedMesh::~XSkinnedMesh()
 {
+	SAFE_RELEASE( _animation );
+
+	SAFE_DELETE( _texture );
+
+	SAFE_DELETE( _rootBone );
 }
 
 XAnimatedObjectPtr XSkinnedMesh::Create( const string& fileName )

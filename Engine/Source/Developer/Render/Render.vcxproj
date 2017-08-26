@@ -30,10 +30,11 @@
     <ClInclude Include="D3D11Renderer.h" />
     <ClInclude Include="D3D11Shader.h" />
     <ClInclude Include="D3DXHeader.h" />
+    <ClInclude Include="D3DXRenderer.h" />
     <ClInclude Include="DXVersion.h" />
     <ClInclude Include="FbxLoader.h" />
     <ClInclude Include="FbxMeshObject.h" />
-    <ClInclude Include="ICamera.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="DevicePlatform.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MeshModel.h" />
@@ -55,12 +56,12 @@
     <ClInclude Include="RenderMacros.h" />
     <ClInclude Include="RenderPCH.h" />
     <ClInclude Include="D3D9Shader.h" />
-    <ClInclude Include="Camera.h" />
+    <ClInclude Include="DXCamera.h" />
     <ClInclude Include="XSkinnedMesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="DXCamera.cpp" />
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="CollisionShapeRenderer.cpp" />
     <ClCompile Include="D3D11Device.cpp" />
@@ -68,9 +69,10 @@
     <ClCompile Include="D3D11Math.cpp" />
     <ClCompile Include="D3D11Renderer.cpp" />
     <ClCompile Include="D3D11Shader.cpp" />
+    <ClCompile Include="D3DXRenderer.cpp" />
     <ClCompile Include="FbxLoader.cpp" />
     <ClCompile Include="FbxMeshObject.cpp" />
-    <ClCompile Include="ICamera.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DevicePlatform.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MeshModel.cpp" />

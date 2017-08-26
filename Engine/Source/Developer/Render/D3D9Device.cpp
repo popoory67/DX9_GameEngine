@@ -3,11 +3,7 @@
 
 D3D9Ptr D3D9::_instance = nullptr;
 
-D3D9::D3D9() : 
-_d3d( nullptr ), 
-_d3dDevice( nullptr ),
-_screenWidth(0),
-_screenHeight(0)
+D3D9::D3D9()
 {
 	ZeroMemory( &_d3dPP, sizeof( _d3dPP ) );
 }
@@ -106,7 +102,8 @@ void D3D9::Init( HWND hWnd, bool screenMode, float screenWidth, float screenHeig
 
 
 void D3D9::Release()
-{
+{	
+	SAFE_RELEASE( _d3dSurface );
 	SAFE_RELEASE( _d3dDevice );
 	SAFE_RELEASE( _d3d );
 }

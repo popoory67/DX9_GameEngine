@@ -7,7 +7,9 @@
 // This is test game object to include 3d mesh component
 class TestGameObject : public GameObject
 {
+
 public:
+
 	TestGameObject();
 	virtual ~TestGameObject();
 

@@ -1,7 +1,6 @@
 #include "TestGameObject.h"
 #include "Resources.h"
 
-
 TestGameObject::TestGameObject()
 {
 	_meshRenderer	= new MeshRenderer();

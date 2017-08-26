@@ -14,6 +14,6 @@ AppDelegate::~AppDelegate()
 void AppDelegate::Run()
 {
 	TestScene::Create();
-
+	
 	Application::Run();
 }

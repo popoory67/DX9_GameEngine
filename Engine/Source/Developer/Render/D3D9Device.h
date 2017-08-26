@@ -5,13 +5,13 @@
 
 using namespace std;
 
-#define	D3D9_INSTANCE	D3D9::Get()
-#define D3D9_DEVICE		D3D9::Get()->GetDevice()
+#define	D3D9_INSTANCE		D3D9::Get()
+#define D3D9_DEVICE			D3D9::Get()->GetDevice()
 
 
 class D3D9;
 
-using D3D9Ptr = shared_ptr<D3D9>;
+using D3D9Ptr		= shared_ptr<D3D9>;
 
 class D3D9 : public DevicePlatform
 {
@@ -39,15 +39,15 @@ private:
 
 private:
 
-	static D3D9Ptr _instance;
+	static D3D9Ptr			_instance;
 
-	LPDIRECT3D9 _d3d;					// the pointer to our Direct3D interface
-	LPDIRECT3DDEVICE9 _d3dDevice;		// the pointer to the device class
-	LPDIRECT3DSURFACE9 _d3dSurface;
+	LPDIRECT3D9				_d3d			= nullptr;	// the pointer to our Direct3D interface
+	LPDIRECT3DDEVICE9		_d3dDevice		= nullptr;	// the pointer to the device class
+	LPDIRECT3DSURFACE9		_d3dSurface;
 
-	D3DPRESENT_PARAMETERS _d3dPP;
+	D3DPRESENT_PARAMETERS	_d3dPP;
 
-	float _screenWidth;
-	float _screenHeight;
+	float					_screenWidth	= 0;
+	float					_screenHeight	= 0;
 
 };

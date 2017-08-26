@@ -13,7 +13,8 @@ ObjMeshObject::ObjMeshObject()
 }
 
 ObjMeshObject::~ObjMeshObject()
-{
+{	
+	SAFE_RELEASE( _texture );
 	SAFE_RELEASE( _VB );
 }
 
@@ -21,9 +22,9 @@ ObjMeshObject::~ObjMeshObject()
 // this structure describes a face vertex in an obj mesh
 struct ObjTriVertex
 {
-	int _pos = -1;
-	int _normal = -1;
-	int _tex = -1;
+	int _pos		= -1;
+	int _normal		= -1;
+	int _tex		= -1;
 };
 
 // this structure describes a triangle in the obj mesh.
@@ -33,6 +34,7 @@ struct ObjTriangle
 };
 
 using ObjTriangleList = vector< ObjTriangle >;
+
 
 // adds an .obj face to the specified triangle list. 
 // If the face is not triangular, it is triangulated by taking, for the (n)th vertex, 

@@ -29,13 +29,14 @@ public:
 
 	Scene*		GetScene( UINT sceneNumber ) const;
 	Scene*		GetScene( string sceneName ) const;
+	Scene*		GetScene( Scene& scene ) const;
 
 	void		CallScene( Scene& scene );
 
 	// The methods for Scenes
-	void		InitScenes();
-	void		UpdateScenes();
-	void		ClearScenes();
+	void		InitScene();
+	void		UpdateScene();
+	void		ClearScene();
 
 private:
 
@@ -43,7 +44,11 @@ private:
 
 	void		SearchGameObjects(GameObject* gameObject, State state);
 
+	void		ClearGameObjects(GameObject* gameObject, State state);
+
 	void		RunBehaviours(GameObject* gameObject, State state);
+
+	void		ClearScenes();
 
 private:
 
@@ -52,6 +57,8 @@ private:
 	Scene*		_currentScene = nullptr;
 
 	Scenes		_scenes;
+
+	// 삭제할 게임 오브젝트들의 리스트
 
 	UINT		_sceneCount = 0;
 };

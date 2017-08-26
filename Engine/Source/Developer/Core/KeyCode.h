@@ -1,4 +1,4 @@
-
+#pragma once
 
 
 #define VK_0		0x30
