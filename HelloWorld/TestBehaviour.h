@@ -2,6 +2,7 @@
 
 #include "GameBehaviour.h"
 
+
 class TestBehaviour : public GameBehaviour
 {
 public:
@@ -13,8 +14,6 @@ public:
 	virtual void		Release() override;
 
 private:
-
-	GameObject*			_gameObject;
 
 	float		_test		= 0.0f;
 	float		_test2		= 0.0f;

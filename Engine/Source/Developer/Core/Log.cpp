@@ -27,6 +27,6 @@ namespace Log
 		return dir + "/" + /*TimeStamp() + '_' +*/ fileName;
 	}
 
-	const string path	= PathToSessionLogFile();
-	ofstream out		= ofstream(path);
+	const string	path	= PathToSessionLogFile();
+	ofstream		out		= ofstream(path);
 }

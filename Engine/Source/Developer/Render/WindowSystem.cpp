@@ -4,7 +4,8 @@
 #include "KeyInput.h"
 #include "Thread.h"
 
-WindowSystem* WindowSystem::_instance = NULL;
+
+WindowSystem* WindowSystem::_instance = nullptr;
 
 WindowSystem::WindowSystem() : _hWnd(nullptr)
 {
@@ -36,14 +37,14 @@ bool WindowSystem::Init()
 	}
 
 	// d3d9 initialization
-#if (CHECK_DX_VERSION == 9)
+#if (CHECK_DX_VERSION == DX_9)
 	D3D9Renderer::Get()->Init( _hWnd );
-#else
+#elif (CHECK_DX_VERSION == DX_11)
 	D3D11Renderer::Get()->Init( _hWnd );
 #endif
 
 	// all game initialization
-	SceneManager::Get().InitScenes();
+	SceneManager::Get().InitScene();
 
 	return true;
 
@@ -63,9 +64,9 @@ void WindowSystem::Run()
 	{
 		while (true)
 		{
-#if (CHECK_DX_VERSION == 9)
+#if (CHECK_DX_VERSION == DX_9)
 			D3D9Renderer::Get()->RenderScene();
-#else
+#elif (CHECK_DX_VERSION == DX_11)
 			D3D11Renderer::Get()->RenderScene();
 #endif
 		}
@@ -75,7 +76,7 @@ void WindowSystem::Run()
 	{
 		while (true)
 		{
-			SceneManager::Get().UpdateScenes();
+			SceneManager::Get().UpdateScene();
 		}
 	});
 
@@ -85,25 +86,23 @@ void WindowSystem::Run()
 		{
 			updateThread->Detach();
 			SAFE_DELETE(updateThread);
-			updateThread = nullptr;
 
 			renderThread->Detach();
 			SAFE_DELETE(renderThread);
-			renderThread = nullptr;
 
 			PostMessage(_hWnd, WM_DESTROY, 0, 0);
 			return;
 		}
 
-		if (PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
+		if (PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE))
 		{
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
 	}
 
-	renderThread->Update();
-	updateThread->Update();
+	//renderThread->Update();
+	//updateThread->Update();
 }
 
 
@@ -171,7 +170,7 @@ HWND WindowSystem::InitWindows()
 	screenHeight = GetSystemMetrics( SM_CYSCREEN );
 
 	// 풀스크린 모드 변수의 값에 따라 화면 설정
-	if (FULL_SCREEN)
+	if (SCREEN_MODE)
 	{
 		// 만약 풀스크린 모드라면 화면 크기를 데스크톱 크기에 맞추고 색상을 32bit로 설정
 		memset( &dmScreenSettings, 0, sizeof( dmScreenSettings ) );
@@ -224,7 +223,7 @@ void WindowSystem::DestroyWindows()
 	ShowCursor( true );
 
 	// 풀스크린 모드를 빠져나올 때 디스플레이 설정을 바꿉니다
-	if (FULL_SCREEN)
+	if (SCREEN_MODE)
 	{
 		ChangeDisplaySettings( NULL, 0 );
 	}

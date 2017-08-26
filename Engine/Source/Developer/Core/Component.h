@@ -21,8 +21,8 @@ public:
 	Component();
 	virtual ~Component();
 
-	void			SetGameObject(GameObject* gameObject) { _gameObject = gameObject; } // æË¿∫ ∫πªÁ, ±Ì¿∫ ∫πªÁ
-	GameObject*		GetGameObject() { return _gameObject; }
+	void			SetGameObject(GameObject* gameObject)	{ _gameObject = gameObject; } // æË¿∫ ∫πªÁ, ±Ì¿∫ ∫πªÁ
+	GameObject*		GetGameObject()							{ return _gameObject; }
 
 	// Returns the component of the current game object.
 	template<class Type>

@@ -8,17 +8,16 @@ TestBehaviour::TestBehaviour()
 
 TestBehaviour::~TestBehaviour()
 {
-	SAFE_DELETE(_gameObject);
+
 }
 
 
 void TestBehaviour::Start()
 {
-	_gameObject = GetGameObject();
+	GameBehaviour::Start();
 
-	MeshModel* model = _gameObject->GetComponent<MeshModel>();
-	model->GetMatrix()->SetPosition(10, 0, 0);
-	model->GetMatrix()->SetScale(0.1f, 0.1f, 0.1f);
+	_gameObject->GetComponent<MeshModel>()->GetMatrix()->SetPosition(10, 0, 0);
+	_gameObject->GetComponent<MeshModel>()->GetMatrix()->SetScale(0.1f, 0.1f, 0.1f);
 
 	auto func = [&]() 
 	{
@@ -53,5 +52,5 @@ void TestBehaviour::Update()
 
 void TestBehaviour::Release()
 {
-
+	
 }

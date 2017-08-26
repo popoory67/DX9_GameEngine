@@ -28,32 +28,32 @@ public:
 	 * The function to name this model.
 	 * If you don't want to set object name, set the dafault name "Unknown".
 	 */
-	void SetObjectName( const string& objectName );
+	void			SetName( const string& objectName ) { _objectName = objectName; }
 
 	// Get shader instance.
-	ShaderPtr GetShader() const { return _shader; }
+	ShaderPtr		GetShader() const		{ return _shader; }
 
 	// Get matrix instance.
-	D3D9MatrixPtr GetMatrix() const { return _matrix; }
+	D3D9MatrixPtr	GetMatrix() const		{ return _matrix; }
 
 	// Load mesh model
-	virtual void LoadModel( const string& fileName ) = 0;
+	virtual void	LoadModel( const string& fileName ) = 0;
 
 	// Load texture file
-	virtual void LoadTexture( const string& fileName = DEFAULT_TEX ) = 0;
+	virtual void	LoadTexture( const string& fileName = DEFAULT_TEX ) = 0;
 
 	// A user must take shape the Render function.
-	virtual void Render() = 0;
+	virtual void	Render() = 0;
 
 protected:
 
 	// Modeling name
-	string _objectName;
+	string			_objectName			= "Unknown";
 
 	// Shader object
-	ShaderPtr _shader;
+	ShaderPtr		_shader;
 
 	// Mesh transform object
-	D3D9MatrixPtr _matrix;
+	D3D9MatrixPtr	_matrix;
 };
 

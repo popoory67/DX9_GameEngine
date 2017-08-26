@@ -13,6 +13,8 @@ Component::~Component()
 {
 	SAFE_DELETE(_voidObservers);
 	SAFE_DELETE(_msgObservers);
+
+	SAFE_DELETE(_gameObject);
 }
 
 void Component::AddObserver(string key, FuncVoid func)

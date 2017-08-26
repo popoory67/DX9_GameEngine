@@ -4,7 +4,7 @@
 template<class T>
 class Matrix
 {
-protected:
+public:
 	using Type = T;
 
 public:

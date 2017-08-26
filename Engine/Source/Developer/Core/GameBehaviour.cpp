@@ -14,7 +14,7 @@ GameBehaviour::~GameBehaviour()
 
 void GameBehaviour::Start()
 {
-	
+	_gameObject = GetGameObject();
 }
 
 void GameBehaviour::Update()

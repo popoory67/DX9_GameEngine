@@ -2,8 +2,8 @@
 #include "D3D9Renderer.h"
 #include "D3D9Device.h"
 #include "MeshManager.h"
-#include "CollisionShapeRenderer.h"
 #include "MeshRenderer.h"
+#include "CollisionShapeRenderer.h"
 
 
 D3D9RendererPtr D3D9Renderer::_instance = nullptr;

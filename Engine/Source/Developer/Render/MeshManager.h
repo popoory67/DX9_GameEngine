@@ -7,19 +7,22 @@
 
 class MeshManager
 {
-	using MeshModels = vector<MeshModel*>;
+	using MeshModels = list<MeshModel*>;
 
 public:
 
 	~MeshManager();
 
-	// singleton
 	static MeshManager&		Get();
 
 public:
 
-	//MeshModel*		GetMesh( const int& id ) const;
+	//MeshModel*		GetMesh( const int id ) const;
+	
 	void			AddMesh( MeshModel* mesh );
+
+	void			RemoveMesh( const int id );
+	void			RemoveMesh( const MeshModel* mesh );
 
 	void			Render();
 

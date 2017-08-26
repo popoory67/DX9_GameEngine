@@ -1,12 +1,11 @@
 #include "RenderPCH.h"
 #include "XMeshObject.h"
-
 #include "D3D9Device.h"
 #include "CameraManager.h"
 #include "MeshManager.h"
 
 
-XMeshObject::XMeshObject() : _mtrlBuffer( nullptr )
+XMeshObject::XMeshObject()
 {
 	_shader = D3D9Shader::Create();
 
@@ -15,7 +14,7 @@ XMeshObject::XMeshObject() : _mtrlBuffer( nullptr )
 
 XMeshObject::XMeshObject( const string& object_name )
 {
-	SetObjectName( object_name );
+	SetName( object_name );
 }
 
 XMeshObject::~XMeshObject()
@@ -24,6 +23,7 @@ XMeshObject::~XMeshObject()
 
 	SAFE_DELETE( _texture );
 
+	SAFE_DELETE( _d3dxMaterials );
 	SAFE_DELETE( _materials );
 
 	SAFE_RELEASE( _mesh );

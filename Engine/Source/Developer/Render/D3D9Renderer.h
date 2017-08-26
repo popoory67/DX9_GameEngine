@@ -1,30 +1,25 @@
 #pragma once
 
-// Window screen : false
-// Full screen : true
-#define SCREEN_MODE			false
-
-#define SCREEN_WIDTH		1280
-#define SCREEN_HEIGHT		720
+#include "D3DXRenderer.h"
 
 
 class D3D9Renderer;
 
 using D3D9RendererPtr = shared_ptr<D3D9Renderer>;
 
-class D3D9Renderer
+class D3D9Renderer : public D3DXRenderer
 {
 public:
 
 	~D3D9Renderer();
 
-	static D3D9RendererPtr Get();
+	static D3D9RendererPtr	Get();
 
-	void Init( HWND hWnd );
+	virtual void			Init(HWND hWnd);
 
-	void RenderScene();
+	virtual void			RenderScene();
 
-	void RenderState();
+	virtual void			RenderState();
 
 private:
 
@@ -32,6 +27,6 @@ private:
 
 private:
 
-	static D3D9RendererPtr _instance;
+	static D3D9RendererPtr		_instance;
 };
 

@@ -25,9 +25,6 @@
       <Filter>Message</Filter>
     </ClInclude>
     <ClInclude Include="CorePCH.h" />
-    <ClInclude Include="MessageDispatcher.h">
-      <Filter>Message</Filter>
-    </ClInclude>
     <ClInclude Include="ThreadManager.h">
       <Filter>Thread</Filter>
     </ClInclude>
@@ -68,9 +65,6 @@
       <Filter>Thread</Filter>
     </ClCompile>
     <ClCompile Include="Message.cpp">
-      <Filter>Message</Filter>
-    </ClCompile>
-    <ClCompile Include="MessageDispatcher.cpp">
       <Filter>Message</Filter>
     </ClCompile>
     <ClCompile Include="ThreadManager.cpp">

@@ -5,7 +5,6 @@
 //#include "FbxMeshObject.h"
 #include "MeshManager.h"
 
-MeshManager* MeshManager::_instance = nullptr;
 
 MeshRenderer::MeshRenderer()
 {

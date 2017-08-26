@@ -1,80 +1,31 @@
 #pragma once
 
-#include "D3D9Device.h"
-#include "ICamera.h"
+#define FOV				( D3DX_PI / 4.0f )						// 시야각
+#define ASPECT_RATIO	( SCREEN_WIDTH/(float)SCREEN_HEIGHT )	// 화면의 종횡비
+#define NEAR_PLANE		1										// 근접 평면
+#define FAR_PLANE		500										// 원거리 평면
 
-class Camera;
 
-using CameraPtr = shared_ptr<Camera>;
-
-class Camera : public ICamera
+class Camera
 {
-private:
-
-	struct CameraMatrix
-	{
-		D3DXMATRIXA16 _world;
-		D3DXMATRIXA16 _view;
-		D3DXMATRIXA16 _proj;
-	};
-
-	struct CameraVector
-	{
-		D3DXVECTOR3 _eyeVec;
-		D3DXVECTOR3 _lookVec;
-		D3DXVECTOR3 _upVec;
-	};
-
 public:
-
 	Camera();
-	virtual ~Camera();
+	~Camera();
 
-	static CameraPtr		Create();
+	virtual void	Init() = 0;
 
-	const CameraMatrix&		GetCameraMatrix() const
-	{
-		CameraMatrix* mat = new CameraMatrix();
+	virtual void	SetRotate( float x = 0, float y = 0, float z = 0 ) = 0;
 
-		mat->_world = _world;
-		mat->_view = _view;
-		mat->_proj = _proj;
+	virtual void	SetPosition( float x = 0, float y = 0, float z = 0 ) = 0;
 
-		return *mat;
-	}
+	virtual void	SetTransform() = 0;
 
-	const CameraVector&		GetCameraVector() const
-	{
-		CameraVector* vec = new CameraVector();
+	const int		GetID() const			{ return _id; }
 
-		vec->_eyeVec = _eyeVec;
-		vec->_lookVec = _lookVec;
-		vec->_upVec = _upVec;
-
-		return *vec;
-	}
-
-	virtual void	Init();
-
-	virtual void	SetRotate( float x = 0, float y = 0, float z = 0 );
-
-	virtual void	SetRotate( const D3DXVECTOR3* deltaVec, float speed );
-
-	virtual void	SetPosition( float x = 0, float y = 0, float z = 0 );
-
-	virtual void	 SetTransform();
-
-	void		MoveSideward( float speed );
-
-	void		MoveForward( float	speed, float y = 0 );
+	void			SetID( int id )			{ _id = id; }
 
 private:
 
-	D3DXMATRIXA16	_world;
-	D3DXMATRIXA16	_view;
-	D3DXMATRIXA16	_proj;
-
-	D3DXVECTOR3		_eyeVec;
-	D3DXVECTOR3		_lookVec;
-	D3DXVECTOR3		_upVec;
+	int				_id		= 0;
 };
+

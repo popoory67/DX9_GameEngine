@@ -47,9 +47,6 @@
     <ClInclude Include="D3D11Renderer.h">
       <Filter>DirectX\D3D11</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>DirectX</Filter>
-    </ClInclude>
     <ClInclude Include="CameraManager.h">
       <Filter>DirectX</Filter>
     </ClInclude>
@@ -80,7 +77,6 @@
     <ClInclude Include="D3D9Matrix.h">
       <Filter>DirectX\D3D9</Filter>
     </ClInclude>
-    <ClInclude Include="ICamera.h" />
     <ClInclude Include="D3D11Device.h">
       <Filter>DirectX\D3D11</Filter>
     </ClInclude>
@@ -88,7 +84,6 @@
       <Filter>DirectX\D3D9</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h" />
-    <ClInclude Include="DevicePlatform.h" />
     <ClInclude Include="CollisionShapeRenderer.h">
       <Filter>DirectX\Collision</Filter>
     </ClInclude>
@@ -112,6 +107,16 @@
       <Filter>DirectX\3D Model</Filter>
     </ClInclude>
     <ClInclude Include="WindowSystem.h" />
+    <ClInclude Include="D3DXRenderer.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="DevicePlatform.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="DXCamera.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XBoneHierarchyLoader.cpp">
@@ -128,9 +133,6 @@
     </ClCompile>
     <ClCompile Include="D3D11Renderer.cpp">
       <Filter>DirectX\D3D11</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>DirectX</Filter>
     </ClCompile>
     <ClCompile Include="CameraManager.cpp">
       <Filter>DirectX</Filter>
@@ -154,7 +156,6 @@
     <ClCompile Include="D3D9Matrix.cpp">
       <Filter>DirectX\D3D9</Filter>
     </ClCompile>
-    <ClCompile Include="ICamera.cpp" />
     <ClCompile Include="D3D11Device.cpp">
       <Filter>DirectX\D3D11</Filter>
     </ClCompile>
@@ -162,7 +163,6 @@
       <Filter>DirectX\D3D9</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="DevicePlatform.cpp" />
     <ClCompile Include="CollisionShapeRenderer.cpp">
       <Filter>DirectX\Collision</Filter>
     </ClCompile>
@@ -183,5 +183,15 @@
       <Filter>DirectX\3D Model</Filter>
     </ClCompile>
     <ClCompile Include="WindowSystem.cpp" />
+    <ClCompile Include="D3DXRenderer.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="DevicePlatform.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="DXCamera.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp" />
   </ItemGroup>
 </Project>

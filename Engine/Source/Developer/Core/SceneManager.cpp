@@ -3,6 +3,7 @@
 #include "ThreadManager.h"
 #include "Log.h"
 
+
 SceneManager* SceneManager::_instance = nullptr;
 
 SceneManager::SceneManager()
@@ -14,7 +15,7 @@ SceneManager::~SceneManager()
 {
 	ClearScenes();
 
-	SAFE_DELETE(_currentScene);
+	SAFE_DELETE( _currentScene );
 
 	SAFE_DELETE( _instance );
 }
@@ -29,6 +30,21 @@ SceneManager& SceneManager::Get()
 	return *_instance;
 }
 
+void SceneManager::ClearScenes()
+{
+	for (auto scene = _scenes.begin(); scene != _scenes.end();)
+	{
+		_currentScene = *scene;
+
+		ClearScene();
+
+		SAFE_DELETE(*scene);
+		scene = _scenes.erase(scene);
+	}
+
+	_scenes.clear();
+}
+
 void SceneManager::AddScene( Scene& scene )
 {
 	scene.SetSceneNumber(_sceneCount);
@@ -36,7 +52,7 @@ void SceneManager::AddScene( Scene& scene )
 
 	_scenes.push_back(&scene);
 
-	if (_scenes.size() == 1)
+	if (_sceneCount == 1)
 	{
 		_currentScene = &scene;
 	}
@@ -49,7 +65,7 @@ Scene* SceneManager::AddScene(string sceneName)
 
 	_scenes.push_back(scene);
 
-	if (_scenes.size() == 1)
+	if (_sceneCount == 1)
 	{
 		_currentScene = scene;
 	}
@@ -63,7 +79,9 @@ Scene* SceneManager::GetScene(UINT sceneNumber) const
 					[&](Scene* scene) 
 					{ 
 						if (sceneNumber == scene->GetSceneNumber())
+						{
 							return scene;
+						}
 					});
 
 	return *ret;
@@ -75,18 +93,35 @@ Scene* SceneManager::GetScene(string sceneName) const
 					[&](Scene* scene)
 					{
 						if (sceneName == scene->GetSceneName())
+						{
 							return scene;
+						}
 					});
 
 	return *ret;
 }
+
+Scene* SceneManager::GetScene(Scene& scene) const
+{
+	auto ret = find_if(_scenes.begin(), _scenes.end(), 
+					[&](Scene* iter)
+					{
+						if (iter == &scene)
+						{
+							return iter;
+						}
+					});
+
+	return *ret;
+}
+
 
 void SceneManager::CallScene(Scene& scene)
 {
 	_currentScene = &scene;
 }
 
-void SceneManager::InitScenes()
+void SceneManager::InitScene()
 {
 	if (!_currentScene)
 	{
@@ -104,7 +139,7 @@ void SceneManager::InitScenes()
 	}
 }
 
-void SceneManager::UpdateScenes()
+void SceneManager::UpdateScene()
 {	
 	if (!_currentScene)
 	{
@@ -122,7 +157,7 @@ void SceneManager::UpdateScenes()
 	}
 }
 
-void SceneManager::ClearScenes()
+void SceneManager::ClearScene()
 {
 	if (!_currentScene)
 	{
@@ -130,16 +165,45 @@ void SceneManager::ClearScenes()
 		return;
 	}
 
+	// Scene의 게임 오브젝트들을 정리한다
 	auto roots = _currentScene->GetRootGameObjects();
 
-	for (auto root = roots.begin(); root != roots.end(); ++root)
+	for (auto root = roots.begin(); root != roots.end();)
 	{
-		SearchGameObjects(*root, Clear);
+		ClearGameObjects(*root, Clear);
 
 		RunBehaviours(*root, Clear);
+
+		SAFE_DELETE(*root);
+		root = roots.erase(root);
 	}
 
-	_scenes.clear();
+	roots.clear();
+
+	// Scenes에서 현재 Scene을 삭제
+	for (auto scene = _scenes.begin(); scene != _scenes.end();)
+	{
+		if (*scene == _currentScene)
+		{
+			SAFE_DELETE(*scene);
+			scene = _scenes.erase(scene);
+
+			--_sceneCount;
+			break;
+		}
+
+		++scene;
+	}
+
+	if (_sceneCount > 0)
+	{
+		_currentScene = *_scenes.begin();
+	}
+
+	//else
+	//{
+	//	assert(Util::ErrorMessage("Scene is empty."));
+	//}
 }
 
 void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
@@ -163,6 +227,29 @@ void SceneManager::SearchGameObjects(GameObject* gameObject, State state)
 
 		RunBehaviours(*child, state);
 	}
+};
+
+void SceneManager::ClearGameObjects(GameObject* gameObject, State state)
+{
+	// child object
+	auto children = gameObject->GetChildren();
+
+	if (children->empty())
+	{
+		return;
+	}
+
+	for (auto child = children->begin(); child != children->end();)
+	{
+		ClearGameObjects(*child, state);
+		RunBehaviours(*child, state);
+
+		SAFE_DELETE(*child);
+		child = children->erase(child);
+	}
+
+	children->clear();
+	SAFE_DELETE(children);
 };
 
 void SceneManager::RunBehaviours(GameObject* gameObject, State state)
