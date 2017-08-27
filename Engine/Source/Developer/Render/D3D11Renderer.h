@@ -12,7 +12,7 @@ class D3D11Renderer : public D3DXRenderer
 {
 public:
 
-	~D3D11Renderer();
+	virtual ~D3D11Renderer();
 
 	static D3D11RendererPtr Get();
 

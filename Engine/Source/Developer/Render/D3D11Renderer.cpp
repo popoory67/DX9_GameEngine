@@ -54,7 +54,7 @@ void D3D11Renderer::RenderScene()
 
 	RenderState();
 
-	MeshManager::Get().Render();
+	//MeshManager::Get().Render();
 
 	D3D11_INSTANCE->EndScene();
 }

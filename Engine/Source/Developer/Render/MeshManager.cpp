@@ -85,7 +85,7 @@ void MeshManager::Render()
 {
 	if (!_models->empty())
 	{
-		int size	= _models->size();
+		int size = _models->size();
 
 		for (auto iter = _models->begin(); iter != _models->end(); iter++)
 		{

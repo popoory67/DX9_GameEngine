@@ -9,3 +9,6 @@
 
 // d3d9 rendering
 #include "D3D9Renderer.h"
+
+// shader effect
+#include "D3D9Shader.h"

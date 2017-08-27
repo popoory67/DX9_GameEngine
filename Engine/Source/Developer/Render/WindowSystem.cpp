@@ -1,6 +1,6 @@
 #include "RenderPCH.h"
 #include "WindowSystem.h"
-#include "DXVersion.h"
+#include "D3DXVersion.h"
 #include "KeyInput.h"
 #include "Thread.h"
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <d3dx9.h>
-#include "DevicePlatform.h"
+#include "D3DXDevice.h"
 
 using namespace std;
 
@@ -13,7 +13,7 @@ class D3D9;
 
 using D3D9Ptr		= shared_ptr<D3D9>;
 
-class D3D9 : public DevicePlatform
+class D3D9 : public D3DXDevice
 {
 public:
 

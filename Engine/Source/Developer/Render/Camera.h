@@ -10,7 +10,7 @@ class Camera
 {
 public:
 	Camera();
-	~Camera();
+	virtual ~Camera();
 
 	virtual void	Init() = 0;
 

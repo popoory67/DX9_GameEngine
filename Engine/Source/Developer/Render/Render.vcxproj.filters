@@ -59,9 +59,6 @@
     <ClInclude Include="MeshManager.h">
       <Filter>DirectX\3D Model</Filter>
     </ClInclude>
-    <ClInclude Include="DXVersion.h">
-      <Filter>DirectX</Filter>
-    </ClInclude>
     <ClInclude Include="D3D9Shader.h">
       <Filter>DirectX\D3D9</Filter>
     </ClInclude>
@@ -110,13 +107,19 @@
     <ClInclude Include="D3DXRenderer.h">
       <Filter>DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="DevicePlatform.h">
-      <Filter>DirectX</Filter>
-    </ClInclude>
-    <ClInclude Include="DXCamera.h">
-      <Filter>DirectX</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="D3DXVersion.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DXCamera.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DXDevice.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DXShader.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XBoneHierarchyLoader.cpp">
@@ -186,12 +189,15 @@
     <ClCompile Include="D3DXRenderer.cpp">
       <Filter>DirectX</Filter>
     </ClCompile>
-    <ClCompile Include="DevicePlatform.cpp">
-      <Filter>DirectX</Filter>
-    </ClCompile>
-    <ClCompile Include="DXCamera.cpp">
-      <Filter>DirectX</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="D3DXCamera.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DXDevice.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DXShader.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

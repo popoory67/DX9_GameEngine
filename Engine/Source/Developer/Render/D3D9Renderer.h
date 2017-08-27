@@ -11,7 +11,7 @@ class D3D9Renderer : public D3DXRenderer
 {
 public:
 
-	~D3D9Renderer();
+	virtual ~D3D9Renderer();
 
 	static D3D9RendererPtr	Get();
 

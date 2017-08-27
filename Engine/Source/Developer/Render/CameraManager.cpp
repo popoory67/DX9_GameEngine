@@ -29,7 +29,7 @@ CameraManager& CameraManager::Get()
 
 void CameraManager::AddCamera()
 {
-	CameraPtr camera(DXCamera::Create());
+	CameraPtr camera(D3DXCamera::Create());
 
 	camera->SetID(_idCount);
 

@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <DirectXMath.h>
-#include "DXVersion.h"
+#include "D3DXVersion.h"
 
 #if (CHECK_DX_VERSION == 11)
 #include "D3D11Math.h"

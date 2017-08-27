@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DXCamera.h"
+#include "D3DXCamera.h"
 
 using Cameras		= vector<CameraPtr>;
 

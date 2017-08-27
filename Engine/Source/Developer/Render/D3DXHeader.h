@@ -1,7 +1,7 @@
 #pragma once
 
 // check d3dx version
-#include "DXVersion.h"
+#include "D3DXVersion.h"
 
 // modeling
 #include "ObjMeshObject.h"
@@ -9,8 +9,5 @@
 
 // camera view
 #include "CameraManager.h"
-
-// shader effect
-#include "D3D9Shader.h"
 
 

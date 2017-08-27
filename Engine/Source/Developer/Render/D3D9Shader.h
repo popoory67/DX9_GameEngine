@@ -2,8 +2,7 @@
 
 #include <d3dx9.h>
 #include <functional>
-
-#define DEFAULT_SHADER			"C:/Users/boseul/Documents/GitHub/NinetailEngine/Resource/ObjViewer.fx"
+#include "D3DXShader.h"
 
 
 class D3D9Shader;
@@ -11,7 +10,7 @@ class D3D9Shader;
 using ShaderPtr		= shared_ptr<D3D9Shader>;
 using FuncVoid		= function<void()>;
 
-class D3D9Shader
+class D3D9Shader : public D3DXShader
 {
 public:
 	D3D9Shader();
@@ -25,9 +24,7 @@ public:
 
 	void				SetShaderFunc( FuncVoid func )		{ _shaderFunc = func; }
 
-public:
-
-	void				LoadShader( const string& fileName );
+	virtual void		LoadShader( const string& fileName );
 
 private:
 

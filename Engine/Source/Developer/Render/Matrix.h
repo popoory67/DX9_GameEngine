@@ -14,7 +14,7 @@ public:
 
 	}
 
-	~Matrix()
+	virtual ~Matrix()
 	{
 
 	}

@@ -2,7 +2,7 @@
 
 #include <d3d11.h>
 #include <DirectXMath.h>
-#include "DevicePlatform.h"
+#include "D3DXDevice.h"
 
 using namespace std;
 using namespace DirectX;	// included from windows 8.1
@@ -16,11 +16,11 @@ class D3D11;
 
 using D3D11Ptr = shared_ptr<D3D11>;
 
-class D3D11 : public DevicePlatform
+class D3D11 : public D3DXDevice
 {
 public:
 
-	~D3D11();
+	virtual ~D3D11();
 
 	static D3D11Ptr Get();
 
