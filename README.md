@@ -1,8 +1,8 @@
-# NinetailEngine
-NinetailEngine is Game Engine to use DirectX 9 and 11.
-Basically, The Engine is designed component structure.
+# DX9_GameEngine
+This is a game engine developed with DirectX 9. <br>_Unfortunately, this project has been completed and won't be continued._
 
-** Supporting facilities
+## Developed features
+The Engine is basically designed component structure.
 
 - simple usability
 - basic game framework
