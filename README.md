@@ -1,5 +1,5 @@
 # DX9_GameEngine
-This is a game engine developed with DirectX 9. <br>_Unfortunately, this project has been completed and won't be continued._
+This is a game engine developed with DirectX 9, which is named NinetailEngine.<br>_Unfortunately, this project has been completed and won't be continued._
 
 ## Developed features
 The Engine is basically designed component structure.
